@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="Blazored.Toast" Version="3.1.2" />
+		<PackageReference Include="Blazorized.AdminLte" Version="0.1.8" />
+		<PackageReference Include="Blazorized.AdminLte.Content" Version="3.0.7" />
+		<PackageReference Include="Google.Protobuf" Version="3.14.0" />
+		<PackageReference Include="Grpc.AspNetCore" Version="2.32.0" />
+		<PackageReference Include="Grpc.Net.Client" Version="2.33.1" />
+		<PackageReference Include="Grpc.Net.Client.Web" Version="2.33.1" />
+		<PackageReference Include="Grpc.Tools" Version="2.33.1">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+	  <Protobuf Include="..\grpcArachne\Protos\Barang.proto" GrpcServices="Client">
+	    <Link>Protos\Barang.proto</Link>
+	  </Protobuf>
+	  <Protobuf Include="..\grpcArachne\Protos\LoginToken.proto" GrpcServices="Client">
+	    <Link>Protos\LoginToken.proto</Link>
+	  </Protobuf>
+	</ItemGroup>
+
+</Project>

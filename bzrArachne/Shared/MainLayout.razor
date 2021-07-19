@@ -1,0 +1,81 @@
+﻿@inherits LayoutComponentBase
+@inject NavigationManager NavigationManager
+@inject IJSRuntime JS
+@inject ILayoutManager layoutManager
+@inject NavBarLeftInjectableMenu navBarLeftInjectableMenu
+@using bzrArachne.Service
+@using bzrArachne.Models
+@using Blazored.Toast.Configuration
+@inject DataService DataService
+<NavBar>
+    <NavBarLeft>
+        @if (!navBarLeftInjectableMenu.OverrideParentContent)
+        { }
+        @navBarLeftInjectableMenu.content
+    </NavBarLeft>
+    <NavBarRight>
+        <NavBarDropDown>
+            <a href="/" class="btn btn-block btn-danger btn-sm">Log Out</a>
+        </NavBarDropDown>
+    </NavBarRight>
+</NavBar>
+<SideBarContainer>
+    <BrandLogo Link="https://adminlte.io/" Logo="../dist/img/AdminLTELogo.png">AdminLTE 3</BrandLogo>
+    <SideBar>
+        <!-- Sidebar user panel (optional) -->
+        <SideBarUserPanel ImageEffect="ImageEffect.Circle" Link="starter-pages/user-page" Elevation="Elevation.Three" UserImage="../dist/img/user2-160x160.jpg">@user.NamaLengkap</SideBarUserPanel>
+        @*<SideBarSearch></SideBarSearch>*@
+        <SideBarMenu>
+            <SideBarMenuItem Link="dataBarang" Icon="fas fa-th">
+                Data Barang
+            </SideBarMenuItem>
+        </SideBarMenu>
+    </SideBar>
+</SideBarContainer>
+<ContentWrapper>
+    <BlazoredToasts Position="ToastPosition.BottomRight"
+                    Timeout="10"
+                    IconType="IconType.FontAwesome"
+                    SuccessClass="success-toast-override"
+                    SuccessIcon="fa fa-thumbs-up"
+                    ErrorIcon="fa fa-bug"/>
+    @Body
+</ContentWrapper>
+@code {
+    private DataUser user = new DataUser();
+    protected override async Task OnInitializedAsync()
+    {
+        user = DataService.User;
+    }
+    protected override void OnParametersSet()
+    {
+        // content = null; for refreshing custom menu injectables per page.
+        // no override; reset default to show parent menu content items.
+        navBarLeftInjectableMenu.SetContent(null, false);
+    }
+
+    private DateTime dt = DateTime.Now;
+
+    private void SeeAllMessages(Tuple<IDropdownFooter, MouseEventArgs> args)
+    {
+        NavigationManager.NavigateTo("messages/see-all-messages");
+    }
+
+    private void HandleContent(Tuple<INavBarMenuItem, MouseEventArgs> args)
+    {
+        NavigationManager.NavigateTo("messages/see-all-messages");
+    }
+
+    private void SeeAllNotifications(Tuple<IDropdownFooter, MouseEventArgs> args)
+    {
+        NavigationManager.NavigateTo("messages/see-all-notifications");
+    }
+
+    protected override void OnAfterRender(bool isFirstRender)
+    {
+        layoutManager.IsFooterFixed = true;
+        layoutManager.IsNavBarFixed = true;
+        layoutManager.IsSideBarFixed = true;
+        base.OnAfterRender(isFirstRender);
+    }
+}

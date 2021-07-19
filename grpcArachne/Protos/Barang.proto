@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpcArachne";
+
+service T1Barang{
+	rpc GetDataBarang(ListBarangRequest) returns (ListBarang);
+}
+
+message ListBarangRequest{
+	int64 IdSupplier = 1;
+}
+
+message ListBarang{
+	repeated Barang Barang = 1;
+}
+
+message Barang {
+	int64 IdBarang = 1;
+	string Nama = 2;
+	string Satuan = 3;
+	int32 Stok = 4;
+	int64 Minimum = 5;
+	int64 Maksimum = 6;
+}
