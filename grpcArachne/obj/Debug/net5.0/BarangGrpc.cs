@@ -14,6 +14,8 @@ namespace grpcArachne {
 
     static readonly grpc::Marshaller<global::grpcArachne.ListBarangRequest> __Marshaller_ListBarangRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.ListBarangRequest.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::grpcArachne.ListBarang> __Marshaller_ListBarang = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.ListBarang.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::grpcArachne.ListBarangIdRequest> __Marshaller_ListBarangIdRequest = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.ListBarangIdRequest.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::grpcArachne.Barang> __Marshaller_Barang = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.Barang.Parser.ParseFrom);
 
     static readonly grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.ListBarang> __Method_GetDataBarang = new grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.ListBarang>(
         grpc::MethodType.Unary,
@@ -21,6 +23,13 @@ namespace grpcArachne {
         "GetDataBarang",
         __Marshaller_ListBarangRequest,
         __Marshaller_ListBarang);
+
+    static readonly grpc::Method<global::grpcArachne.ListBarangIdRequest, global::grpcArachne.Barang> __Method_GetBarangId = new grpc::Method<global::grpcArachne.ListBarangIdRequest, global::grpcArachne.Barang>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetBarangId",
+        __Marshaller_ListBarangIdRequest,
+        __Marshaller_Barang);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -37,6 +46,11 @@ namespace grpcArachne {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::grpcArachne.Barang> GetBarangId(global::grpcArachne.ListBarangIdRequest request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -44,7 +58,8 @@ namespace grpcArachne {
     public static grpc::ServerServiceDefinition BindService(T1BarangBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_GetDataBarang, serviceImpl.GetDataBarang).Build();
+          .AddMethod(__Method_GetDataBarang, serviceImpl.GetDataBarang)
+          .AddMethod(__Method_GetBarangId, serviceImpl.GetBarangId).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -54,6 +69,7 @@ namespace grpcArachne {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, T1BarangBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_GetDataBarang, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::grpcArachne.ListBarangRequest, global::grpcArachne.ListBarang>(serviceImpl.GetDataBarang));
+      serviceBinder.AddMethod(__Method_GetBarangId, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::grpcArachne.ListBarangIdRequest, global::grpcArachne.Barang>(serviceImpl.GetBarangId));
     }
 
   }

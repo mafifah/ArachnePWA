@@ -132,7 +132,7 @@ using Blazored.Toast.Configuration;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 44 "D:\Arachne\bzrArachne\Shared\MainLayout.razor"
+#line 47 "D:\Arachne\bzrArachne\Shared\MainLayout.razor"
        
     private DataUser user = new DataUser();
     protected override async Task OnInitializedAsync()

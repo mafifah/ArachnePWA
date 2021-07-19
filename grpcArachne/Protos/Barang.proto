@@ -4,10 +4,15 @@ option csharp_namespace = "grpcArachne";
 
 service T1Barang{
 	rpc GetDataBarang(ListBarangRequest) returns (ListBarang);
+	rpc GetBarangId(ListBarangIdRequest) returns (Barang);
 }
 
 message ListBarangRequest{
 	int64 IdSupplier = 1;
+}
+
+message ListBarangIdRequest{
+	int64 IdBarang = 1;
 }
 
 message ListBarang{

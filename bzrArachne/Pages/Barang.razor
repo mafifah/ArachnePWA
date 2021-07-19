@@ -34,7 +34,7 @@
                                     <th>Nama</th>
                                     <th>Satuan</th>
                                     <th>Stok</th>
-                                    <th>Opsi 1</th>
+                                    <th>Opsi</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -49,9 +49,10 @@
                                         <td>@item.Satuan</td>
                                         <td>@item.Stok</td>
                                         <td>
-                                            <a type="button" class="btn btn-block btn-primary btn-sm" @onclick="(()=>ModalShow(item))">
+                                            @if (item.Stok <= item.Minimum)
+                                            {<a tabindex="_blank" href="penawaranbaru/@item.IdBarang" class="btn btn-block btn-primary btn-sm">
                                                 Buat Penawaran
-                                            </a>
+                                            </a>}
                                         </td>
                                     </tr>
                                 }

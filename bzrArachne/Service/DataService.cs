@@ -14,7 +14,22 @@ namespace bzrArachne.Service
         public string Token;
         private readonly List<DataBarang> _dataBarang = new List<DataBarang>();
         private readonly List<DataUser> _dataUser = new List<DataUser>();
+        DataBarang t1Barang = new DataBarang();
 
+
+        public async Task GetBarangId()
+        {
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new T1Barang.T1BarangClient(channel);
+            var requested = new ListBarangIdRequest();
+            var reply = await client.GetBarangIdAsync(requested);
+            t1Barang = new DataBarang
+            {
+                IdBarang = requested.IdBarang,
+                
+            };
+            
+        }
         public async Task<DataUser> GetLogin(DataUser users)
         {
             var pass = users.UserPassword;

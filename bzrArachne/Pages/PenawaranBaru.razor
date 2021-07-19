@@ -1,0 +1,11 @@
+﻿@page "/penawaranbaru/{IdBarang}"
+@using bzrArachne.Service
+@using bzrArachne.Models
+@inject DataService DataService
+@inject NavigationManager NavigationManager
+<h3>Penawaran Baru</h3>
+
+@code {
+    [Parameter]
+    public string IdBarang { get; set; }
+}
