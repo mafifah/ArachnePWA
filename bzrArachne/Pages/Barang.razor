@@ -19,9 +19,6 @@
             <div class="card-body">
                 <div class="d-flex justify-content-between">
                     <div class="card-title">
-                        @*<button type="button" class="btn btn-primary" @onclick="@(()=> ToastService.ShowWarning("Stok Barang hampir habis"))">
-                                    Toast
-                            </button>*@
                         <input type="search" @bind-value="SearchTerm" @bind-value:event="oninput" class="form-control form-control-sm" placeholder="Cari Barang ...">
                     </div>
                 </div>
@@ -63,40 +60,11 @@
             </div>
         </div>
     </div>
-    @if (showModal)
-    {
-        <div class="modal fade show" id="modal-default" style="display: block; padding-right: 17px;" aria-modal="true" role="dialog">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">Form Penawaran</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="form-group">
-                                <label>Nama Barang</label>
-                                <input type="text" class="form-control" value="@BarangDipilih.Nama">
-                            </div>
-                            <div class="form-group">
-                                <label>Jumlah Barang</label>
-                                <input type="text" class="form-control" placeholder="200">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <button type="button" class="btn btn-default" @onclick="@ModalCancel">Batal</button>
-                        <button type="button" class="btn btn-primary" @onclick="@ModalSubmit">Simpan</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
 </section>
 @code {
     private DataUser user = new DataUser();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     DataBarang BarangDipilih = new DataBarang();
-    bool showModal = false;
     string SearchTerm { get; set; } = "";
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchTerm)).ToList();
     List<DataBarang> StokBarang => _daftarBarang.Where(i => i.Stok <= i.Minimum).ToList();
@@ -107,39 +75,29 @@
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
         {
-            //_daftarBarang = await DataService.GetDataBarang();
-            //base.OnInitialized();
-            var timer = new System.Threading.Timer((_) =>
-            {
-                InvokeAsync(async () =>
-                {
-                    StokBarang.Clear();
-                    _daftarBarang = await DataService.GetDataBarang();
-                    foreach (var item in StokBarang)
-                    {
-                        ToastService.ShowWarning($"{item.Nama} dengan satuan {item.Satuan} hampir habis");
-                    }
-                    StateHasChanged();
-                });
-            }, null, 0, 5000);
 
+            var dataBarang = DataService.GetDataBarangWithStream();
+            await foreach (var item in dataBarang)
+            {
+                _daftarBarang.Add(new DataBarang
+                {
+                    IdBarang = item.IdBarang,
+                    Nama = item.Nama,
+                    Satuan = item.Satuan,
+                    Stok = item.Stok,
+                    Minimum = item.Minimum,
+                    Maksimum = item.Maksimum,
+                });
+                this.StateHasChanged();
+            }
+            foreach (var item in StokBarang)
+            {
+                ToastService.ShowWarning($"{item.Nama} dengan satuan {item.Satuan} hampir habis");
+            }
         }
         else
         {
             NavigationManager.NavigateTo("/");
         }
-    }
-
-    void ModalShow(DataBarang item)
-    {
-        BarangDipilih = item;
-        showModal = true;
-
-    }
-    void ModalCancel() => showModal = false;
-    void ModalSubmit()
-    {
-        Console.WriteLine("Modal ok");
-        showModal = false;
     }
 }

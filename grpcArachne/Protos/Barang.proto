@@ -5,6 +5,7 @@ option csharp_namespace = "grpcArachne";
 service T1Barang{
 	rpc GetDataBarang(ListBarangRequest) returns (ListBarang);
 	rpc GetBarangId(ListBarangIdRequest) returns (Barang);
+	rpc GetDataBarangWithStream(ListBarangRequest) returns (stream Barang);
 }
 
 message ListBarangRequest{

@@ -61,6 +61,13 @@ namespace grpcArachne {
         __Marshaller_ListBarangIdRequest,
         __Marshaller_Barang);
 
+    static readonly grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang> __Method_GetDataBarangWithStream = new grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "GetDataBarangWithStream",
+        __Marshaller_ListBarangRequest,
+        __Marshaller_Barang);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -121,6 +128,14 @@ namespace grpcArachne {
       public virtual grpc::AsyncUnaryCall<global::grpcArachne.Barang> GetBarangIdAsync(global::grpcArachne.ListBarangIdRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_GetBarangId, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.Barang> GetDataBarangWithStream(global::grpcArachne.ListBarangRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDataBarangWithStream(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.Barang> GetDataBarangWithStream(global::grpcArachne.ListBarangRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_GetDataBarangWithStream, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override T1BarangClient NewInstance(ClientBaseConfiguration configuration)
