@@ -24,5 +24,4 @@
 	    <Link>Protos\LoginToken.proto</Link>
 	  </Protobuf>
 	</ItemGroup>
-
 </Project>

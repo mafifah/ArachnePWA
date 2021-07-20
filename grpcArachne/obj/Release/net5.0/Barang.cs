@@ -29,10 +29,11 @@ namespace grpcArachne {
             "ZEJhcmFuZxgBIAEoAyIlCgpMaXN0QmFyYW5nEhcKBkJhcmFuZxgBIAMoCzIH",
             "LkJhcmFuZyJpCgZCYXJhbmcSEAoISWRCYXJhbmcYASABKAMSDAoETmFtYRgC",
             "IAEoCRIOCgZTYXR1YW4YAyABKAkSDAoEU3RvaxgEIAEoBRIPCgdNaW5pbXVt",
-            "GAUgASgDEhAKCE1ha3NpbXVtGAYgASgDMmoKCFQxQmFyYW5nEjAKDUdldERh",
-            "dGFCYXJhbmcSEi5MaXN0QmFyYW5nUmVxdWVzdBoLLkxpc3RCYXJhbmcSLAoL",
-            "R2V0QmFyYW5nSWQSFC5MaXN0QmFyYW5nSWRSZXF1ZXN0GgcuQmFyYW5nQg6q",
-            "AgtncnBjQXJhY2huZWIGcHJvdG8z"));
+            "GAUgASgDEhAKCE1ha3NpbXVtGAYgASgDMqQBCghUMUJhcmFuZxIwCg1HZXRE",
+            "YXRhQmFyYW5nEhIuTGlzdEJhcmFuZ1JlcXVlc3QaCy5MaXN0QmFyYW5nEiwK",
+            "C0dldEJhcmFuZ0lkEhQuTGlzdEJhcmFuZ0lkUmVxdWVzdBoHLkJhcmFuZxI4",
+            "ChdHZXREYXRhQmFyYW5nV2l0aFN0cmVhbRISLkxpc3RCYXJhbmdSZXF1ZXN0",
+            "GgcuQmFyYW5nMAFCDqoCC2dycGNBcmFjaG5lYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {

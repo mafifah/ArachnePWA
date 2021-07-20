@@ -31,6 +31,13 @@ namespace grpcArachne {
         __Marshaller_ListBarangIdRequest,
         __Marshaller_Barang);
 
+    static readonly grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang> __Method_GetDataBarangWithStream = new grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "GetDataBarangWithStream",
+        __Marshaller_ListBarangRequest,
+        __Marshaller_Barang);
+
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
     {
@@ -51,6 +58,11 @@ namespace grpcArachne {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task GetDataBarangWithStream(global::grpcArachne.ListBarangRequest request, grpc::IServerStreamWriter<global::grpcArachne.Barang> responseStream, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -59,7 +71,8 @@ namespace grpcArachne {
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
           .AddMethod(__Method_GetDataBarang, serviceImpl.GetDataBarang)
-          .AddMethod(__Method_GetBarangId, serviceImpl.GetBarangId).Build();
+          .AddMethod(__Method_GetBarangId, serviceImpl.GetBarangId)
+          .AddMethod(__Method_GetDataBarangWithStream, serviceImpl.GetDataBarangWithStream).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -70,6 +83,7 @@ namespace grpcArachne {
     {
       serviceBinder.AddMethod(__Method_GetDataBarang, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::grpcArachne.ListBarangRequest, global::grpcArachne.ListBarang>(serviceImpl.GetDataBarang));
       serviceBinder.AddMethod(__Method_GetBarangId, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::grpcArachne.ListBarangIdRequest, global::grpcArachne.Barang>(serviceImpl.GetBarangId));
+      serviceBinder.AddMethod(__Method_GetDataBarangWithStream, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang>(serviceImpl.GetDataBarangWithStream));
     }
 
   }

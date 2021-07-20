@@ -117,7 +117,7 @@ using bzrArachne.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/penawaranbaru/{IdBarang}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/penawaranBaru/{IdBarang}")]
     public partial class PenawaranBaru : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
