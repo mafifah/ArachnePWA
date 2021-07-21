@@ -1,7 +1,7 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/" Path="D:\Arachne\bzrArachne\obj\Debug\net5.0\scopedcss\bundle\" />
-  <ContentRoot BasePath="_content/Blazored.Toast" Path="C:\Users\devad\.nuget\packages\blazored.toast\3.1.2\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazorized.AdminLte" Path="C:\Users\devad\.nuget\packages\blazorized.adminlte\0.1.8\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazorized.AdminLte.Content" Path="C:\Users\devad\.nuget\packages\blazorized.adminlte.content\3.0.7\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazor-State" Path="C:\Users\devad\.nuget\packages\blazor-state\3.4.4\build\..\staticwebassets\" />
+  <ContentRoot BasePath="/" Path="C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="_content/Blazored.Toast" Path="C:\Users\mafif\.nuget\packages\blazored.toast\3.1.2\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazorized.AdminLte" Path="C:\Users\mafif\.nuget\packages\blazorized.adminlte\0.1.8\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazorized.AdminLte.Content" Path="C:\Users\mafif\.nuget\packages\blazorized.adminlte.content\3.0.7\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazor-State" Path="C:\Users\mafif\.nuget\packages\blazor-state\3.4.4\build\..\staticwebassets\" />
 </StaticWebAssets>
