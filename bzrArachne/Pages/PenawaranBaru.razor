@@ -1,4 +1,4 @@
-﻿@page "/buatPenawaran"
+﻿@page "/penawaranBaru"
 @using bzrArachne.Service
 @using bzrArachne.Models
 @inject DataService DataService
@@ -14,31 +14,42 @@
     <!-- form start -->
     <form>
         <div class="card-body">
-            @if (Item != null)
-            {
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="Nama">Nama Barang</label>
-                    <div class="col-sm-4">
-                        <input type="text" @bind="@Item.Nama" class="form-control" name="Nama" id="Nama">
-                    </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="IdKurs">Kurs</label>
+                <div class="col-sm-4">
+                    <input type="text" placeholder="Kurs" class="form-control" name="IdKurs" id="IdKurs">
                 </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="Nama">Satuan</label>
-                    <div class="col-sm-4">
-                        <input type="text" @bind="@Item.Satuan" class="form-control" name="Satuan" id="Satuan">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 col-form-label" for="Stok">Stok</label>
-                    <div class="col-sm-4">
-                        <input type="number" @bind="@Item.Stok" class="form-control" id="Stok">
-                    </div>
-                </div>
-            }
-            else
-            {
+            </div>
+            <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="Nama">Satuan</label>
-            }
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="Satuan" id="Satuan">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="Nama">Nama Barang</label>
+                <div class="col-sm-4">
+                    <input type="text" class="form-control" name="Nama" id="Nama">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="Jumlah">Jumlah</label>
+                <div class="col-sm-4">
+                    <input type="number" placeholder="Jumlah" class="form-control" name="Jumlah" id="Jumlah">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="Berat">Berat</label>
+                <div class="col-sm-4">
+                    <input type="number" placeholder="Berat" class="form-control" name="Berat" id="Berat">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label" for="Berat">Harga</label>
+                <div class="col-sm-4">
+                    <input type="number" placeholder="Harga" class="form-control" name="Harga" id="Harga">
+                </div>
+            </div>
         </div>
            
         <!-- /.card-body -->

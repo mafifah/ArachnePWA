@@ -15,7 +15,6 @@ namespace bzrArachne.Service
         private readonly List<DataBarang> _dataBarang = new List<DataBarang>();
         private readonly List<DataUser> _dataUser = new List<DataUser>();
         DataBarang t1Barang = new DataBarang();
-
         public DataBarang _barangDipilih { get; set; }
         public void SetNullBarangDipilih() => _barangDipilih = null;
 

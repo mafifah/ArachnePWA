@@ -142,7 +142,7 @@ using Blazored.Toast.Configuration;
     void MoveToFormPenawaran()
     {
         DataService.SetNullBarangDipilih();
-        NavigationManager.NavigateTo("formPenawaran");
+        NavigationManager.NavigateTo("penawaranBaru");
     }
     protected override void OnParametersSet()
     {

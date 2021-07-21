@@ -117,7 +117,7 @@ using bzrArachne.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/buatPenawaran")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/penawaranBaru")]
     public partial class PenawaranBaru : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -126,7 +126,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 52 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 63 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
     protected DataBarang Item { get; set; }
 
