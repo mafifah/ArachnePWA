@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace bzrArachne.Shared
+namespace bzrArachne.Pages
 {
     #line hidden
     using System;
@@ -104,27 +104,21 @@ using Blazored.Toast.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Shared\MainLayout.razor"
+#line 2 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
 using bzrArachne.Service;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Shared\MainLayout.razor"
+#line 3 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
 using bzrArachne.Models;
 
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 8 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Shared\MainLayout.razor"
-using Blazored.Toast.Configuration;
-
-#line default
-#line hidden
-#nullable disable
-    public partial class MainLayout : LayoutComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/buatPenawaran")]
+    public partial class PenawaranBaru : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -132,58 +126,23 @@ using Blazored.Toast.Configuration;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 47 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Shared\MainLayout.razor"
+#line 52 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
        
-    private DataUser user = new DataUser();
+    protected DataBarang Item { get; set; }
+
     protected override async Task OnInitializedAsync()
     {
-        user = DataService.User;
-    }
-    void MoveToFormPenawaran()
-    {
-        DataService.SetNullBarangDipilih();
-        NavigationManager.NavigateTo("formPenawaran");
-    }
-    protected override void OnParametersSet()
-    {
-        // content = null; for refreshing custom menu injectables per page.
-        // no override; reset default to show parent menu content items.
-        navBarLeftInjectableMenu.SetContent(null, false);
+        Item = null;
+        Item = DataService._barangDipilih;
     }
 
-    private DateTime dt = DateTime.Now;
 
-    private void SeeAllMessages(Tuple<IDropdownFooter, MouseEventArgs> args)
-    {
-        NavigationManager.NavigateTo("messages/see-all-messages");
-    }
-
-    private void HandleContent(Tuple<INavBarMenuItem, MouseEventArgs> args)
-    {
-        NavigationManager.NavigateTo("messages/see-all-messages");
-    }
-
-    private void SeeAllNotifications(Tuple<IDropdownFooter, MouseEventArgs> args)
-    {
-        NavigationManager.NavigateTo("messages/see-all-notifications");
-    }
-
-    protected override void OnAfterRender(bool isFirstRender)
-    {
-        layoutManager.IsFooterFixed = true;
-        layoutManager.IsNavBarFixed = true;
-        layoutManager.IsSideBarFixed = true;
-        base.OnAfterRender(isFirstRender);
-    }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private DataService DataService { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavBarLeftInjectableMenu navBarLeftInjectableMenu { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private ILayoutManager layoutManager { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IJSRuntime JS { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private DataService DataService { get; set; }
     }
 }
 #pragma warning restore 1591
