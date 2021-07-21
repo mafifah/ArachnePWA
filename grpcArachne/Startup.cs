@@ -88,6 +88,7 @@ namespace grpcArachne
                 endpoints.MapGrpcService<BarangService>().EnableGrpcWeb().RequireCors("AllowAll");
                 endpoints.MapGrpcService<LoginTokenService>().EnableGrpcWeb().RequireCors("AllowAll");
                 endpoints.MapGrpcService<CryptoService>().EnableGrpcWeb().RequireCors("AllowAll");
+                endpoints.MapGrpcService<PenawaranPembelianService>().EnableGrpcWeb().RequireCors("AllowAll");
 
                 endpoints.MapGet("/", async context =>
                 {

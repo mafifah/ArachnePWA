@@ -11,7 +11,7 @@ namespace grpcArachne.Models
         public long? IdJenisSupplier { get; set; }
         public long? IdSupplier { get; set; }
         public long? IdTermin { get; set; }
-        public char? IdCompany_Penerima { get; set; }
+        public string IdCompany_Penerima { get; set; }
         public DateTimeOffset? WaktuKirim { get; set; }
         public string KodePOSupplier { get; set; }
         public string Attn { get; set; }

@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpcArachne";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+service PenawaranPembelian
+{
+	rpc InsertPenawaranPembelian(InsertDataRequset)returns(pesan);
+}
+
+message InsertDataRequset
+{
+	int64 IdDetilPenawaranPembelian=1;
+	int64 IdPenawaranPembelian=2;
+	int64 IdJenisSupplier=3;
+	string IdCompanyPenerima=4;
+	int64 IdKurs=5;
+	int64 IdSatuan=6;
+	int64 IdDivisi=7;
+	int64 IdSubDivisi=8;
+	int64 IdKategori=9;
+	int64 IdSubKategori=10;
+	int64 IdBarang=11;
+	double Harga=12;
+	double Jumlah=13;
+	double Berat = 14;
+	int64 IdSupplier = 15;
+}
+
+message pesan
+{
+	string pesan=1;
+}
