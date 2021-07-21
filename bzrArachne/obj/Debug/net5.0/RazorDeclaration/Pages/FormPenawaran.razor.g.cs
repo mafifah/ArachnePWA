@@ -126,7 +126,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 80 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+#line 73 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
        
     public string ValidationMesssage { get; set; }
     protected DataBarang Item { get; set; }

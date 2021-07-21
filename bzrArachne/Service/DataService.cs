@@ -47,10 +47,8 @@ namespace bzrArachne.Service
                 var clientRequested = new LoginTokenRequest { UserName = users.UserName, UserPassword = pass };
                 var reply = await client.GetLoginTokenAsync(clientRequested);
                 Token = reply.Token;
-                User.IdUser = reply.IdUser;
                 User.IdSupplier = reply.IdSupplier;
-                User.NamaLengkap = reply.NamaLengkap;
-                User.NamaPanggilan = reply.NamaLengkap;
+                User.Nama = reply.Nama;
                 User.UserName = User.UserName;
                 User.UserPassword = users.UserPassword;
             }

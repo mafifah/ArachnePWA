@@ -145,7 +145,7 @@ using bzrArachne.Models;
         else
         {
             var currentUser = await DataService.GetLogin(user);
-            if (currentUser.NamaLengkap != null)
+            if (currentUser.Nama != null)
             {
                 NavigationManager.NavigateTo("/dataBarang");
                 //LoginMesssage = $"Berhasil login IdUser: {currentUser.IdUser} UserName:{currentUser.UserName}";

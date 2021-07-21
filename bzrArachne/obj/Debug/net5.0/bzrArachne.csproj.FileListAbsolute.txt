@@ -269,6 +269,7 @@ C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\bin\Debug\net5.0\Microsoft.Ext
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\bin\Debug\net5.0\Microsoft.JSInterop.dll
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\bin\Debug\net5.0\System.IO.Pipelines.dll
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\bin\Debug\net5.0\TypeSupport.dll
+C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.csproj.AssemblyReference.cache
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.AssemblyInfoInputs.cache
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.AssemblyInfo.cs
@@ -279,6 +280,7 @@ C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\RazorDeclarat
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\Barang.razor.g.cs
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaran.razor.g.cs
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
+C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\PenawaranBaru.razor.g.cs
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Shared\LoginLayout.razor.g.cs
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\RazorDeclaration\_Imports.razor.g.cs
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Shared\MainLayout.razor.g.cs
@@ -291,6 +293,7 @@ C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\Razor\App.raz
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\Razor\Pages\Barang.razor.g.cs
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaran.razor.g.cs
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
+C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\Razor\Pages\PenawaranBaru.razor.g.cs
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\Razor\Shared\LoginLayout.razor.g.cs
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\Razor\_Imports.razor.g.cs
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\Razor\Shared\MainLayout.razor.g.cs
@@ -311,4 +314,3 @@ C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.dl
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\ref\bzrArachne.dll
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.pdb
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.genruntimeconfig.cache
-C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.csproj.AssemblyReference.cache

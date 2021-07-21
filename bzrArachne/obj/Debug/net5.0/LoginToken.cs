@@ -27,17 +27,15 @@ namespace grpcArachne {
             "ChBMb2dpblRva2VuLnByb3RvGhtnb29nbGUvcHJvdG9idWYvZW1wdHkucHJv",
             "dG8aHmdvb2dsZS9wcm90b2J1Zi93cmFwcGVycy5wcm90byI7ChFMb2dpblRv",
             "a2VuUmVxdWVzdBIQCghVc2VyTmFtZRgBIAEoCRIUCgxVc2VyUGFzc3dvcmQY",
-            "AiABKAkiogEKEUxvZ2luVG9rZW5SZXR1cm5zEg0KBVRva2VuGAEgASgJEg4K",
-            "BklkVXNlchgCIAEoAxISCgpJZFN1cHBsaWVyGAMgASgDEhMKC05hbWFMZW5n",
-            "a2FwGAQgASgJEjMKDU5hbWFQYW5nZ2lsYW4YBSABKAsyHC5nb29nbGUucHJv",
-            "dG9idWYuU3RyaW5nVmFsdWUSEAoIVXNlck5hbWUYBiABKAkyRQoKTG9naW5U",
-            "b2tlbhI3Cg1HZXRMb2dpblRva2VuEhIuTG9naW5Ub2tlblJlcXVlc3QaEi5M",
-            "b2dpblRva2VuUmV0dXJuc0IOqgILZ3JwY0FyYWNobmViBnByb3RvMw=="));
+            "AiABKAkiRAoRTG9naW5Ub2tlblJldHVybnMSDQoFVG9rZW4YASABKAkSEgoK",
+            "SWRTdXBwbGllchgCIAEoAxIMCgROYW1hGAMgASgJMkUKCkxvZ2luVG9rZW4S",
+            "NwoNR2V0TG9naW5Ub2tlbhISLkxvZ2luVG9rZW5SZXF1ZXN0GhIuTG9naW5U",
+            "b2tlblJldHVybnNCDqoCC2dycGNBcmFjaG5lYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.LoginTokenRequest), global::grpcArachne.LoginTokenRequest.Parser, new[]{ "UserName", "UserPassword" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.LoginTokenReturns), global::grpcArachne.LoginTokenReturns.Parser, new[]{ "Token", "IdUser", "IdSupplier", "NamaLengkap", "NamaPanggilan", "UserName" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.LoginTokenReturns), global::grpcArachne.LoginTokenReturns.Parser, new[]{ "Token", "IdSupplier", "Nama" }, null, null, null, null)
           }));
     }
     #endregion
@@ -282,11 +280,8 @@ namespace grpcArachne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public LoginTokenReturns(LoginTokenReturns other) : this() {
       token_ = other.token_;
-      idUser_ = other.idUser_;
       idSupplier_ = other.idSupplier_;
-      namaLengkap_ = other.namaLengkap_;
-      NamaPanggilan = other.NamaPanggilan;
-      userName_ = other.userName_;
+      nama_ = other.nama_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -306,19 +301,8 @@ namespace grpcArachne {
       }
     }
 
-    /// <summary>Field number for the "IdUser" field.</summary>
-    public const int IdUserFieldNumber = 2;
-    private long idUser_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdUser {
-      get { return idUser_; }
-      set {
-        idUser_ = value;
-      }
-    }
-
     /// <summary>Field number for the "IdSupplier" field.</summary>
-    public const int IdSupplierFieldNumber = 3;
+    public const int IdSupplierFieldNumber = 2;
     private long idSupplier_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long IdSupplier {
@@ -328,38 +312,14 @@ namespace grpcArachne {
       }
     }
 
-    /// <summary>Field number for the "NamaLengkap" field.</summary>
-    public const int NamaLengkapFieldNumber = 4;
-    private string namaLengkap_ = "";
+    /// <summary>Field number for the "Nama" field.</summary>
+    public const int NamaFieldNumber = 3;
+    private string nama_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string NamaLengkap {
-      get { return namaLengkap_; }
+    public string Nama {
+      get { return nama_; }
       set {
-        namaLengkap_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
-
-    /// <summary>Field number for the "NamaPanggilan" field.</summary>
-    public const int NamaPanggilanFieldNumber = 5;
-    private static readonly pb::FieldCodec<string> _single_namaPanggilan_codec = pb::FieldCodec.ForClassWrapper<string>(42);
-    private string namaPanggilan_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string NamaPanggilan {
-      get { return namaPanggilan_; }
-      set {
-        namaPanggilan_ = value;
-      }
-    }
-
-
-    /// <summary>Field number for the "UserName" field.</summary>
-    public const int UserNameFieldNumber = 6;
-    private string userName_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string UserName {
-      get { return userName_; }
-      set {
-        userName_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        nama_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
@@ -377,11 +337,8 @@ namespace grpcArachne {
         return true;
       }
       if (Token != other.Token) return false;
-      if (IdUser != other.IdUser) return false;
       if (IdSupplier != other.IdSupplier) return false;
-      if (NamaLengkap != other.NamaLengkap) return false;
-      if (NamaPanggilan != other.NamaPanggilan) return false;
-      if (UserName != other.UserName) return false;
+      if (Nama != other.Nama) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -389,11 +346,8 @@ namespace grpcArachne {
     public override int GetHashCode() {
       int hash = 1;
       if (Token.Length != 0) hash ^= Token.GetHashCode();
-      if (IdUser != 0L) hash ^= IdUser.GetHashCode();
       if (IdSupplier != 0L) hash ^= IdSupplier.GetHashCode();
-      if (NamaLengkap.Length != 0) hash ^= NamaLengkap.GetHashCode();
-      if (namaPanggilan_ != null) hash ^= NamaPanggilan.GetHashCode();
-      if (UserName.Length != 0) hash ^= UserName.GetHashCode();
+      if (Nama.Length != 0) hash ^= Nama.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -414,24 +368,13 @@ namespace grpcArachne {
         output.WriteRawTag(10);
         output.WriteString(Token);
       }
-      if (IdUser != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(IdUser);
-      }
       if (IdSupplier != 0L) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(16);
         output.WriteInt64(IdSupplier);
       }
-      if (NamaLengkap.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(NamaLengkap);
-      }
-      if (namaPanggilan_ != null) {
-        _single_namaPanggilan_codec.WriteTagAndValue(output, NamaPanggilan);
-      }
-      if (UserName.Length != 0) {
-        output.WriteRawTag(50);
-        output.WriteString(UserName);
+      if (Nama.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Nama);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -446,24 +389,13 @@ namespace grpcArachne {
         output.WriteRawTag(10);
         output.WriteString(Token);
       }
-      if (IdUser != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(IdUser);
-      }
       if (IdSupplier != 0L) {
-        output.WriteRawTag(24);
+        output.WriteRawTag(16);
         output.WriteInt64(IdSupplier);
       }
-      if (NamaLengkap.Length != 0) {
-        output.WriteRawTag(34);
-        output.WriteString(NamaLengkap);
-      }
-      if (namaPanggilan_ != null) {
-        _single_namaPanggilan_codec.WriteTagAndValue(ref output, NamaPanggilan);
-      }
-      if (UserName.Length != 0) {
-        output.WriteRawTag(50);
-        output.WriteString(UserName);
+      if (Nama.Length != 0) {
+        output.WriteRawTag(26);
+        output.WriteString(Nama);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -477,20 +409,11 @@ namespace grpcArachne {
       if (Token.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Token);
       }
-      if (IdUser != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdUser);
-      }
       if (IdSupplier != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSupplier);
       }
-      if (NamaLengkap.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(NamaLengkap);
-      }
-      if (namaPanggilan_ != null) {
-        size += _single_namaPanggilan_codec.CalculateSizeWithTag(NamaPanggilan);
-      }
-      if (UserName.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(UserName);
+      if (Nama.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Nama);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -506,22 +429,11 @@ namespace grpcArachne {
       if (other.Token.Length != 0) {
         Token = other.Token;
       }
-      if (other.IdUser != 0L) {
-        IdUser = other.IdUser;
-      }
       if (other.IdSupplier != 0L) {
         IdSupplier = other.IdSupplier;
       }
-      if (other.NamaLengkap.Length != 0) {
-        NamaLengkap = other.NamaLengkap;
-      }
-      if (other.namaPanggilan_ != null) {
-        if (namaPanggilan_ == null || other.NamaPanggilan != "") {
-          NamaPanggilan = other.NamaPanggilan;
-        }
-      }
-      if (other.UserName.Length != 0) {
-        UserName = other.UserName;
+      if (other.Nama.Length != 0) {
+        Nama = other.Nama;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -542,26 +454,11 @@ namespace grpcArachne {
             break;
           }
           case 16: {
-            IdUser = input.ReadInt64();
-            break;
-          }
-          case 24: {
             IdSupplier = input.ReadInt64();
             break;
           }
-          case 34: {
-            NamaLengkap = input.ReadString();
-            break;
-          }
-          case 42: {
-            string value = _single_namaPanggilan_codec.Read(input);
-            if (namaPanggilan_ == null || value != "") {
-              NamaPanggilan = value;
-            }
-            break;
-          }
-          case 50: {
-            UserName = input.ReadString();
+          case 26: {
+            Nama = input.ReadString();
             break;
           }
         }
@@ -583,26 +480,11 @@ namespace grpcArachne {
             break;
           }
           case 16: {
-            IdUser = input.ReadInt64();
-            break;
-          }
-          case 24: {
             IdSupplier = input.ReadInt64();
             break;
           }
-          case 34: {
-            NamaLengkap = input.ReadString();
-            break;
-          }
-          case 42: {
-            string value = _single_namaPanggilan_codec.Read(ref input);
-            if (namaPanggilan_ == null || value != "") {
-              NamaPanggilan = value;
-            }
-            break;
-          }
-          case 50: {
-            UserName = input.ReadString();
+          case 26: {
+            Nama = input.ReadString();
             break;
           }
         }

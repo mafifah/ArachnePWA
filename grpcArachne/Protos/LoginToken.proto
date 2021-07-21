@@ -15,9 +15,6 @@ message LoginTokenRequest{
 
 message LoginTokenReturns{
 	string Token = 1;
-	int64 IdUser = 2;
-	int64 IdSupplier= 3;
-	string NamaLengkap = 4;
-	google.protobuf.StringValue NamaPanggilan = 5;
-	string UserName = 6;
+	int64 IdSupplier= 2;
+	string Nama = 3;
 }
