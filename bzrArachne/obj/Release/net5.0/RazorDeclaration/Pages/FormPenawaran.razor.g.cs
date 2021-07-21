@@ -4,7 +4,7 @@
 #pragma warning disable 0649
 #pragma warning disable 0169
 
-namespace bzrArachne
+namespace bzrArachne.Pages
 {
     #line hidden
     using System;
@@ -103,13 +103,62 @@ using Blazored.Toast.Services;
 #line default
 #line hidden
 #nullable disable
-    public partial class App : Microsoft.AspNetCore.Components.ComponentBase
+#nullable restore
+#line 2 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+using bzrArachne.Service;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+using bzrArachne.Models;
+
+#line default
+#line hidden
+#nullable disable
+    [Microsoft.AspNetCore.Components.RouteAttribute("/formPenawaran")]
+    public partial class FormPenawaran : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
         {
         }
         #pragma warning restore 1998
+#nullable restore
+<<<<<<< HEAD:bzrArachne/obj/Release/net5.0/RazorDeclaration/Pages/FormPenawaran.razor.g.cs
+#line 53 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+=======
+#line 53 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+>>>>>>> 705be5133bddcbbbd0c2f9cf4988de16c472ec55:bzrArachne/obj/Debug/net5.0/RazorDeclaration/Pages/PenawaranBaru.razor.g.cs
+       
+    protected DataBarang Item { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Item = DataService._barangDipilih;
+    }
+
+<<<<<<< HEAD:bzrArachne/obj/Release/net5.0/RazorDeclaration/Pages/FormPenawaran.razor.g.cs
+    void BackToBarang()
+    {
+        DataService.SetNullBarangDipilih();
+        Item = null;
+        NavigationManager.NavigateTo("dataBarang");
+=======
+     void back()
+    {
+
+        NavigationManager.NavigateTo("dataBarang");
+        Item = null;
+>>>>>>> 705be5133bddcbbbd0c2f9cf4988de16c472ec55:bzrArachne/obj/Debug/net5.0/RazorDeclaration/Pages/PenawaranBaru.razor.g.cs
+    }
+
+#line default
+#line hidden
+#nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private DataService DataService { get; set; }
     }
 }
 #pragma warning restore 1591

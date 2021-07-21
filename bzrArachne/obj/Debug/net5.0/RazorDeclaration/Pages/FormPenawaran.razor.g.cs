@@ -104,21 +104,21 @@ using Blazored.Toast.Services;
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\Barang.razor"
+#line 2 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
 using bzrArachne.Service;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\Barang.razor"
+#line 3 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
 using bzrArachne.Models;
 
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/dataBarang")]
-    public partial class Barang : Microsoft.AspNetCore.Components.ComponentBase
+    [Microsoft.AspNetCore.Components.RouteAttribute("/formPenawaran")]
+    public partial class FormPenawaran : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
         protected override void BuildRenderTree(Microsoft.AspNetCore.Components.Rendering.RenderTreeBuilder __builder)
@@ -126,58 +126,29 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\Barang.razor"
+#line 80 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
        
-    private DataUser user = new DataUser();
+    public string ValidationMesssage { get; set; }
+    protected DataBarang Item { get; set; }
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
-    DataBarang BarangDipilih = new DataBarang();
-    string SearchTerm { get; set; } = "";
-    List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchTerm)).ToList();
-    List<DataBarang> StokBarang => _daftarBarang.Where(i => i.Stok <= i.Minimum).ToList();
 
     protected override async Task OnInitializedAsync()
     {
-        user = DataService.User;
-        var Token = DataService.Token;
-        if (!String.IsNullOrEmpty(Token))
-        {
-
-            var dataBarang = DataService.GetDataBarangWithStream();
-            await foreach (var item in dataBarang)
-            {
-                _daftarBarang.Add(new DataBarang
-                {
-                    IdBarang = item.IdBarang,
-                    Nama = item.Nama,
-                    Satuan = item.Satuan,
-                    Stok = item.Stok,
-                    Minimum = item.Minimum,
-                    Maksimum = item.Maksimum,
-                });
-                this.StateHasChanged();
-            }
-            foreach (var item in StokBarang)
-            {
-                ToastService.ShowWarning($"{item.Nama} dengan satuan {item.Satuan} hampir habis");
-            }
-        }
-        else
-        {
-            NavigationManager.NavigateTo("/");
-        }
-
-
+        //ValidationMesssage = "Jumlah barang melebihi stok maksimum";
+        Item = DataService._barangDipilih;
+        _daftarBarang = await DataService.GetDataBarang();
     }
-    void MoveToPenawaran(DataBarang Item)
+
+    void BackToBarang()
     {
-        DataService.SetBarangDipilih(Item);
-        NavigationManager.NavigateTo("formPenawaran");
+        DataService.SetNullBarangDipilih();
+        Item = null;
+        NavigationManager.NavigateTo("dataBarang");
     }
 
 #line default
 #line hidden
 #nullable disable
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IToastService ToastService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private DataService DataService { get; set; }
     }
