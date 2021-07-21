@@ -126,7 +126,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 52 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 53 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
     protected DataBarang Item { get; set; }
 
@@ -135,7 +135,12 @@ using bzrArachne.Models;
         Item = DataService._barangDipilih;
     }
 
+     void back()
+    {
 
+        NavigationManager.NavigateTo("dataBarang");
+        Item = null;
+    }
 
 #line default
 #line hidden
