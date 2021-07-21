@@ -132,7 +132,7 @@ using bzrArachne.Models;
 
     protected override async Task OnInitializedAsync()
     {
-      Item = DataService._barangDipilih;
+        Item = DataService._barangDipilih;
     }
 
 

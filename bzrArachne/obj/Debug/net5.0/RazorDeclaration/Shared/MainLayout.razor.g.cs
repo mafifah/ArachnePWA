@@ -134,12 +134,10 @@ using Blazored.Toast.Configuration;
 #nullable restore
 #line 47 "D:\Arachne\bzrArachne\Shared\MainLayout.razor"
        
-    DataBarang Item { get; set; }
     private DataUser user = new DataUser();
     protected override async Task OnInitializedAsync()
     {
         user = DataService.User;
-        Item = null;
     }
     protected override void OnParametersSet()
     {

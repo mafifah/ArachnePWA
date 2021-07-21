@@ -45,12 +45,10 @@
     @Body
 </ContentWrapper>
 @code {
-    DataBarang Item { get; set; }
     private DataUser user = new DataUser();
     protected override async Task OnInitializedAsync()
     {
         user = DataService.User;
-        Item = null;
     }
     protected override void OnParametersSet()
     {
