@@ -316,7 +316,6 @@ C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.pd
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.genruntimeconfig.cache
 <<<<<<< HEAD
 =======
-C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.csproj.AssemblyReference.cache
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaran.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaran.razor.g.cs
 >>>>>>> dd807e4debb88313e1d9187373f3b81276ed0fc2
