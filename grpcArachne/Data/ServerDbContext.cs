@@ -19,14 +19,12 @@ namespace grpcArachne.Data
             {
                 entity.ToTable("T1Supplier");
                 entity.HasKey(e => e.IdSupplier);
-                //entity.HasKey(e => new { e.IdKaryawan, e.IdJabatan });
             });
 
             modelBuilder.Entity<DbT2Barang>(entity =>
             {
                 entity.ToTable("T2Barang");
                 entity.HasKey(e => e.IdBarang);
-                //entity.HasKey(e => new { e.IdKaryawan, e.IdJabatan });
             });
 
             modelBuilder.Entity<DbT3Satuan>(entity =>

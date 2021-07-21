@@ -58,7 +58,7 @@ namespace bzrArachne.Service
             }
             return User;
         }
-        public async Task GetLogOut()
+        public void GetLogOut()
         {
             Token = null;
             _dataBarang.Clear();
