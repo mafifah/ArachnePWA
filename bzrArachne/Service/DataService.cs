@@ -16,7 +16,8 @@ namespace bzrArachne.Service
         private readonly List<DataUser> _dataUser = new List<DataUser>();
         DataBarang t1Barang = new DataBarang();
 
-
+        public DataBarang _barangDipilih { get; set; }
+        public void SetBarangDipilih(DataBarang Item) => _barangDipilih = Item;
         public async Task GetBarangId()
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");

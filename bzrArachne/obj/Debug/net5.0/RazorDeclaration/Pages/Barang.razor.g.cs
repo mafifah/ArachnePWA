@@ -165,6 +165,13 @@ using bzrArachne.Models;
         {
             NavigationManager.NavigateTo("/");
         }
+
+
+    }
+    void MoveToPenawaranBaru(DataBarang Item)
+    {
+        DataService.SetBarangDipilih(Item);
+        NavigationManager.NavigateTo("buatPenawaran");
     }
 
 #line default

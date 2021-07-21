@@ -29,7 +29,7 @@
         <SideBarMenuItem Link="dataBarang" Icon="fas fa-th">
             Data Barang
         </SideBarMenuItem>
-        <SideBarMenuItem Link="penawaranBaru" Icon="oi oi-basket">
+        <SideBarMenuItem Link="buatPenawaran" Icon="oi oi-basket">
             Penawaran Baru
         </SideBarMenuItem>
     </SideBarMenu>
@@ -45,10 +45,12 @@
     @Body
 </ContentWrapper>
 @code {
+    DataBarang Item { get; set; }
     private DataUser user = new DataUser();
     protected override async Task OnInitializedAsync()
     {
         user = DataService.User;
+        Item = null;
     }
     protected override void OnParametersSet()
     {

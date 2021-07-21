@@ -1,11 +1,61 @@
-﻿@page "/penawaranBaru/{IdBarang}"
+﻿@page "/buatPenawaran"
 @using bzrArachne.Service
 @using bzrArachne.Models
 @inject DataService DataService
 @inject NavigationManager NavigationManager
-<h3>Penawaran Baru</h3>
+@inject NavigationManager NavigationManager
+
+<br />
+<div class="card card-primary ml-4 mr-4">
+    <div class="card-header">
+        <h2 class="card-title">Penawaran Baru</h2>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form>
+        <div class="card-body">
+            @if (Item != null)
+            {
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="Nama">Nama Barang</label>
+                    <div class="col-sm-4">
+                        <input type="text" @bind="@Item.Nama" class="form-control" name="Nama" id="Nama">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="Nama">Satuan</label>
+                    <div class="col-sm-4">
+                        <input type="text" @bind="@Item.Satuan" class="form-control" name="Satuan" id="Satuan">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 col-form-label" for="Stok">Stok</label>
+                    <div class="col-sm-4">
+                        <input type="number" @bind="@Item.Stok" class="form-control" id="Stok">
+                    </div>
+                </div>
+            }
+            else
+            {
+                <label class="col-sm-2 col-form-label" for="Nama">Satuan</label>
+            }
+        </div>
+           
+        <!-- /.card-body -->
+        <div class="card-footer">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
+
 
 @code {
-    [Parameter]
-    public string IdBarang { get; set; }
+    protected DataBarang Item { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+      Item = DataService._barangDipilih;
+    }
+
+
 }

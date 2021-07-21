@@ -117,7 +117,7 @@ using bzrArachne.Models;
 #line default
 #line hidden
 #nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/penawaranBaru/{IdBarang}")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/buatPenawaran")]
     public partial class PenawaranBaru : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -126,10 +126,16 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 8 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 52 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
-    [Parameter]
-    public string IdBarang { get; set; }
+    protected DataBarang Item { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+      Item = DataService._barangDipilih;
+    }
+
+
 
 #line default
 #line hidden
