@@ -134,7 +134,7 @@ using bzrArachne.Models;
     public string ValidationMesssage { get; set; }
     protected override async Task OnInitializedAsync()
     {
-        await DataService.GetLogOut();
+         DataService.GetLogOut();
     }
     private async Task GetLogin()
     {
