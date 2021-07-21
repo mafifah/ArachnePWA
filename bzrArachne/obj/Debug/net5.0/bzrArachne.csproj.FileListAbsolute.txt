@@ -312,3 +312,5 @@ C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\ref\bzrArachn
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.pdb
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.genruntimeconfig.cache
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\bzrArachne.csproj.AssemblyReference.cache
+D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaran.razor.g.cs
+D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaran.razor.g.cs
