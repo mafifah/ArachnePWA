@@ -259,3 +259,4 @@ C:\Users\mafif\Source\Repos\ArachneGWR\grpcArachne\obj\Debug\net5.0\grpcArachne.
 C:\Users\mafif\Source\Repos\ArachneGWR\grpcArachne\obj\Debug\net5.0\ref\grpcArachne.dll
 C:\Users\mafif\Source\Repos\ArachneGWR\grpcArachne\obj\Debug\net5.0\grpcArachne.pdb
 C:\Users\mafif\Source\Repos\ArachneGWR\grpcArachne\obj\Debug\net5.0\grpcArachne.genruntimeconfig.cache
+C:\Users\mafif\Source\Repos\ArachneGWR\grpcArachne\obj\Debug\net5.0\grpcArachne.csproj.AssemblyReference.cache

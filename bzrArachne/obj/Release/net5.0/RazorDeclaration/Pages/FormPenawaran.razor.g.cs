@@ -126,11 +126,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-<<<<<<< HEAD:bzrArachne/obj/Release/net5.0/RazorDeclaration/Pages/FormPenawaran.razor.g.cs
-#line 53 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
-=======
-#line 53 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
->>>>>>> 705be5133bddcbbbd0c2f9cf4988de16c472ec55:bzrArachne/obj/Debug/net5.0/RazorDeclaration/Pages/PenawaranBaru.razor.g.cs
+#line 52 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
     protected DataBarang Item { get; set; }
 
@@ -139,20 +135,7 @@ using bzrArachne.Models;
         Item = DataService._barangDipilih;
     }
 
-<<<<<<< HEAD:bzrArachne/obj/Release/net5.0/RazorDeclaration/Pages/FormPenawaran.razor.g.cs
-    void BackToBarang()
-    {
-        DataService.SetNullBarangDipilih();
-        Item = null;
-        NavigationManager.NavigateTo("dataBarang");
-=======
-     void back()
-    {
 
-        NavigationManager.NavigateTo("dataBarang");
-        Item = null;
->>>>>>> 705be5133bddcbbbd0c2f9cf4988de16c472ec55:bzrArachne/obj/Debug/net5.0/RazorDeclaration/Pages/PenawaranBaru.razor.g.cs
-    }
 
 #line default
 #line hidden

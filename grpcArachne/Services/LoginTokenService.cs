@@ -30,17 +30,12 @@ namespace grpcArachne.Services
             var Username = request.UserName;
             var Password = request.UserPassword;
             var user =
-                (from TUserSupplier in _db.TUserSupplierDbSet
-                 join T1Supplier in _db.T1SupplierDbSet
-                 on TUserSupplier.IdSupplier equals T1Supplier.IdSupplier
-                 where TUserSupplier.UserName == Username
+                (from T1Supplier in _db.T1SupplierDbSet
+                 where T1Supplier.Nama == Username
                  select new
                  {
-                     TUserSupplier.IdUser,
-                     TUserSupplier.IdSupplier,
-                     TUserSupplier.NamaLengkap,
-                     TUserSupplier.NamaPanggilan,
-                     TUserSupplier.UserName,
+                     T1Supplier.IdSupplier,
+                     T1Supplier.Nama,
                  }).FirstOrDefault();
             if (user is null)
             {
@@ -56,8 +51,8 @@ namespace grpcArachne.Services
             {
                 Subject = new ClaimsIdentity(new Claim[]
                 {
-                        new Claim(ClaimTypes.NameIdentifier, Convert.ToString(user.IdUser)),
-                        new Claim(ClaimTypes.Name, user.NamaLengkap)
+                        new Claim(ClaimTypes.NameIdentifier, Convert.ToString(user.IdSupplier)),
+                        new Claim(ClaimTypes.Name, user.Nama)
                 }),
                 Expires = DateTime.UtcNow.AddDays(7),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature),
@@ -68,11 +63,8 @@ namespace grpcArachne.Services
             if (user != null)
             {
                 hasil.Token = tokenHandler.WriteToken(token);
-                hasil.IdUser = (long)user.IdUser;
                 hasil.IdSupplier = (long)user.IdSupplier;
-                hasil.NamaLengkap = user.NamaLengkap;
-                hasil.NamaPanggilan = user.NamaPanggilan;
-                hasil.UserName = user.UserName;
+                hasil.Nama = user.Nama;
             }
             return Task.FromResult(hasil);
         }
