@@ -20,7 +20,7 @@
     </NavBarRight>
 </NavBar>
 <SideBarContainer>
-    <BrandLogo Link="https://adminlte.io/" Logo="../dist/img/AdminLTELogo.png">AdminLTE 3</BrandLogo>
+    <BrandLogo Link="https://adminlte.io/" Logo="../dist/img/AdminLTELogo.png">Arachne</BrandLogo>
     <SideBar>
         <!-- Sidebar user panel (optional) -->
         <SideBarUserPanel ImageEffect="ImageEffect.Circle" Link="starter-pages/user-page" Elevation="Elevation.Three" UserImage="../dist/img/user2-160x160.jpg">@user.NamaLengkap</SideBarUserPanel>
@@ -29,7 +29,7 @@
         <SideBarMenuItem Link="dataBarang" Icon="fas fa-th">
             Data Barang
         </SideBarMenuItem>
-        <SideBarMenuItem Link="buatPenawaran" Icon="oi oi-basket">
+        <SideBarMenuItem Link="formPenawaran" Icon="oi oi-basket">
             Penawaran Baru
         </SideBarMenuItem>
     </SideBarMenu>
@@ -51,6 +51,11 @@
     {
         user = DataService.User;
         Item = null;
+    }
+    void MoveToFormPenawaran()
+    {
+        DataService.SetNullBarangDipilih();
+        NavigationManager.NavigateTo("formPenawaran");
     }
     protected override void OnParametersSet()
     {

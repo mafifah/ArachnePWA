@@ -47,7 +47,7 @@
                                         <td>@item.Stok</td>
                                         <td>
                                             @if (item.Stok <= item.Minimum)
-                                            {<a tabindex="_blank"@onclick="(()=>MoveToPenawaranBaru(item))" class="btn btn-block btn-primary btn-sm">
+                                            {<a tabindex="_blank" @onclick="(()=>MoveToPenawaran(item))" class="btn btn-block btn-primary btn-sm">
                                                 Buat Penawaran
                                             </a>}
                                         </td>
@@ -102,9 +102,9 @@
 
 
     }
-    void MoveToPenawaranBaru(DataBarang Item)
+    void MoveToPenawaran(DataBarang Item)
     {
         DataService.SetBarangDipilih(Item);
-        NavigationManager.NavigateTo("buatPenawaran");
+        NavigationManager.NavigateTo("formPenawaran");
     }
 }
