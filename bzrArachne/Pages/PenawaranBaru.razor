@@ -2,6 +2,7 @@
 @using bzrArachne.Service
 @using bzrArachne.Models
 @inject DataService DataService
+@inject PenawaranService PenawaranService
 @inject NavigationManager NavigationManager
 @inject NavigationManager NavigationManager
 
@@ -38,13 +39,13 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="Berat">Berat</label>
                 <div class="col-sm-4">
-                    <input type="number" placeholder="Berat" class="form-control">
+                    <input type="number"  @bind="dataPenawaran.Berat"   placeholder="Berat" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="Berat">Harga</label>
                 <div class="col-sm-4">
-                    <input type="number" placeholder="Harga" class="form-control">
+                    <input type="number"  @bind="dataPenawaran.Harga"  class="form-control">
                 </div>
             </div>
         </div>
@@ -59,11 +60,22 @@
 
 @code {
     public string ValidationMesssage { get; set; }
-    protected DataBarang Item { get; set; }
+    private DataBarang Item { get; set; }
     int Jumlah { get; set; } = 0;
+    private DataPenawaran dataPenawaran = new DataPenawaran();
     protected override async Task OnInitializedAsync()
     {
         Item = DataService._barangDipilih;
+        //DataPenawaran dataPenawaran = new DataPenawaran
+        //{
+        //    IdSupplier = Item.IdSupplier,
+        //    IdSatuan = Item.IdSatuan,
+        //    IdDivisi = Item.IdDivisiBarang,
+        //    IdSubDivisi = Item.IdSubDivisiBarang,
+        //    IdKategori = Item.IdKategoriBarang,
+        //    IdSubKategori = Item.IdSubKategoriBarang,
+        //    IdBarang = Item.IdBarang
+        //};
     }
 
     void BackToBarang()
@@ -72,7 +84,7 @@
         NavigationManager.NavigateTo("dataBarang");
     }
 
-    async Task SendDataPenawaran()
+    async void SendDataPenawaran()
     {
         var totalStok = Item.Stok + Jumlah;
         if (totalStok > Item.Maksimum)
@@ -80,7 +92,22 @@
             ValidationMesssage = "Jumlah barang tidak boleh lebih dari stok maksimum";
         } else
         {
-            //Send Data ke gRPC
+            await PenawaranService.InsertData
+                (
+                Item.IdJenisSupplier,
+                Item.IdSupplier,
+                "GWR",
+                Item.IdSatuan,
+                Item.IdDivisiBarang,
+                Item.IdSubDivisiBarang,
+                Item.IdKategoriBarang,
+                Item.IdSubKategoriBarang,
+                Item.IdBarang,
+                dataPenawaran.Harga,
+                dataPenawaran.Jumlah,
+                dataPenawaran.Berat
+                );
+            NavigationManager.NavigateTo("dataBarang");
         }
     }
 }

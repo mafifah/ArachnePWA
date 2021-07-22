@@ -23,5 +23,8 @@
 	  <Protobuf Include="..\grpcArachne\Protos\LoginToken.proto" GrpcServices="Client">
 	    <Link>Protos\LoginToken.proto</Link>
 	  </Protobuf>
+	  <Protobuf Include="..\grpcArachne\Protos\PenawaranPembelian.proto" GrpcServices="Client">
+	    <Link>Protos\PenawaranPembelian.proto</Link>
+	  </Protobuf>
 	</ItemGroup>
 </Project>
