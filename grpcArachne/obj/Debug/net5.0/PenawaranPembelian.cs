@@ -33,14 +33,16 @@ namespace grpcArachne {
             "CElkRGl2aXNpGAcgASgDEhMKC0lkU3ViRGl2aXNpGAggASgDEhIKCklkS2F0",
             "ZWdvcmkYCSABKAMSFQoNSWRTdWJLYXRlZ29yaRgKIAEoAxIQCghJZEJhcmFu",
             "ZxgLIAEoAxINCgVIYXJnYRgMIAEoARIOCgZKdW1sYWgYDSABKAESDQoFQmVy",
-            "YXQYDiABKAESEgoKSWRTdXBwbGllchgPIAEoAyIWCgVwZXNhbhINCgVwZXNh",
-            "bhgBIAEoCTJMChJQZW5hd2FyYW5QZW1iZWxpYW4SNgoYSW5zZXJ0UGVuYXdh",
-            "cmFuUGVtYmVsaWFuEhIuSW5zZXJ0RGF0YVJlcXVzZXQaBi5wZXNhbkIOqgIL",
-            "Z3JwY0FyYWNobmViBnByb3RvMw=="));
+            "YXQYDiABKAESEgoKSWRTdXBwbGllchgPIAEoAyIpCglUNlJlcXVlc3QSHAoU",
+            "SWRQZW5hd2FyYW5QZW1iZWxpYW4YASABKAMiFgoFcGVzYW4SDQoFcGVzYW4Y",
+            "ASABKAkyRAoSUGVuYXdhcmFuUGVtYmVsaWFuEi4KGEluc2VydFBlbmF3YXJh",
+            "blBlbWJlbGlhbhIKLlQ2UmVxdWVzdBoGLnBlc2FuQg6qAgtncnBjQXJhY2hu",
+            "ZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataRequset), global::grpcArachne.InsertDataRequset.Parser, new[]{ "IdDetilPenawaranPembelian", "IdPenawaranPembelian", "IdJenisSupplier", "IdCompanyPenerima", "IdKurs", "IdSatuan", "IdDivisi", "IdSubDivisi", "IdKategori", "IdSubKategori", "IdBarang", "Harga", "Jumlah", "Berat", "IdSupplier" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T6Request), global::grpcArachne.T6Request.Parser, new[]{ "IdPenawaranPembelian" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.pesan), global::grpcArachne.pesan.Parser, new[]{ "Pesan" }, null, null, null, null)
           }));
     }
@@ -569,6 +571,135 @@ namespace grpcArachne {
 
   }
 
+  public sealed partial class T6Request : pb::IMessage<T6Request> {
+    private static readonly pb::MessageParser<T6Request> _parser = new pb::MessageParser<T6Request>(() => new T6Request());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<T6Request> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::grpcArachne.PenawaranPembelianReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public T6Request() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public T6Request(T6Request other) : this() {
+      idPenawaranPembelian_ = other.idPenawaranPembelian_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public T6Request Clone() {
+      return new T6Request(this);
+    }
+
+    /// <summary>Field number for the "IdPenawaranPembelian" field.</summary>
+    public const int IdPenawaranPembelianFieldNumber = 1;
+    private long idPenawaranPembelian_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdPenawaranPembelian {
+      get { return idPenawaranPembelian_; }
+      set {
+        idPenawaranPembelian_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as T6Request);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(T6Request other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (IdPenawaranPembelian != other.IdPenawaranPembelian) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (IdPenawaranPembelian != 0L) hash ^= IdPenawaranPembelian.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+      if (IdPenawaranPembelian != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdPenawaranPembelian);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (IdPenawaranPembelian != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdPenawaranPembelian);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(T6Request other) {
+      if (other == null) {
+        return;
+      }
+      if (other.IdPenawaranPembelian != 0L) {
+        IdPenawaranPembelian = other.IdPenawaranPembelian;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            IdPenawaranPembelian = input.ReadInt64();
+            break;
+          }
+        }
+      }
+    }
+
+  }
+
   public sealed partial class pesan : pb::IMessage<pesan> {
     private static readonly pb::MessageParser<pesan> _parser = new pb::MessageParser<pesan>(() => new pesan());
     private pb::UnknownFieldSet _unknownFields;
@@ -577,7 +708,7 @@ namespace grpcArachne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::grpcArachne.PenawaranPembelianReflection.Descriptor.MessageTypes[1]; }
+      get { return global::grpcArachne.PenawaranPembelianReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

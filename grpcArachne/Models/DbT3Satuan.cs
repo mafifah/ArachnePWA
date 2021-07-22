@@ -8,7 +8,7 @@ namespace grpcArachne.Models
     public class DbT3Satuan
     {
         public long IdSatuan { get; set; }
-        public long IdBarang { get; set; }
+        public long? IdBarang { get; set; }
         public string Satuan { get; set; }
         public string SKUKode1 { get; set; }
         public string SKUKode2 { get; set; }
