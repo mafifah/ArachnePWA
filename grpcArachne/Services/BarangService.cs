@@ -115,11 +115,10 @@ namespace grpcArachne
                      Stok = (int)T5StokGudang.StokBaru,
                      Minimum = T5CompanySatuan.Minimum,
                      Maksimum = T5CompanySatuan.Maksimum
-                 }).AsNoTracking().AsEnumerable();
+                 }).AsEnumerable();
                 foreach (var item in qryBarang)
                 {
                     await responseStream.WriteAsync(item);
-                    await Task.Delay(1000);
                 }
             }
             else
@@ -157,11 +156,10 @@ namespace grpcArachne
                      Stok = (int)T5StokGudang.StokBaru,
                      Minimum = T5CompanySatuan.Minimum,
                      Maksimum = T5CompanySatuan.Maksimum
-                 }).AsNoTracking().AsEnumerable();
+                 }).AsEnumerable();
                 foreach (var item in qryBarang)
                 {
                     await responseStream.WriteAsync(item);
-                    await Task.Delay(1000);
                 }
             }
         }
