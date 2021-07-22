@@ -126,25 +126,16 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 61 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 62 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
     public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
     int Jumlah { get; set; } = 0;
+    private double totalharga;
     private DataPenawaran dataPenawaran = new DataPenawaran();
     protected override async Task OnInitializedAsync()
     {
         Item = DataService._barangDipilih;
-        //DataPenawaran dataPenawaran = new DataPenawaran
-        //{
-        //    IdSupplier = Item.IdSupplier,
-        //    IdSatuan = Item.IdSatuan,
-        //    IdDivisi = Item.IdDivisiBarang,
-        //    IdSubDivisi = Item.IdSubDivisiBarang,
-        //    IdKategori = Item.IdKategoriBarang,
-        //    IdSubKategori = Item.IdSubKategoriBarang,
-        //    IdBarang = Item.IdBarang
-        //};
     }
 
     void BackToBarang()
@@ -163,10 +154,11 @@ using bzrArachne.Models;
         {
             await PenawaranService.InsertData
                 (
+                dataPenawaran.IdPenawaranPembelian,
                 Item.IdJenisSupplier,
                 Item.IdSupplier,
-                "GWR",
-                Item.IdSatuan,
+                dataPenawaran.IdDetilPenawaranPembelian,
+                380001,
                 Item.IdDivisiBarang,
                 Item.IdSubDivisiBarang,
                 Item.IdKategoriBarang,
@@ -178,6 +170,12 @@ using bzrArachne.Models;
                 );
             NavigationManager.NavigateTo("dataBarang");
         }
+        return;
+    }
+    async void HitungHarga()
+    {
+        totalharga = Item.Stok * dataPenawaran.Berat;
+        this.StateHasChanged();
     }
 
 #line default

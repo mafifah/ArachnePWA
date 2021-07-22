@@ -30,7 +30,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="Jumlah">Jumlah</label>
                 <div class="col-sm-4">
-                    <input type="number" @bind="Item.Stok" class="form-control">
+                    <input type="number" min="1" @bind="Item.Stok" class="form-control">
                 </div>
             </div>
             <div class="col-sm-4" style="text-align: left; font-size: 10px; color: red; margin-left: 150px;">
@@ -39,15 +39,16 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="Berat">Berat</label>
                 <div class="col-sm-4">
-                    <input type="number"  @bind="dataPenawaran.Berat"   placeholder="Berat" class="form-control">
+                    <input type="number" min="1" @bind="dataPenawaran.Berat" placeholder="Berat" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="Berat">Harga</label>
                 <div class="col-sm-4">
-                    <input type="number"  @bind="dataPenawaran.Harga"  class="form-control">
+                    <input type="number" min="1"  @bind="dataPenawaran.Harga" class="form-control">
                 </div>
             </div>
+            <p>idsatuan : @Item.IdSatuan</p>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -62,20 +63,11 @@
     public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
     int Jumlah { get; set; } = 0;
+    private double totalharga;
     private DataPenawaran dataPenawaran = new DataPenawaran();
     protected override async Task OnInitializedAsync()
     {
         Item = DataService._barangDipilih;
-        //DataPenawaran dataPenawaran = new DataPenawaran
-        //{
-        //    IdSupplier = Item.IdSupplier,
-        //    IdSatuan = Item.IdSatuan,
-        //    IdDivisi = Item.IdDivisiBarang,
-        //    IdSubDivisi = Item.IdSubDivisiBarang,
-        //    IdKategori = Item.IdKategoriBarang,
-        //    IdSubKategori = Item.IdSubKategoriBarang,
-        //    IdBarang = Item.IdBarang
-        //};
     }
 
     void BackToBarang()
@@ -94,10 +86,11 @@
         {
             await PenawaranService.InsertData
                 (
+                dataPenawaran.IdPenawaranPembelian,
                 Item.IdJenisSupplier,
                 Item.IdSupplier,
-                "GWR",
-                Item.IdSatuan,
+                dataPenawaran.IdDetilPenawaranPembelian,
+                380001,
                 Item.IdDivisiBarang,
                 Item.IdSubDivisiBarang,
                 Item.IdKategoriBarang,
@@ -109,5 +102,11 @@
                 );
             NavigationManager.NavigateTo("dataBarang");
         }
+        return;
+    }
+    async void HitungHarga()
+    {
+        totalharga = Item.Stok * dataPenawaran.Berat;
+        this.StateHasChanged();
     }
 }

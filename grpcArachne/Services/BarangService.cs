@@ -105,7 +105,7 @@ namespace grpcArachne
                      IdDivisiBarang = (long)T1SubDivisiBarang.IdDivisiBarang,
                      IdSubDivisiBarang = (long)T1SubDivisiBarang.IdSubDivisiBarang,
                      IdKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
-                     IdSubKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
+                     IdSubKategoriBarang = (long)T1SubKategoriBarang.IdSubKategoriBarang,
                      IdSupplier = (long)T1Supplier.IdSupplier,
                      IdCompany = T5CompanySatuan.IdCompany,
                      IdJenisSupplier = (long)T1Supplier.IdJenisSupplier,
@@ -126,7 +126,7 @@ namespace grpcArachne
                 var qryBarang =
                 (from T2Barang in _db.T2BarangDbSet
                  join T3Satuan in _db.T3SatuanDbSet
-                 on T2Barang.IdBarang equals T3Satuan.IdBarang
+                 on T2Barang.IdBarang equals T3Satuan.IdSatuan
                  join T5SupplierSatuan in _db.T5SupplierSatuanDbSet
                  on T3Satuan.IdSatuan equals T5SupplierSatuan.IdSatuan
                  join T1Supplier in _db.T1SupplierDbSet
@@ -146,7 +146,7 @@ namespace grpcArachne
                      IdDivisiBarang = (long)T1SubDivisiBarang.IdDivisiBarang,
                      IdSubDivisiBarang = (long)T1SubDivisiBarang.IdSubDivisiBarang,
                      IdKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
-                     IdSubKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
+                     IdSubKategoriBarang = (long)T1SubKategoriBarang.IdSubKategoriBarang,
                      IdSupplier = (long)T1Supplier.IdSupplier,
                      IdCompany = T5CompanySatuan.IdCompany,
                      IdJenisSupplier = (long)T1Supplier.IdJenisSupplier,

@@ -10,13 +10,12 @@ namespace bzrArachne.Models
 		public long IdPenawaranPembelian {get;set;} 
 		public long IdJenisSupplier {get;set;} 
 		public long IdSupplier {get;set;} 
-		public string IdCompanyPenerima {get;set;} 
 		public long IdDetilPenawaranPembelian {get;set;} 
 		public long IdSatuan {get;set;}
-		public long IdDivisi {get;set;}
-		public long IdSubDivisi {get;set;} 
-		public long IdKategori {get;set;} 
-		public long IdSubKategori {get;set;} 
+		public long IdDivisiBarang {get;set;}
+		public long IdSubDivisiBarang {get;set;} 
+		public long IdKategoriBarang {get;set;} 
+		public long IdSubKategoriBarang {get;set;} 
 		public long IdBarang {get;set;} 
 		public double Harga {get;set;} 
 		public double Jumlah {get;set;} 

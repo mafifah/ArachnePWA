@@ -18,7 +18,6 @@ namespace grpcArachne.Services
             _logger = logger;
             _db = db;
         }
-
         public override Task<pesan> InsertPenawaranPembelian(InsertDataRequset request, ServerCallContext context)
         {
             pesan pesan;
@@ -38,26 +37,23 @@ namespace grpcArachne.Services
                 {
                     DbT6PenawaranPembelian t6PenawaranPembelian = new DbT6PenawaranPembelian
                     {
-                        IdPenawaranPembelian = IdPenawaran,
-                        IdJenisSupplier = request.IdJenisSupplier,
-                        IdCompany_Penerima =  request.IdCompanyPenerima,
-                        IdSupplier = request.IdSupplier,
+                        IdPenawaranPembelian    = IdPenawaran,
+                        IdJenisSupplier         = request.IdJenisSupplier,
+                        IdSupplier              = request.IdSupplier,
                     };
-
                     DbT7PenawaranPembelian t7PenawaranPembelian = new DbT7PenawaranPembelian
                     {
-                        IdDetilPenawaranPembelian = IdDetailPenawaran,
-                        IdPenawaranPembelian = IdPenawaran,
-                        IdSatuan = request.IdSatuan,
-                        IdDivisiBarang = request.IdDivisi,
-                        IdSubDivisiBarang = request.IdSubDivisi,
-                        IdKategoriBarang = request.IdKategori,
-                        IdSubKategoriBarang = request.IdSubKategori,
-                        IdBarang = request.IdBarang,
-                        Harga =(Decimal) request.Harga,
-                        Jumlah = (Decimal) request.Jumlah,
-                        Berat = (Decimal) request.Berat
-                        
+                        IdDetilPenawaranPembelian   = IdDetailPenawaran,
+                        IdPenawaranPembelian        = IdPenawaran,
+                        IdSatuan                    = request.IdSatuan,
+                        IdDivisiBarang              = request.IdDivisiBarang,
+                        IdSubDivisiBarang           = request.IdSubDivisiBarang,
+                        IdKategoriBarang            = request.IdKategoriBarang,
+                        IdSubKategoriBarang         = request.IdSubKategoriBarang,
+                        IdBarang                    = request.IdBarang,
+                        Harga                       =(Decimal) request.Harga,
+                        Jumlah                      =(Decimal) request.Jumlah,
+                        Berat                       =(Decimal) request.Berat
                     };
                     _db.T6PenawaranPembelianDbSet.AddRange(t6PenawaranPembelian);
                     _db.T7PenawaranPembelianDbSet.AddRange(t7PenawaranPembelian);
@@ -67,8 +63,7 @@ namespace grpcArachne.Services
             }
             catch (Exception ex)
             {
-
-                Metadata metadata = new Metadata { { "Error", "Error : " + ex.Message } };
+                Metadata metadata = new Metadata { { "Error", "Error : " + ex.InnerException.Message } };
                 throw new RpcException(new Status(StatusCode.Unknown, "Unknown"), metadata);
 
                 pesan = new pesan() { Pesan = "Data Gagal terkirim ke server" };
