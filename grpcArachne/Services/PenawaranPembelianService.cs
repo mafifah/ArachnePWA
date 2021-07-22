@@ -78,10 +78,6 @@ namespace grpcArachne.Services
                     _db.T7PenawaranPembelianDbSet.AddRange(t7PenawaranPembelian);
                     _db.SaveChanges();
                 }
-
-                    
-                    
-                
             }
             catch (Exception)
             {
