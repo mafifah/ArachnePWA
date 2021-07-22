@@ -25,22 +25,23 @@ namespace grpcArachne {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgxCYXJhbmcucHJvdG8iJwoRTGlzdEJhcmFuZ1JlcXVlc3QSEgoKSWRTdXBw",
-            "bGllchgBIAEoAyInChNMaXN0QmFyYW5nSWRSZXF1ZXN0EhAKCElkQmFyYW5n",
-            "GAEgASgDIiUKCkxpc3RCYXJhbmcSFwoGQmFyYW5nGAEgAygLMgcuQmFyYW5n",
-            "ImkKBkJhcmFuZxIQCghJZEJhcmFuZxgBIAEoAxIMCgROYW1hGAIgASgJEg4K",
-            "BlNhdHVhbhgDIAEoCRIMCgRTdG9rGAQgASgFEg8KB01pbmltdW0YBSABKAMS",
-            "EAoITWFrc2ltdW0YBiABKAMypAEKCFQxQmFyYW5nEjAKDUdldERhdGFCYXJh",
-            "bmcSEi5MaXN0QmFyYW5nUmVxdWVzdBoLLkxpc3RCYXJhbmcSLAoLR2V0QmFy",
-            "YW5nSWQSFC5MaXN0QmFyYW5nSWRSZXF1ZXN0GgcuQmFyYW5nEjgKF0dldERh",
-            "dGFCYXJhbmdXaXRoU3RyZWFtEhIuTGlzdEJhcmFuZ1JlcXVlc3QaBy5CYXJh",
-            "bmcwAUIOqgILZ3JwY0FyYWNobmViBnByb3RvMw=="));
+            "bGllchgBIAEoAyIlCgpMaXN0QmFyYW5nEhcKBkJhcmFuZxgBIAMoCzIHLkJh",
+            "cmFuZyKSAgoGQmFyYW5nEhAKCElkQmFyYW5nGAEgASgDEhYKDklkRGl2aXNp",
+            "QmFyYW5nGAIgASgDEhkKEUlkU3ViRGl2aXNpQmFyYW5nGAMgASgDEhgKEElk",
+            "S2F0ZWdvcmlCYXJhbmcYBCABKAMSGwoTSWRTdWJLYXRlZ29yaUJhcmFuZxgF",
+            "IAEoAxISCgpJZFN1cHBsaWVyGAYgASgDEhcKD0lkSmVuaXNTdXBwbGllchgH",
+            "IAEoAxIQCghJZFNhdHVhbhgIIAEoAxIMCgROYW1hGAkgASgJEg4KBlNhdHVh",
+            "bhgKIAEoCRIMCgRTdG9rGAsgASgFEg8KB01pbmltdW0YDCABKAMSEAoITWFr",
+            "c2ltdW0YDSABKAMydgoIVDFCYXJhbmcSMAoNR2V0RGF0YUJhcmFuZxISLkxp",
+            "c3RCYXJhbmdSZXF1ZXN0GgsuTGlzdEJhcmFuZxI4ChdHZXREYXRhQmFyYW5n",
+            "V2l0aFN0cmVhbRISLkxpc3RCYXJhbmdSZXF1ZXN0GgcuQmFyYW5nMAFCDqoC",
+            "C2dycGNBcmFjaG5lYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.ListBarangRequest), global::grpcArachne.ListBarangRequest.Parser, new[]{ "IdSupplier" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.ListBarangIdRequest), global::grpcArachne.ListBarangIdRequest.Parser, new[]{ "IdBarang" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.ListBarang), global::grpcArachne.ListBarang.Parser, new[]{ "Barang" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.Barang), global::grpcArachne.Barang.Parser, new[]{ "IdBarang", "Nama", "Satuan", "Stok", "Minimum", "Maksimum" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.Barang), global::grpcArachne.Barang.Parser, new[]{ "IdBarang", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "IdSupplier", "IdJenisSupplier", "IdSatuan", "Nama", "Satuan", "Stok", "Minimum", "Maksimum" }, null, null, null, null)
           }));
     }
     #endregion
@@ -219,178 +220,6 @@ namespace grpcArachne {
 
   }
 
-  public sealed partial class ListBarangIdRequest : pb::IMessage<ListBarangIdRequest>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<ListBarangIdRequest> _parser = new pb::MessageParser<ListBarangIdRequest>(() => new ListBarangIdRequest());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<ListBarangIdRequest> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::grpcArachne.BarangReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListBarangIdRequest() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListBarangIdRequest(ListBarangIdRequest other) : this() {
-      idBarang_ = other.idBarang_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public ListBarangIdRequest Clone() {
-      return new ListBarangIdRequest(this);
-    }
-
-    /// <summary>Field number for the "IdBarang" field.</summary>
-    public const int IdBarangFieldNumber = 1;
-    private long idBarang_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdBarang {
-      get { return idBarang_; }
-      set {
-        idBarang_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as ListBarangIdRequest);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(ListBarangIdRequest other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (IdBarang != other.IdBarang) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (IdBarang != 0L) hash ^= IdBarang.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (IdBarang != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(IdBarang);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (IdBarang != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(IdBarang);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (IdBarang != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdBarang);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(ListBarangIdRequest other) {
-      if (other == null) {
-        return;
-      }
-      if (other.IdBarang != 0L) {
-        IdBarang = other.IdBarang;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            IdBarang = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            IdBarang = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
   public sealed partial class ListBarang : pb::IMessage<ListBarang>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -403,7 +232,7 @@ namespace grpcArachne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::grpcArachne.BarangReflection.Descriptor.MessageTypes[2]; }
+      get { return global::grpcArachne.BarangReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -564,7 +393,7 @@ namespace grpcArachne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::grpcArachne.BarangReflection.Descriptor.MessageTypes[3]; }
+      get { return global::grpcArachne.BarangReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -582,6 +411,13 @@ namespace grpcArachne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public Barang(Barang other) : this() {
       idBarang_ = other.idBarang_;
+      idDivisiBarang_ = other.idDivisiBarang_;
+      idSubDivisiBarang_ = other.idSubDivisiBarang_;
+      idKategoriBarang_ = other.idKategoriBarang_;
+      idSubKategoriBarang_ = other.idSubKategoriBarang_;
+      idSupplier_ = other.idSupplier_;
+      idJenisSupplier_ = other.idJenisSupplier_;
+      idSatuan_ = other.idSatuan_;
       nama_ = other.nama_;
       satuan_ = other.satuan_;
       stok_ = other.stok_;
@@ -606,8 +442,85 @@ namespace grpcArachne {
       }
     }
 
+    /// <summary>Field number for the "IdDivisiBarang" field.</summary>
+    public const int IdDivisiBarangFieldNumber = 2;
+    private long idDivisiBarang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdDivisiBarang {
+      get { return idDivisiBarang_; }
+      set {
+        idDivisiBarang_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdSubDivisiBarang" field.</summary>
+    public const int IdSubDivisiBarangFieldNumber = 3;
+    private long idSubDivisiBarang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdSubDivisiBarang {
+      get { return idSubDivisiBarang_; }
+      set {
+        idSubDivisiBarang_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdKategoriBarang" field.</summary>
+    public const int IdKategoriBarangFieldNumber = 4;
+    private long idKategoriBarang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdKategoriBarang {
+      get { return idKategoriBarang_; }
+      set {
+        idKategoriBarang_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdSubKategoriBarang" field.</summary>
+    public const int IdSubKategoriBarangFieldNumber = 5;
+    private long idSubKategoriBarang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdSubKategoriBarang {
+      get { return idSubKategoriBarang_; }
+      set {
+        idSubKategoriBarang_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdSupplier" field.</summary>
+    public const int IdSupplierFieldNumber = 6;
+    private long idSupplier_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdSupplier {
+      get { return idSupplier_; }
+      set {
+        idSupplier_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdJenisSupplier" field.</summary>
+    public const int IdJenisSupplierFieldNumber = 7;
+    private long idJenisSupplier_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdJenisSupplier {
+      get { return idJenisSupplier_; }
+      set {
+        idJenisSupplier_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdSatuan" field.</summary>
+    public const int IdSatuanFieldNumber = 8;
+    private long idSatuan_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdSatuan {
+      get { return idSatuan_; }
+      set {
+        idSatuan_ = value;
+      }
+    }
+
     /// <summary>Field number for the "Nama" field.</summary>
-    public const int NamaFieldNumber = 2;
+    public const int NamaFieldNumber = 9;
     private string nama_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Nama {
@@ -618,7 +531,7 @@ namespace grpcArachne {
     }
 
     /// <summary>Field number for the "Satuan" field.</summary>
-    public const int SatuanFieldNumber = 3;
+    public const int SatuanFieldNumber = 10;
     private string satuan_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Satuan {
@@ -629,7 +542,7 @@ namespace grpcArachne {
     }
 
     /// <summary>Field number for the "Stok" field.</summary>
-    public const int StokFieldNumber = 4;
+    public const int StokFieldNumber = 11;
     private int stok_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int Stok {
@@ -640,7 +553,7 @@ namespace grpcArachne {
     }
 
     /// <summary>Field number for the "Minimum" field.</summary>
-    public const int MinimumFieldNumber = 5;
+    public const int MinimumFieldNumber = 12;
     private long minimum_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Minimum {
@@ -651,7 +564,7 @@ namespace grpcArachne {
     }
 
     /// <summary>Field number for the "Maksimum" field.</summary>
-    public const int MaksimumFieldNumber = 6;
+    public const int MaksimumFieldNumber = 13;
     private long maksimum_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long Maksimum {
@@ -675,6 +588,13 @@ namespace grpcArachne {
         return true;
       }
       if (IdBarang != other.IdBarang) return false;
+      if (IdDivisiBarang != other.IdDivisiBarang) return false;
+      if (IdSubDivisiBarang != other.IdSubDivisiBarang) return false;
+      if (IdKategoriBarang != other.IdKategoriBarang) return false;
+      if (IdSubKategoriBarang != other.IdSubKategoriBarang) return false;
+      if (IdSupplier != other.IdSupplier) return false;
+      if (IdJenisSupplier != other.IdJenisSupplier) return false;
+      if (IdSatuan != other.IdSatuan) return false;
       if (Nama != other.Nama) return false;
       if (Satuan != other.Satuan) return false;
       if (Stok != other.Stok) return false;
@@ -687,6 +607,13 @@ namespace grpcArachne {
     public override int GetHashCode() {
       int hash = 1;
       if (IdBarang != 0L) hash ^= IdBarang.GetHashCode();
+      if (IdDivisiBarang != 0L) hash ^= IdDivisiBarang.GetHashCode();
+      if (IdSubDivisiBarang != 0L) hash ^= IdSubDivisiBarang.GetHashCode();
+      if (IdKategoriBarang != 0L) hash ^= IdKategoriBarang.GetHashCode();
+      if (IdSubKategoriBarang != 0L) hash ^= IdSubKategoriBarang.GetHashCode();
+      if (IdSupplier != 0L) hash ^= IdSupplier.GetHashCode();
+      if (IdJenisSupplier != 0L) hash ^= IdJenisSupplier.GetHashCode();
+      if (IdSatuan != 0L) hash ^= IdSatuan.GetHashCode();
       if (Nama.Length != 0) hash ^= Nama.GetHashCode();
       if (Satuan.Length != 0) hash ^= Satuan.GetHashCode();
       if (Stok != 0) hash ^= Stok.GetHashCode();
@@ -712,24 +639,52 @@ namespace grpcArachne {
         output.WriteRawTag(8);
         output.WriteInt64(IdBarang);
       }
+      if (IdDivisiBarang != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(IdDivisiBarang);
+      }
+      if (IdSubDivisiBarang != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(IdSubDivisiBarang);
+      }
+      if (IdKategoriBarang != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(IdKategoriBarang);
+      }
+      if (IdSubKategoriBarang != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(IdSubKategoriBarang);
+      }
+      if (IdSupplier != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(IdSupplier);
+      }
+      if (IdJenisSupplier != 0L) {
+        output.WriteRawTag(56);
+        output.WriteInt64(IdJenisSupplier);
+      }
+      if (IdSatuan != 0L) {
+        output.WriteRawTag(64);
+        output.WriteInt64(IdSatuan);
+      }
       if (Nama.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(74);
         output.WriteString(Nama);
       }
       if (Satuan.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(82);
         output.WriteString(Satuan);
       }
       if (Stok != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(88);
         output.WriteInt32(Stok);
       }
       if (Minimum != 0L) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(96);
         output.WriteInt64(Minimum);
       }
       if (Maksimum != 0L) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(104);
         output.WriteInt64(Maksimum);
       }
       if (_unknownFields != null) {
@@ -745,24 +700,52 @@ namespace grpcArachne {
         output.WriteRawTag(8);
         output.WriteInt64(IdBarang);
       }
+      if (IdDivisiBarang != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(IdDivisiBarang);
+      }
+      if (IdSubDivisiBarang != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(IdSubDivisiBarang);
+      }
+      if (IdKategoriBarang != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(IdKategoriBarang);
+      }
+      if (IdSubKategoriBarang != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(IdSubKategoriBarang);
+      }
+      if (IdSupplier != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(IdSupplier);
+      }
+      if (IdJenisSupplier != 0L) {
+        output.WriteRawTag(56);
+        output.WriteInt64(IdJenisSupplier);
+      }
+      if (IdSatuan != 0L) {
+        output.WriteRawTag(64);
+        output.WriteInt64(IdSatuan);
+      }
       if (Nama.Length != 0) {
-        output.WriteRawTag(18);
+        output.WriteRawTag(74);
         output.WriteString(Nama);
       }
       if (Satuan.Length != 0) {
-        output.WriteRawTag(26);
+        output.WriteRawTag(82);
         output.WriteString(Satuan);
       }
       if (Stok != 0) {
-        output.WriteRawTag(32);
+        output.WriteRawTag(88);
         output.WriteInt32(Stok);
       }
       if (Minimum != 0L) {
-        output.WriteRawTag(40);
+        output.WriteRawTag(96);
         output.WriteInt64(Minimum);
       }
       if (Maksimum != 0L) {
-        output.WriteRawTag(48);
+        output.WriteRawTag(104);
         output.WriteInt64(Maksimum);
       }
       if (_unknownFields != null) {
@@ -776,6 +759,27 @@ namespace grpcArachne {
       int size = 0;
       if (IdBarang != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdBarang);
+      }
+      if (IdDivisiBarang != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdDivisiBarang);
+      }
+      if (IdSubDivisiBarang != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSubDivisiBarang);
+      }
+      if (IdKategoriBarang != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdKategoriBarang);
+      }
+      if (IdSubKategoriBarang != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSubKategoriBarang);
+      }
+      if (IdSupplier != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSupplier);
+      }
+      if (IdJenisSupplier != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdJenisSupplier);
+      }
+      if (IdSatuan != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSatuan);
       }
       if (Nama.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Nama);
@@ -805,6 +809,27 @@ namespace grpcArachne {
       }
       if (other.IdBarang != 0L) {
         IdBarang = other.IdBarang;
+      }
+      if (other.IdDivisiBarang != 0L) {
+        IdDivisiBarang = other.IdDivisiBarang;
+      }
+      if (other.IdSubDivisiBarang != 0L) {
+        IdSubDivisiBarang = other.IdSubDivisiBarang;
+      }
+      if (other.IdKategoriBarang != 0L) {
+        IdKategoriBarang = other.IdKategoriBarang;
+      }
+      if (other.IdSubKategoriBarang != 0L) {
+        IdSubKategoriBarang = other.IdSubKategoriBarang;
+      }
+      if (other.IdSupplier != 0L) {
+        IdSupplier = other.IdSupplier;
+      }
+      if (other.IdJenisSupplier != 0L) {
+        IdJenisSupplier = other.IdJenisSupplier;
+      }
+      if (other.IdSatuan != 0L) {
+        IdSatuan = other.IdSatuan;
       }
       if (other.Nama.Length != 0) {
         Nama = other.Nama;
@@ -839,23 +864,51 @@ namespace grpcArachne {
             IdBarang = input.ReadInt64();
             break;
           }
-          case 18: {
-            Nama = input.ReadString();
+          case 16: {
+            IdDivisiBarang = input.ReadInt64();
             break;
           }
-          case 26: {
-            Satuan = input.ReadString();
+          case 24: {
+            IdSubDivisiBarang = input.ReadInt64();
             break;
           }
           case 32: {
-            Stok = input.ReadInt32();
+            IdKategoriBarang = input.ReadInt64();
             break;
           }
           case 40: {
-            Minimum = input.ReadInt64();
+            IdSubKategoriBarang = input.ReadInt64();
             break;
           }
           case 48: {
+            IdSupplier = input.ReadInt64();
+            break;
+          }
+          case 56: {
+            IdJenisSupplier = input.ReadInt64();
+            break;
+          }
+          case 64: {
+            IdSatuan = input.ReadInt64();
+            break;
+          }
+          case 74: {
+            Nama = input.ReadString();
+            break;
+          }
+          case 82: {
+            Satuan = input.ReadString();
+            break;
+          }
+          case 88: {
+            Stok = input.ReadInt32();
+            break;
+          }
+          case 96: {
+            Minimum = input.ReadInt64();
+            break;
+          }
+          case 104: {
             Maksimum = input.ReadInt64();
             break;
           }
@@ -877,23 +930,51 @@ namespace grpcArachne {
             IdBarang = input.ReadInt64();
             break;
           }
-          case 18: {
-            Nama = input.ReadString();
+          case 16: {
+            IdDivisiBarang = input.ReadInt64();
             break;
           }
-          case 26: {
-            Satuan = input.ReadString();
+          case 24: {
+            IdSubDivisiBarang = input.ReadInt64();
             break;
           }
           case 32: {
-            Stok = input.ReadInt32();
+            IdKategoriBarang = input.ReadInt64();
             break;
           }
           case 40: {
-            Minimum = input.ReadInt64();
+            IdSubKategoriBarang = input.ReadInt64();
             break;
           }
           case 48: {
+            IdSupplier = input.ReadInt64();
+            break;
+          }
+          case 56: {
+            IdJenisSupplier = input.ReadInt64();
+            break;
+          }
+          case 64: {
+            IdSatuan = input.ReadInt64();
+            break;
+          }
+          case 74: {
+            Nama = input.ReadString();
+            break;
+          }
+          case 82: {
+            Satuan = input.ReadString();
+            break;
+          }
+          case 88: {
+            Stok = input.ReadInt32();
+            break;
+          }
+          case 96: {
+            Minimum = input.ReadInt64();
+            break;
+          }
+          case 104: {
             Maksimum = input.ReadInt64();
             break;
           }

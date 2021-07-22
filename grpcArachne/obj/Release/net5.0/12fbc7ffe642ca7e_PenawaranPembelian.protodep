@@ -1,0 +1,4 @@
+obj\Release\net5.0/PenawaranPembelian.cs \
+obj\Release\net5.0/PenawaranPembelianGrpc.cs: C:/Users/mafif/.nuget/packages/grpc.tools/2.27.0/build/native/include/google/protobuf/empty.proto\
+ C:/Users/mafif/.nuget/packages/grpc.tools/2.27.0/build/native/include/google/protobuf/wrappers.proto\
+ Protos/PenawaranPembelian.proto
