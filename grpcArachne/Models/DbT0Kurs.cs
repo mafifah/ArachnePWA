@@ -11,7 +11,7 @@ namespace grpcArachne.Models
         public long? IdNegara { get; set; }
         public string Kurs { get; set; }
         public string Simbol { get; set; }
-        public bool StatusUtama { get; set; }
+        public bool? StatusUtama { get; set; }
 
 
     }

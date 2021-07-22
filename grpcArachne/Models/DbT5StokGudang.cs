@@ -8,7 +8,7 @@ namespace grpcArachne.Models
     public class DbT5StokGudang
     {
         public long IdSatuan { get; set; }
-        public long IdGudang { get; set; }
+        public long? IdGudang { get; set; }
         public decimal StokBaru { get; set; }
         public string StokBaruNominal { get; set; }
         public string StokBaruLokasi { get; set; }
@@ -19,7 +19,7 @@ namespace grpcArachne.Models
         public string StokRusakNominal { get; set; }
         public string StokRusakLokasi { get; set; }
         public DateTimeOffset WaktuProses { get; set; }
-        public long IdOperator { get; set; }
+        public long? IdOperator { get; set; }
         public string Synchronise { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace grpcArachne.Models
 {
     public class DbT6PenawaranPembelian
     {
-        public long? IdPenawaranPembelian { get; set; }
+        public long IdPenawaranPembelian { get; set; }
         public long? IdJenisSupplier { get; set; }
         public long? IdSupplier { get; set; }
         public long? IdTermin { get; set; }
