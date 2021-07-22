@@ -126,17 +126,33 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 63 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
+#line 60 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
        
+    public string ValidationMesssage { get; set; }
     protected DataBarang Item { get; set; }
-
+    int Jumlah { get; set; } = 0;
     protected override async Task OnInitializedAsync()
     {
-        Item = null;
         Item = DataService._barangDipilih;
     }
 
+    async Task SendDataPenawaran()
+    {
+        var totalStok = Item.Stok + Jumlah;
+        if (totalStok > Item.Maksimum)
+        {
+            ValidationMesssage = "Jumlah barang tidak boleh lebih dari stok maksimum";
+        } else
+        {
+            //Send Data ke gRPC
+        }
+    }
 
+    void BackToBarang()
+    {
+        DataService.SetNullBarangDipilih();
+        NavigationManager.NavigateTo("dataBarang");
+    }
 
 #line default
 #line hidden

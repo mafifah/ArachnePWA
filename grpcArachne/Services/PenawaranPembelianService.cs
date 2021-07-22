@@ -37,10 +37,7 @@ namespace grpcArachne.Services
                     _db.T6PenawaranPembelianDbSet.AddRange(t6PenawaranPembelian);
                     _db.SaveChanges();
                 }
-<<<<<<< HEAD
-=======
                 pesan = new pesan() { Pesan = "Data Area berhasil terkirim ke server" };
->>>>>>> 042fd2175cf43f32a002350d3d83275290b9bf4a
             }
             catch (Exception ex)
             {

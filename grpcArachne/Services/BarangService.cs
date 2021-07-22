@@ -95,9 +95,20 @@ namespace grpcArachne
                  on T5SupplierSatuan.IdSatuan equals T5StokGudang.IdSatuan
                  join T5CompanySatuan in _db.T5CompanySatuanDbSet
                  on T3Satuan.IdSatuan equals T5CompanySatuan.IdSatuan
+                 join T1SubDivisiBarang in _db.T1SubDivisiBarangDbSet
+                 on T2Barang.IdSubDivisiBarang  equals T1SubDivisiBarang.IdSubDivisiBarang
+                 join T1SubKategoriBarang in _db.T1SubKategoriBarang
+                 on T2Barang.IdSubKategoriBarang equals T1SubKategoriBarang.IdSubKategoriBarang
                  select new Barang
                  {
                      IdBarang = (long)T3Satuan.IdBarang,
+                     IdDivisiBarang = (long)T1SubDivisiBarang.IdDivisiBarang,
+                     IdSubDivisiBarang = (long)T1SubDivisiBarang.IdSubDivisiBarang,
+                     IdKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
+                     IdSubKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
+                     IdSupplier = (long)T1Supplier.IdSupplier,
+                     IdJenisSupplier = (long)T1Supplier.IdJenisSupplier,
+                     IdSatuan = (long)T3Satuan.IdSatuan,
                      Nama = T2Barang.Barang,
                      Satuan = T3Satuan.Satuan,
                      Stok = (int)T5StokGudang.StokBaru,

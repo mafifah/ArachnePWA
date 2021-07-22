@@ -13,11 +13,10 @@ namespace bzrArachne.Service
         public DataUser User = new DataUser();
         public string Token;
         private readonly List<DataBarang> _dataBarang = new List<DataBarang>();
-        private readonly List<DataUser> _dataUser = new List<DataUser>();
+        //private readonly List<DataUser> _dataUser = new List<DataUser>();
         DataBarang t1Barang = new DataBarang();
         public DataBarang _barangDipilih { get; set; }
         public void SetNullBarangDipilih() => _barangDipilih = null;
-
         public void SetBarangDipilih(DataBarang Item) => _barangDipilih = Item;
         public async Task GetBarangId()
         {

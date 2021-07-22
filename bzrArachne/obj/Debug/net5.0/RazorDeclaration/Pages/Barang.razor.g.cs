@@ -138,7 +138,7 @@ using bzrArachne.Models;
     bool showSearchSatuan = false;
     bool showSearchStok = false;
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan) && i.Stok <= SearchStok).ToList();
-    List<DataBarang> StokBarang => _daftarBarang.Where(i => i.Stok <= i.Minimum).ToList();
+    List<DataBarang> StokBarang => FilteredBarang.Where(i => i.Stok <= i.Minimum).ToList();
     protected override async Task OnInitializedAsync()
     {
         user = DataService.User;
@@ -152,6 +152,12 @@ using bzrArachne.Models;
                 _daftarBarang.Add(new DataBarang
                 {
                     IdBarang = item.IdBarang,
+                    IdDivisiBarang = item.IdDivisiBarang,
+                    IdSubDivisiBarang = item.IdSubDivisiBarang,
+                    IdKategoriBarang = item.IdKategoriBarang,
+                    IdSubKategoriBarang = item.IdSubKategoriBarang,
+                    IdSupplier = item.IdSupplier,
+                    IdJenisSupplier = item.IdJenisSupplier,
                     Nama = item.Nama,
                     Satuan = item.Satuan,
                     Stok = item.Stok,

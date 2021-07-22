@@ -126,15 +126,19 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 64 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\Barang.razor"
+#line 109 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\Barang.razor"
        
     private DataUser user = new DataUser();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     DataBarang BarangDipilih = new DataBarang();
-    string SearchTerm { get; set; } = "";
-    List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchTerm)).ToList();
-    List<DataBarang> StokBarang => _daftarBarang.Where(i => i.Stok <= i.Minimum).ToList();
-
+    string SearchNama { get; set; } = "";
+    string SearchSatuan { get; set; } = "";
+    int SearchStok { get; set; } = 1000;
+    bool showSearchNama = false;
+    bool showSearchSatuan = false;
+    bool showSearchStok = false;
+    List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan) && i.Stok <= SearchStok).ToList();
+    List<DataBarang> StokBarang => FilteredBarang.Where(i => i.Stok <= i.Minimum).ToList();
     protected override async Task OnInitializedAsync()
     {
         user = DataService.User;
@@ -148,6 +152,12 @@ using bzrArachne.Models;
                 _daftarBarang.Add(new DataBarang
                 {
                     IdBarang = item.IdBarang,
+                    IdDivisiBarang = item.IdDivisiBarang,
+                    IdSubDivisiBarang = item.IdSubDivisiBarang,
+                    IdKategoriBarang = item.IdKategoriBarang,
+                    IdSubKategoriBarang = item.IdSubKategoriBarang,
+                    IdSupplier = item.IdSupplier,
+                    IdJenisSupplier = item.IdJenisSupplier,
                     Nama = item.Nama,
                     Satuan = item.Satuan,
                     Stok = item.Stok,
@@ -165,9 +175,13 @@ using bzrArachne.Models;
         {
             NavigationManager.NavigateTo("/");
         }
-
-
     }
+    void ShowSearchNama() => showSearchNama = true;
+    void RemoveSearchNama() { SearchNama = ""; showSearchNama = false; }
+    void ShowSearchSatuan() => showSearchSatuan = true;
+    void RemoveSearchSatuan() { SearchSatuan = ""; showSearchSatuan = false; }
+    void ShowSearchStok() => showSearchStok = true;
+    void RemoveSearchStok() { SearchStok = 1000; showSearchStok = false; }
     void MoveToPenawaran(DataBarang Item)
     {
         DataService.SetBarangDipilih(Item);

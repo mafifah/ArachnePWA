@@ -129,12 +129,13 @@ using bzrArachne.Models;
 #line 73 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
        
     public string ValidationMesssage { get; set; }
+    int Jumlah { get; set; } = 0;
     protected DataBarang Item { get; set; }
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
 
     protected override async Task OnInitializedAsync()
     {
-        //ValidationMesssage = "Jumlah barang melebihi stok maksimum";
+        
         Item = DataService._barangDipilih;
         _daftarBarang = await DataService.GetDataBarang();
     }

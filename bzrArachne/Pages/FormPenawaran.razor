@@ -50,7 +50,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Jumlah</label>
                 <div class="col-sm-4">
-                    <input type="text" class="form-control">
+                    <input type="number" @bind="Jumlah" class="form-control">
                 </div>
             </div>
             <div class="col-sm-4" style="text-align: left; font-size: 10px; color: red; margin-left: 150px;">
@@ -72,12 +72,13 @@
 </div>
 @code {
     public string ValidationMesssage { get; set; }
+    int Jumlah { get; set; } = 0;
     protected DataBarang Item { get; set; }
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
 
     protected override async Task OnInitializedAsync()
     {
-        //ValidationMesssage = "Jumlah barang melebihi stok maksimum";
+        
         Item = DataService._barangDipilih;
         _daftarBarang = await DataService.GetDataBarang();
     }
