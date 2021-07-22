@@ -33,16 +33,16 @@ namespace grpcArachne {
             "CElkRGl2aXNpGAcgASgDEhMKC0lkU3ViRGl2aXNpGAggASgDEhIKCklkS2F0",
             "ZWdvcmkYCSABKAMSFQoNSWRTdWJLYXRlZ29yaRgKIAEoAxIQCghJZEJhcmFu",
             "ZxgLIAEoAxINCgVIYXJnYRgMIAEoARIOCgZKdW1sYWgYDSABKAESDQoFQmVy",
-            "YXQYDiABKAESEgoKSWRTdXBwbGllchgPIAEoAyIpCglUNlJlcXVlc3QSHAoU",
-            "SWRQZW5hd2FyYW5QZW1iZWxpYW4YASABKAMiFgoFcGVzYW4SDQoFcGVzYW4Y",
-            "ASABKAkyRAoSUGVuYXdhcmFuUGVtYmVsaWFuEi4KGEluc2VydFBlbmF3YXJh",
-            "blBlbWJlbGlhbhIKLlQ2UmVxdWVzdBoGLnBlc2FuQg6qAgtncnBjQXJhY2hu",
-            "ZWIGcHJvdG8z"));
+            "YXQYDiABKAESEgoKSWRTdXBwbGllchgPIAEoAyJCCglUNlJlcXVlc3QSHAoU",
+            "SWRQZW5hd2FyYW5QZW1iZWxpYW4YASABKAMSFwoPSWRKZW5pc1N1cHBsaWVy",
+            "GAIgASgDIhYKBXBlc2FuEg0KBXBlc2FuGAEgASgJMkQKElBlbmF3YXJhblBl",
+            "bWJlbGlhbhIuChhJbnNlcnRQZW5hd2FyYW5QZW1iZWxpYW4SCi5UNlJlcXVl",
+            "c3QaBi5wZXNhbkIOqgILZ3JwY0FyYWNobmViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataRequset), global::grpcArachne.InsertDataRequset.Parser, new[]{ "IdDetilPenawaranPembelian", "IdPenawaranPembelian", "IdJenisSupplier", "IdCompanyPenerima", "IdKurs", "IdSatuan", "IdDivisi", "IdSubDivisi", "IdKategori", "IdSubKategori", "IdBarang", "Harga", "Jumlah", "Berat", "IdSupplier" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T6Request), global::grpcArachne.T6Request.Parser, new[]{ "IdPenawaranPembelian" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T6Request), global::grpcArachne.T6Request.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.pesan), global::grpcArachne.pesan.Parser, new[]{ "Pesan" }, null, null, null, null)
           }));
     }
@@ -597,6 +597,7 @@ namespace grpcArachne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public T6Request(T6Request other) : this() {
       idPenawaranPembelian_ = other.idPenawaranPembelian_;
+      idJenisSupplier_ = other.idJenisSupplier_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -616,6 +617,17 @@ namespace grpcArachne {
       }
     }
 
+    /// <summary>Field number for the "IdJenisSupplier" field.</summary>
+    public const int IdJenisSupplierFieldNumber = 2;
+    private long idJenisSupplier_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdJenisSupplier {
+      get { return idJenisSupplier_; }
+      set {
+        idJenisSupplier_ = value;
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as T6Request);
@@ -630,6 +642,7 @@ namespace grpcArachne {
         return true;
       }
       if (IdPenawaranPembelian != other.IdPenawaranPembelian) return false;
+      if (IdJenisSupplier != other.IdJenisSupplier) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -637,6 +650,7 @@ namespace grpcArachne {
     public override int GetHashCode() {
       int hash = 1;
       if (IdPenawaranPembelian != 0L) hash ^= IdPenawaranPembelian.GetHashCode();
+      if (IdJenisSupplier != 0L) hash ^= IdJenisSupplier.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -654,6 +668,10 @@ namespace grpcArachne {
         output.WriteRawTag(8);
         output.WriteInt64(IdPenawaranPembelian);
       }
+      if (IdJenisSupplier != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(IdJenisSupplier);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -664,6 +682,9 @@ namespace grpcArachne {
       int size = 0;
       if (IdPenawaranPembelian != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdPenawaranPembelian);
+      }
+      if (IdJenisSupplier != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdJenisSupplier);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -679,6 +700,9 @@ namespace grpcArachne {
       if (other.IdPenawaranPembelian != 0L) {
         IdPenawaranPembelian = other.IdPenawaranPembelian;
       }
+      if (other.IdJenisSupplier != 0L) {
+        IdJenisSupplier = other.IdJenisSupplier;
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -692,6 +716,10 @@ namespace grpcArachne {
             break;
           case 8: {
             IdPenawaranPembelian = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            IdJenisSupplier = input.ReadInt64();
             break;
           }
         }

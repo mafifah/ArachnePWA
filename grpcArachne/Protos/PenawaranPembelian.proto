@@ -30,6 +30,7 @@ message InsertDataRequset
 message T6Request
 {
 	int64 IdPenawaranPembelian=1;
+	int64 IdJenisSupplier=2;
 }
 
 message pesan

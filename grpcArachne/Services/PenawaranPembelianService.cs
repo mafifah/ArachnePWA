@@ -21,29 +21,37 @@ namespace grpcArachne.Services
 
         public override Task<pesan> InsertPenawaranPembelian(T6Request request, ServerCallContext context)
         {
-            
             pesan pesan;
             try
             {
                 var queryT6 = from T6PenawaranPembelian in _db.T6PenawaranPembelianDbSet
                               where T6PenawaranPembelian.IdPenawaranPembelian == request.IdPenawaranPembelian
                               select T6PenawaranPembelian.IdPenawaranPembelian;
+
+
                 if (!queryT6.Any())
                 {
                     DbT6PenawaranPembelian t6PenawaranPembelian = new DbT6PenawaranPembelian
                     {
-                        IdPenawaranPembelian = request.IdPenawaranPembelian
+                       IdPenawaranPembelian = request.IdPenawaranPembelian,
+                       IdJenisSupplier = request.IdJenisSupplier
                     };
+
                     _db.T6PenawaranPembelianDbSet.AddRange(t6PenawaranPembelian);
                     _db.SaveChanges();
+                  
                 }
-                pesan = new pesan() { Pesan = "Data Area berhasil terkirim ke server" };
+                pesan = new pesan() { Pesan = "Berhasil" };
             }
             catch (Exception ex)
             {
-                
+
+                Metadata metadata = new Metadata { { "Error", "Error : " + ex.Message } };
+                throw new RpcException(new Status(StatusCode.Unknown, "Unknown"), metadata);
+
+                pesan = new pesan() { Pesan = "Data Gagal terkirim ke server" };
             }
-            return base.InsertPenawaranPembelian(request, context);
+            return Task.FromResult(pesan);
         }
     }
 }
