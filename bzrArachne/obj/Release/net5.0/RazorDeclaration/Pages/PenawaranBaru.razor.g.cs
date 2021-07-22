@@ -136,6 +136,13 @@ using bzrArachne.Models;
         Item = DataService._barangDipilih;
     }
 
+    void BackToBarang()
+    {
+        DataService.SetNullBarangDipilih();
+        Item = null;
+        NavigationManager.NavigateTo("dataBarang");
+    }
+
     async Task SendDataPenawaran()
     {
         var totalStok = Item.Stok + Jumlah;
@@ -146,12 +153,6 @@ using bzrArachne.Models;
         {
             //Send Data ke gRPC
         }
-    }
-
-    void BackToBarang()
-    {
-        DataService.SetNullBarangDipilih();
-        NavigationManager.NavigateTo("dataBarang");
     }
 
 #line default

@@ -24,6 +24,9 @@ namespace grpcArachne.Services
             pesan pesan;
             try
             {
+                Random rnd = new Random();
+                int IdPenawaran = rnd.Next(1, 1000);
+                int IdDetailPenawaran = rnd.Next(1, 1000);
                 var queryT6 = from T6PenawaranPembelian in _db.T6PenawaranPembelianDbSet
                               where T6PenawaranPembelian.IdPenawaranPembelian == request.IdPenawaranPembelian
                               select T6PenawaranPembelian.IdPenawaranPembelian;
@@ -35,19 +38,16 @@ namespace grpcArachne.Services
                 {
                     DbT6PenawaranPembelian t6PenawaranPembelian = new DbT6PenawaranPembelian
                     {
-                        IdPenawaranPembelian = request.IdPenawaranPembelian,
+                        IdPenawaranPembelian = IdPenawaran,
                         IdJenisSupplier = request.IdJenisSupplier,
                         IdCompany_Penerima =  request.IdCompanyPenerima,
                         IdSupplier = request.IdSupplier,
-                        
-                        
                     };
-
 
                     DbT7PenawaranPembelian t7PenawaranPembelian = new DbT7PenawaranPembelian
                     {
-                        IdDetilPenawaranPembelian = request.IdDetilPenawaranPembelian,
-                        IdKurs = request.IdKurs,
+                        IdDetilPenawaranPembelian = IdDetailPenawaran,
+                        IdPenawaranPembelian = IdPenawaran,
                         IdSatuan = request.IdSatuan,
                         IdDivisiBarang = request.IdDivisi,
                         IdSubDivisiBarang = request.IdSubDivisi,
@@ -60,7 +60,6 @@ namespace grpcArachne.Services
                         
                     };
                     _db.T6PenawaranPembelianDbSet.AddRange(t6PenawaranPembelian);
-                    _db.SaveChanges();
                     _db.T7PenawaranPembelianDbSet.AddRange(t7PenawaranPembelian);
                     _db.SaveChanges();
                 }

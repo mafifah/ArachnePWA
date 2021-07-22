@@ -15,16 +15,15 @@ message InsertDataRequset
 	int64 IdSupplier = 3;
 	string IdCompanyPenerima=4;
 	int64 IdDetilPenawaranPembelian= 5;
-	int64 IdKurs=6;
-	int64 IdSatuan=7;
-	int64 IdDivisi=8;
-	int64 IdSubDivisi=9;
-	int64 IdKategori=10;
-	int64 IdSubKategori=11;
-	int64 IdBarang=12;
-	double Harga=13;
-	double Jumlah=14;
-	double Berat = 15;
+	int64 IdSatuan=6;
+	int64 IdDivisi=7;
+	int64 IdSubDivisi=8;
+	int64 IdKategori=9;
+	int64 IdSubKategori=10;
+	int64 IdBarang=11;
+	double Harga=12;
+	double Jumlah=13;
+	double Berat = 14;
 }
 
 message T6Request
