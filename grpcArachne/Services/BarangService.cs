@@ -135,10 +135,21 @@ namespace grpcArachne
                  on T5SupplierSatuan.IdSatuan equals T5StokGudang.IdSatuan
                  join T5CompanySatuan in _db.T5CompanySatuanDbSet
                  on T3Satuan.IdSatuan equals T5CompanySatuan.IdSatuan
+                 join T1SubDivisiBarang in _db.T1SubDivisiBarangDbSet
+                 on T2Barang.IdSubDivisiBarang equals T1SubDivisiBarang.IdSubDivisiBarang
+                 join T1SubKategoriBarang in _db.T1SubKategoriBarang
+                 on T2Barang.IdSubKategoriBarang equals T1SubKategoriBarang.IdSubKategoriBarang
                  where T5SupplierSatuan.IdSupplier == _idSupplier
                  select new Barang
                  {
                      IdBarang = (long)T3Satuan.IdBarang,
+                     IdDivisiBarang = (long)T1SubDivisiBarang.IdDivisiBarang,
+                     IdSubDivisiBarang = (long)T1SubDivisiBarang.IdSubDivisiBarang,
+                     IdKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
+                     IdSubKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
+                     IdSupplier = (long)T1Supplier.IdSupplier,
+                     IdJenisSupplier = (long)T1Supplier.IdJenisSupplier,
+                     IdSatuan = (long)T3Satuan.IdSatuan,
                      Nama = T2Barang.Barang,
                      Satuan = T3Satuan.Satuan,
                      Stok = (int)T5StokGudang.StokBaru,
@@ -151,33 +162,6 @@ namespace grpcArachne
                     await Task.Delay(1000);
                 }
             }
-        }
-
-        public override Task<Barang> GetBarangId(ListBarangIdRequest request, ServerCallContext context)
-        {
-            var qryBarang =
-               (from T2Barang in _db.T2BarangDbSet
-                join T3Satuan in _db.T3SatuanDbSet
-                on T2Barang.IdBarang equals T3Satuan.IdBarang
-                join T5SupplierSatuan in _db.T5SupplierSatuanDbSet
-                on T3Satuan.IdSatuan equals T5SupplierSatuan.IdSatuan
-                join T1Supplier in _db.T1SupplierDbSet
-                on T5SupplierSatuan.IdSupplier equals T1Supplier.IdSupplier
-                join T5StokGudang in _db.T5StokGudangDbSet
-                on T5SupplierSatuan.IdSatuan equals T5StokGudang.IdSatuan
-                join T5CompanySatuan in _db.T5CompanySatuanDbSet
-                on T3Satuan.IdSatuan equals T5CompanySatuan.IdSatuan
-                where T2Barang.IdBarang == request.IdBarang
-                select new Barang
-                {
-                    IdBarang = (long)T3Satuan.IdBarang,
-                    Nama = T2Barang.Barang,
-                    Satuan = T3Satuan.Satuan,
-                    Stok = (int)T5StokGudang.StokBaru,
-                    Minimum = T5CompanySatuan.Minimum,
-                    Maksimum = T5CompanySatuan.Maksimum
-                }).FirstOrDefault();
-            return Task.FromResult(qryBarang);
         }
     }
 }
