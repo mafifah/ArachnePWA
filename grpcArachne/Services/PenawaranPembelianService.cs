@@ -19,7 +19,7 @@ namespace grpcArachne.Services
             _db = db;
         }
 
-        public override Task<pesan> InsertPenawaranPembelian(T6Request request, ServerCallContext context)
+        public override Task<pesan> InsertPenawaranPembelian(InsertDataRequset request, ServerCallContext context)
         {
             pesan pesan;
             try
@@ -28,20 +28,43 @@ namespace grpcArachne.Services
                               where T6PenawaranPembelian.IdPenawaranPembelian == request.IdPenawaranPembelian
                               select T6PenawaranPembelian.IdPenawaranPembelian;
 
-
-                if (!queryT6.Any())
+                var queryT7 = from T7PenawaranPembelian in _db.T7PenawaranPembelianDbSet
+                              where T7PenawaranPembelian.IdDetilPenawaranPembelian == request.IdDetilPenawaranPembelian
+                              select T7PenawaranPembelian.IdDetilPenawaranPembelian;
+                if (!queryT6.Any()&& !queryT7.Any())
                 {
                     DbT6PenawaranPembelian t6PenawaranPembelian = new DbT6PenawaranPembelian
                     {
-                       IdPenawaranPembelian = request.IdPenawaranPembelian,
-                       IdJenisSupplier = request.IdJenisSupplier
+                        IdPenawaranPembelian = request.IdPenawaranPembelian,
+                        IdJenisSupplier = request.IdJenisSupplier,
+                        IdCompany_Penerima =  request.IdCompanyPenerima,
+                        IdSupplier = request.IdSupplier,
+                        
+                        
                     };
 
+
+                    DbT7PenawaranPembelian t7PenawaranPembelian = new DbT7PenawaranPembelian
+                    {
+                        IdDetilPenawaranPembelian = request.IdDetilPenawaranPembelian,
+                        IdKurs = request.IdKurs,
+                        IdSatuan = request.IdSatuan,
+                        IdDivisiBarang = request.IdDivisi,
+                        IdSubDivisiBarang = request.IdSubDivisi,
+                        IdKategoriBarang = request.IdKategori,
+                        IdSubKategoriBarang = request.IdSubKategori,
+                        IdBarang = request.IdBarang,
+                        Harga =(Decimal) request.Harga,
+                        Jumlah = (Decimal) request.Jumlah,
+                        Berat = (Decimal) request.Berat
+                        
+                    };
                     _db.T6PenawaranPembelianDbSet.AddRange(t6PenawaranPembelian);
                     _db.SaveChanges();
-                  
+                    _db.T7PenawaranPembelianDbSet.AddRange(t7PenawaranPembelian);
+                    _db.SaveChanges();
                 }
-                pesan = new pesan() { Pesan = "Berhasil" };
+                pesan = new pesan() { Pesan = "Berhasil Ditambah" };
             }
             catch (Exception ex)
             {

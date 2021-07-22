@@ -26,22 +26,23 @@ namespace grpcArachne {
           string.Concat(
             "ChNQcm90b3MvQmFyYW5nLnByb3RvIicKEUxpc3RCYXJhbmdSZXF1ZXN0EhIK",
             "CklkU3VwcGxpZXIYASABKAMiJQoKTGlzdEJhcmFuZxIXCgZCYXJhbmcYASAD",
-            "KAsyBy5CYXJhbmcikgIKBkJhcmFuZxIQCghJZEJhcmFuZxgBIAEoAxIWCg5J",
+            "KAsyBy5CYXJhbmcipQIKBkJhcmFuZxIQCghJZEJhcmFuZxgBIAEoAxIWCg5J",
             "ZERpdmlzaUJhcmFuZxgCIAEoAxIZChFJZFN1YkRpdmlzaUJhcmFuZxgDIAEo",
             "AxIYChBJZEthdGVnb3JpQmFyYW5nGAQgASgDEhsKE0lkU3ViS2F0ZWdvcmlC",
             "YXJhbmcYBSABKAMSEgoKSWRTdXBwbGllchgGIAEoAxIXCg9JZEplbmlzU3Vw",
             "cGxpZXIYByABKAMSEAoISWRTYXR1YW4YCCABKAMSDAoETmFtYRgJIAEoCRIO",
             "CgZTYXR1YW4YCiABKAkSDAoEU3RvaxgLIAEoBRIPCgdNaW5pbXVtGAwgASgD",
-            "EhAKCE1ha3NpbXVtGA0gASgDMnYKCFQxQmFyYW5nEjAKDUdldERhdGFCYXJh",
-            "bmcSEi5MaXN0QmFyYW5nUmVxdWVzdBoLLkxpc3RCYXJhbmcSOAoXR2V0RGF0",
-            "YUJhcmFuZ1dpdGhTdHJlYW0SEi5MaXN0QmFyYW5nUmVxdWVzdBoHLkJhcmFu",
-            "ZzABQg6qAgtncnBjQXJhY2huZWIGcHJvdG8z"));
+            "EhAKCE1ha3NpbXVtGA0gASgDEhEKCUlkQ29tcGFueRgOIAEoCTJ2CghUMUJh",
+            "cmFuZxIwCg1HZXREYXRhQmFyYW5nEhIuTGlzdEJhcmFuZ1JlcXVlc3QaCy5M",
+            "aXN0QmFyYW5nEjgKF0dldERhdGFCYXJhbmdXaXRoU3RyZWFtEhIuTGlzdEJh",
+            "cmFuZ1JlcXVlc3QaBy5CYXJhbmcwAUIOqgILZ3JwY0FyYWNobmViBnByb3Rv",
+            "Mw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.ListBarangRequest), global::grpcArachne.ListBarangRequest.Parser, new[]{ "IdSupplier" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.ListBarang), global::grpcArachne.ListBarang.Parser, new[]{ "Barang" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.Barang), global::grpcArachne.Barang.Parser, new[]{ "IdBarang", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "IdSupplier", "IdJenisSupplier", "IdSatuan", "Nama", "Satuan", "Stok", "Minimum", "Maksimum" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.Barang), global::grpcArachne.Barang.Parser, new[]{ "IdBarang", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "IdSupplier", "IdJenisSupplier", "IdSatuan", "Nama", "Satuan", "Stok", "Minimum", "Maksimum", "IdCompany" }, null, null, null, null)
           }));
     }
     #endregion
@@ -336,6 +337,7 @@ namespace grpcArachne {
       stok_ = other.stok_;
       minimum_ = other.minimum_;
       maksimum_ = other.maksimum_;
+      idCompany_ = other.idCompany_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -487,6 +489,17 @@ namespace grpcArachne {
       }
     }
 
+    /// <summary>Field number for the "IdCompany" field.</summary>
+    public const int IdCompanyFieldNumber = 14;
+    private string idCompany_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string IdCompany {
+      get { return idCompany_; }
+      set {
+        idCompany_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as Barang);
@@ -513,6 +526,7 @@ namespace grpcArachne {
       if (Stok != other.Stok) return false;
       if (Minimum != other.Minimum) return false;
       if (Maksimum != other.Maksimum) return false;
+      if (IdCompany != other.IdCompany) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -532,6 +546,7 @@ namespace grpcArachne {
       if (Stok != 0) hash ^= Stok.GetHashCode();
       if (Minimum != 0L) hash ^= Minimum.GetHashCode();
       if (Maksimum != 0L) hash ^= Maksimum.GetHashCode();
+      if (IdCompany.Length != 0) hash ^= IdCompany.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -597,6 +612,10 @@ namespace grpcArachne {
         output.WriteRawTag(104);
         output.WriteInt64(Maksimum);
       }
+      if (IdCompany.Length != 0) {
+        output.WriteRawTag(114);
+        output.WriteString(IdCompany);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -643,6 +662,9 @@ namespace grpcArachne {
       }
       if (Maksimum != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Maksimum);
+      }
+      if (IdCompany.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(IdCompany);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -693,6 +715,9 @@ namespace grpcArachne {
       }
       if (other.Maksimum != 0L) {
         Maksimum = other.Maksimum;
+      }
+      if (other.IdCompany.Length != 0) {
+        IdCompany = other.IdCompany;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -755,6 +780,10 @@ namespace grpcArachne {
           }
           case 104: {
             Maksimum = input.ReadInt64();
+            break;
+          }
+          case 114: {
+            IdCompany = input.ReadString();
             break;
           }
         }

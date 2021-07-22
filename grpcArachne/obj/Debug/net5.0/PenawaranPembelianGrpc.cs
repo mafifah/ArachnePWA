@@ -12,14 +12,14 @@ namespace grpcArachne {
   {
     static readonly string __ServiceName = "PenawaranPembelian";
 
-    static readonly grpc::Marshaller<global::grpcArachne.T6Request> __Marshaller_T6Request = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.T6Request.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::grpcArachne.InsertDataRequset> __Marshaller_InsertDataRequset = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.InsertDataRequset.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::grpcArachne.pesan> __Marshaller_pesan = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.pesan.Parser.ParseFrom);
 
-    static readonly grpc::Method<global::grpcArachne.T6Request, global::grpcArachne.pesan> __Method_InsertPenawaranPembelian = new grpc::Method<global::grpcArachne.T6Request, global::grpcArachne.pesan>(
+    static readonly grpc::Method<global::grpcArachne.InsertDataRequset, global::grpcArachne.pesan> __Method_InsertPenawaranPembelian = new grpc::Method<global::grpcArachne.InsertDataRequset, global::grpcArachne.pesan>(
         grpc::MethodType.Unary,
         __ServiceName,
         "InsertPenawaranPembelian",
-        __Marshaller_T6Request,
+        __Marshaller_InsertDataRequset,
         __Marshaller_pesan);
 
     /// <summary>Service descriptor</summary>
@@ -32,7 +32,7 @@ namespace grpcArachne {
     [grpc::BindServiceMethod(typeof(PenawaranPembelian), "BindService")]
     public abstract partial class PenawaranPembelianBase
     {
-      public virtual global::System.Threading.Tasks.Task<global::grpcArachne.pesan> InsertPenawaranPembelian(global::grpcArachne.T6Request request, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task<global::grpcArachne.pesan> InsertPenawaranPembelian(global::grpcArachne.InsertDataRequset request, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -53,7 +53,7 @@ namespace grpcArachne {
     /// <param name="serviceImpl">An object implementing the server-side handling logic.</param>
     public static void BindService(grpc::ServiceBinderBase serviceBinder, PenawaranPembelianBase serviceImpl)
     {
-      serviceBinder.AddMethod(__Method_InsertPenawaranPembelian, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::grpcArachne.T6Request, global::grpcArachne.pesan>(serviceImpl.InsertPenawaranPembelian));
+      serviceBinder.AddMethod(__Method_InsertPenawaranPembelian, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::grpcArachne.InsertDataRequset, global::grpcArachne.pesan>(serviceImpl.InsertPenawaranPembelian));
     }
 
   }

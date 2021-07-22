@@ -29,4 +29,5 @@ message Barang {
 	int32 Stok = 11;
 	int64 Minimum = 12;
 	int64 Maksimum = 13;
+	string IdCompany = 14;
 }

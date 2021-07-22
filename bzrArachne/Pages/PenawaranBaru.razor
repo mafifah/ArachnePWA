@@ -29,7 +29,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="Jumlah">Jumlah</label>
                 <div class="col-sm-4">
-                    <input type="number" @bind="Jumlah" class="form-control">
+                    <input type="number" @bind="Item.Stok" class="form-control">
                 </div>
             </div>
             <div class="col-sm-4" style="text-align: left; font-size: 10px; color: red; margin-left: 150px;">
@@ -48,18 +48,10 @@
                 </div>
             </div>
         </div>
-<<<<<<< HEAD
-
-        <!-- /.card-body -->
-        <div class="card-footer">
-            <button type="button" @onclick="(()=>BackToBarang())" class="btn btn-default">Batal</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
-=======
         <!-- /.card-body -->
         <div class="card-footer">
             <button type="button" @onclick="(()=>BackToBarang())" class="btn btn-default">Batal</button>
             <button type="submit" @onclick="(()=>SendDataPenawaran())"  class="btn btn-primary">Submit</button>
->>>>>>> 102dc5c4b0cbc03bc6007c27686e6dcf2d761d7b
         </div>
     </form>
 </div>
@@ -74,7 +66,6 @@
         Item = DataService._barangDipilih;
     }
 
-<<<<<<< HEAD
     void BackToBarang()
     {
         DataService.SetNullBarangDipilih();
@@ -82,7 +73,6 @@
         NavigationManager.NavigateTo("dataBarang");
     }
 
-=======
     async Task SendDataPenawaran()
     {
         var totalStok = Item.Stok + Jumlah;
@@ -93,12 +83,5 @@
         {
             //Send Data ke gRPC
         }
-    }
->>>>>>> 102dc5c4b0cbc03bc6007c27686e6dcf2d761d7b
-
-    void BackToBarang()
-    {
-        DataService.SetNullBarangDipilih();
-        NavigationManager.NavigateTo("dataBarang");
     }
 }
