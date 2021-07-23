@@ -26,22 +26,24 @@ namespace grpcArachne {
           string.Concat(
             "Ch9Qcm90b3MvUGVuYXdhcmFuUGVtYmVsaWFuLnByb3RvGhtnb29nbGUvcHJv",
             "dG9idWYvZW1wdHkucHJvdG8aHmdvb2dsZS9wcm90b2J1Zi93cmFwcGVycy5w",
-            "cm90byK9AgoRSW5zZXJ0RGF0YVJlcXVzZXQSHAoUSWRQZW5hd2FyYW5QZW1i",
-            "ZWxpYW4YASABKAMSFwoPSWRKZW5pc1N1cHBsaWVyGAIgASgDEhIKCklkU3Vw",
-            "cGxpZXIYAyABKAMSIQoZSWREZXRpbFBlbmF3YXJhblBlbWJlbGlhbhgEIAEo",
-            "AxIQCghJZFNhdHVhbhgFIAEoAxIWCg5JZERpdmlzaUJhcmFuZxgGIAEoAxIZ",
-            "ChFJZFN1YkRpdmlzaUJhcmFuZxgHIAEoAxIYChBJZEthdGVnb3JpQmFyYW5n",
-            "GAggASgDEhsKE0lkU3ViS2F0ZWdvcmlCYXJhbmcYCSABKAMSEAoISWRCYXJh",
-            "bmcYCiABKAMSDQoFSGFyZ2EYCyABKAESDgoGSnVtbGFoGAwgASgBEg0KBUJl",
-            "cmF0GA0gASgBIkIKCVQ2UmVxdWVzdBIcChRJZFBlbmF3YXJhblBlbWJlbGlh",
-            "bhgBIAEoAxIXCg9JZEplbmlzU3VwcGxpZXIYAiABKAMiFgoFcGVzYW4SDQoF",
-            "cGVzYW4YASABKAkyTAoSUGVuYXdhcmFuUGVtYmVsaWFuEjYKGEluc2VydFBl",
-            "bmF3YXJhblBlbWJlbGlhbhISLkluc2VydERhdGFSZXF1c2V0GgYucGVzYW5C",
-            "DqoCC2dycGNBcmFjaG5lYgZwcm90bzM="));
+            "cm90bxofZ29vZ2xlL3Byb3RvYnVmL3RpbWVzdGFtcC5wcm90byKHAwoRSW5z",
+            "ZXJ0RGF0YVJlcXVzZXQSHAoUSWRQZW5hd2FyYW5QZW1iZWxpYW4YASABKAMS",
+            "FwoPSWRKZW5pc1N1cHBsaWVyGAIgASgDEhIKCklkU3VwcGxpZXIYAyABKAMS",
+            "IQoZSWREZXRpbFBlbmF3YXJhblBlbWJlbGlhbhgEIAEoAxIQCghJZFNhdHVh",
+            "bhgFIAEoAxIWCg5JZERpdmlzaUJhcmFuZxgGIAEoAxIZChFJZFN1YkRpdmlz",
+            "aUJhcmFuZxgHIAEoAxIYChBJZEthdGVnb3JpQmFyYW5nGAggASgDEhsKE0lk",
+            "U3ViS2F0ZWdvcmlCYXJhbmcYCSABKAMSEAoISWRCYXJhbmcYCiABKAMSDQoF",
+            "SGFyZ2EYCyABKAESDgoGSnVtbGFoGAwgASgBEjEKC0Rpc2tvbkRldGlsGA0g",
+            "ASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEhUKDURpc2tvbk5v",
+            "bWluYWwYDiABKAESDQoFVG90YWwYDyABKAEiQgoJVDZSZXF1ZXN0EhwKFElk",
+            "UGVuYXdhcmFuUGVtYmVsaWFuGAEgASgDEhcKD0lkSmVuaXNTdXBwbGllchgC",
+            "IAEoAyIWCgVwZXNhbhINCgVwZXNhbhgBIAEoCTJMChJQZW5hd2FyYW5QZW1i",
+            "ZWxpYW4SNgoYSW5zZXJ0UGVuYXdhcmFuUGVtYmVsaWFuEhIuSW5zZXJ0RGF0",
+            "YVJlcXVzZXQaBi5wZXNhbkIOqgILZ3JwY0FyYWNobmViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
-          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
+          new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataRequset), global::grpcArachne.InsertDataRequset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "IdBarang", "Harga", "Jumlah", "Berat" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataRequset), global::grpcArachne.InsertDataRequset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "IdBarang", "Harga", "Jumlah", "DiskonDetil", "DiskonNominal", "Total" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T6Request), global::grpcArachne.T6Request.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.pesan), global::grpcArachne.pesan.Parser, new[]{ "Pesan" }, null, null, null, null)
           }));
@@ -87,7 +89,9 @@ namespace grpcArachne {
       idBarang_ = other.idBarang_;
       harga_ = other.harga_;
       jumlah_ = other.jumlah_;
-      berat_ = other.berat_;
+      DiskonDetil = other.DiskonDetil;
+      diskonNominal_ = other.diskonNominal_;
+      total_ = other.total_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -228,14 +232,38 @@ namespace grpcArachne {
       }
     }
 
-    /// <summary>Field number for the "Berat" field.</summary>
-    public const int BeratFieldNumber = 13;
-    private double berat_;
+    /// <summary>Field number for the "DiskonDetil" field.</summary>
+    public const int DiskonDetilFieldNumber = 13;
+    private static readonly pb::FieldCodec<string> _single_diskonDetil_codec = pb::FieldCodec.ForClassWrapper<string>(106);
+    private string diskonDetil_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Berat {
-      get { return berat_; }
+    public string DiskonDetil {
+      get { return diskonDetil_; }
       set {
-        berat_ = value;
+        diskonDetil_ = value;
+      }
+    }
+
+
+    /// <summary>Field number for the "DiskonNominal" field.</summary>
+    public const int DiskonNominalFieldNumber = 14;
+    private double diskonNominal_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double DiskonNominal {
+      get { return diskonNominal_; }
+      set {
+        diskonNominal_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Total" field.</summary>
+    public const int TotalFieldNumber = 15;
+    private double total_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double Total {
+      get { return total_; }
+      set {
+        total_ = value;
       }
     }
 
@@ -264,7 +292,9 @@ namespace grpcArachne {
       if (IdBarang != other.IdBarang) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Harga, other.Harga)) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Jumlah, other.Jumlah)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Berat, other.Berat)) return false;
+      if (DiskonDetil != other.DiskonDetil) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(DiskonNominal, other.DiskonNominal)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Total, other.Total)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -283,7 +313,9 @@ namespace grpcArachne {
       if (IdBarang != 0L) hash ^= IdBarang.GetHashCode();
       if (Harga != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Harga);
       if (Jumlah != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Jumlah);
-      if (Berat != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Berat);
+      if (diskonDetil_ != null) hash ^= DiskonDetil.GetHashCode();
+      if (DiskonNominal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DiskonNominal);
+      if (Total != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Total);
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -345,9 +377,16 @@ namespace grpcArachne {
         output.WriteRawTag(97);
         output.WriteDouble(Jumlah);
       }
-      if (Berat != 0D) {
-        output.WriteRawTag(105);
-        output.WriteDouble(Berat);
+      if (diskonDetil_ != null) {
+        _single_diskonDetil_codec.WriteTagAndValue(output, DiskonDetil);
+      }
+      if (DiskonNominal != 0D) {
+        output.WriteRawTag(113);
+        output.WriteDouble(DiskonNominal);
+      }
+      if (Total != 0D) {
+        output.WriteRawTag(121);
+        output.WriteDouble(Total);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -393,7 +432,13 @@ namespace grpcArachne {
       if (Jumlah != 0D) {
         size += 1 + 8;
       }
-      if (Berat != 0D) {
+      if (diskonDetil_ != null) {
+        size += _single_diskonDetil_codec.CalculateSizeWithTag(DiskonDetil);
+      }
+      if (DiskonNominal != 0D) {
+        size += 1 + 8;
+      }
+      if (Total != 0D) {
         size += 1 + 8;
       }
       if (_unknownFields != null) {
@@ -443,8 +488,16 @@ namespace grpcArachne {
       if (other.Jumlah != 0D) {
         Jumlah = other.Jumlah;
       }
-      if (other.Berat != 0D) {
-        Berat = other.Berat;
+      if (other.diskonDetil_ != null) {
+        if (diskonDetil_ == null || other.DiskonDetil != "") {
+          DiskonDetil = other.DiskonDetil;
+        }
+      }
+      if (other.DiskonNominal != 0D) {
+        DiskonNominal = other.DiskonNominal;
+      }
+      if (other.Total != 0D) {
+        Total = other.Total;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -505,8 +558,19 @@ namespace grpcArachne {
             Jumlah = input.ReadDouble();
             break;
           }
-          case 105: {
-            Berat = input.ReadDouble();
+          case 106: {
+            string value = _single_diskonDetil_codec.Read(input);
+            if (diskonDetil_ == null || value != "") {
+              DiskonDetil = value;
+            }
+            break;
+          }
+          case 113: {
+            DiskonNominal = input.ReadDouble();
+            break;
+          }
+          case 121: {
+            Total = input.ReadDouble();
             break;
           }
         }

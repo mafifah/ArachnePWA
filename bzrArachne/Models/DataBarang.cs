@@ -15,5 +15,7 @@
         public int Stok { get; set; }
         public long Minimum { get; set; }
         public long Maksimum { get; set; }
+        public string NamaSupplier { get; set; }
+        public string AlamatSupplier { get; set; }
     }
 }

@@ -5,60 +5,159 @@
 @inject PenawaranService PenawaranService
 @inject NavigationManager NavigationManager
 @inject NavigationManager NavigationManager
+@inject SweetAlertService Swal;
 
 <br />
 <div class="card card-dark ml-4 mr-4">
     <div class="card-header">
-        <h2 class="card-title">Penawaran Baru</h2>
+        <h2 class="card-title">Form Penawaran</h2>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
     <form>
         <div class="card-body">
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Nama Barang</label>
+                <label class="col-sm-2 col-form-label">Supplier</label>
                 <div class="col-sm-4">
-                    <input type="text" @bind="Item.Nama" class="form-control">
+                    <input type="text" @bind="Item.NamaSupplier" class="form-control">
+                </div>
+                <label class="col-sm-1 col-form-label">Tanggal</label>
+                <div class="col-sm-4">
+                    <input type="date" @bind="dataPenawaran.Tanggal" disabled class="form-control">
                 </div>
             </div>
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Satuan</label>
+                <label class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-4">
-                    <input type="text" @bind="Item.Satuan" class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="Jumlah">Jumlah</label>
-                <div class="col-sm-4">
-                    <input type="number" min="1" @bind="Item.Stok" class="form-control">
-                </div>
-            </div>
-            <div class="col-sm-4" style="text-align: left; font-size: 10px; color: red; margin-left: 150px;">
-                <span style="margin-top:0px;">@ValidationMesssage</span>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="Berat">Berat</label>
-                <div class="col-sm-4">
-                    <input type="number" min="1" @bind="dataPenawaran.Berat" placeholder="Berat" class="form-control">
-                </div>
-            </div>
-            <div class="form-group row">
-                <label class="col-sm-2 col-form-label" for="Berat">Harga</label>
-                <div class="col-sm-4">
-                    <input type="number" min="1" @onclick="HitungHarga"  @bind="dataPenawaran.Harga" class="form-control">
+                    <textarea type="text" @bind="Item.AlamatSupplier" class="form-control"></textarea>
                 </div>
             </div>
         </div>
-        <!-- /.card-body -->
+        <br />
+        <hr />
+        <!--Form Detail Penawaran-->
+        <div class="card card-dark">
+            <div class="card-body">
+                <h4 class="card-blue">Detail Penawaran</h4>
+                <table style="width: 100%" border="1">
+                    <thead>
+                        <tr>
+                            <th align="center" width="10%"> <label for="Jumlah">Jumlah</label></th>
+                            <th align="center" width="20%"> <label for="Satuan">Satuan</label></th>
+                            <th align="center" width="20%"><label for="Nama">Nama Barang</label></th>
+                            <th align="center" width="20%"><label for="Harga">Harga Satuan</label></th>
+                            <th align="center" width="10%"><label for="DiskonNominal">Diskon%</label></th>
+                            <th align="center" width="10%"><label for="DiskonDetil">Diskon Rp.</label></th>
+                            <th align="center" width="10%"><label for="Total">Total</label></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in ListDataBarang)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="col-sm-1">
+                                        <input type="number" min="1" @bind="dataPenawaran.Jumlah" class="form-control">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-sm-1">
+                                        <input type="text" min="1" @bind="Item.Satuan" class="form-control">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-sm-3">
+                                        <input type="text" min="1" @bind="Item.Nama" class="form-control">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="number" min="1" @bind="dataPenawaran.Harga" class="form-control">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-sm-1">
+                                        <input type="number" min="1" @bind="dataPenawaran.DiskonNominal" class="form-control">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="text" min="1" @bind="dataPenawaran.DiskonDetil" class="form-control">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="col-sm-2">
+                                        <input type="number" min="1" @bind="totalharga" class="form-control">
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td align="right" colspan="7"><button class="btn btn-success"><i class="oi oi-plus"></i></button></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <div class="form-group row">
+                    <label class="col-sm-1 col-form-label" for="Jumlah">Jumlah</label>
+                    <label class="col-sm-1 col-form-label" for="Satuan">Satuan</label>
+                    <label class="col-sm-3 col-form-label" for="Nama">Nama Barang</label>
+                    <label class="col-sm-2 col-form-label" for="Harga">Harga Satuan</label>
+                    <label class="col-sm-1 col-form-label" for="DiskonNominal">Diskon%</label>
+                    <label class="col-sm-2 col-form-label" for="DiskonDetil">Diskon Rp.</label>
+                    <label class="col-sm-2 col-form-label" for="Total">Total</label>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-1">
+                        <input type="number" min="1" @bind="dataPenawaran.Jumlah" class="form-control">
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="text" min="1" @bind="Item.Satuan" class="form-control">
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="text" min="1" @bind="Item.Nama" class="form-control">
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="number" min="1" @bind="dataPenawaran.Harga" class="form-control">
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="number" min="1" @bind="dataPenawaran.DiskonNominal" class="form-control">
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="text" min="1" @bind="dataPenawaran.DiskonDetil" class="form-control">
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="number" min="1" @bind="totalharga" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-4" style="text-align: left; font-size: 10px; color: red; margin-left: 150px;">
+                    <span style="margin-top:0px;">@ValidationMesssage</span>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-4 col-form-label">Catatan Penawaran</label>
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-4">
+                        <textarea type="text" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /.card-body -->
         <div class="card-footer">
             <button type="button" @onclick="(()=>BackToBarang())" class="btn btn-default">Batal</button>
-            <button type="submit" @onclick="(()=>SendDataPenawaran())"  class="btn btn-primary">Submit</button>
+            <button type="submit" @onclick="(()=>SendDataPenawaran())" class="btn btn-primary">Submit</button>
         </div>
     </form>
 </div>
 
 
 @code {
+    List<DataBarang> ListDataBarang = new List<DataBarang>();
     public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
     int Jumlah { get; set; } = 0;
@@ -81,13 +180,15 @@
         if (totalStok > Item.Maksimum)
         {
             ValidationMesssage = "Jumlah barang tidak boleh lebih dari stok maksimum";
-        } else
+        }
+        else
         {
             await PenawaranService.InsertData
                 (
                 dataPenawaran.IdPenawaranPembelian,
                 Item.IdJenisSupplier,
                 Item.IdSupplier,
+                dataPenawaran.Tanggal,
                 dataPenawaran.IdDetilPenawaranPembelian,
                 Item.IdSatuan,
                 Item.IdDivisiBarang,
@@ -97,15 +198,17 @@
                 Item.IdBarang,
                 dataPenawaran.Harga,
                 dataPenawaran.Jumlah,
-                dataPenawaran.Berat
+                dataPenawaran.DiskonDetil,
+                dataPenawaran.DiskonNominal,
+                dataPenawaran.Total
                 );
+            await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
             NavigationManager.NavigateTo("dataBarang");
         }
         return;
     }
-    async void HitungHarga()
+    void HitungHarga()
     {
-        totalharga = Item.Stok * dataPenawaran.Berat;
-        this.StateHasChanged();
+        //totalharga = Item.Stok * dataPenawaran.Berat;
     }
 }

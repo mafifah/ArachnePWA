@@ -3,6 +3,7 @@ syntax = "proto3";
 option csharp_namespace = "grpcArachne";
 import "google/protobuf/empty.proto";
 import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
 service PenawaranPembelian
 {
 	rpc InsertPenawaranPembelian(InsertDataRequset)returns(pesan);
@@ -22,7 +23,9 @@ message InsertDataRequset
 	int64 IdBarang=10;
 	double Harga=11;
 	double Jumlah=12;
-	double Berat = 13;
+	google.protobuf.StringValue DiskonDetil = 13;
+	double DiskonNominal = 14;
+	double Total = 15;
 }
 
 message T6Request

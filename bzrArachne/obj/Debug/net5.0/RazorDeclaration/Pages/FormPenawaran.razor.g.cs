@@ -13,106 +13,120 @@ namespace bzrArachne.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 1 "D:\Arachne\bzrArachne\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 2 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 3 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 4 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 5 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 6 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 7 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 8 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 9 "D:\Arachne\bzrArachne\_Imports.razor"
 using bzrArachne;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 10 "D:\Arachne\bzrArachne\_Imports.razor"
 using bzrArachne.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 11 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazor.AdminLte;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 12 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazored.Toast;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 13 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazored.Toast.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+#line 14 "D:\Arachne\bzrArachne\_Imports.razor"
+using CurrieTechnologies.Razor.SweetAlert2;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
 using bzrArachne.Service;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+#line 3 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
 using bzrArachne.Models;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+using Blazored.Typeahead;
 
 #line default
 #line hidden
@@ -126,13 +140,10 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-<<<<<<< HEAD
-#line 59 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 62 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
   
-=======
-#line 68 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
-       
->>>>>>> a6921499246878da31a49ba8199ec4feb8d5917a
+    private DataUser user = new DataUser();
+    long IdSatuan;
     public string ValidationMesssage { get; set; }
     int Jumlah { get; set; } = 0;
     protected DataBarang Item { get; set; }
@@ -140,10 +151,49 @@ using bzrArachne.Models;
     //DataBarang itemdipilih { get; set; }
     protected override async Task OnInitializedAsync()
     {
+        Item = DataService._barangDipilih;
+        user = DataService.User;
+        var Token = DataService.Token;
+        if (!String.IsNullOrEmpty(Token))
+        {
 
-        _daftarBarang = await DataService.GetDataBarang();
+            var dataBarang = DataService.GetDataBarangWithStream();
+            await foreach (var item in dataBarang)
+            {
+                _daftarBarang.Add(new DataBarang
+                {
+                    IdBarang = item.IdBarang,
+                    IdDivisiBarang = item.IdDivisiBarang,
+                    IdSubDivisiBarang = item.IdSubDivisiBarang,
+                    IdKategoriBarang = item.IdKategoriBarang,
+                    IdSubKategoriBarang = item.IdSubKategoriBarang,
+                    IdSupplier = item.IdSupplier,
+                    IdJenisSupplier = item.IdJenisSupplier,
+                    IdSatuan = item.IdSatuan,
+                    Nama = item.Nama,
+                    Satuan = item.Satuan,
+                    Stok = item.Stok,
+                    Minimum = item.Minimum,
+                    Maksimum = item.Maksimum,
+                });
+                this.StateHasChanged();
+            }
+        }
+
+        else
+        {
+            NavigationManager.NavigateTo("/");
+        }
+    }
+    private async Task<IEnumerable<DataBarang>> AutoSearch(string searchBarang)
+    {
+        return await Task.FromResult(_daftarBarang.Where(x => x.Nama.ToLower().Contains(searchBarang.ToLower())).ToList());
     }
 
+    void BarangClicked()
+    {
+        _daftarBarang.Clear();
+    }
     void BackToBarang()
     {
         DataService.SetNullBarangDipilih();
@@ -155,12 +205,6 @@ using bzrArachne.Models;
     {
 
     }
-
-    DataBarang itemdipilih = new DataBarang
-    {
-        IdSatuan = 122223
-    };
-
 
 
 #line default

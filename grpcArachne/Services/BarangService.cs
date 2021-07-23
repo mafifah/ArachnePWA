@@ -46,7 +46,7 @@ namespace grpcArachne
                      IdDivisiBarang = (long)T1SubDivisiBarang.IdDivisiBarang,
                      IdSubDivisiBarang = (long)T1SubDivisiBarang.IdSubDivisiBarang,
                      IdKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
-                     IdSubKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
+                     IdSubKategoriBarang = (long)T1SubKategoriBarang.IdSubKategoriBarang,
                      IdSupplier = (long)T1Supplier.IdSupplier,
                      IdCompany = T5CompanySatuan.IdCompany,
                      IdJenisSupplier = (long)T1Supplier.IdJenisSupplier,
@@ -55,7 +55,10 @@ namespace grpcArachne
                      Satuan = T3Satuan.Satuan,
                      Stok = (int)T5StokGudang.StokBaru,
                      Minimum = T5CompanySatuan.Minimum,
-                     Maksimum = T5CompanySatuan.Maksimum
+                     Maksimum = T5CompanySatuan.Maksimum,
+                     NamaSupplier = T1Supplier.Nama,
+                     AlamatSupplier = T1Supplier.Alamat
+
                  }).AsEnumerable();
                 foreach (var item in qryBarang)
                 {
@@ -87,7 +90,7 @@ namespace grpcArachne
                      IdDivisiBarang = (long)T1SubDivisiBarang.IdDivisiBarang,
                      IdSubDivisiBarang = (long)T1SubDivisiBarang.IdSubDivisiBarang,
                      IdKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
-                     IdSubKategoriBarang = (long)T1SubKategoriBarang.IdKategoriBarang,
+                     IdSubKategoriBarang = (long)T1SubKategoriBarang.IdSubKategoriBarang,
                      IdSupplier = (long)T1Supplier.IdSupplier,
                      IdCompany = T5CompanySatuan.IdCompany,
                      IdJenisSupplier = (long)T1Supplier.IdJenisSupplier,
@@ -96,7 +99,9 @@ namespace grpcArachne
                      Satuan = T3Satuan.Satuan,
                      Stok = (int)T5StokGudang.StokBaru,
                      Minimum = T5CompanySatuan.Minimum,
-                     Maksimum = T5CompanySatuan.Maksimum
+                     Maksimum = T5CompanySatuan.Maksimum,
+                     NamaSupplier = T1Supplier.Nama,
+                     AlamatSupplier = T1Supplier.Alamat
                  }).AsEnumerable();
                 foreach (var item in qryBarang)
                 {

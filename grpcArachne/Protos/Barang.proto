@@ -30,4 +30,8 @@ message Barang {
 	int64 Minimum = 12;
 	int64 Maksimum = 13;
 	string IdCompany = 14;
+	string NamaSupplier =15;
+	string AlamatSupplier=16;
+
+
 }

@@ -40,6 +40,7 @@ namespace grpcArachne.Services
                         IdPenawaranPembelian    = IdPenawaran,
                         IdJenisSupplier         = request.IdJenisSupplier,
                         IdSupplier              = request.IdSupplier,
+                        WaktuInsert             = DateTimeOffset.Now,
                     };
                     DbT7PenawaranPembelian t7PenawaranPembelian = new DbT7PenawaranPembelian
                     {
@@ -53,7 +54,10 @@ namespace grpcArachne.Services
                         IdBarang                    = request.IdBarang,
                         Harga                       =(Decimal) request.Harga,
                         Jumlah                      =(Decimal) request.Jumlah,
-                        Berat                       =(Decimal) request.Berat
+                        DiskonDetil                 =request.DiskonDetil,
+                        DiskonNominal               =(Decimal) request.DiskonNominal,
+                        Total                       =(Decimal) request.Total,
+
                     };
                     _db.T6PenawaranPembelianDbSet.AddRange(t6PenawaranPembelian);
                     _db.T7PenawaranPembelianDbSet.AddRange(t7PenawaranPembelian);

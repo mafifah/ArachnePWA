@@ -1,31 +1,34 @@
 ﻿@page "/formPenawaran"
 @using bzrArachne.Service
 @using bzrArachne.Models
+@using Blazored.Typeahead
 @inject DataService DataService
 @inject NavigationManager NavigationManager
 @inject NavigationManager NavigationManager
-<br/>
+<br />
+
 <div class="card card-dark ml-4 mr-4">
     <div class="card-header">
-        <h2 class="card-title">Penawaran Baru</h2>
+        <h2 class="card-title">Penawaran Baru</h2>  
     </div>
     <form>
         <div class="card-body">
             <div class="form-group row">
-                <label class="col-sm-2 col-form-label">Nama Barang</label>
+                <label class="col-sm-2 col-form-label">Barang</label>
                 <div class="col-sm-4">
-                    <select class="form-control">
-                        @foreach (var item in _daftarBarang)
-                        {
-                            <option  value="@item.IdBarang">@item.Nama</option>
-                        }
-                    </select>
-                </div>
-            </div>
+                    <BlazoredTypeahead SearchMethod="AutoSearch" @bind-Value="Item">
+                        <SelectedTemplate>
+                            @context.Nama
+                        </SelectedTemplate>
+                        <ResultTemplate>
+                            <b>@context.Nama</b>-@context.Satuan
+                        </ResultTemplate>
+                    </BlazoredTypeahead>
+                </div></div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Satuan</label>
                 <div class="col-sm-4">
-                    <input type="text" @bind="itemdipilih.IdSatuan" class="form-control">
+                    <input type="text" @bind="IdSatuan" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
@@ -46,7 +49,7 @@
                     <input type="number" placeholder="Harga" class="form-control" name="Harga" id="Harga">
                 </div>
             </div>
-        </div>  
+        </div>
         <!-- /.card-body -->
         <div class="card-footer">
             <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
@@ -57,6 +60,8 @@
 </div>
 @code
  {
+    private DataUser user = new DataUser();
+    long IdSatuan;
     public string ValidationMesssage { get; set; }
     int Jumlah { get; set; } = 0;
     protected DataBarang Item { get; set; }
@@ -64,10 +69,49 @@
     //DataBarang itemdipilih { get; set; }
     protected override async Task OnInitializedAsync()
     {
+        Item = DataService._barangDipilih;
+        user = DataService.User;
+        var Token = DataService.Token;
+        if (!String.IsNullOrEmpty(Token))
+        {
 
-        _daftarBarang = await DataService.GetDataBarang();
+            var dataBarang = DataService.GetDataBarangWithStream();
+            await foreach (var item in dataBarang)
+            {
+                _daftarBarang.Add(new DataBarang
+                {
+                    IdBarang = item.IdBarang,
+                    IdDivisiBarang = item.IdDivisiBarang,
+                    IdSubDivisiBarang = item.IdSubDivisiBarang,
+                    IdKategoriBarang = item.IdKategoriBarang,
+                    IdSubKategoriBarang = item.IdSubKategoriBarang,
+                    IdSupplier = item.IdSupplier,
+                    IdJenisSupplier = item.IdJenisSupplier,
+                    IdSatuan = item.IdSatuan,
+                    Nama = item.Nama,
+                    Satuan = item.Satuan,
+                    Stok = item.Stok,
+                    Minimum = item.Minimum,
+                    Maksimum = item.Maksimum,
+                });
+                this.StateHasChanged();
+            }
+        }
+
+        else
+        {
+            NavigationManager.NavigateTo("/");
+        }
+    }
+    private async Task<IEnumerable<DataBarang>> AutoSearch(string searchBarang)
+    {
+        return await Task.FromResult(_daftarBarang.Where(x => x.Nama.ToLower().Contains(searchBarang.ToLower())).ToList());
     }
 
+    void BarangClicked()
+    {
+        _daftarBarang.Clear();
+    }
     void BackToBarang()
     {
         DataService.SetNullBarangDipilih();
@@ -79,11 +123,5 @@
     {
 
     }
-
-    DataBarang itemdipilih = new DataBarang
-    {
-        IdSatuan = 122223
-    };
-
 
 }

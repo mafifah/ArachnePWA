@@ -13,105 +13,112 @@ namespace bzrArachne.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 1 "D:\Arachne\bzrArachne\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 2 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 3 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 4 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 5 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 6 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 7 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 8 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 9 "D:\Arachne\bzrArachne\_Imports.razor"
 using bzrArachne;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 10 "D:\Arachne\bzrArachne\_Imports.razor"
 using bzrArachne.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 11 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazor.AdminLte;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 12 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazored.Toast;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 13 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazored.Toast.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
+#line 14 "D:\Arachne\bzrArachne\_Imports.razor"
+using CurrieTechnologies.Razor.SweetAlert2;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
 using bzrArachne.Service;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
+#line 3 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
 using bzrArachne.Models;
 
 #line default
@@ -126,12 +133,9 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-<<<<<<< HEAD
-#line 61 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
-=======
-#line 62 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
->>>>>>> a6921499246878da31a49ba8199ec4feb8d5917a
+#line 159 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
+    List<DataBarang> ListDataBarang = new List<DataBarang>();
     public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
     int Jumlah { get; set; } = 0;
@@ -154,13 +158,15 @@ using bzrArachne.Models;
         if (totalStok > Item.Maksimum)
         {
             ValidationMesssage = "Jumlah barang tidak boleh lebih dari stok maksimum";
-        } else
+        }
+        else
         {
             await PenawaranService.InsertData
                 (
                 dataPenawaran.IdPenawaranPembelian,
                 Item.IdJenisSupplier,
                 Item.IdSupplier,
+                dataPenawaran.Tanggal,
                 dataPenawaran.IdDetilPenawaranPembelian,
                 Item.IdSatuan,
                 Item.IdDivisiBarang,
@@ -170,21 +176,24 @@ using bzrArachne.Models;
                 Item.IdBarang,
                 dataPenawaran.Harga,
                 dataPenawaran.Jumlah,
-                dataPenawaran.Berat
+                dataPenawaran.DiskonDetil,
+                dataPenawaran.DiskonNominal,
+                dataPenawaran.Total
                 );
+            await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
             NavigationManager.NavigateTo("dataBarang");
         }
         return;
     }
-    async void HitungHarga()
+    void HitungHarga()
     {
-        totalharga = Item.Stok * dataPenawaran.Berat;
-        this.StateHasChanged();
+        //totalharga = Item.Stok * dataPenawaran.Berat;
     }
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private SweetAlertService Swal { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private PenawaranService PenawaranService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private DataService DataService { get; set; }

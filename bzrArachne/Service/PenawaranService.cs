@@ -20,6 +20,7 @@ namespace bzrArachne.Service
                 long IdPenawaranPembelian,
                 long IdJenisSupplier, 
                 long IdSupplier,
+                DateTimeOffset Tanggal,
                 long IdDetilPenawaranPembelian,
                 long IdSatuan,
                 long IdDivisiBarang,
@@ -29,7 +30,9 @@ namespace bzrArachne.Service
                 long IdBarang,
                 double Harga,
                 double Jumlah,
-                double Berat
+                string DiskonDetil,
+                double DiskonNominal,
+                double Total
             )
         {
             
@@ -47,7 +50,9 @@ namespace bzrArachne.Service
                 IdBarang = IdBarang,
                 Harga = Harga,    
                 Jumlah = Jumlah,
-                Berat = Berat
+                DiskonDetil = DiskonDetil,
+                DiskonNominal = DiskonNominal,
+                Total = Total,
             };
             var reply = await client.InsertPenawaranPembelianAsync(request);
 

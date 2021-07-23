@@ -1,6 +1,7 @@
 using Blazor.AdminLte;
 using Blazored.Toast;
 using bzrArachne.Service;
+using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -26,6 +27,7 @@ namespace bzrArachne
             services.AddServerSideBlazor();
             services.AddAdminLte();
             services.AddBlazoredToast();
+            services.AddSweetAlert2();
             services.AddSingleton<DataService>();
             services.AddSingleton<PenawaranService>();
         }

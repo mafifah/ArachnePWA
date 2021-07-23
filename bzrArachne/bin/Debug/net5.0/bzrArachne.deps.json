@@ -34,8 +34,10 @@
       "bzrArachne/1.0.0": {
         "dependencies": {
           "Blazored.Toast": "3.1.2",
+          "Blazored.Typeahead": "4.6.0",
           "Blazorized.AdminLte": "0.1.8",
           "Blazorized.AdminLte.Content": "3.0.7",
+          "CurrieTechnologies.Razor.SweetAlert2": "5.0.1",
           "Google.Protobuf": "3.14.0",
           "Grpc.AspNetCore": "2.32.0",
           "Grpc.Net.Client": "2.33.1",
@@ -370,6 +372,21 @@
           "lib/netstandard2.0/Blazored.Toast.dll": {}
         }
       },
+      "Blazored.Typeahead/4.6.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.2",
+          "Microsoft.AspNetCore.Components.Web": "5.0.2"
+        },
+        "runtime": {
+          "lib/netstandard2.1/Blazored.Typeahead.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.1/Blazored.Typeahead.dll": {}
+        }
+      },
       "Blazorized.AdminLte/0.1.8": {
         "dependencies": {
           "Blazor-State": "3.4.4",
@@ -396,6 +413,21 @@
         },
         "compile": {
           "lib/net5.0/Blazor.AdminLte.Content.dll": {}
+        }
+      },
+      "CurrieTechnologies.Razor.SweetAlert2/5.0.1": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.2",
+          "Microsoft.AspNetCore.Components.Web": "5.0.2"
+        },
+        "runtime": {
+          "lib/net5.0/CurrieTechnologies.Razor.SweetAlert2.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/CurrieTechnologies.Razor.SweetAlert2.dll": {}
         }
       },
       "Google.Protobuf/3.14.0": {
@@ -2455,6 +2487,13 @@
       "path": "blazored.toast/3.1.2",
       "hashPath": "blazored.toast.3.1.2.nupkg.sha512"
     },
+    "Blazored.Typeahead/4.6.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-eYViTbA5DmsaUmPO3tUzDxahido811vU0/mNtGfIkA4SqTxN2VAwRJgCmoVxFiHwVWtPjVcNGIpUI44lTe24bg==",
+      "path": "blazored.typeahead/4.6.0",
+      "hashPath": "blazored.typeahead.4.6.0.nupkg.sha512"
+    },
     "Blazorized.AdminLte/0.1.8": {
       "type": "package",
       "serviceable": true,
@@ -2468,6 +2507,13 @@
       "sha512": "sha512-cIfxqBOgfecRIfqo4Nv54YYfLLEASpZpVhiYA/EwoDLP8hiZ4p7pM79Yjf88qsiGJY5sb0bJ4XgGS52hUtcMrQ==",
       "path": "blazorized.adminlte.content/3.0.7",
       "hashPath": "blazorized.adminlte.content.3.0.7.nupkg.sha512"
+    },
+    "CurrieTechnologies.Razor.SweetAlert2/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-4EewjE2Rs7ZrQGMKM7zJvy5LoygghuTteXJ/m78WtcRp+PSL54jA2muRn/hNF6faRKXVURRrkJJFTQXw/sntzw==",
+      "path": "currietechnologies.razor.sweetalert2/5.0.1",
+      "hashPath": "currietechnologies.razor.sweetalert2.5.0.1.nupkg.sha512"
     },
     "Google.Protobuf/3.14.0": {
       "type": "package",
