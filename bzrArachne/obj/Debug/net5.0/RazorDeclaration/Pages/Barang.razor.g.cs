@@ -194,6 +194,7 @@ using bzrArachne.Models;
     void MoveToPenawaran(DataBarang Item)
     {
         DataService.SetBarangDipilih(Item);
+        
         NavigationManager.NavigateTo("penawaranBaru");
     }
 

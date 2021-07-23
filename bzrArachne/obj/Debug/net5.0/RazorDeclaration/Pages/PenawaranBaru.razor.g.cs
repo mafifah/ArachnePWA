@@ -133,17 +133,76 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 159 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 187 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
+    //MODAL
+    bool showModal = false;
+    void ModalShow() => showModal = true;
+    void ModalCancel() => showModal = false;
+    void ModalOk()
+    {
+        Console.WriteLine("Modal ok");
+        showModal = false;
+    }
+    //MODAL
+    private DataUser user = new DataUser();
     List<DataBarang> ListDataBarang = new List<DataBarang>();
     public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
+    private DataBarang ItemBaru { get; set; }
     int Jumlah { get; set; } = 0;
     private double totalharga;
     private DataPenawaran dataPenawaran = new DataPenawaran();
+    private List<DataBarang> _daftarBarang = new List<DataBarang>();
+    void TambahBarangKeList(DataBarang ItemBaru)
+    {
+        DataService.SetBarangBaruDipilih(ItemBaru);
+        ListDataBarang.Add(ItemBaru);
+        ModalCancel();
+    }
+
+    void HapusBarangDariList(DataBarang Item)
+    {
+        DataService.SetNullBarangDipilih();
+        DataService.SetBarangDipilih(Item);
+        ListDataBarang.Remove(Item);
+    }
     protected override async Task OnInitializedAsync()
     {
         Item = DataService._barangDipilih;
+        ListDataBarang.Add(Item);
+        user = DataService.User;
+        var Token = DataService.Token;
+        if (!String.IsNullOrEmpty(Token))
+        {
+
+            var dataBarang = DataService.GetDataBarangWithStream();
+            await foreach (var item in dataBarang)
+            {
+                _daftarBarang.Add(new DataBarang
+                {
+                    IdBarang = item.IdBarang,
+                    IdDivisiBarang = item.IdDivisiBarang,
+                    IdSubDivisiBarang = item.IdSubDivisiBarang,
+                    IdKategoriBarang = item.IdKategoriBarang,
+                    IdSubKategoriBarang = item.IdSubKategoriBarang,
+                    IdSupplier = item.IdSupplier,
+                    IdJenisSupplier = item.IdJenisSupplier,
+                    IdSatuan = item.IdSatuan,
+                    Nama = item.Nama,
+                    Satuan = item.Satuan,
+                    Stok = item.Stok,
+                    Minimum = item.Minimum,
+                    Maksimum = item.Maksimum,
+                    NamaSupplier = item.NamaSupplier
+                });
+                this.StateHasChanged();
+            }
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/");
+        }
     }
 
     void BackToBarang()
@@ -154,36 +213,9 @@ using bzrArachne.Models;
 
     async void SendDataPenawaran()
     {
-        var totalStok = Item.Stok + Jumlah;
-        if (totalStok > Item.Maksimum)
-        {
-            ValidationMesssage = "Jumlah barang tidak boleh lebih dari stok maksimum";
-        }
-        else
-        {
-            await PenawaranService.InsertData
-                (
-                dataPenawaran.IdPenawaranPembelian,
-                Item.IdJenisSupplier,
-                Item.IdSupplier,
-                dataPenawaran.Tanggal,
-                dataPenawaran.IdDetilPenawaranPembelian,
-                Item.IdSatuan,
-                Item.IdDivisiBarang,
-                Item.IdSubDivisiBarang,
-                Item.IdKategoriBarang,
-                Item.IdSubKategoriBarang,
-                Item.IdBarang,
-                dataPenawaran.Harga,
-                dataPenawaran.Jumlah,
-                dataPenawaran.DiskonDetil,
-                dataPenawaran.DiskonNominal,
-                dataPenawaran.Total
-                );
-            await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
-            NavigationManager.NavigateTo("dataBarang");
-        }
-        return;
+        List<DataBarang> ListDataBarang;
+        await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
+        NavigationManager.NavigateTo("dataBarang");
     }
     void HitungHarga()
     {

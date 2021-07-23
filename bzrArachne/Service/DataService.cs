@@ -17,6 +17,7 @@ namespace bzrArachne.Service
         public DataBarang _barangDipilih { get; set; }
         public void SetNullBarangDipilih() => _barangDipilih = null;
         public void SetBarangDipilih(DataBarang Item) => _barangDipilih = Item;
+        public void SetBarangBaruDipilih(DataBarang ItemBaru) => _barangDipilih = ItemBaru;
         public async Task<DataUser> GetLogin(DataUser users)
         {
             var pass = users.UserPassword;
