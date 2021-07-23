@@ -47,39 +47,6 @@ namespace bzrArachne.Service
             Token = null;
             _dataBarang.Clear();
         }
-        public async Task<List<DataBarang>> GetDataBarang()
-        {
-            try
-            {
-                var channel = GrpcChannel.ForAddress("https://localhost:5001");
-                var client = new T1Barang.T1BarangClient(channel);
-                Metadata data = new Metadata
-                {
-                    { "Authorization", $"Bearer {Token}" }
-                };
-                var clientRequested = new ListBarangRequest { IdSupplier = User.IdSupplier };
-                var reply = await client.GetDataBarangAsync(clientRequested, data);
-                _dataBarang.Clear();
-                foreach (var item in reply.Barang)
-                {
-                    _dataBarang.Add(new DataBarang
-                    {
-                        IdBarang = item.IdBarang,
-                        Nama = item.Nama,
-                        Satuan = item.Satuan,
-                        Stok = item.Stok,
-                        Minimum = item.Minimum,
-                        Maksimum = item.Maksimum,
-                    });
-                }
-
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-            }
-            return _dataBarang;
-        }
         public IAsyncEnumerable<Barang> GetDataBarangWithStream()
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
