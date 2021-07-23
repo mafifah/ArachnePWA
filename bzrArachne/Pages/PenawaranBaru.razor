@@ -48,7 +48,6 @@
                     <input type="number" min="1" @onclick="HitungHarga"  @bind="dataPenawaran.Harga" class="form-control">
                 </div>
             </div>
-            <p>idsatuan : @Item.IdSatuan</p>
         </div>
         <!-- /.card-body -->
         <div class="card-footer">
@@ -90,7 +89,7 @@
                 Item.IdJenisSupplier,
                 Item.IdSupplier,
                 dataPenawaran.IdDetilPenawaranPembelian,
-                380001,
+                Item.IdSatuan,
                 Item.IdDivisiBarang,
                 Item.IdSubDivisiBarang,
                 Item.IdKategoriBarang,

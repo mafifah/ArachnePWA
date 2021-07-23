@@ -126,7 +126,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 62 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 61 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
     public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
@@ -158,7 +158,7 @@ using bzrArachne.Models;
                 Item.IdJenisSupplier,
                 Item.IdSupplier,
                 dataPenawaran.IdDetilPenawaranPembelian,
-                380001,
+                Item.IdSatuan,
                 Item.IdDivisiBarang,
                 Item.IdSubDivisiBarang,
                 Item.IdKategoriBarang,

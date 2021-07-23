@@ -126,17 +126,16 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 63 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
-       
+#line 59 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+  
     public string ValidationMesssage { get; set; }
     int Jumlah { get; set; } = 0;
     protected DataBarang Item { get; set; }
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
-
+    DataBarang itemdipilih { get; set; }
     protected override async Task OnInitializedAsync()
     {
 
-        Item = DataService._barangDipilih;
         _daftarBarang = await DataService.GetDataBarang();
     }
 
@@ -148,9 +147,17 @@ using bzrArachne.Models;
     }
 
     void SendDataPenawaran()
-        {
+    {
 
-        }
+    }
+    void datadiplih()
+    {
+        itemdipilih = new DataBarang
+        {
+            IdSatuan = 122223
+        };
+    }
+
 
 #line default
 #line hidden

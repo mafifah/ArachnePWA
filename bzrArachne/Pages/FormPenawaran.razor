@@ -17,7 +17,7 @@
                     <select class="form-control">
                         @foreach (var item in _daftarBarang)
                         {
-                            <option value="@item.IdBarang">@item.Nama</option>
+                            <option  value="@item.IdBarang">@item.Nama</option>
                         }
                     </select>
                 </div>
@@ -25,12 +25,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Satuan</label>
                 <div class="col-sm-4">
-                    <select class="form-control">
-                        @foreach (var item in _daftarBarang)
-                        {
-                            <option value="@item.Satuan">@item.Satuan</option>
-                        }
-                    </select>
+                    <input type="text" @bind="itemdipilih.IdSatuan" class="form-control">
                 </div>
             </div>
             <div class="form-group row">
@@ -54,22 +49,22 @@
         </div>  
         <!-- /.card-body -->
         <div class="card-footer">
-            <button type="button" @onclick="(()=>BackToBarang())" class="btn btn-default">Batal</button>
-            <button type="submit" @onclick="(()=>SendDataPenawaran())" class="btn btn-primary">Submit</button>
+            <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
+            <button type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
 
         </div>
     </form>
 </div>
-@code {
+@code
+ {
     public string ValidationMesssage { get; set; }
     int Jumlah { get; set; } = 0;
     protected DataBarang Item { get; set; }
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
-
+    //DataBarang itemdipilih { get; set; }
     protected override async Task OnInitializedAsync()
     {
 
-        Item = DataService._barangDipilih;
         _daftarBarang = await DataService.GetDataBarang();
     }
 
@@ -81,7 +76,14 @@
     }
 
     void SendDataPenawaran()
-        {
+    {
 
-        }
+    }
+
+    DataBarang itemdipilih = new DataBarang
+    {
+        IdSatuan = 122223
+    };
+
+
 }
