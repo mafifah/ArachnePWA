@@ -1,4 +1,4 @@
 obj\Debug\net5.0/PenawaranPembelian.cs \
-obj\Debug\net5.0/PenawaranPembelianGrpc.cs: C:/Users/devad/.nuget/packages/grpc.tools/2.33.1/build/native/include/google/protobuf/empty.proto\
- C:/Users/devad/.nuget/packages/grpc.tools/2.33.1/build/native/include/google/protobuf/wrappers.proto\
+obj\Debug\net5.0/PenawaranPembelianGrpc.cs: C:/Users/mafif/.nuget/packages/grpc.tools/2.33.1/build/native/include/google/protobuf/empty.proto\
+ C:/Users/mafif/.nuget/packages/grpc.tools/2.33.1/build/native/include/google/protobuf/wrappers.proto\
  ../grpcArachne/Protos/PenawaranPembelian.proto
