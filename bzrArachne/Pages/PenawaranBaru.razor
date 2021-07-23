@@ -45,7 +45,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label" for="Berat">Harga</label>
                 <div class="col-sm-4">
-                    <input type="number" min="1"  @bind="dataPenawaran.Harga" class="form-control">
+                    <input type="number" min="1" @onclick="HitungHarga"  @bind="dataPenawaran.Harga" class="form-control">
                 </div>
             </div>
             <p>idsatuan : @Item.IdSatuan</p>

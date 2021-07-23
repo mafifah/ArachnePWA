@@ -126,7 +126,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 68 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 63 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
        
     public string ValidationMesssage { get; set; }
     int Jumlah { get; set; } = 0;
@@ -135,7 +135,7 @@ using bzrArachne.Models;
 
     protected override async Task OnInitializedAsync()
     {
-        
+
         Item = DataService._barangDipilih;
         _daftarBarang = await DataService.GetDataBarang();
     }
@@ -146,6 +146,11 @@ using bzrArachne.Models;
         Item = null;
         NavigationManager.NavigateTo("dataBarang");
     }
+
+    void SendDataPenawaran()
+        {
+
+        }
 
 #line default
 #line hidden
