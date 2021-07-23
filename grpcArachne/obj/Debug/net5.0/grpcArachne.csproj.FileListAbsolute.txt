@@ -64,6 +64,7 @@ C:\Users\mafif\source\repos\ArachneGWR\grpcArachne\obj\Debug\net5.0\grpcArachne.
 C:\Users\mafif\source\repos\ArachneGWR\grpcArachne\obj\Debug\net5.0\ref\grpcArachne.dll
 C:\Users\mafif\source\repos\ArachneGWR\grpcArachne\obj\Debug\net5.0\grpcArachne.pdb
 C:\Users\mafif\source\repos\ArachneGWR\grpcArachne\obj\Debug\net5.0\grpcArachne.genruntimeconfig.cache
+<<<<<<< HEAD
 D:\Arachne\grpcArachne\bin\Debug\net5.0\appsettings.Development.json
 D:\Arachne\grpcArachne\bin\Debug\net5.0\appsettings.json
 D:\Arachne\grpcArachne\bin\Debug\net5.0\grpcArachne.exe
@@ -130,3 +131,5 @@ D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.dll
 D:\Arachne\grpcArachne\obj\Debug\net5.0\ref\grpcArachne.dll
 D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.pdb
 D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.genruntimeconfig.cache
+=======
+>>>>>>> a6921499246878da31a49ba8199ec4feb8d5917a
