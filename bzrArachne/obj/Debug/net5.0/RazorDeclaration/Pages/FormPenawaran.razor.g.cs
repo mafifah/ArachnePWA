@@ -132,7 +132,7 @@ using bzrArachne.Models;
     int Jumlah { get; set; } = 0;
     protected DataBarang Item { get; set; }
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
-    DataBarang itemdipilih { get; set; }
+    //DataBarang itemdipilih { get; set; }
     protected override async Task OnInitializedAsync()
     {
 
@@ -150,13 +150,12 @@ using bzrArachne.Models;
     {
 
     }
-    void datadiplih()
+
+    DataBarang itemdipilih = new DataBarang
     {
-        itemdipilih = new DataBarang
-        {
-            IdSatuan = 122223
-        };
-    }
+        IdSatuan = 122223
+    };
+
 
 
 #line default
