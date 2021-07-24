@@ -7,6 +7,7 @@ import "google/protobuf/timestamp.proto";
 service PenawaranPembelian
 {
 	rpc InsertPenawaranPembelian(InsertDataRequset)returns(pesan);
+	rpc InsertPenawaranPembelianRepeated(InsertDataRepeated)returns(pesan);
 }
 
 message InsertDataRequset
@@ -28,10 +29,9 @@ message InsertDataRequset
 	double Total = 15;
 }
 
-message T6Request
+message InsertDataRepeated
 {
-	int64 IdPenawaranPembelian=1;
-	int64 IdJenisSupplier=2;
+	repeated InsertDataRequset InsertDataRequsetRepeated=1;
 }
 
 message pesan

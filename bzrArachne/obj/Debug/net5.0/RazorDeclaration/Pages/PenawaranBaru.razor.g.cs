@@ -133,7 +133,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 187 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 185 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
     //MODAL
     bool showModal = false;
@@ -211,9 +211,9 @@ using bzrArachne.Models;
         NavigationManager.NavigateTo("dataBarang");
     }
 
-    async void SendDataPenawaran()
+    async void SendDataPenawaran(List<DataBarang> ListDataBarang)
     {
-        List<DataBarang> ListDataBarang;
+        ListDataBarang = ListDataBarang;
         await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
         NavigationManager.NavigateTo("dataBarang");
     }

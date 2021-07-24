@@ -35,16 +35,18 @@ namespace grpcArachne {
             "U3ViS2F0ZWdvcmlCYXJhbmcYCSABKAMSEAoISWRCYXJhbmcYCiABKAMSDQoF",
             "SGFyZ2EYCyABKAESDgoGSnVtbGFoGAwgASgBEjEKC0Rpc2tvbkRldGlsGA0g",
             "ASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEhUKDURpc2tvbk5v",
-            "bWluYWwYDiABKAESDQoFVG90YWwYDyABKAEiQgoJVDZSZXF1ZXN0EhwKFElk",
-            "UGVuYXdhcmFuUGVtYmVsaWFuGAEgASgDEhcKD0lkSmVuaXNTdXBwbGllchgC",
-            "IAEoAyIWCgVwZXNhbhINCgVwZXNhbhgBIAEoCTJMChJQZW5hd2FyYW5QZW1i",
-            "ZWxpYW4SNgoYSW5zZXJ0UGVuYXdhcmFuUGVtYmVsaWFuEhIuSW5zZXJ0RGF0",
-            "YVJlcXVzZXQaBi5wZXNhbkIOqgILZ3JwY0FyYWNobmViBnByb3RvMw=="));
+            "bWluYWwYDiABKAESDQoFVG90YWwYDyABKAEiSwoSSW5zZXJ0RGF0YVJlcGVh",
+            "dGVkEjUKGUluc2VydERhdGFSZXF1c2V0UmVwZWF0ZWQYASADKAsyEi5JbnNl",
+            "cnREYXRhUmVxdXNldCIWCgVwZXNhbhINCgVwZXNhbhgBIAEoCTKNAQoSUGVu",
+            "YXdhcmFuUGVtYmVsaWFuEjYKGEluc2VydFBlbmF3YXJhblBlbWJlbGlhbhIS",
+            "Lkluc2VydERhdGFSZXF1c2V0GgYucGVzYW4SPwogSW5zZXJ0UGVuYXdhcmFu",
+            "UGVtYmVsaWFuUmVwZWF0ZWQSEy5JbnNlcnREYXRhUmVwZWF0ZWQaBi5wZXNh",
+            "bkIOqgILZ3JwY0FyYWNobmViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataRequset), global::grpcArachne.InsertDataRequset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "IdBarang", "Harga", "Jumlah", "DiskonDetil", "DiskonNominal", "Total" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T6Request), global::grpcArachne.T6Request.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataRepeated), global::grpcArachne.InsertDataRepeated.Parser, new[]{ "InsertDataRequsetRepeated" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.pesan), global::grpcArachne.pesan.Parser, new[]{ "Pesan" }, null, null, null, null)
           }));
     }
@@ -579,11 +581,11 @@ namespace grpcArachne {
 
   }
 
-  public sealed partial class T6Request : pb::IMessage<T6Request> {
-    private static readonly pb::MessageParser<T6Request> _parser = new pb::MessageParser<T6Request>(() => new T6Request());
+  public sealed partial class InsertDataRepeated : pb::IMessage<InsertDataRepeated> {
+    private static readonly pb::MessageParser<InsertDataRepeated> _parser = new pb::MessageParser<InsertDataRepeated>(() => new InsertDataRepeated());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<T6Request> Parser { get { return _parser; } }
+    public static pb::MessageParser<InsertDataRepeated> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -596,69 +598,54 @@ namespace grpcArachne {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public T6Request() {
+    public InsertDataRepeated() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public T6Request(T6Request other) : this() {
-      idPenawaranPembelian_ = other.idPenawaranPembelian_;
-      idJenisSupplier_ = other.idJenisSupplier_;
+    public InsertDataRepeated(InsertDataRepeated other) : this() {
+      insertDataRequsetRepeated_ = other.insertDataRequsetRepeated_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public T6Request Clone() {
-      return new T6Request(this);
+    public InsertDataRepeated Clone() {
+      return new InsertDataRepeated(this);
     }
 
-    /// <summary>Field number for the "IdPenawaranPembelian" field.</summary>
-    public const int IdPenawaranPembelianFieldNumber = 1;
-    private long idPenawaranPembelian_;
+    /// <summary>Field number for the "InsertDataRequsetRepeated" field.</summary>
+    public const int InsertDataRequsetRepeatedFieldNumber = 1;
+    private static readonly pb::FieldCodec<global::grpcArachne.InsertDataRequset> _repeated_insertDataRequsetRepeated_codec
+        = pb::FieldCodec.ForMessage(10, global::grpcArachne.InsertDataRequset.Parser);
+    private readonly pbc::RepeatedField<global::grpcArachne.InsertDataRequset> insertDataRequsetRepeated_ = new pbc::RepeatedField<global::grpcArachne.InsertDataRequset>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdPenawaranPembelian {
-      get { return idPenawaranPembelian_; }
-      set {
-        idPenawaranPembelian_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "IdJenisSupplier" field.</summary>
-    public const int IdJenisSupplierFieldNumber = 2;
-    private long idJenisSupplier_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdJenisSupplier {
-      get { return idJenisSupplier_; }
-      set {
-        idJenisSupplier_ = value;
-      }
+    public pbc::RepeatedField<global::grpcArachne.InsertDataRequset> InsertDataRequsetRepeated {
+      get { return insertDataRequsetRepeated_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as T6Request);
+      return Equals(other as InsertDataRepeated);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(T6Request other) {
+    public bool Equals(InsertDataRepeated other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (IdPenawaranPembelian != other.IdPenawaranPembelian) return false;
-      if (IdJenisSupplier != other.IdJenisSupplier) return false;
+      if(!insertDataRequsetRepeated_.Equals(other.insertDataRequsetRepeated_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (IdPenawaranPembelian != 0L) hash ^= IdPenawaranPembelian.GetHashCode();
-      if (IdJenisSupplier != 0L) hash ^= IdJenisSupplier.GetHashCode();
+      hash ^= insertDataRequsetRepeated_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -672,14 +659,7 @@ namespace grpcArachne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (IdPenawaranPembelian != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(IdPenawaranPembelian);
-      }
-      if (IdJenisSupplier != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(IdJenisSupplier);
-      }
+      insertDataRequsetRepeated_.WriteTo(output, _repeated_insertDataRequsetRepeated_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -688,12 +668,7 @@ namespace grpcArachne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (IdPenawaranPembelian != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdPenawaranPembelian);
-      }
-      if (IdJenisSupplier != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdJenisSupplier);
-      }
+      size += insertDataRequsetRepeated_.CalculateSize(_repeated_insertDataRequsetRepeated_codec);
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -701,16 +676,11 @@ namespace grpcArachne {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(T6Request other) {
+    public void MergeFrom(InsertDataRepeated other) {
       if (other == null) {
         return;
       }
-      if (other.IdPenawaranPembelian != 0L) {
-        IdPenawaranPembelian = other.IdPenawaranPembelian;
-      }
-      if (other.IdJenisSupplier != 0L) {
-        IdJenisSupplier = other.IdJenisSupplier;
-      }
+      insertDataRequsetRepeated_.Add(other.insertDataRequsetRepeated_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -722,12 +692,8 @@ namespace grpcArachne {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            IdPenawaranPembelian = input.ReadInt64();
-            break;
-          }
-          case 16: {
-            IdJenisSupplier = input.ReadInt64();
+          case 10: {
+            insertDataRequsetRepeated_.AddEntriesFrom(input, _repeated_insertDataRequsetRepeated_codec);
             break;
           }
         }

@@ -10,6 +10,15 @@ namespace bzrArachne.Service
 {
     public class PenawaranService
     {
+        List<DataPenawaran> listBarangs = new List<DataPenawaran>();
+
+        DataPenawaran dataPenawaran = new DataPenawaran();
+
+        InsertDataRepeated insertDataRepeatedResponse = new InsertDataRepeated
+        {
+           // InsertDataRequsetRepeated = new Google.Protobuf.Collections.RepeatedField<InsertDataRequset> { }
+        };
+        
         public PenawaranService()
         {
 
@@ -56,6 +65,15 @@ namespace bzrArachne.Service
             };
             var reply = await client.InsertPenawaranPembelianAsync(request);
 
+            return true;
+        }
+
+        public async Task<bool> InsertDataRepeated(List<DataPenawaran> listBarangs)
+        {
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new PenawaranPembelian.PenawaranPembelianClient(channel);
+            //var request = new InsertDataRepeated { InsertDataRequsetRepeated=listBarangs};
+           // var reply = await client.InsertPenawaranPembelianRepeatedAsync(request);
             return true;
         }
     }

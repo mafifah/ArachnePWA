@@ -14,12 +14,20 @@ namespace grpcArachne {
 
     static readonly grpc::Marshaller<global::grpcArachne.InsertDataRequset> __Marshaller_InsertDataRequset = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.InsertDataRequset.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::grpcArachne.pesan> __Marshaller_pesan = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.pesan.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::grpcArachne.InsertDataRepeated> __Marshaller_InsertDataRepeated = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.InsertDataRepeated.Parser.ParseFrom);
 
     static readonly grpc::Method<global::grpcArachne.InsertDataRequset, global::grpcArachne.pesan> __Method_InsertPenawaranPembelian = new grpc::Method<global::grpcArachne.InsertDataRequset, global::grpcArachne.pesan>(
         grpc::MethodType.Unary,
         __ServiceName,
         "InsertPenawaranPembelian",
         __Marshaller_InsertDataRequset,
+        __Marshaller_pesan);
+
+    static readonly grpc::Method<global::grpcArachne.InsertDataRepeated, global::grpcArachne.pesan> __Method_InsertPenawaranPembelianRepeated = new grpc::Method<global::grpcArachne.InsertDataRepeated, global::grpcArachne.pesan>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "InsertPenawaranPembelianRepeated",
+        __Marshaller_InsertDataRepeated,
         __Marshaller_pesan);
 
     /// <summary>Service descriptor</summary>
@@ -37,6 +45,11 @@ namespace grpcArachne {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
+      public virtual global::System.Threading.Tasks.Task<global::grpcArachne.pesan> InsertPenawaranPembelianRepeated(global::grpcArachne.InsertDataRepeated request, grpc::ServerCallContext context)
+      {
+        throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
+      }
+
     }
 
     /// <summary>Creates service definition that can be registered with a server</summary>
@@ -44,7 +57,8 @@ namespace grpcArachne {
     public static grpc::ServerServiceDefinition BindService(PenawaranPembelianBase serviceImpl)
     {
       return grpc::ServerServiceDefinition.CreateBuilder()
-          .AddMethod(__Method_InsertPenawaranPembelian, serviceImpl.InsertPenawaranPembelian).Build();
+          .AddMethod(__Method_InsertPenawaranPembelian, serviceImpl.InsertPenawaranPembelian)
+          .AddMethod(__Method_InsertPenawaranPembelianRepeated, serviceImpl.InsertPenawaranPembelianRepeated).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -54,6 +68,7 @@ namespace grpcArachne {
     public static void BindService(grpc::ServiceBinderBase serviceBinder, PenawaranPembelianBase serviceImpl)
     {
       serviceBinder.AddMethod(__Method_InsertPenawaranPembelian, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::grpcArachne.InsertDataRequset, global::grpcArachne.pesan>(serviceImpl.InsertPenawaranPembelian));
+      serviceBinder.AddMethod(__Method_InsertPenawaranPembelianRepeated, serviceImpl == null ? null : new grpc::UnaryServerMethod<global::grpcArachne.InsertDataRepeated, global::grpcArachne.pesan>(serviceImpl.InsertPenawaranPembelianRepeated));
     }
 
   }

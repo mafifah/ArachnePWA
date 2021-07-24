@@ -19,17 +19,18 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Supplier</label>
                 <div class="col-sm-4">
-                    <input type="text" @bind="Item.NamaSupplier" class="form-control">
+                    <input type="text"  disabled @bind="Item.NamaSupplier" class="form-control">
                 </div>
                 <label class="col-sm-1 col-form-label">Tanggal</label>
                 <div class="col-sm-4">
-                    <input type="date" @bind="dataPenawaran.Tanggal" disabled class="form-control">
+                    <input @bind="dataPenawaran.Tanggal" disabled class="form-control">
                 </div>
+                <div>@DateTimeOffset.UtcNow.LocalDateTime</div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-4">
-                    <textarea type="text" @bind="Item.AlamatSupplier" class="form-control"></textarea>
+                    <textarea type="text" disabled @bind="Item.AlamatSupplier" class="form-control"></textarea>
                 </div>
             </div>
         </div>
@@ -63,12 +64,12 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="text" min="1" @bind="data.Satuan" class="form-control">
+                                    <input type="text" disabled min="1" @bind="data.Satuan" class="form-control">
                                 </div>
                             </td>
                             <td>
                                 <div>
-                                    <input type="text" min="1" @bind="data.Nama" class="form-control">
+                                    <input type="text" disabled min="1" @bind="data.Nama" class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -105,9 +106,6 @@
                         </tr>
                     </tfoot>
                 </table>
-                <div class="col-sm-4" style="text-align: left; font-size: 10px; color: red; margin-left: 150px;">
-                    <span style="margin-top:0px;">@ValidationMesssage</span>
-                </div>
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Catatan Penawaran</label>
                 </div>
@@ -120,7 +118,7 @@
         </div><!-- /.card-body -->
         <div class="card-footer">
             <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
-            <button type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
+            <button type="submit" @onclick="(() => SendDataPenawaran(ListDataBarang))" class="btn btn-primary">Submit</button>
         </div>
     </form>
 
@@ -261,9 +259,9 @@
         NavigationManager.NavigateTo("dataBarang");
     }
 
-    async void SendDataPenawaran()
+    async void SendDataPenawaran(List<DataBarang> ListDataBarang)
     {
-        List<DataBarang> ListDataBarang;
+        ListDataBarang = ListDataBarang;
         await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
         NavigationManager.NavigateTo("dataBarang");
     }
