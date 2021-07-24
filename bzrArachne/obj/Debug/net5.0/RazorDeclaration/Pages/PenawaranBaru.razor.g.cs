@@ -133,7 +133,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 185 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
+#line 182 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
        
     //MODAL
     bool showModal = false;
@@ -176,24 +176,27 @@ using bzrArachne.Models;
             var dataBarang = DataService.GetDataBarangWithGroupBy();
             await foreach (var item in dataBarang)
             {
-                _daftarBarang.Add(new DataBarang
+                if(item.Stok <= item.Minimum)
                 {
-                    IdBarang = item.IdBarang,
-                    IdDivisiBarang = item.IdDivisiBarang,
-                    IdSubDivisiBarang = item.IdSubDivisiBarang,
-                    IdKategoriBarang = item.IdKategoriBarang,
-                    IdSubKategoriBarang = item.IdSubKategoriBarang,
-                    IdSupplier = item.IdSupplier,
-                    IdJenisSupplier = item.IdJenisSupplier,
-                    IdSatuan = item.IdSatuan,
-                    Nama = item.Nama,
-                    Satuan = item.Satuan,
-                    Stok = item.Stok,
-                    Minimum = item.Minimum,
-                    Maksimum = item.Maksimum,
-                    NamaSupplier = item.NamaSupplier
-                });
-                this.StateHasChanged();
+                    _daftarBarang.Add(new DataBarang
+                    {
+                        IdBarang = item.IdBarang,
+                        IdDivisiBarang = item.IdDivisiBarang,
+                        IdSubDivisiBarang = item.IdSubDivisiBarang,
+                        IdKategoriBarang = item.IdKategoriBarang,
+                        IdSubKategoriBarang = item.IdSubKategoriBarang,
+                        IdSupplier = item.IdSupplier,
+                        IdJenisSupplier = item.IdJenisSupplier,
+                        IdSatuan = item.IdSatuan,
+                        Nama = item.Nama,
+                        Satuan = item.Satuan,
+                        Stok = item.Stok,
+                        Minimum = item.Minimum,
+                        Maksimum = item.Maksimum,
+                        NamaSupplier = item.NamaSupplier
+                    });
+                    this.StateHasChanged();
+                }
             }
         }
         else

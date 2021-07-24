@@ -157,7 +157,7 @@ using Blazored.Typeahead;
         if (!String.IsNullOrEmpty(Token))
         {
 
-            var dataBarang = DataService.GetDataBarangWithStream();
+            var dataBarang = DataService.GetDataBarangWithGroupBy();
             await foreach (var item in dataBarang)
             {
                 _daftarBarang.Add(new DataBarang

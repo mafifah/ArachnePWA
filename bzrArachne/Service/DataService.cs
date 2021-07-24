@@ -47,18 +47,6 @@ namespace bzrArachne.Service
             Token = null;
             _dataBarang.Clear();
         }
-        public IAsyncEnumerable<Barang> GetDataBarangWithStream()
-        {
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new T1Barang.T1BarangClient(channel);
-            Metadata data = new Metadata
-                {
-                    { "Authorization", $"Bearer {Token}" }
-                };
-            var request = client.GetDataBarangWithStream(new ListBarangRequest { IdSupplier = User.IdSupplier }, data);
-            return request.ResponseStream.ReadAllAsync();
-        }
-
         public IAsyncEnumerable<Barang> GetDataBarangWithGroupBy()
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");

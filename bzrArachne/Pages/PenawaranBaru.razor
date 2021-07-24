@@ -151,15 +151,12 @@
                                     <tr>
                                         <td>
                                             @ItemBaru.Nama
-                                            @if (ItemBaru.Stok <= ItemBaru.Minimum)
-                                            {<i style="color:red; padding:8px;" class="fa fa-exclamation-circle" aria-hidden="true"></i>}
                                         </td>
                                         <td>@ItemBaru.Satuan</td>
                                         <td>
-                                            @if (ItemBaru.Stok <= ItemBaru.Minimum)
-                                            {<a tabindex="_blank" @onclick="(() => TambahBarangKeList(ItemBaru))" class="btn btn-block btn-primary btn-sm">
+                                            <a tabindex="_blank" @onclick="(() => TambahBarangKeList(ItemBaru))" class="btn btn-block btn-primary btn-sm">
                                                     ADD
-                                                </a>}
+                                            </a>
                                         </td>
                                     </tr>
                                 }
@@ -220,28 +217,30 @@
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
         {
-
             var dataBarang = DataService.GetDataBarangWithGroupBy();
             await foreach (var item in dataBarang)
             {
-                _daftarBarang.Add(new DataBarang
+                if(item.Stok <= item.Minimum)
                 {
-                    IdBarang = item.IdBarang,
-                    IdDivisiBarang = item.IdDivisiBarang,
-                    IdSubDivisiBarang = item.IdSubDivisiBarang,
-                    IdKategoriBarang = item.IdKategoriBarang,
-                    IdSubKategoriBarang = item.IdSubKategoriBarang,
-                    IdSupplier = item.IdSupplier,
-                    IdJenisSupplier = item.IdJenisSupplier,
-                    IdSatuan = item.IdSatuan,
-                    Nama = item.Nama,
-                    Satuan = item.Satuan,
-                    Stok = item.Stok,
-                    Minimum = item.Minimum,
-                    Maksimum = item.Maksimum,
-                    NamaSupplier = item.NamaSupplier
-                });
-                this.StateHasChanged();
+                    _daftarBarang.Add(new DataBarang
+                    {
+                        IdBarang = item.IdBarang,
+                        IdDivisiBarang = item.IdDivisiBarang,
+                        IdSubDivisiBarang = item.IdSubDivisiBarang,
+                        IdKategoriBarang = item.IdKategoriBarang,
+                        IdSubKategoriBarang = item.IdSubKategoriBarang,
+                        IdSupplier = item.IdSupplier,
+                        IdJenisSupplier = item.IdJenisSupplier,
+                        IdSatuan = item.IdSatuan,
+                        Nama = item.Nama,
+                        Satuan = item.Satuan,
+                        Stok = item.Stok,
+                        Minimum = item.Minimum,
+                        Maksimum = item.Maksimum,
+                        NamaSupplier = item.NamaSupplier
+                    });
+                    this.StateHasChanged();
+                }
             }
         }
         else
