@@ -59,7 +59,7 @@
                         <tr>
                             <td>
                                 <div>
-                                    <input type="number" @onkeydown="@EnterJumlah"  min="1" @bind="data.Jumlah" class="form-control">
+                                    <input type="number"  min="1" @bind="data.Jumlah" class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -84,12 +84,19 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="text"  min="1" @bind="data.DiskonDetil" class="form-control">
+                                    @{
+                                        data.DiskonDetil = data.Jumlah *data.Harga * data.DiskonNominal / 100;
+                                    }
+                                    <input type="text" min="1" @bind="data.DiskonDetil" class="form-control">
                                 </div>
                             </td>
                             <td>
                                 <div>
-                                    <input type="number" min="1" @bind="data.Total" class="form-control">
+                                    @{
+                                        var harga_diskon = data.Jumlah * data.Harga * data.DiskonNominal / 100;
+                                        data.Total = data.Harga * data.Jumlah - harga_diskon;
+                                    }
+                                    <input type="number" min="1" @bind="data.Total" disabled class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -293,13 +300,6 @@
 
         await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
         NavigationManager.NavigateTo("dataBarang");
-    }
-    public void EnterJumlah(KeyboardEventArgs e)
-    {
-        if (e.Code == "Enter" || e.Code == "NumpadEnter")
-        {
-            
-        }
     }
 
 }

@@ -133,7 +133,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 180 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 187 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
     //MODAL
     bool showModal = false;
@@ -250,13 +250,6 @@ using bzrArachne.Models;
 
         await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
         NavigationManager.NavigateTo("dataBarang");
-    }
-    public void EnterJumlah(KeyboardEventArgs e)
-    {
-        if (e.Code == "Enter" || e.Code == "NumpadEnter")
-        {
-            
-        }
     }
 
 
