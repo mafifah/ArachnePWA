@@ -3,16 +3,11 @@ syntax = "proto3";
 option csharp_namespace = "grpcArachne";
 
 service T1Barang{
-	rpc GetDataBarang(ListBarangRequest) returns (ListBarang);
-	rpc GetDataBarangWithStream(ListBarangRequest) returns (stream Barang);
+	rpc GetDataBarangWithGroupBy(ListBarangRequest) returns (stream Barang);
 }
 
 message ListBarangRequest{
 	int64 IdSupplier = 1;
-}
-
-message ListBarang{
-	repeated Barang Barang = 1;
 }
 
 message Barang {
@@ -32,6 +27,4 @@ message Barang {
 	string IdCompany = 14;
 	string NamaSupplier =15;
 	string AlamatSupplier=16;
-
-
 }

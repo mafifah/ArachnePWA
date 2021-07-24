@@ -13,7 +13,6 @@ namespace bzrArachne.Service
         public DataUser User = new DataUser();
         public string Token;
         private readonly List<DataBarang> _dataBarang = new List<DataBarang>();
-        
         public DataBarang _barangDipilih { get; set; }
         public void SetNullBarangDipilih() => _barangDipilih = null;
         public void SetBarangDipilih(DataBarang Item) => _barangDipilih = Item;
@@ -48,7 +47,7 @@ namespace bzrArachne.Service
             Token = null;
             _dataBarang.Clear();
         }
-        public IAsyncEnumerable<Barang> GetDataBarangWithStream()
+        public IAsyncEnumerable<Barang> GetDataBarangWithGroupBy()
         {
             var channel = GrpcChannel.ForAddress("https://localhost:5001");
             var client = new T1Barang.T1BarangClient(channel);
@@ -56,7 +55,7 @@ namespace bzrArachne.Service
                 {
                     { "Authorization", $"Bearer {Token}" }
                 };
-            var request = client.GetDataBarangWithStream(new ListBarangRequest { IdSupplier = User.IdSupplier }, data);
+            var request = client.GetDataBarangWithGroupBy(new ListBarangRequest { IdSupplier = User.IdSupplier }, data);
             return request.ResponseStream.ReadAllAsync();
         }
     }

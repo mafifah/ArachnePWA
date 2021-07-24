@@ -133,17 +133,13 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 185 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 180 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
     //MODAL
     bool showModal = false;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
-    void ModalOk()
-    {
-        Console.WriteLine("Modal ok");
-        showModal = false;
-    }
+
     //MODAL
     private DataUser user = new DataUser();
     List<DataBarang> ListDataBarang = new List<DataBarang>();
@@ -154,6 +150,7 @@ using bzrArachne.Models;
     private double totalharga;
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
+
     void TambahBarangKeList(DataBarang ItemBaru)
     {
         DataService.SetBarangBaruDipilih(ItemBaru);
@@ -175,28 +172,30 @@ using bzrArachne.Models;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
         {
-
-            var dataBarang = DataService.GetDataBarangWithStream();
+            var dataBarang = DataService.GetDataBarangWithGroupBy();
             await foreach (var item in dataBarang)
             {
-                _daftarBarang.Add(new DataBarang
+                if(item.Stok <= item.Minimum)
                 {
-                    IdBarang = item.IdBarang,
-                    IdDivisiBarang = item.IdDivisiBarang,
-                    IdSubDivisiBarang = item.IdSubDivisiBarang,
-                    IdKategoriBarang = item.IdKategoriBarang,
-                    IdSubKategoriBarang = item.IdSubKategoriBarang,
-                    IdSupplier = item.IdSupplier,
-                    IdJenisSupplier = item.IdJenisSupplier,
-                    IdSatuan = item.IdSatuan,
-                    Nama = item.Nama,
-                    Satuan = item.Satuan,
-                    Stok = item.Stok,
-                    Minimum = item.Minimum,
-                    Maksimum = item.Maksimum,
-                    NamaSupplier = item.NamaSupplier
-                });
-                this.StateHasChanged();
+                    _daftarBarang.Add(new DataBarang
+                    {
+                        IdBarang = item.IdBarang,
+                        IdDivisiBarang = item.IdDivisiBarang,
+                        IdSubDivisiBarang = item.IdSubDivisiBarang,
+                        IdKategoriBarang = item.IdKategoriBarang,
+                        IdSubKategoriBarang = item.IdSubKategoriBarang,
+                        IdSupplier = item.IdSupplier,
+                        IdJenisSupplier = item.IdJenisSupplier,
+                        IdSatuan = item.IdSatuan,
+                        Nama = item.Nama,
+                        Satuan = item.Satuan,
+                        Stok = item.Stok,
+                        Minimum = item.Minimum,
+                        Maksimum = item.Maksimum,
+                        NamaSupplier = item.NamaSupplier
+                    });
+                    this.StateHasChanged();
+                }
             }
         }
         else
