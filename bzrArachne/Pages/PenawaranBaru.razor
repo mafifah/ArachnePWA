@@ -136,7 +136,6 @@
                     <div class="modal-header">
                         <h4 class="modal-title">Barang</h4>
                     </div>
-
                     <!-- Modal body -->
                     <div class="modal-body">
                         <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
@@ -170,8 +169,7 @@
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn" @onclick="@ModalCancel">Cancel</button>
-                        <button type="button" class="btn btn-success" @onclick=@ModalOk>add</button>
+                        <button type="button" class="btn" @onclick="@ModalCancel">Tutup</button>
                     </div>
 
                 </div>
@@ -189,11 +187,7 @@
     bool showModal = false;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
-    void ModalOk()
-    {
-        Console.WriteLine("Modal ok");
-        showModal = false;
-    }
+
     //MODAL
     private DataUser user = new DataUser();
     List<DataBarang> ListDataBarang = new List<DataBarang>();
@@ -204,6 +198,7 @@
     private double totalharga;
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
+
     void TambahBarangKeList(DataBarang ItemBaru)
     {
         DataService.SetBarangBaruDipilih(ItemBaru);
@@ -226,7 +221,7 @@
         if (!String.IsNullOrEmpty(Token))
         {
 
-            var dataBarang = DataService.GetDataBarangWithStream();
+            var dataBarang = DataService.GetDataBarangWithGroupBy();
             await foreach (var item in dataBarang)
             {
                 _daftarBarang.Add(new DataBarang
