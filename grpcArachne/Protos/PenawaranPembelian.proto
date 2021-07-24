@@ -6,32 +6,35 @@ import "google/protobuf/wrappers.proto";
 import "google/protobuf/timestamp.proto";
 service PenawaranPembelian
 {
-	rpc InsertPenawaranPembelian(InsertDataRequset)returns(pesan);
-	rpc InsertPenawaranPembelianRepeated(InsertDataRepeated)returns(pesan);
+	rpc InsertPenawaranPembelianRepeated(InsertDataT6Requset)returns(pesan);
 }
 
-message InsertDataRequset
+message InsertDataT6Requset
 {
 	int64 IdPenawaranPembelian=1;
 	int64 IdJenisSupplier=2;
 	int64 IdSupplier = 3;
-	int64 IdDetilPenawaranPembelian= 4;
-	int64 IdSatuan=5;
-	int64 IdDivisiBarang=6;
-	int64 IdSubDivisiBarang=7;
-	int64 IdKategoriBarang=8;
-	int64 IdSubKategoriBarang=9;
-	int64 IdBarang=10;
-	double Harga=11;
-	double Jumlah=12;
-	google.protobuf.StringValue DiskonDetil = 13;
-	double DiskonNominal = 14;
-	double Total = 15;
+	double GrandTotal = 4;
+	string IdCompanyPenerima = 5;
+	google.protobuf.StringValue DiskonDetil = 6;
+	double DiskonNominal = 7;
+	repeated InsertDataT7Requset T7Requset=8;
+	
 }
-
-message InsertDataRepeated
+message InsertDataT7Requset
 {
-	repeated InsertDataRequset InsertDataRequsetRepeated=1;
+	int64 IdBarang=1;
+	int64 IdDetilPenawaranPembelian= 2;
+	int64 IdSatuan=3;
+	int64 IdDivisiBarang=4;
+	int64 IdSubDivisiBarang=5;
+	int64 IdKategoriBarang=6;
+	int64 IdSubKategoriBarang=7;
+	double Harga=8;
+	double Jumlah=9;
+	google.protobuf.StringValue DiskonDetil = 10;
+	double DiskonNominal = 11;
+	int64 Total=12;
 }
 
 message pesan

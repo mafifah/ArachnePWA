@@ -42,22 +42,14 @@ namespace grpcArachne {
       return parser.ParseFrom(context.PayloadAsNewBuffer());
     }
 
-    static readonly grpc::Marshaller<global::grpcArachne.InsertDataRequset> __Marshaller_InsertDataRequset = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.InsertDataRequset.Parser));
+    static readonly grpc::Marshaller<global::grpcArachne.InsertDataT6Requset> __Marshaller_InsertDataT6Requset = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.InsertDataT6Requset.Parser));
     static readonly grpc::Marshaller<global::grpcArachne.pesan> __Marshaller_pesan = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.pesan.Parser));
-    static readonly grpc::Marshaller<global::grpcArachne.InsertDataRepeated> __Marshaller_InsertDataRepeated = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.InsertDataRepeated.Parser));
 
-    static readonly grpc::Method<global::grpcArachne.InsertDataRequset, global::grpcArachne.pesan> __Method_InsertPenawaranPembelian = new grpc::Method<global::grpcArachne.InsertDataRequset, global::grpcArachne.pesan>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "InsertPenawaranPembelian",
-        __Marshaller_InsertDataRequset,
-        __Marshaller_pesan);
-
-    static readonly grpc::Method<global::grpcArachne.InsertDataRepeated, global::grpcArachne.pesan> __Method_InsertPenawaranPembelianRepeated = new grpc::Method<global::grpcArachne.InsertDataRepeated, global::grpcArachne.pesan>(
+    static readonly grpc::Method<global::grpcArachne.InsertDataT6Requset, global::grpcArachne.pesan> __Method_InsertPenawaranPembelianRepeated = new grpc::Method<global::grpcArachne.InsertDataT6Requset, global::grpcArachne.pesan>(
         grpc::MethodType.Unary,
         __ServiceName,
         "InsertPenawaranPembelianRepeated",
-        __Marshaller_InsertDataRepeated,
+        __Marshaller_InsertDataT6Requset,
         __Marshaller_pesan);
 
     /// <summary>Service descriptor</summary>
@@ -89,35 +81,19 @@ namespace grpcArachne {
       {
       }
 
-      public virtual global::grpcArachne.pesan InsertPenawaranPembelian(global::grpcArachne.InsertDataRequset request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPenawaranPembelian(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual global::grpcArachne.pesan InsertPenawaranPembelian(global::grpcArachne.InsertDataRequset request, grpc::CallOptions options)
-      {
-        return CallInvoker.BlockingUnaryCall(__Method_InsertPenawaranPembelian, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::grpcArachne.pesan> InsertPenawaranPembelianAsync(global::grpcArachne.InsertDataRequset request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return InsertPenawaranPembelianAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::grpcArachne.pesan> InsertPenawaranPembelianAsync(global::grpcArachne.InsertDataRequset request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_InsertPenawaranPembelian, null, options, request);
-      }
-      public virtual global::grpcArachne.pesan InsertPenawaranPembelianRepeated(global::grpcArachne.InsertDataRepeated request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual global::grpcArachne.pesan InsertPenawaranPembelianRepeated(global::grpcArachne.InsertDataT6Requset request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return InsertPenawaranPembelianRepeated(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::grpcArachne.pesan InsertPenawaranPembelianRepeated(global::grpcArachne.InsertDataRepeated request, grpc::CallOptions options)
+      public virtual global::grpcArachne.pesan InsertPenawaranPembelianRepeated(global::grpcArachne.InsertDataT6Requset request, grpc::CallOptions options)
       {
         return CallInvoker.BlockingUnaryCall(__Method_InsertPenawaranPembelianRepeated, null, options, request);
       }
-      public virtual grpc::AsyncUnaryCall<global::grpcArachne.pesan> InsertPenawaranPembelianRepeatedAsync(global::grpcArachne.InsertDataRepeated request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncUnaryCall<global::grpcArachne.pesan> InsertPenawaranPembelianRepeatedAsync(global::grpcArachne.InsertDataT6Requset request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
         return InsertPenawaranPembelianRepeatedAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncUnaryCall<global::grpcArachne.pesan> InsertPenawaranPembelianRepeatedAsync(global::grpcArachne.InsertDataRepeated request, grpc::CallOptions options)
+      public virtual grpc::AsyncUnaryCall<global::grpcArachne.pesan> InsertPenawaranPembelianRepeatedAsync(global::grpcArachne.InsertDataT6Requset request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_InsertPenawaranPembelianRepeated, null, options, request);
       }

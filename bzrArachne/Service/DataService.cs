@@ -35,6 +35,8 @@ namespace bzrArachne.Service
                 User.Nama = reply.Nama;
                 User.UserName = User.UserName;
                 User.UserPassword = users.UserPassword;
+                User.IdJenisSupplier = reply.IdJenisSupplier;
+                User.Alamat = reply.Alamat;
             }
             catch (Exception e)
             {

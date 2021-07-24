@@ -27,15 +27,16 @@ namespace grpcArachne {
             "ChdQcm90b3MvTG9naW5Ub2tlbi5wcm90bxobZ29vZ2xlL3Byb3RvYnVmL2Vt",
             "cHR5LnByb3RvGh5nb29nbGUvcHJvdG9idWYvd3JhcHBlcnMucHJvdG8iOwoR",
             "TG9naW5Ub2tlblJlcXVlc3QSEAoIVXNlck5hbWUYASABKAkSFAoMVXNlclBh",
-            "c3N3b3JkGAIgASgJIkQKEUxvZ2luVG9rZW5SZXR1cm5zEg0KBVRva2VuGAEg",
-            "ASgJEhIKCklkU3VwcGxpZXIYAiABKAMSDAoETmFtYRgDIAEoCTJFCgpMb2dp",
-            "blRva2VuEjcKDUdldExvZ2luVG9rZW4SEi5Mb2dpblRva2VuUmVxdWVzdBoS",
-            "LkxvZ2luVG9rZW5SZXR1cm5zQg6qAgtncnBjQXJhY2huZWIGcHJvdG8z"));
+            "c3N3b3JkGAIgASgJIm0KEUxvZ2luVG9rZW5SZXR1cm5zEg0KBVRva2VuGAEg",
+            "ASgJEhIKCklkU3VwcGxpZXIYAiABKAMSDAoETmFtYRgDIAEoCRIXCg9JZEpl",
+            "bmlzU3VwcGxpZXIYBCABKAMSDgoGQWxhbWF0GAUgASgJMkUKCkxvZ2luVG9r",
+            "ZW4SNwoNR2V0TG9naW5Ub2tlbhISLkxvZ2luVG9rZW5SZXF1ZXN0GhIuTG9n",
+            "aW5Ub2tlblJldHVybnNCDqoCC2dycGNBcmFjaG5lYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.LoginTokenRequest), global::grpcArachne.LoginTokenRequest.Parser, new[]{ "UserName", "UserPassword" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.LoginTokenReturns), global::grpcArachne.LoginTokenReturns.Parser, new[]{ "Token", "IdSupplier", "Nama" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.LoginTokenReturns), global::grpcArachne.LoginTokenReturns.Parser, new[]{ "Token", "IdSupplier", "Nama", "IdJenisSupplier", "Alamat" }, null, null, null, null)
           }));
     }
     #endregion
@@ -227,6 +228,8 @@ namespace grpcArachne {
       token_ = other.token_;
       idSupplier_ = other.idSupplier_;
       nama_ = other.nama_;
+      idJenisSupplier_ = other.idJenisSupplier_;
+      alamat_ = other.alamat_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -268,6 +271,28 @@ namespace grpcArachne {
       }
     }
 
+    /// <summary>Field number for the "IdJenisSupplier" field.</summary>
+    public const int IdJenisSupplierFieldNumber = 4;
+    private long idJenisSupplier_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdJenisSupplier {
+      get { return idJenisSupplier_; }
+      set {
+        idJenisSupplier_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Alamat" field.</summary>
+    public const int AlamatFieldNumber = 5;
+    private string alamat_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Alamat {
+      get { return alamat_; }
+      set {
+        alamat_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as LoginTokenReturns);
@@ -284,6 +309,8 @@ namespace grpcArachne {
       if (Token != other.Token) return false;
       if (IdSupplier != other.IdSupplier) return false;
       if (Nama != other.Nama) return false;
+      if (IdJenisSupplier != other.IdJenisSupplier) return false;
+      if (Alamat != other.Alamat) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -293,6 +320,8 @@ namespace grpcArachne {
       if (Token.Length != 0) hash ^= Token.GetHashCode();
       if (IdSupplier != 0L) hash ^= IdSupplier.GetHashCode();
       if (Nama.Length != 0) hash ^= Nama.GetHashCode();
+      if (IdJenisSupplier != 0L) hash ^= IdJenisSupplier.GetHashCode();
+      if (Alamat.Length != 0) hash ^= Alamat.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -318,6 +347,14 @@ namespace grpcArachne {
         output.WriteRawTag(26);
         output.WriteString(Nama);
       }
+      if (IdJenisSupplier != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(IdJenisSupplier);
+      }
+      if (Alamat.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(Alamat);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -334,6 +371,12 @@ namespace grpcArachne {
       }
       if (Nama.Length != 0) {
         size += 1 + pb::CodedOutputStream.ComputeStringSize(Nama);
+      }
+      if (IdJenisSupplier != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdJenisSupplier);
+      }
+      if (Alamat.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Alamat);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -354,6 +397,12 @@ namespace grpcArachne {
       }
       if (other.Nama.Length != 0) {
         Nama = other.Nama;
+      }
+      if (other.IdJenisSupplier != 0L) {
+        IdJenisSupplier = other.IdJenisSupplier;
+      }
+      if (other.Alamat.Length != 0) {
+        Alamat = other.Alamat;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -376,6 +425,14 @@ namespace grpcArachne {
           }
           case 26: {
             Nama = input.ReadString();
+            break;
+          }
+          case 32: {
+            IdJenisSupplier = input.ReadInt64();
+            break;
+          }
+          case 42: {
+            Alamat = input.ReadString();
             break;
           }
         }

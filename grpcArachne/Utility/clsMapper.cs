@@ -14,8 +14,8 @@ namespace grpcArachne.Utility
         {
             MapperConfiguration conf = new(ce =>
             {
-                ce.CreateMap<DbT6PenawaranPembelian, InsertDataRequset>().ReverseMap();
-                ce.CreateMap<DbT7PenawaranPembelian, InsertDataRequset>().ReverseMap();
+                ce.CreateMap<DbT6PenawaranPembelian, InsertDataT6Requset>().ReverseMap();
+                ce.CreateMap<DbT7PenawaranPembelian, InsertDataT6Requset>().ReverseMap();
             });
             Mapper = new Mapper(conf);
         }

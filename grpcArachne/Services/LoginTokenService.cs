@@ -36,6 +36,9 @@ namespace grpcArachne.Services
                  {
                      T1Supplier.IdSupplier,
                      T1Supplier.Nama,
+                     T1Supplier.IdJenisSupplier,
+                     T1Supplier.Alamat
+                     
                  }).FirstOrDefault();
             if (user is null)
             {
@@ -65,6 +68,8 @@ namespace grpcArachne.Services
                 hasil.Token = tokenHandler.WriteToken(token);
                 hasil.IdSupplier = (long)user.IdSupplier;
                 hasil.Nama = user.Nama;
+                hasil.IdJenisSupplier = (long )user.IdJenisSupplier;
+                hasil.Alamat = user.Alamat;
             }
             return Task.FromResult(hasil);
         }

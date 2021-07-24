@@ -17,4 +17,6 @@ message LoginTokenReturns{
 	string Token = 1;
 	int64 IdSupplier= 2;
 	string Nama = 3;
+	int64 IdJenisSupplier=4;
+	string Alamat =5;
 }
