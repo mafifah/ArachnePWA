@@ -19,18 +19,17 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Supplier</label>
                 <div class="col-sm-4">
-                    <input type="text"  disabled @bind="Item.NamaSupplier" class="form-control">
+                    <input type="text"  disabled @bind="user.Nama" class="form-control">
                 </div>
                 <label class="col-sm-1 col-form-label">Tanggal</label>
                 <div class="col-sm-4">
-                    <input  disabled class="form-control">
+                    <input  disabled class="form-control" value="@DateTimeOffset.UtcNow.LocalDateTime">
                 </div>
-                <div>@DateTimeOffset.UtcNow.LocalDateTime</div>
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-4">
-                    <textarea type="text" disabled @bind="Item.AlamatSupplier" class="form-control"></textarea>
+                    <textarea type="text" disabled @bind="user.Alamat" class="form-control"></textarea>
                 </div>
             </div>
         </div>
@@ -79,7 +78,7 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="number" min="1" @bind="data.DiskonNominal" disabled class="form-control">
+                                    <input type="number" min="1" @bind="data.DiskonNominal" class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -87,7 +86,7 @@
                                     @{
                                         data.DiskonDetil = data.Jumlah *data.Harga * data.DiskonNominal / 100;
                                     }
-                                    <input type="text" min="1" @bind="data.DiskonDetil" class="form-control">
+                                    <input type="text" min="1" @bind="data.DiskonDetil" disabled class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -292,14 +291,10 @@
             BarangPenawaran = barangPenawarans,
         };
         var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
-        if (send)
-        {
-            await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
-        }
-        else
-        {
-            await Swal.FireAsync("Oops!!!", "Data gagal terkirim", "error");
-        }
+        DataService.SetNullBarangDipilih();
+        Item = null;
+        barangPenawarans.Clear();
+        dataPenawaran = null;
         NavigationManager.NavigateTo("dataBarang");
     }
 

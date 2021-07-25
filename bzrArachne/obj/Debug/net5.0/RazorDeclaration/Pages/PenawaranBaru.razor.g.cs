@@ -133,7 +133,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 187 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
+#line 186 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
        
     //MODAL
     bool showModal = false;
@@ -188,7 +188,6 @@ using bzrArachne.Models;
             IdSubKategoriBarang = Item.IdSubKategoriBarang,
             Satuan = Item.Satuan,
             Nama = Item.Nama,
-
         });
         user = DataService.User;
         var Token = DataService.Token;
@@ -243,14 +242,10 @@ using bzrArachne.Models;
             BarangPenawaran = barangPenawarans,
         };
         var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
-        if (send)
-        {
-            await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
-        }
-        else
-        {
-            await Swal.FireAsync("Oops!!!", "Data gagal terkirim", "error");
-        }
+        DataService.SetNullBarangDipilih();
+        Item = null;
+        barangPenawarans.Clear();
+        dataPenawaran = null;
         NavigationManager.NavigateTo("dataBarang");
     }
 
