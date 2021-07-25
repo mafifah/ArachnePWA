@@ -133,9 +133,11 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 187 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 216 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
        
     //MODAL
+    DateTimeOffset Tanggal { get; set; }
+    double _grandtotal { get; set; }
     bool showModal = false;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
@@ -169,13 +171,16 @@ using bzrArachne.Models;
             Satuan = ItemBaru.Satuan,
             Nama = ItemBaru.Nama,
 
+
         });
         ModalCancel();
+
+
     }
 
     void HapusBarangDariList(BarangPenawaran Item)
     {
-        DataService.SetNullBarangDipilih();
+        //DataService.SetNullBarangDipilih();
         barangPenawarans.Remove(Item);
     }
     protected override async Task OnInitializedAsync()
@@ -193,6 +198,7 @@ using bzrArachne.Models;
             IdSubKategoriBarang = Item.IdSubKategoriBarang,
             Satuan = Item.Satuan,
             Nama = Item.Nama,
+
 
         });
         user = DataService.User;
@@ -245,7 +251,8 @@ using bzrArachne.Models;
             IdJenisSupplier = user.IdJenisSupplier,
             IdSupplier = user.IdSupplier,
             IdCompanyPenerima = "GWR",
-            BarangPenawaran = barangPenawarans
+            BarangPenawaran = barangPenawarans,
+            GrandTotal = _grandtotal
         };
 
         await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");

@@ -19,13 +19,16 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Supplier</label>
                 <div class="col-sm-4">
-                    <input type="text"  disabled @bind="Item.NamaSupplier" class="form-control">
+                    <input type="text" disabled @bind="Item.NamaSupplier" class="form-control">
                 </div>
+                @{
+                    Tanggal = DateTimeOffset.UtcNow.LocalDateTime;
+                }
                 <label class="col-sm-1 col-form-label">Tanggal</label>
                 <div class="col-sm-4">
-                    <input  disabled class="form-control">
+                    <input disabled @bind="Tanggal" class="form-control">
                 </div>
-                <div>@DateTimeOffset.UtcNow.LocalDateTime</div>
+
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Alamat</label>
@@ -43,14 +46,14 @@
                 <table style="width: 100%" border="1">
                     <thead>
                         <tr>
-                            <th align="center" width="10%"> <label for="Jumlah">Jumlah</label></th>
+                            <th align="center" width="9%"> <label for="Jumlah">Jumlah</label></th>
                             <th align="center" width="10%"> <label for="Satuan">Satuan</label></th>
-                            <th align="center" width="20%"><label for="Nama">Nama Barang</label></th>
-                            <th align="center" width="20%"><label for="Harga">Harga Satuan</label></th>
-                            <th align="center" width="10%"><label for="DiskonNominal">Diskon%</label></th>
+                            <th align="center" width="33%"><label for="Nama">Nama Barang</label></th>
+                            <th align="center" width="13%"><label for="Harga">Harga Satuan</label></th>
+                            <th align="center" width="5%"><label for="DiskonNominal">Diskon%</label></th>
                             <th align="center" width="10%"><label for="DiskonDetil">Diskon Rp.</label></th>
-                            <th align="center" width="10%"><label for="Total">Total</label></th>
-                            <th align="center" width="10%"><label for="Opsi">Opsi</label></th>
+                            <th align="center" width="15%"><label for="Total">Total</label></th>
+                            <th align="center" width="5%"><label for="Opsi">Opsi</label></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -59,7 +62,7 @@
                         <tr>
                             <td>
                                 <div>
-                                    <input type="number"  min="1" @bind="data.Jumlah" class="form-control">
+                                    <input type="number" min="1" @bind="data.Jumlah" class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -85,9 +88,9 @@
                             <td>
                                 <div>
                                     @{
-                                        data.DiskonDetil = data.Jumlah *data.Harga * data.DiskonNominal / 100;
+                                        data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
                                     }
-                                    <input type="text" min="1" @bind="data.DiskonDetil" class="form-control">
+                                    <input type="text" disabled min="1" @bind="data.DiskonDetil" class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -99,17 +102,33 @@
                                     <input type="number" min="1" @bind="data.Total" disabled class="form-control">
                                 </div>
                             </td>
-                            <td>
-                                <div>
-                                    <button class="btn btn-danger"  @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></button>
-                                </div>
-                            </td>
+                            @{
+                                if (barangPenawarans.Count == 1)
+                                {
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <div>
+
+                                            <button disabled class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <div>
+
+                                            <button class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></button>
+                                        </div>
+                                    </td>
+                                }
+                            }
                         </tr>
-                        }
+                            }
+                       
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td align="right" colspan="8"><button class="btn btn-success" @onclick="@ModalShow"><i class="oi oi-plus"></i></button></td>
+                            <td align="right" colspan="8"><button class="btn btn-success rounded-circle" @onclick="@ModalShow"><i class="oi oi-plus"></i></button></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -120,6 +139,15 @@
                     <div class="col-sm-4">
                         <textarea type="text" class="form-control"></textarea>
                     </div>
+                    <div class="col-sm-2">
+                    </div>
+                    <div class="col-sm-6">
+                        @{
+                            _grandtotal = barangPenawarans.Sum(m => m.Total);
+                        }
+                        <label class="col-sm-4 col-form-label">Total Penawaran (Rp.) : </label>
+                        <input style="text-align:center" type="number" disabled @bind="_grandtotal" class="col-sm-4  col-form-label rounded-pill border border-success" />
+                    </div>
                 </div>
             </div>
         </div><!-- /.card-body -->
@@ -127,6 +155,7 @@
             <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
             <button type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
         </div>
+           
     </form>
 
 
@@ -186,6 +215,8 @@
 
 @code {
     //MODAL
+    DateTimeOffset Tanggal { get; set; }
+    double _grandtotal { get; set; }
     bool showModal = false;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
@@ -219,13 +250,14 @@
             Satuan = ItemBaru.Satuan,
             Nama = ItemBaru.Nama,
 
+
         });
         ModalCancel();
     }
 
     void HapusBarangDariList(BarangPenawaran Item)
     {
-        DataService.SetNullBarangDipilih();
+        //DataService.SetNullBarangDipilih();
         barangPenawarans.Remove(Item);
     }
     protected override async Task OnInitializedAsync()
@@ -243,6 +275,7 @@
             IdSubKategoriBarang = Item.IdSubKategoriBarang,
             Satuan = Item.Satuan,
             Nama = Item.Nama,
+
 
         });
         user = DataService.User;
@@ -295,7 +328,8 @@
             IdJenisSupplier = user.IdJenisSupplier,
             IdSupplier = user.IdSupplier,
             IdCompanyPenerima = "GWR",
-            BarangPenawaran = barangPenawarans
+            BarangPenawaran = barangPenawarans,
+            GrandTotal = _grandtotal
         };
 
         await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");

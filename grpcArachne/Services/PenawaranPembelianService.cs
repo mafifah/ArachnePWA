@@ -42,6 +42,7 @@ namespace grpcArachne.Services
                         GrandTotal =(decimal) request.GrandTotal,
                         DiskonDetil = request.DiskonDetil,
                         DiskonNominal =(decimal) request.DiskonNominal,
+                        WaktuInsert = DateTimeOffset.UtcNow.LocalDateTime
                     };
                     _db.T6PenawaranPembelianDbSet.AddRange(t6PenawaranPembelian);
                     _db.SaveChanges();
