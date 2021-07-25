@@ -26,25 +26,28 @@ namespace grpcArachne {
           string.Concat(
             "ChhQZW5hd2FyYW5QZW1iZWxpYW4ucHJvdG8aG2dvb2dsZS9wcm90b2J1Zi9l",
             "bXB0eS5wcm90bxoeZ29vZ2xlL3Byb3RvYnVmL3dyYXBwZXJzLnByb3RvGh9n",
-            "b29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIocDChFJbnNlcnREYXRh",
-            "UmVxdXNldBIcChRJZFBlbmF3YXJhblBlbWJlbGlhbhgBIAEoAxIXCg9JZEpl",
-            "bmlzU3VwcGxpZXIYAiABKAMSEgoKSWRTdXBwbGllchgDIAEoAxIhChlJZERl",
-            "dGlsUGVuYXdhcmFuUGVtYmVsaWFuGAQgASgDEhAKCElkU2F0dWFuGAUgASgD",
-            "EhYKDklkRGl2aXNpQmFyYW5nGAYgASgDEhkKEUlkU3ViRGl2aXNpQmFyYW5n",
-            "GAcgASgDEhgKEElkS2F0ZWdvcmlCYXJhbmcYCCABKAMSGwoTSWRTdWJLYXRl",
-            "Z29yaUJhcmFuZxgJIAEoAxIQCghJZEJhcmFuZxgKIAEoAxINCgVIYXJnYRgL",
-            "IAEoARIOCgZKdW1sYWgYDCABKAESMQoLRGlza29uRGV0aWwYDSABKAsyHC5n",
-            "b29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSFQoNRGlza29uTm9taW5hbBgO",
-            "IAEoARINCgVUb3RhbBgPIAEoASJCCglUNlJlcXVlc3QSHAoUSWRQZW5hd2Fy",
-            "YW5QZW1iZWxpYW4YASABKAMSFwoPSWRKZW5pc1N1cHBsaWVyGAIgASgDIhYK",
-            "BXBlc2FuEg0KBXBlc2FuGAEgASgJMkwKElBlbmF3YXJhblBlbWJlbGlhbhI2",
-            "ChhJbnNlcnRQZW5hd2FyYW5QZW1iZWxpYW4SEi5JbnNlcnREYXRhUmVxdXNl",
-            "dBoGLnBlc2FuQg6qAgtncnBjQXJhY2huZWIGcHJvdG8z"));
+            "b29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIoICChNJbnNlcnREYXRh",
+            "VDZSZXF1c2V0EhwKFElkUGVuYXdhcmFuUGVtYmVsaWFuGAEgASgDEhcKD0lk",
+            "SmVuaXNTdXBwbGllchgCIAEoAxISCgpJZFN1cHBsaWVyGAMgASgDEhIKCkdy",
+            "YW5kVG90YWwYBCABKAESGQoRSWRDb21wYW55UGVuZXJpbWEYBSABKAkSMQoL",
+            "RGlza29uRGV0aWwYBiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFs",
+            "dWUSFQoNRGlza29uTm9taW5hbBgHIAEoARInCglUN1JlcXVzZXQYCCADKAsy",
+            "FC5JbnNlcnREYXRhVDdSZXF1c2V0Ir4CChNJbnNlcnREYXRhVDdSZXF1c2V0",
+            "EhAKCElkQmFyYW5nGAEgASgDEiEKGUlkRGV0aWxQZW5hd2FyYW5QZW1iZWxp",
+            "YW4YAiABKAMSEAoISWRTYXR1YW4YAyABKAMSFgoOSWREaXZpc2lCYXJhbmcY",
+            "BCABKAMSGQoRSWRTdWJEaXZpc2lCYXJhbmcYBSABKAMSGAoQSWRLYXRlZ29y",
+            "aUJhcmFuZxgGIAEoAxIbChNJZFN1YkthdGVnb3JpQmFyYW5nGAcgASgDEg0K",
+            "BUhhcmdhGAggASgBEg4KBkp1bWxhaBgJIAEoARIxCgtEaXNrb25EZXRpbBgK",
+            "IAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIVCg1EaXNrb25O",
+            "b21pbmFsGAsgASgBEg0KBVRvdGFsGAwgASgDIhYKBXBlc2FuEg0KBXBlc2Fu",
+            "GAEgASgJMlYKElBlbmF3YXJhblBlbWJlbGlhbhJACiBJbnNlcnRQZW5hd2Fy",
+            "YW5QZW1iZWxpYW5SZXBlYXRlZBIULkluc2VydERhdGFUNlJlcXVzZXQaBi5w",
+            "ZXNhbkIOqgILZ3JwY0FyYWNobmViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataRequset), global::grpcArachne.InsertDataRequset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "IdBarang", "Harga", "Jumlah", "DiskonDetil", "DiskonNominal", "Total" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T6Request), global::grpcArachne.T6Request.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT6Requset), global::grpcArachne.InsertDataT6Requset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "GrandTotal", "IdCompanyPenerima", "DiskonDetil", "DiskonNominal", "T7Requset" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT7Requset), global::grpcArachne.InsertDataT7Requset.Parser, new[]{ "IdBarang", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "Harga", "Jumlah", "DiskonDetil", "DiskonNominal", "Total" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.pesan), global::grpcArachne.pesan.Parser, new[]{ "Pesan" }, null, null, null, null)
           }));
     }
@@ -52,15 +55,15 @@ namespace grpcArachne {
 
   }
   #region Messages
-  public sealed partial class InsertDataRequset : pb::IMessage<InsertDataRequset>
+  public sealed partial class InsertDataT6Requset : pb::IMessage<InsertDataT6Requset>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
   #endif
   {
-    private static readonly pb::MessageParser<InsertDataRequset> _parser = new pb::MessageParser<InsertDataRequset>(() => new InsertDataRequset());
+    private static readonly pb::MessageParser<InsertDataT6Requset> _parser = new pb::MessageParser<InsertDataT6Requset>(() => new InsertDataT6Requset());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<InsertDataRequset> Parser { get { return _parser; } }
+    public static pb::MessageParser<InsertDataT6Requset> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -73,35 +76,28 @@ namespace grpcArachne {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public InsertDataRequset() {
+    public InsertDataT6Requset() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public InsertDataRequset(InsertDataRequset other) : this() {
+    public InsertDataT6Requset(InsertDataT6Requset other) : this() {
       idPenawaranPembelian_ = other.idPenawaranPembelian_;
       idJenisSupplier_ = other.idJenisSupplier_;
       idSupplier_ = other.idSupplier_;
-      idDetilPenawaranPembelian_ = other.idDetilPenawaranPembelian_;
-      idSatuan_ = other.idSatuan_;
-      idDivisiBarang_ = other.idDivisiBarang_;
-      idSubDivisiBarang_ = other.idSubDivisiBarang_;
-      idKategoriBarang_ = other.idKategoriBarang_;
-      idSubKategoriBarang_ = other.idSubKategoriBarang_;
-      idBarang_ = other.idBarang_;
-      harga_ = other.harga_;
-      jumlah_ = other.jumlah_;
+      grandTotal_ = other.grandTotal_;
+      idCompanyPenerima_ = other.idCompanyPenerima_;
       DiskonDetil = other.DiskonDetil;
       diskonNominal_ = other.diskonNominal_;
-      total_ = other.total_;
+      t7Requset_ = other.t7Requset_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public InsertDataRequset Clone() {
-      return new InsertDataRequset(this);
+    public InsertDataT6Requset Clone() {
+      return new InsertDataT6Requset(this);
     }
 
     /// <summary>Field number for the "IdPenawaranPembelian" field.</summary>
@@ -137,108 +133,31 @@ namespace grpcArachne {
       }
     }
 
-    /// <summary>Field number for the "IdDetilPenawaranPembelian" field.</summary>
-    public const int IdDetilPenawaranPembelianFieldNumber = 4;
-    private long idDetilPenawaranPembelian_;
+    /// <summary>Field number for the "GrandTotal" field.</summary>
+    public const int GrandTotalFieldNumber = 4;
+    private double grandTotal_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdDetilPenawaranPembelian {
-      get { return idDetilPenawaranPembelian_; }
+    public double GrandTotal {
+      get { return grandTotal_; }
       set {
-        idDetilPenawaranPembelian_ = value;
+        grandTotal_ = value;
       }
     }
 
-    /// <summary>Field number for the "IdSatuan" field.</summary>
-    public const int IdSatuanFieldNumber = 5;
-    private long idSatuan_;
+    /// <summary>Field number for the "IdCompanyPenerima" field.</summary>
+    public const int IdCompanyPenerimaFieldNumber = 5;
+    private string idCompanyPenerima_ = "";
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdSatuan {
-      get { return idSatuan_; }
+    public string IdCompanyPenerima {
+      get { return idCompanyPenerima_; }
       set {
-        idSatuan_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "IdDivisiBarang" field.</summary>
-    public const int IdDivisiBarangFieldNumber = 6;
-    private long idDivisiBarang_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdDivisiBarang {
-      get { return idDivisiBarang_; }
-      set {
-        idDivisiBarang_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "IdSubDivisiBarang" field.</summary>
-    public const int IdSubDivisiBarangFieldNumber = 7;
-    private long idSubDivisiBarang_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdSubDivisiBarang {
-      get { return idSubDivisiBarang_; }
-      set {
-        idSubDivisiBarang_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "IdKategoriBarang" field.</summary>
-    public const int IdKategoriBarangFieldNumber = 8;
-    private long idKategoriBarang_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdKategoriBarang {
-      get { return idKategoriBarang_; }
-      set {
-        idKategoriBarang_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "IdSubKategoriBarang" field.</summary>
-    public const int IdSubKategoriBarangFieldNumber = 9;
-    private long idSubKategoriBarang_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdSubKategoriBarang {
-      get { return idSubKategoriBarang_; }
-      set {
-        idSubKategoriBarang_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "IdBarang" field.</summary>
-    public const int IdBarangFieldNumber = 10;
-    private long idBarang_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdBarang {
-      get { return idBarang_; }
-      set {
-        idBarang_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "Harga" field.</summary>
-    public const int HargaFieldNumber = 11;
-    private double harga_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Harga {
-      get { return harga_; }
-      set {
-        harga_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "Jumlah" field.</summary>
-    public const int JumlahFieldNumber = 12;
-    private double jumlah_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Jumlah {
-      get { return jumlah_; }
-      set {
-        jumlah_ = value;
+        idCompanyPenerima_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
       }
     }
 
     /// <summary>Field number for the "DiskonDetil" field.</summary>
-    public const int DiskonDetilFieldNumber = 13;
-    private static readonly pb::FieldCodec<string> _single_diskonDetil_codec = pb::FieldCodec.ForClassWrapper<string>(106);
+    public const int DiskonDetilFieldNumber = 6;
+    private static readonly pb::FieldCodec<string> _single_diskonDetil_codec = pb::FieldCodec.ForClassWrapper<string>(50);
     private string diskonDetil_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string DiskonDetil {
@@ -250,7 +169,7 @@ namespace grpcArachne {
 
 
     /// <summary>Field number for the "DiskonNominal" field.</summary>
-    public const int DiskonNominalFieldNumber = 14;
+    public const int DiskonNominalFieldNumber = 7;
     private double diskonNominal_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public double DiskonNominal {
@@ -260,24 +179,23 @@ namespace grpcArachne {
       }
     }
 
-    /// <summary>Field number for the "Total" field.</summary>
-    public const int TotalFieldNumber = 15;
-    private double total_;
+    /// <summary>Field number for the "T7Requset" field.</summary>
+    public const int T7RequsetFieldNumber = 8;
+    private static readonly pb::FieldCodec<global::grpcArachne.InsertDataT7Requset> _repeated_t7Requset_codec
+        = pb::FieldCodec.ForMessage(66, global::grpcArachne.InsertDataT7Requset.Parser);
+    private readonly pbc::RepeatedField<global::grpcArachne.InsertDataT7Requset> t7Requset_ = new pbc::RepeatedField<global::grpcArachne.InsertDataT7Requset>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public double Total {
-      get { return total_; }
-      set {
-        total_ = value;
-      }
+    public pbc::RepeatedField<global::grpcArachne.InsertDataT7Requset> T7Requset {
+      get { return t7Requset_; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as InsertDataRequset);
+      return Equals(other as InsertDataT6Requset);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(InsertDataRequset other) {
+    public bool Equals(InsertDataT6Requset other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
@@ -287,18 +205,11 @@ namespace grpcArachne {
       if (IdPenawaranPembelian != other.IdPenawaranPembelian) return false;
       if (IdJenisSupplier != other.IdJenisSupplier) return false;
       if (IdSupplier != other.IdSupplier) return false;
-      if (IdDetilPenawaranPembelian != other.IdDetilPenawaranPembelian) return false;
-      if (IdSatuan != other.IdSatuan) return false;
-      if (IdDivisiBarang != other.IdDivisiBarang) return false;
-      if (IdSubDivisiBarang != other.IdSubDivisiBarang) return false;
-      if (IdKategoriBarang != other.IdKategoriBarang) return false;
-      if (IdSubKategoriBarang != other.IdSubKategoriBarang) return false;
-      if (IdBarang != other.IdBarang) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Harga, other.Harga)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Jumlah, other.Jumlah)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(GrandTotal, other.GrandTotal)) return false;
+      if (IdCompanyPenerima != other.IdCompanyPenerima) return false;
       if (DiskonDetil != other.DiskonDetil) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(DiskonNominal, other.DiskonNominal)) return false;
-      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Total, other.Total)) return false;
+      if(!t7Requset_.Equals(other.t7Requset_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -308,18 +219,11 @@ namespace grpcArachne {
       if (IdPenawaranPembelian != 0L) hash ^= IdPenawaranPembelian.GetHashCode();
       if (IdJenisSupplier != 0L) hash ^= IdJenisSupplier.GetHashCode();
       if (IdSupplier != 0L) hash ^= IdSupplier.GetHashCode();
-      if (IdDetilPenawaranPembelian != 0L) hash ^= IdDetilPenawaranPembelian.GetHashCode();
-      if (IdSatuan != 0L) hash ^= IdSatuan.GetHashCode();
-      if (IdDivisiBarang != 0L) hash ^= IdDivisiBarang.GetHashCode();
-      if (IdSubDivisiBarang != 0L) hash ^= IdSubDivisiBarang.GetHashCode();
-      if (IdKategoriBarang != 0L) hash ^= IdKategoriBarang.GetHashCode();
-      if (IdSubKategoriBarang != 0L) hash ^= IdSubKategoriBarang.GetHashCode();
-      if (IdBarang != 0L) hash ^= IdBarang.GetHashCode();
-      if (Harga != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Harga);
-      if (Jumlah != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Jumlah);
+      if (GrandTotal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(GrandTotal);
+      if (IdCompanyPenerima.Length != 0) hash ^= IdCompanyPenerima.GetHashCode();
       if (diskonDetil_ != null) hash ^= DiskonDetil.GetHashCode();
       if (DiskonNominal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DiskonNominal);
-      if (Total != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Total);
+      hash ^= t7Requset_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -348,53 +252,22 @@ namespace grpcArachne {
         output.WriteRawTag(24);
         output.WriteInt64(IdSupplier);
       }
-      if (IdDetilPenawaranPembelian != 0L) {
-        output.WriteRawTag(32);
-        output.WriteInt64(IdDetilPenawaranPembelian);
+      if (GrandTotal != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(GrandTotal);
       }
-      if (IdSatuan != 0L) {
-        output.WriteRawTag(40);
-        output.WriteInt64(IdSatuan);
-      }
-      if (IdDivisiBarang != 0L) {
-        output.WriteRawTag(48);
-        output.WriteInt64(IdDivisiBarang);
-      }
-      if (IdSubDivisiBarang != 0L) {
-        output.WriteRawTag(56);
-        output.WriteInt64(IdSubDivisiBarang);
-      }
-      if (IdKategoriBarang != 0L) {
-        output.WriteRawTag(64);
-        output.WriteInt64(IdKategoriBarang);
-      }
-      if (IdSubKategoriBarang != 0L) {
-        output.WriteRawTag(72);
-        output.WriteInt64(IdSubKategoriBarang);
-      }
-      if (IdBarang != 0L) {
-        output.WriteRawTag(80);
-        output.WriteInt64(IdBarang);
-      }
-      if (Harga != 0D) {
-        output.WriteRawTag(89);
-        output.WriteDouble(Harga);
-      }
-      if (Jumlah != 0D) {
-        output.WriteRawTag(97);
-        output.WriteDouble(Jumlah);
+      if (IdCompanyPenerima.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(IdCompanyPenerima);
       }
       if (diskonDetil_ != null) {
         _single_diskonDetil_codec.WriteTagAndValue(output, DiskonDetil);
       }
       if (DiskonNominal != 0D) {
-        output.WriteRawTag(113);
+        output.WriteRawTag(57);
         output.WriteDouble(DiskonNominal);
       }
-      if (Total != 0D) {
-        output.WriteRawTag(121);
-        output.WriteDouble(Total);
-      }
+      t7Requset_.WriteTo(output, _repeated_t7Requset_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -416,53 +289,22 @@ namespace grpcArachne {
         output.WriteRawTag(24);
         output.WriteInt64(IdSupplier);
       }
-      if (IdDetilPenawaranPembelian != 0L) {
-        output.WriteRawTag(32);
-        output.WriteInt64(IdDetilPenawaranPembelian);
+      if (GrandTotal != 0D) {
+        output.WriteRawTag(33);
+        output.WriteDouble(GrandTotal);
       }
-      if (IdSatuan != 0L) {
-        output.WriteRawTag(40);
-        output.WriteInt64(IdSatuan);
-      }
-      if (IdDivisiBarang != 0L) {
-        output.WriteRawTag(48);
-        output.WriteInt64(IdDivisiBarang);
-      }
-      if (IdSubDivisiBarang != 0L) {
-        output.WriteRawTag(56);
-        output.WriteInt64(IdSubDivisiBarang);
-      }
-      if (IdKategoriBarang != 0L) {
-        output.WriteRawTag(64);
-        output.WriteInt64(IdKategoriBarang);
-      }
-      if (IdSubKategoriBarang != 0L) {
-        output.WriteRawTag(72);
-        output.WriteInt64(IdSubKategoriBarang);
-      }
-      if (IdBarang != 0L) {
-        output.WriteRawTag(80);
-        output.WriteInt64(IdBarang);
-      }
-      if (Harga != 0D) {
-        output.WriteRawTag(89);
-        output.WriteDouble(Harga);
-      }
-      if (Jumlah != 0D) {
-        output.WriteRawTag(97);
-        output.WriteDouble(Jumlah);
+      if (IdCompanyPenerima.Length != 0) {
+        output.WriteRawTag(42);
+        output.WriteString(IdCompanyPenerima);
       }
       if (diskonDetil_ != null) {
         _single_diskonDetil_codec.WriteTagAndValue(ref output, DiskonDetil);
       }
       if (DiskonNominal != 0D) {
-        output.WriteRawTag(113);
+        output.WriteRawTag(57);
         output.WriteDouble(DiskonNominal);
       }
-      if (Total != 0D) {
-        output.WriteRawTag(121);
-        output.WriteDouble(Total);
-      }
+      t7Requset_.WriteTo(ref output, _repeated_t7Requset_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -480,6 +322,516 @@ namespace grpcArachne {
       }
       if (IdSupplier != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSupplier);
+      }
+      if (GrandTotal != 0D) {
+        size += 1 + 8;
+      }
+      if (IdCompanyPenerima.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(IdCompanyPenerima);
+      }
+      if (diskonDetil_ != null) {
+        size += _single_diskonDetil_codec.CalculateSizeWithTag(DiskonDetil);
+      }
+      if (DiskonNominal != 0D) {
+        size += 1 + 8;
+      }
+      size += t7Requset_.CalculateSize(_repeated_t7Requset_codec);
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(InsertDataT6Requset other) {
+      if (other == null) {
+        return;
+      }
+      if (other.IdPenawaranPembelian != 0L) {
+        IdPenawaranPembelian = other.IdPenawaranPembelian;
+      }
+      if (other.IdJenisSupplier != 0L) {
+        IdJenisSupplier = other.IdJenisSupplier;
+      }
+      if (other.IdSupplier != 0L) {
+        IdSupplier = other.IdSupplier;
+      }
+      if (other.GrandTotal != 0D) {
+        GrandTotal = other.GrandTotal;
+      }
+      if (other.IdCompanyPenerima.Length != 0) {
+        IdCompanyPenerima = other.IdCompanyPenerima;
+      }
+      if (other.diskonDetil_ != null) {
+        if (diskonDetil_ == null || other.DiskonDetil != "") {
+          DiskonDetil = other.DiskonDetil;
+        }
+      }
+      if (other.DiskonNominal != 0D) {
+        DiskonNominal = other.DiskonNominal;
+      }
+      t7Requset_.Add(other.t7Requset_);
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            IdPenawaranPembelian = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            IdJenisSupplier = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            IdSupplier = input.ReadInt64();
+            break;
+          }
+          case 33: {
+            GrandTotal = input.ReadDouble();
+            break;
+          }
+          case 42: {
+            IdCompanyPenerima = input.ReadString();
+            break;
+          }
+          case 50: {
+            string value = _single_diskonDetil_codec.Read(input);
+            if (diskonDetil_ == null || value != "") {
+              DiskonDetil = value;
+            }
+            break;
+          }
+          case 57: {
+            DiskonNominal = input.ReadDouble();
+            break;
+          }
+          case 66: {
+            t7Requset_.AddEntriesFrom(input, _repeated_t7Requset_codec);
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            IdPenawaranPembelian = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            IdJenisSupplier = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            IdSupplier = input.ReadInt64();
+            break;
+          }
+          case 33: {
+            GrandTotal = input.ReadDouble();
+            break;
+          }
+          case 42: {
+            IdCompanyPenerima = input.ReadString();
+            break;
+          }
+          case 50: {
+            string value = _single_diskonDetil_codec.Read(ref input);
+            if (diskonDetil_ == null || value != "") {
+              DiskonDetil = value;
+            }
+            break;
+          }
+          case 57: {
+            DiskonNominal = input.ReadDouble();
+            break;
+          }
+          case 66: {
+            t7Requset_.AddEntriesFrom(ref input, _repeated_t7Requset_codec);
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class InsertDataT7Requset : pb::IMessage<InsertDataT7Requset>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<InsertDataT7Requset> _parser = new pb::MessageParser<InsertDataT7Requset>(() => new InsertDataT7Requset());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<InsertDataT7Requset> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::grpcArachne.PenawaranPembelianReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public InsertDataT7Requset() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public InsertDataT7Requset(InsertDataT7Requset other) : this() {
+      idBarang_ = other.idBarang_;
+      idDetilPenawaranPembelian_ = other.idDetilPenawaranPembelian_;
+      idSatuan_ = other.idSatuan_;
+      idDivisiBarang_ = other.idDivisiBarang_;
+      idSubDivisiBarang_ = other.idSubDivisiBarang_;
+      idKategoriBarang_ = other.idKategoriBarang_;
+      idSubKategoriBarang_ = other.idSubKategoriBarang_;
+      harga_ = other.harga_;
+      jumlah_ = other.jumlah_;
+      DiskonDetil = other.DiskonDetil;
+      diskonNominal_ = other.diskonNominal_;
+      total_ = other.total_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public InsertDataT7Requset Clone() {
+      return new InsertDataT7Requset(this);
+    }
+
+    /// <summary>Field number for the "IdBarang" field.</summary>
+    public const int IdBarangFieldNumber = 1;
+    private long idBarang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdBarang {
+      get { return idBarang_; }
+      set {
+        idBarang_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdDetilPenawaranPembelian" field.</summary>
+    public const int IdDetilPenawaranPembelianFieldNumber = 2;
+    private long idDetilPenawaranPembelian_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdDetilPenawaranPembelian {
+      get { return idDetilPenawaranPembelian_; }
+      set {
+        idDetilPenawaranPembelian_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdSatuan" field.</summary>
+    public const int IdSatuanFieldNumber = 3;
+    private long idSatuan_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdSatuan {
+      get { return idSatuan_; }
+      set {
+        idSatuan_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdDivisiBarang" field.</summary>
+    public const int IdDivisiBarangFieldNumber = 4;
+    private long idDivisiBarang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdDivisiBarang {
+      get { return idDivisiBarang_; }
+      set {
+        idDivisiBarang_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdSubDivisiBarang" field.</summary>
+    public const int IdSubDivisiBarangFieldNumber = 5;
+    private long idSubDivisiBarang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdSubDivisiBarang {
+      get { return idSubDivisiBarang_; }
+      set {
+        idSubDivisiBarang_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdKategoriBarang" field.</summary>
+    public const int IdKategoriBarangFieldNumber = 6;
+    private long idKategoriBarang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdKategoriBarang {
+      get { return idKategoriBarang_; }
+      set {
+        idKategoriBarang_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdSubKategoriBarang" field.</summary>
+    public const int IdSubKategoriBarangFieldNumber = 7;
+    private long idSubKategoriBarang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdSubKategoriBarang {
+      get { return idSubKategoriBarang_; }
+      set {
+        idSubKategoriBarang_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Harga" field.</summary>
+    public const int HargaFieldNumber = 8;
+    private double harga_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double Harga {
+      get { return harga_; }
+      set {
+        harga_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Jumlah" field.</summary>
+    public const int JumlahFieldNumber = 9;
+    private double jumlah_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double Jumlah {
+      get { return jumlah_; }
+      set {
+        jumlah_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "DiskonDetil" field.</summary>
+    public const int DiskonDetilFieldNumber = 10;
+    private static readonly pb::FieldCodec<string> _single_diskonDetil_codec = pb::FieldCodec.ForClassWrapper<string>(82);
+    private string diskonDetil_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string DiskonDetil {
+      get { return diskonDetil_; }
+      set {
+        diskonDetil_ = value;
+      }
+    }
+
+
+    /// <summary>Field number for the "DiskonNominal" field.</summary>
+    public const int DiskonNominalFieldNumber = 11;
+    private double diskonNominal_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public double DiskonNominal {
+      get { return diskonNominal_; }
+      set {
+        diskonNominal_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Total" field.</summary>
+    public const int TotalFieldNumber = 12;
+    private long total_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long Total {
+      get { return total_; }
+      set {
+        total_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as InsertDataT7Requset);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(InsertDataT7Requset other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (IdBarang != other.IdBarang) return false;
+      if (IdDetilPenawaranPembelian != other.IdDetilPenawaranPembelian) return false;
+      if (IdSatuan != other.IdSatuan) return false;
+      if (IdDivisiBarang != other.IdDivisiBarang) return false;
+      if (IdSubDivisiBarang != other.IdSubDivisiBarang) return false;
+      if (IdKategoriBarang != other.IdKategoriBarang) return false;
+      if (IdSubKategoriBarang != other.IdSubKategoriBarang) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Harga, other.Harga)) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(Jumlah, other.Jumlah)) return false;
+      if (DiskonDetil != other.DiskonDetil) return false;
+      if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(DiskonNominal, other.DiskonNominal)) return false;
+      if (Total != other.Total) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (IdBarang != 0L) hash ^= IdBarang.GetHashCode();
+      if (IdDetilPenawaranPembelian != 0L) hash ^= IdDetilPenawaranPembelian.GetHashCode();
+      if (IdSatuan != 0L) hash ^= IdSatuan.GetHashCode();
+      if (IdDivisiBarang != 0L) hash ^= IdDivisiBarang.GetHashCode();
+      if (IdSubDivisiBarang != 0L) hash ^= IdSubDivisiBarang.GetHashCode();
+      if (IdKategoriBarang != 0L) hash ^= IdKategoriBarang.GetHashCode();
+      if (IdSubKategoriBarang != 0L) hash ^= IdSubKategoriBarang.GetHashCode();
+      if (Harga != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Harga);
+      if (Jumlah != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Jumlah);
+      if (diskonDetil_ != null) hash ^= DiskonDetil.GetHashCode();
+      if (DiskonNominal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DiskonNominal);
+      if (Total != 0L) hash ^= Total.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (IdBarang != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdBarang);
+      }
+      if (IdDetilPenawaranPembelian != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(IdDetilPenawaranPembelian);
+      }
+      if (IdSatuan != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(IdSatuan);
+      }
+      if (IdDivisiBarang != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(IdDivisiBarang);
+      }
+      if (IdSubDivisiBarang != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(IdSubDivisiBarang);
+      }
+      if (IdKategoriBarang != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(IdKategoriBarang);
+      }
+      if (IdSubKategoriBarang != 0L) {
+        output.WriteRawTag(56);
+        output.WriteInt64(IdSubKategoriBarang);
+      }
+      if (Harga != 0D) {
+        output.WriteRawTag(65);
+        output.WriteDouble(Harga);
+      }
+      if (Jumlah != 0D) {
+        output.WriteRawTag(73);
+        output.WriteDouble(Jumlah);
+      }
+      if (diskonDetil_ != null) {
+        _single_diskonDetil_codec.WriteTagAndValue(output, DiskonDetil);
+      }
+      if (DiskonNominal != 0D) {
+        output.WriteRawTag(89);
+        output.WriteDouble(DiskonNominal);
+      }
+      if (Total != 0L) {
+        output.WriteRawTag(96);
+        output.WriteInt64(Total);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (IdBarang != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdBarang);
+      }
+      if (IdDetilPenawaranPembelian != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(IdDetilPenawaranPembelian);
+      }
+      if (IdSatuan != 0L) {
+        output.WriteRawTag(24);
+        output.WriteInt64(IdSatuan);
+      }
+      if (IdDivisiBarang != 0L) {
+        output.WriteRawTag(32);
+        output.WriteInt64(IdDivisiBarang);
+      }
+      if (IdSubDivisiBarang != 0L) {
+        output.WriteRawTag(40);
+        output.WriteInt64(IdSubDivisiBarang);
+      }
+      if (IdKategoriBarang != 0L) {
+        output.WriteRawTag(48);
+        output.WriteInt64(IdKategoriBarang);
+      }
+      if (IdSubKategoriBarang != 0L) {
+        output.WriteRawTag(56);
+        output.WriteInt64(IdSubKategoriBarang);
+      }
+      if (Harga != 0D) {
+        output.WriteRawTag(65);
+        output.WriteDouble(Harga);
+      }
+      if (Jumlah != 0D) {
+        output.WriteRawTag(73);
+        output.WriteDouble(Jumlah);
+      }
+      if (diskonDetil_ != null) {
+        _single_diskonDetil_codec.WriteTagAndValue(ref output, DiskonDetil);
+      }
+      if (DiskonNominal != 0D) {
+        output.WriteRawTag(89);
+        output.WriteDouble(DiskonNominal);
+      }
+      if (Total != 0L) {
+        output.WriteRawTag(96);
+        output.WriteInt64(Total);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (IdBarang != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdBarang);
       }
       if (IdDetilPenawaranPembelian != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdDetilPenawaranPembelian);
@@ -499,9 +851,6 @@ namespace grpcArachne {
       if (IdSubKategoriBarang != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSubKategoriBarang);
       }
-      if (IdBarang != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdBarang);
-      }
       if (Harga != 0D) {
         size += 1 + 8;
       }
@@ -514,8 +863,8 @@ namespace grpcArachne {
       if (DiskonNominal != 0D) {
         size += 1 + 8;
       }
-      if (Total != 0D) {
-        size += 1 + 8;
+      if (Total != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Total);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -524,18 +873,12 @@ namespace grpcArachne {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(InsertDataRequset other) {
+    public void MergeFrom(InsertDataT7Requset other) {
       if (other == null) {
         return;
       }
-      if (other.IdPenawaranPembelian != 0L) {
-        IdPenawaranPembelian = other.IdPenawaranPembelian;
-      }
-      if (other.IdJenisSupplier != 0L) {
-        IdJenisSupplier = other.IdJenisSupplier;
-      }
-      if (other.IdSupplier != 0L) {
-        IdSupplier = other.IdSupplier;
+      if (other.IdBarang != 0L) {
+        IdBarang = other.IdBarang;
       }
       if (other.IdDetilPenawaranPembelian != 0L) {
         IdDetilPenawaranPembelian = other.IdDetilPenawaranPembelian;
@@ -555,9 +898,6 @@ namespace grpcArachne {
       if (other.IdSubKategoriBarang != 0L) {
         IdSubKategoriBarang = other.IdSubKategoriBarang;
       }
-      if (other.IdBarang != 0L) {
-        IdBarang = other.IdBarang;
-      }
       if (other.Harga != 0D) {
         Harga = other.Harga;
       }
@@ -572,7 +912,7 @@ namespace grpcArachne {
       if (other.DiskonNominal != 0D) {
         DiskonNominal = other.DiskonNominal;
       }
-      if (other.Total != 0D) {
+      if (other.Total != 0L) {
         Total = other.Total;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -590,66 +930,54 @@ namespace grpcArachne {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
-            IdPenawaranPembelian = input.ReadInt64();
-            break;
-          }
-          case 16: {
-            IdJenisSupplier = input.ReadInt64();
-            break;
-          }
-          case 24: {
-            IdSupplier = input.ReadInt64();
-            break;
-          }
-          case 32: {
-            IdDetilPenawaranPembelian = input.ReadInt64();
-            break;
-          }
-          case 40: {
-            IdSatuan = input.ReadInt64();
-            break;
-          }
-          case 48: {
-            IdDivisiBarang = input.ReadInt64();
-            break;
-          }
-          case 56: {
-            IdSubDivisiBarang = input.ReadInt64();
-            break;
-          }
-          case 64: {
-            IdKategoriBarang = input.ReadInt64();
-            break;
-          }
-          case 72: {
-            IdSubKategoriBarang = input.ReadInt64();
-            break;
-          }
-          case 80: {
             IdBarang = input.ReadInt64();
             break;
           }
-          case 89: {
+          case 16: {
+            IdDetilPenawaranPembelian = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            IdSatuan = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            IdDivisiBarang = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            IdSubDivisiBarang = input.ReadInt64();
+            break;
+          }
+          case 48: {
+            IdKategoriBarang = input.ReadInt64();
+            break;
+          }
+          case 56: {
+            IdSubKategoriBarang = input.ReadInt64();
+            break;
+          }
+          case 65: {
             Harga = input.ReadDouble();
             break;
           }
-          case 97: {
+          case 73: {
             Jumlah = input.ReadDouble();
             break;
           }
-          case 106: {
+          case 82: {
             string value = _single_diskonDetil_codec.Read(input);
             if (diskonDetil_ == null || value != "") {
               DiskonDetil = value;
             }
             break;
           }
-          case 113: {
+          case 89: {
             DiskonNominal = input.ReadDouble();
             break;
           }
-          case 121: {
-            Total = input.ReadDouble();
+          case 96: {
+            Total = input.ReadInt64();
             break;
           }
         }
@@ -667,274 +995,54 @@ namespace grpcArachne {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
             break;
           case 8: {
-            IdPenawaranPembelian = input.ReadInt64();
-            break;
-          }
-          case 16: {
-            IdJenisSupplier = input.ReadInt64();
-            break;
-          }
-          case 24: {
-            IdSupplier = input.ReadInt64();
-            break;
-          }
-          case 32: {
-            IdDetilPenawaranPembelian = input.ReadInt64();
-            break;
-          }
-          case 40: {
-            IdSatuan = input.ReadInt64();
-            break;
-          }
-          case 48: {
-            IdDivisiBarang = input.ReadInt64();
-            break;
-          }
-          case 56: {
-            IdSubDivisiBarang = input.ReadInt64();
-            break;
-          }
-          case 64: {
-            IdKategoriBarang = input.ReadInt64();
-            break;
-          }
-          case 72: {
-            IdSubKategoriBarang = input.ReadInt64();
-            break;
-          }
-          case 80: {
             IdBarang = input.ReadInt64();
             break;
           }
-          case 89: {
+          case 16: {
+            IdDetilPenawaranPembelian = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            IdSatuan = input.ReadInt64();
+            break;
+          }
+          case 32: {
+            IdDivisiBarang = input.ReadInt64();
+            break;
+          }
+          case 40: {
+            IdSubDivisiBarang = input.ReadInt64();
+            break;
+          }
+          case 48: {
+            IdKategoriBarang = input.ReadInt64();
+            break;
+          }
+          case 56: {
+            IdSubKategoriBarang = input.ReadInt64();
+            break;
+          }
+          case 65: {
             Harga = input.ReadDouble();
             break;
           }
-          case 97: {
+          case 73: {
             Jumlah = input.ReadDouble();
             break;
           }
-          case 106: {
+          case 82: {
             string value = _single_diskonDetil_codec.Read(ref input);
             if (diskonDetil_ == null || value != "") {
               DiskonDetil = value;
             }
             break;
           }
-          case 113: {
+          case 89: {
             DiskonNominal = input.ReadDouble();
             break;
           }
-          case 121: {
-            Total = input.ReadDouble();
-            break;
-          }
-        }
-      }
-    }
-    #endif
-
-  }
-
-  public sealed partial class T6Request : pb::IMessage<T6Request>
-  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      , pb::IBufferMessage
-  #endif
-  {
-    private static readonly pb::MessageParser<T6Request> _parser = new pb::MessageParser<T6Request>(() => new T6Request());
-    private pb::UnknownFieldSet _unknownFields;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<T6Request> Parser { get { return _parser; } }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pbr::MessageDescriptor Descriptor {
-      get { return global::grpcArachne.PenawaranPembelianReflection.Descriptor.MessageTypes[1]; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    pbr::MessageDescriptor pb::IMessage.Descriptor {
-      get { return Descriptor; }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public T6Request() {
-      OnConstruction();
-    }
-
-    partial void OnConstruction();
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public T6Request(T6Request other) : this() {
-      idPenawaranPembelian_ = other.idPenawaranPembelian_;
-      idJenisSupplier_ = other.idJenisSupplier_;
-      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public T6Request Clone() {
-      return new T6Request(this);
-    }
-
-    /// <summary>Field number for the "IdPenawaranPembelian" field.</summary>
-    public const int IdPenawaranPembelianFieldNumber = 1;
-    private long idPenawaranPembelian_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdPenawaranPembelian {
-      get { return idPenawaranPembelian_; }
-      set {
-        idPenawaranPembelian_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "IdJenisSupplier" field.</summary>
-    public const int IdJenisSupplierFieldNumber = 2;
-    private long idJenisSupplier_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdJenisSupplier {
-      get { return idJenisSupplier_; }
-      set {
-        idJenisSupplier_ = value;
-      }
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override bool Equals(object other) {
-      return Equals(other as T6Request);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(T6Request other) {
-      if (ReferenceEquals(other, null)) {
-        return false;
-      }
-      if (ReferenceEquals(other, this)) {
-        return true;
-      }
-      if (IdPenawaranPembelian != other.IdPenawaranPembelian) return false;
-      if (IdJenisSupplier != other.IdJenisSupplier) return false;
-      return Equals(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override int GetHashCode() {
-      int hash = 1;
-      if (IdPenawaranPembelian != 0L) hash ^= IdPenawaranPembelian.GetHashCode();
-      if (IdJenisSupplier != 0L) hash ^= IdJenisSupplier.GetHashCode();
-      if (_unknownFields != null) {
-        hash ^= _unknownFields.GetHashCode();
-      }
-      return hash;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public override string ToString() {
-      return pb::JsonFormatter.ToDiagnosticString(this);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void WriteTo(pb::CodedOutputStream output) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      output.WriteRawMessage(this);
-    #else
-      if (IdPenawaranPembelian != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(IdPenawaranPembelian);
-      }
-      if (IdJenisSupplier != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(IdJenisSupplier);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(output);
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
-      if (IdPenawaranPembelian != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(IdPenawaranPembelian);
-      }
-      if (IdJenisSupplier != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(IdJenisSupplier);
-      }
-      if (_unknownFields != null) {
-        _unknownFields.WriteTo(ref output);
-      }
-    }
-    #endif
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public int CalculateSize() {
-      int size = 0;
-      if (IdPenawaranPembelian != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdPenawaranPembelian);
-      }
-      if (IdJenisSupplier != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdJenisSupplier);
-      }
-      if (_unknownFields != null) {
-        size += _unknownFields.CalculateSize();
-      }
-      return size;
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(T6Request other) {
-      if (other == null) {
-        return;
-      }
-      if (other.IdPenawaranPembelian != 0L) {
-        IdPenawaranPembelian = other.IdPenawaranPembelian;
-      }
-      if (other.IdJenisSupplier != 0L) {
-        IdJenisSupplier = other.IdJenisSupplier;
-      }
-      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
-    }
-
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(pb::CodedInputStream input) {
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-      input.ReadRawMessage(this);
-    #else
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
-            break;
-          case 8: {
-            IdPenawaranPembelian = input.ReadInt64();
-            break;
-          }
-          case 16: {
-            IdJenisSupplier = input.ReadInt64();
-            break;
-          }
-        }
-      }
-    #endif
-    }
-
-    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
-      uint tag;
-      while ((tag = input.ReadTag()) != 0) {
-        switch(tag) {
-          default:
-            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
-            break;
-          case 8: {
-            IdPenawaranPembelian = input.ReadInt64();
-            break;
-          }
-          case 16: {
-            IdJenisSupplier = input.ReadInt64();
+          case 96: {
+            Total = input.ReadInt64();
             break;
           }
         }

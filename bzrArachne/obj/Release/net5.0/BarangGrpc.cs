@@ -43,20 +43,12 @@ namespace grpcArachne {
     }
 
     static readonly grpc::Marshaller<global::grpcArachne.ListBarangRequest> __Marshaller_ListBarangRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.ListBarangRequest.Parser));
-    static readonly grpc::Marshaller<global::grpcArachne.ListBarang> __Marshaller_ListBarang = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.ListBarang.Parser));
     static readonly grpc::Marshaller<global::grpcArachne.Barang> __Marshaller_Barang = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.Barang.Parser));
 
-    static readonly grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.ListBarang> __Method_GetDataBarang = new grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.ListBarang>(
-        grpc::MethodType.Unary,
-        __ServiceName,
-        "GetDataBarang",
-        __Marshaller_ListBarangRequest,
-        __Marshaller_ListBarang);
-
-    static readonly grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang> __Method_GetDataBarangWithStream = new grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang>(
+    static readonly grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang> __Method_GetDataBarangWithGroupBy = new grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
-        "GetDataBarangWithStream",
+        "GetDataBarangWithGroupBy",
         __Marshaller_ListBarangRequest,
         __Marshaller_Barang);
 
@@ -89,29 +81,13 @@ namespace grpcArachne {
       {
       }
 
-      public virtual global::grpcArachne.ListBarang GetDataBarang(global::grpcArachne.ListBarangRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.Barang> GetDataBarangWithGroupBy(global::grpcArachne.ListBarangRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return GetDataBarang(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetDataBarangWithGroupBy(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual global::grpcArachne.ListBarang GetDataBarang(global::grpcArachne.ListBarangRequest request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.Barang> GetDataBarangWithGroupBy(global::grpcArachne.ListBarangRequest request, grpc::CallOptions options)
       {
-        return CallInvoker.BlockingUnaryCall(__Method_GetDataBarang, null, options, request);
-      }
-      public virtual grpc::AsyncUnaryCall<global::grpcArachne.ListBarang> GetDataBarangAsync(global::grpcArachne.ListBarangRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return GetDataBarangAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncUnaryCall<global::grpcArachne.ListBarang> GetDataBarangAsync(global::grpcArachne.ListBarangRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncUnaryCall(__Method_GetDataBarang, null, options, request);
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.Barang> GetDataBarangWithStream(global::grpcArachne.ListBarangRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
-      {
-        return GetDataBarangWithStream(request, new grpc::CallOptions(headers, deadline, cancellationToken));
-      }
-      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.Barang> GetDataBarangWithStream(global::grpcArachne.ListBarangRequest request, grpc::CallOptions options)
-      {
-        return CallInvoker.AsyncServerStreamingCall(__Method_GetDataBarangWithStream, null, options, request);
+        return CallInvoker.AsyncServerStreamingCall(__Method_GetDataBarangWithGroupBy, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override T1BarangClient NewInstance(ClientBaseConfiguration configuration)

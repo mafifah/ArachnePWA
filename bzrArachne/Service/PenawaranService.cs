@@ -10,39 +10,52 @@ namespace bzrArachne.Service
 {
     public class PenawaranService
     {
-        List<DataPenawaran> listBarangs = new List<DataPenawaran>();
-
-        DataPenawaran dataPenawaran = new DataPenawaran();
-
-       
-
-        public PenawaranService()
-        {
-
-        }
-
-
         public async Task<bool> InsertDataRepeated(DataPenawaran dataPenawaran)
         {
-            List<DataPenawaran> T7Requset = new List<DataPenawaran>();
-            InsertDataT6Requset insertDataT6 = new InsertDataT6Requset();
-
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new PenawaranPembelian.PenawaranPembelianClient(channel);
-            var request = new InsertDataT6Requset
+            var output = false;
+            try
             {
-                IdPenawaranPembelian = dataPenawaran.IdPenawaranPembelian,
-                IdJenisSupplier  = dataPenawaran.IdJenisSupplier,
-                IdSupplier = dataPenawaran.IdSupplier,
-                IdCompanyPenerima = dataPenawaran.IdCompanyPenerima,
-                DiskonDetil = dataPenawaran.DiskonDetil,
-                DiskonNominal = dataPenawaran.DiskonNominal,
-                GrandTotal = dataPenawaran.GrandTotal,
-              //  insertDataT6.T7Requset.AddRange(new InsertDataT6Requset (dataPenawaran.BarangPenawaran))  
-
-            };
-
-            return false;
+                
+                var channel = GrpcChannel.ForAddress("https://localhost:5001");
+                var client = new PenawaranPembelian.PenawaranPembelianClient(channel);
+                List<InsertDataT7Requset> data = new List<InsertDataT7Requset>();
+                foreach(var Item in dataPenawaran.BarangPenawaran)
+                {
+                    data.Add(new InsertDataT7Requset {
+                        IdBarang = Item.IdBarang,
+                        IdDetilPenawaranPembelian = Item.IdDetilPenawaranPembelian,
+                        IdSatuan = Item.IdSatuan,
+                        IdDivisiBarang = Item.IdDivisiBarang,
+                        IdSubDivisiBarang = Item.IdSubDivisiBarang,
+                        IdKategoriBarang = Item.IdKategoriBarang,
+                        IdSubKategoriBarang = Item.IdSubKategoriBarang,
+                        Harga = Item.Harga,
+                        Jumlah = Item.Jumlah,
+                        DiskonDetil = Item.DiskonDetil.ToString(),
+                        DiskonNominal = Item.DiskonNominal,
+                        Total = (long)Item.Total
+                    });
+                }
+                var request = new InsertDataT6Requset
+                {
+                    IdPenawaranPembelian = dataPenawaran.IdPenawaranPembelian,
+                    IdJenisSupplier = dataPenawaran.IdJenisSupplier,
+                    IdSupplier = dataPenawaran.IdSupplier,
+                    IdCompanyPenerima = dataPenawaran.IdCompanyPenerima,
+                    DiskonDetil = dataPenawaran.DiskonDetil,
+                    DiskonNominal = dataPenawaran.DiskonNominal,
+                    GrandTotal = dataPenawaran.GrandTotal,
+                    T7Requset = {data},
+                };
+                var reply = await client.InsertPenawaranPembelianRepeatedAsync(request);
+                output = true;
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+                output = false;
+            }
+            return output;
         }
     }
 }

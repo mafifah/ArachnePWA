@@ -79,7 +79,7 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="number" min="1" @bind="data.DiskonNominal" class="form-control">
+                                    <input type="number" min="1" @bind="data.DiskonNominal" disabled class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -190,9 +190,8 @@
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
     Random rnd = new Random();
-    //MODAL
+
     private DataUser user = new DataUser();
-    //List<DataBarang> ListDataBarang = new List<DataBarang>();
     //public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
     //private DataBarang ItemBaru { get; set; }
@@ -201,10 +200,6 @@
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
-    //List<DataPenawaran> dataPenawarans = new List<DataPenawaran>();
-
-
-
     void TambahBarangKeList(DataBarang ItemBaru)
     {
         barangPenawarans.Add(new BarangPenawaran
@@ -243,7 +238,6 @@
             IdSubKategoriBarang = Item.IdSubKategoriBarang,
             Satuan = Item.Satuan,
             Nama = Item.Nama,
-
         });
         user = DataService.User;
         var Token = DataService.Token;
@@ -295,10 +289,17 @@
             IdJenisSupplier = user.IdJenisSupplier,
             IdSupplier = user.IdSupplier,
             IdCompanyPenerima = "GWR",
-            BarangPenawaran = barangPenawarans
+            BarangPenawaran = barangPenawarans,
         };
-
-        await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
+        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+        if (send)
+        {
+            await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
+        }
+        else
+        {
+            await Swal.FireAsync("Oops!!!", "Data gagal terkirim", "error");
+        }
         NavigationManager.NavigateTo("dataBarang");
     }
 
