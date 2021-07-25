@@ -19,21 +19,30 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Supplier</label>
                 <div class="col-sm-4">
+<<<<<<< HEAD
                     <input type="text" disabled @bind="Item.NamaSupplier" class="form-control">
+=======
+                    <input type="text"  disabled @bind="user.Nama" class="form-control">
+>>>>>>> ebcc22232816cccf123fab229508457284ad2152
                 </div>
                 @{
                     Tanggal = DateTimeOffset.UtcNow.LocalDateTime;
                 }
                 <label class="col-sm-1 col-form-label">Tanggal</label>
                 <div class="col-sm-4">
+<<<<<<< HEAD
                     <input disabled @bind="Tanggal" class="form-control">
                 </div>
 
+=======
+                    <input  disabled class="form-control" value="@DateTimeOffset.UtcNow.LocalDateTime">
+                </div>
+>>>>>>> ebcc22232816cccf123fab229508457284ad2152
             </div>
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Alamat</label>
                 <div class="col-sm-4">
-                    <textarea type="text" disabled @bind="Item.AlamatSupplier" class="form-control"></textarea>
+                    <textarea type="text" disabled @bind="user.Alamat" class="form-control"></textarea>
                 </div>
             </div>
         </div>
@@ -90,7 +99,11 @@
                                     @{
                                         data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
                                     }
+<<<<<<< HEAD
                                     <input type="text" disabled min="1" @bind="data.DiskonDetil" class="form-control">
+=======
+                                    <input type="text" min="1" @bind="data.DiskonDetil" disabled class="form-control">
+>>>>>>> ebcc22232816cccf123fab229508457284ad2152
                                 </div>
                             </td>
                             <td>
@@ -221,9 +234,8 @@
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
     Random rnd = new Random();
-    //MODAL
+
     private DataUser user = new DataUser();
-    //List<DataBarang> ListDataBarang = new List<DataBarang>();
     //public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
     //private DataBarang ItemBaru { get; set; }
@@ -232,10 +244,6 @@
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
-    //List<DataPenawaran> dataPenawarans = new List<DataPenawaran>();
-
-
-
     void TambahBarangKeList(DataBarang ItemBaru)
     {
         barangPenawarans.Add(new BarangPenawaran
@@ -275,8 +283,11 @@
             IdSubKategoriBarang = Item.IdSubKategoriBarang,
             Satuan = Item.Satuan,
             Nama = Item.Nama,
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ebcc22232816cccf123fab229508457284ad2152
         });
         user = DataService.User;
         var Token = DataService.Token;
@@ -329,10 +340,16 @@
             IdSupplier = user.IdSupplier,
             IdCompanyPenerima = "GWR",
             BarangPenawaran = barangPenawarans,
+<<<<<<< HEAD
             GrandTotal = _grandtotal
+=======
+>>>>>>> ebcc22232816cccf123fab229508457284ad2152
         };
-
-        await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
+        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+        DataService.SetNullBarangDipilih();
+        Item = null;
+        barangPenawarans.Clear();
+        dataPenawaran = null;
         NavigationManager.NavigateTo("dataBarang");
     }
 

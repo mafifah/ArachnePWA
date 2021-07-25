@@ -139,64 +139,90 @@ using bzrArachne.Models;
     bool showModal = false;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
-    void ModalOk()
-    {
-        Console.WriteLine("Modal ok");
-        showModal = false;
-    }
+    Random rnd = new Random();
     //MODAL
     private DataUser user = new DataUser();
-    List<DataBarang> ListDataBarang = new List<DataBarang>();
-    public string ValidationMesssage { get; set; }
+    //List<DataBarang> ListDataBarang = new List<DataBarang>();
+    //public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
-    private DataBarang ItemBaru { get; set; }
-    int Jumlah { get; set; } = 0;
-    private double totalharga;
+    //private DataBarang ItemBaru { get; set; }
+    //int Jumlah { get; set; } = 0;
+    //private double totalharga;
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
+    List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
+    //List<DataPenawaran> dataPenawarans = new List<DataPenawaran>();
+
+
+
     void TambahBarangKeList(DataBarang ItemBaru)
     {
-        DataService.SetBarangBaruDipilih(ItemBaru);
-        ListDataBarang.Add(ItemBaru);
+        barangPenawarans.Add(new BarangPenawaran
+        {
+            IdBarang = ItemBaru.IdBarang,
+            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+            IdSatuan = ItemBaru.IdSatuan,
+            IdDivisiBarang = ItemBaru.IdDivisiBarang,
+            IdSubDivisiBarang = ItemBaru.IdSubDivisiBarang,
+            IdKategoriBarang = ItemBaru.IdKategoriBarang,
+            IdSubKategoriBarang = ItemBaru.IdSubKategoriBarang,
+            Satuan = ItemBaru.Satuan,
+            Nama = ItemBaru.Nama,
+
+        });
         ModalCancel();
     }
 
-    void HapusBarangDariList(DataBarang Item)
+    void HapusBarangDariList(BarangPenawaran Item)
     {
         DataService.SetNullBarangDipilih();
-        DataService.SetBarangDipilih(Item);
-        ListDataBarang.Remove(Item);
+        barangPenawarans.Remove(Item);
     }
     protected override async Task OnInitializedAsync()
     {
+
         Item = DataService._barangDipilih;
-        ListDataBarang.Add(Item);
+        barangPenawarans.Add(new BarangPenawaran
+        {
+            IdBarang = Item.IdBarang,
+            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+            IdSatuan = Item.IdSatuan,
+            IdDivisiBarang = Item.IdDivisiBarang,
+            IdSubDivisiBarang = Item.IdSubDivisiBarang,
+            IdKategoriBarang = Item.IdKategoriBarang,
+            IdSubKategoriBarang = Item.IdSubKategoriBarang,
+            Satuan = Item.Satuan,
+            Nama = Item.Nama,
+
+        });
         user = DataService.User;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
         {
-
-            var dataBarang = DataService.GetDataBarangWithStream();
+            var dataBarang = DataService.GetDataBarangWithGroupBy();
             await foreach (var item in dataBarang)
             {
-                _daftarBarang.Add(new DataBarang
+                if(item.Stok <= item.Minimum)
                 {
-                    IdBarang = item.IdBarang,
-                    IdDivisiBarang = item.IdDivisiBarang,
-                    IdSubDivisiBarang = item.IdSubDivisiBarang,
-                    IdKategoriBarang = item.IdKategoriBarang,
-                    IdSubKategoriBarang = item.IdSubKategoriBarang,
-                    IdSupplier = item.IdSupplier,
-                    IdJenisSupplier = item.IdJenisSupplier,
-                    IdSatuan = item.IdSatuan,
-                    Nama = item.Nama,
-                    Satuan = item.Satuan,
-                    Stok = item.Stok,
-                    Minimum = item.Minimum,
-                    Maksimum = item.Maksimum,
-                    NamaSupplier = item.NamaSupplier
-                });
-                this.StateHasChanged();
+                    _daftarBarang.Add(new DataBarang
+                    {
+                        IdBarang = item.IdBarang,
+                        IdDivisiBarang = item.IdDivisiBarang,
+                        IdSubDivisiBarang = item.IdSubDivisiBarang,
+                        IdKategoriBarang = item.IdKategoriBarang,
+                        IdSubKategoriBarang = item.IdSubKategoriBarang,
+                        IdSupplier = item.IdSupplier,
+                        IdJenisSupplier = item.IdJenisSupplier,
+                        IdSatuan = item.IdSatuan,
+                        Nama = item.Nama,
+                        Satuan = item.Satuan,
+                        Stok = item.Stok,
+                        Minimum = item.Minimum,
+                        Maksimum = item.Maksimum,
+                        NamaSupplier = item.NamaSupplier
+                    });
+                    this.StateHasChanged();
+                }
             }
         }
         else
@@ -213,14 +239,19 @@ using bzrArachne.Models;
 
     async void SendDataPenawaran()
     {
-        List<DataBarang> ListDataBarang;
+        dataPenawaran = new DataPenawaran
+        {
+            IdPenawaranPembelian = rnd.Next(1, 1000),
+            IdJenisSupplier = user.IdJenisSupplier,
+            IdSupplier = user.IdSupplier,
+            IdCompanyPenerima = "GWR",
+            BarangPenawaran = barangPenawarans
+        };
+
         await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
         NavigationManager.NavigateTo("dataBarang");
     }
-    void HitungHarga()
-    {
-        //totalharga = Item.Stok * dataPenawaran.Berat;
-    }
+
 
 #line default
 #line hidden

@@ -13,112 +13,112 @@ namespace bzrArachne.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 1 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 2 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 3 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 4 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 5 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 6 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 7 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 8 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 9 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using bzrArachne;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 10 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using bzrArachne.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 11 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Blazor.AdminLte;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 12 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Blazored.Toast;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 13 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Blazored.Toast.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 14 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
 using CurrieTechnologies.Razor.SweetAlert2;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 2 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
 using bzrArachne.Service;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+#line 3 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
 using bzrArachne.Models;
 
 #line default
@@ -133,7 +133,11 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
+<<<<<<< HEAD
 #line 216 "D:\Arachne\bzrArachne\Pages\PenawaranBaru.razor"
+=======
+#line 186 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\PenawaranBaru.razor"
+>>>>>>> ebcc22232816cccf123fab229508457284ad2152
        
     //MODAL
     DateTimeOffset Tanggal { get; set; }
@@ -142,9 +146,8 @@ using bzrArachne.Models;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
     Random rnd = new Random();
-    //MODAL
+
     private DataUser user = new DataUser();
-    //List<DataBarang> ListDataBarang = new List<DataBarang>();
     //public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
     //private DataBarang ItemBaru { get; set; }
@@ -153,10 +156,6 @@ using bzrArachne.Models;
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
-    //List<DataPenawaran> dataPenawarans = new List<DataPenawaran>();
-
-
-
     void TambahBarangKeList(DataBarang ItemBaru)
     {
         barangPenawarans.Add(new BarangPenawaran
@@ -198,8 +197,11 @@ using bzrArachne.Models;
             IdSubKategoriBarang = Item.IdSubKategoriBarang,
             Satuan = Item.Satuan,
             Nama = Item.Nama,
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> ebcc22232816cccf123fab229508457284ad2152
         });
         user = DataService.User;
         var Token = DataService.Token;
@@ -252,10 +254,16 @@ using bzrArachne.Models;
             IdSupplier = user.IdSupplier,
             IdCompanyPenerima = "GWR",
             BarangPenawaran = barangPenawarans,
+<<<<<<< HEAD
             GrandTotal = _grandtotal
+=======
+>>>>>>> ebcc22232816cccf123fab229508457284ad2152
         };
-
-        await Swal.FireAsync("Yeay!!!", "Data Berhasil Disimpan", "success");
+        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+        DataService.SetNullBarangDipilih();
+        Item = null;
+        barangPenawarans.Clear();
+        dataPenawaran = null;
         NavigationManager.NavigateTo("dataBarang");
     }
 
