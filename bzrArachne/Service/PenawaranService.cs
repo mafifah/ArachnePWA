@@ -10,7 +10,6 @@ namespace bzrArachne.Service
 {
     public class PenawaranService
     {
-<<<<<<< HEAD
         List<DataPenawaran> listBarangs = new List<DataPenawaran>();
 
         DataPenawaran dataPenawaran = new DataPenawaran();
@@ -20,69 +19,74 @@ namespace bzrArachne.Service
 
         }
 
-        public async Task<bool> InsertDataRepeated(DataPenawaran dataPenawaran)
-        {
-            var channel = GrpcChannel.ForAddress("https://localhost:5001");
-            var client = new PenawaranPembelian.PenawaranPembelianClient(channel);
-            var request = new InsertDataT6Requset
+        //public async Task<bool> InsertDataRepeated(DataPenawaran dataPenawaran)
+        //{
+        //    var channel = GrpcChannel.ForAddress("https://localhost:5001");
+        //    var client = new PenawaranPembelian.PenawaranPembelianClient(channel);
+        //    var request = new InsertDataT6Requset
+        //    {
+        //        IdPenawaranPembelian = dataPenawaran.IdPenawaranPembelian,
+        //        IdJenisSupplier = dataPenawaran.IdJenisSupplier,
+        //        IdSupplier = dataPenawaran.IdSupplier,
+        //        IdCompanyPenerima = dataPenawaran.IdCompanyPenerima,
+        //        DiskonDetil = dataPenawaran.DiskonDetil,
+        //        DiskonNominal = dataPenawaran.DiskonNominal,
+        //        GrandTotal = dataPenawaran.GrandTotal,
+        //    };
+        //    return false;
+            public async Task<bool> InsertDataRepeated(DataPenawaran dataPenawaran)
             {
-                IdPenawaranPembelian = dataPenawaran.IdPenawaranPembelian,
-                IdJenisSupplier  = dataPenawaran.IdJenisSupplier,
-                IdSupplier = dataPenawaran.IdSupplier,
-                IdCompanyPenerima = dataPenawaran.IdCompanyPenerima,
-                DiskonDetil = dataPenawaran.DiskonDetil,
-                DiskonNominal = dataPenawaran.DiskonNominal,
-                GrandTotal = dataPenawaran.GrandTotal,
-            };
-            return false;
-=======
-        public async Task<bool> InsertDataRepeated(DataPenawaran dataPenawaran)
-        {
-            var output = false;
-            try
-            {
-                
-                var channel = GrpcChannel.ForAddress("https://localhost:5001");
-                var client = new PenawaranPembelian.PenawaranPembelianClient(channel);
-                List<InsertDataT7Requset> data = new List<InsertDataT7Requset>();
-                foreach(var Item in dataPenawaran.BarangPenawaran)
+                var output = false;
+                try
                 {
-                    data.Add(new InsertDataT7Requset {
-                        IdBarang = Item.IdBarang,
-                        IdDetilPenawaranPembelian = Item.IdDetilPenawaranPembelian,
-                        IdSatuan = Item.IdSatuan,
-                        IdDivisiBarang = Item.IdDivisiBarang,
-                        IdSubDivisiBarang = Item.IdSubDivisiBarang,
-                        IdKategoriBarang = Item.IdKategoriBarang,
-                        IdSubKategoriBarang = Item.IdSubKategoriBarang,
-                        Harga = Item.Harga,
-                        Jumlah = Item.Jumlah,
-                        DiskonDetil = Item.DiskonDetil.ToString(),
-                        DiskonNominal = Item.DiskonNominal,
-                        Total = (long)Item.Total
-                    });
+
+                    var channel = GrpcChannel.ForAddress("https://localhost:5001");
+                    var client = new PenawaranPembelian.PenawaranPembelianClient(channel);
+                    List<InsertDataT7Requset> data = new List<InsertDataT7Requset>();
+                    foreach (var Item in dataPenawaran.BarangPenawaran)
+                    {
+                        data.Add(new InsertDataT7Requset {
+                            IdBarang = Item.IdBarang,
+                            IdDetilPenawaranPembelian = Item.IdDetilPenawaranPembelian,
+                            IdSatuan = Item.IdSatuan,
+                            IdDivisiBarang = Item.IdDivisiBarang,
+                            IdSubDivisiBarang = Item.IdSubDivisiBarang,
+                            IdKategoriBarang = Item.IdKategoriBarang,
+                            IdSubKategoriBarang = Item.IdSubKategoriBarang,
+                            Harga = Item.Harga,
+                            Jumlah = Item.Jumlah,
+                            DiskonDetil = Item.DiskonDetil.ToString(),
+                            DiskonNominal = Item.DiskonNominal,
+                            Total = (long)Item.Total
+                        });
+                    }
+                    var request = new InsertDataT6Requset
+                    {
+                        IdPenawaranPembelian = dataPenawaran.IdPenawaranPembelian,
+                        IdJenisSupplier = dataPenawaran.IdJenisSupplier,
+                        IdSupplier = dataPenawaran.IdSupplier,
+                        IdCompanyPenerima = dataPenawaran.IdCompanyPenerima,
+                        DiskonDetil = dataPenawaran.DiskonDetil,
+                        DiskonNominal = dataPenawaran.DiskonNominal,
+                        GrandTotal = dataPenawaran.GrandTotal,
+                        T7Requset = { data },
+                    };
+                    var reply = await client.InsertPenawaranPembelianRepeatedAsync(request);
+                if (reply.Pesan== "Berhasil")
+                {
+                    output = true;
                 }
-                var request = new InsertDataT6Requset
+                else
                 {
-                    IdPenawaranPembelian = dataPenawaran.IdPenawaranPembelian,
-                    IdJenisSupplier = dataPenawaran.IdJenisSupplier,
-                    IdSupplier = dataPenawaran.IdSupplier,
-                    IdCompanyPenerima = dataPenawaran.IdCompanyPenerima,
-                    DiskonDetil = dataPenawaran.DiskonDetil,
-                    DiskonNominal = dataPenawaran.DiskonNominal,
-                    GrandTotal = dataPenawaran.GrandTotal,
-                    T7Requset = {data},
-                };
-                var reply = await client.InsertPenawaranPembelianRepeatedAsync(request);
-                output = true;
+                    output = false;
+                }
+              
             }
-            catch(Exception e)
-            {
-                Console.WriteLine(e.Message);
-                output = false;
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                }
+                return output;
             }
-            return output;
->>>>>>> ebcc22232816cccf123fab229508457284ad2152
         }
-    }
-}
+    } 

@@ -1,0 +1,258 @@
+﻿@page "/penawaranBarangBaru"
+@using bzrArachne.Service
+@using bzrArachne.Models
+@inject DataService DataService
+@inject PenawaranService PenawaranService
+@inject NavigationManager NavigationManager
+@inject NavigationManager NavigationManager
+@inject SweetAlertService Swal;
+
+<br />
+<div class="card card-dark ml-4 mr-4">
+    <div class="card-header">
+        <h2 class="card-title">Form Penawaran</h2>
+    </div>
+    <!-- /.card-header -->
+    <!-- form start -->
+    <form>
+        <div class="card-body">
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Supplier</label>
+                <div class="col-sm-4">
+                    <input type="text" disabled @bind="user.Nama" class="form-control">
+                </div>
+                @{
+                    Tanggal = DateTimeOffset.UtcNow.LocalDateTime;
+                }
+                <label class="col-sm-1 col-form-label">Tanggal</label>
+                <div class="col-sm-4">
+                    <input disabled @bind="Tanggal" class="form-control">
+                </div>
+            </div>
+            <div class="form-group row">
+                <label class="col-sm-2 col-form-label">Alamat</label>
+                <div class="col-sm-4">
+                    <textarea type="text" disabled @bind="user.Alamat" class="form-control"></textarea>
+                </div>
+            </div>
+
+            <br />
+            <hr />
+            <!--Form Detail Penawaran-->
+            <div class="card card-dark">
+                <div class="card-body">
+                    <h4 class="card-blue">Detail Penawaran</h4>
+                    <table style="width: 100%" border="1">
+                        <thead>
+                            <tr>
+                                <th align="center" width="9%"> <label for="Jumlah">Jumlah</label></th>
+                                <th align="center" width="10%"> <label for="Satuan">Satuan</label></th>
+                                <th align="center" width="33%"><label for="Nama">Nama Barang</label></th>
+                                <th align="center" width="13%"><label for="Harga">Harga Satuan</label></th>
+                                <th align="center" width="5%"><label for="DiskonNominal">Diskon%</label></th>
+                                <th align="center" width="10%"><label for="DiskonDetil">Diskon Rp.</label></th>
+                                <th align="center" width="15%"><label for="Total">Total</label></th>
+                                <th align="center" width="5%"><label for="Opsi">Opsi</label></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var data in barangPenawarans)
+                            {
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <input type="number" min="1" @bind="data.Jumlah" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <input type="text" disabled min="1" @bind="data.Satuan" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <input type="text" disabled min="1" @bind="data.Nama" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <input type="number" min="1" @bind="data.Harga" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <input type="number" min="1" @bind="data.DiskonNominal" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            @{
+                                                data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
+                                            }
+                                            <input type="text" min="1" @bind="data.DiskonDetil" disabled class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            @{
+                                                var harga_diskon = data.Jumlah * data.Harga * data.DiskonNominal / 100;
+                                                data.Total = data.Harga * data.Jumlah - harga_diskon;
+                                            }
+                                            <input type="number" min="1" @bind="data.Total" disabled class="form-control">
+                                        </div>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <div>
+
+                                            <button class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></button>
+                                        </div>
+                                    </td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td align="right" colspan="8"><button class="btn btn-success rounded-circle" @onclick="@ModalShow"><i class="oi oi-plus"></i></button></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label border-danger">Catatan Penawaran</label>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <textarea type="text" class="form-control"></textarea>
+                        </div>
+                        <div class="col-sm-8 align-items-end pull-right right right">
+                            @{
+                                _grandtotal = barangPenawarans.Sum(m => m.Total);
+                            }
+                            <label class="col-sm-4 col-form-label">Total Penawaran (Rp.) : </label>
+                            <input style="text-align:center" type="number" disabled @bind="_grandtotal" class="col-sm-4 col-form-label rounded-pill border border-success" />
+                        </div>
+                    </div>
+                </div>
+            </div><!-- /.card-body -->
+            <div class="card-footer">
+                <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
+                <button type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+
+
+    <!--MODAL-->
+    @if (showModal)
+    {
+        <div class="modal fade show" id="myModal" style="display:block" aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Barang</h4>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
+                            <thead>
+                                <tr>
+                                    <th> Nama </th>
+                                    <th> Satuan </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                              
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn" @onclick="@ModalCancel">Tutup</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    }
+    <!--MODAL-->
+
+
+</div>
+
+
+@code {
+    //MODAL
+    DateTimeOffset Tanggal { get; set; }
+    double _grandtotal { get; set; }
+    bool showModal = false;
+    void ModalShow() => showModal = true;
+    void ModalCancel() => showModal = false;
+    Random rnd = new Random();
+
+    private DataUser user = new DataUser();
+    private DataPenawaran dataPenawaran = new DataPenawaran();
+    private List<DataBarang> _daftarBarang = new List<DataBarang>();
+    List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
+
+
+
+    void TambahBarangKeList(DataBarang ItemBaru)
+    {
+        barangPenawarans.Add(new BarangPenawaran
+        {
+            IdBarang = ItemBaru.IdBarang,
+            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+            IdSatuan = ItemBaru.IdSatuan,
+            IdDivisiBarang = ItemBaru.IdDivisiBarang,
+            IdSubDivisiBarang = ItemBaru.IdSubDivisiBarang,
+            IdKategoriBarang = ItemBaru.IdKategoriBarang,
+            IdSubKategoriBarang = ItemBaru.IdSubKategoriBarang,
+            Satuan = ItemBaru.Satuan,
+            Nama = ItemBaru.Nama,
+
+
+        });
+        ModalCancel();
+    }
+
+    void HapusBarangDariList(BarangPenawaran Item)
+    {
+        DataService.SetNullBarangDipilih();
+        barangPenawarans.Remove(Item);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        
+    }
+
+    void BackToBarang()
+    {
+        DataService.SetNullBarangDipilih();
+        NavigationManager.NavigateTo("dataBarang");
+    }
+
+    async void SendDataPenawaran()
+    {
+        dataPenawaran = new DataPenawaran
+        {
+            IdPenawaranPembelian = rnd.Next(1, 1000),
+            IdJenisSupplier = user.IdJenisSupplier,
+            IdSupplier = user.IdSupplier,
+            IdCompanyPenerima = "GWR",
+            BarangPenawaran = barangPenawarans,
+            GrandTotal = _grandtotal
+        };
+        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+        DataService.SetNullBarangDipilih();
+        // Item = null;
+        barangPenawarans.Clear();
+        dataPenawaran = null;
+        NavigationManager.NavigateTo("dataBarang");
+    }
+
+}

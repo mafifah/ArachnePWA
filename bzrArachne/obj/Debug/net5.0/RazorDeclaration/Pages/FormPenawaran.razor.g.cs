@@ -13,125 +13,125 @@ namespace bzrArachne.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 1 "D:\Arachne\bzrArachne\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 2 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 3 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 4 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 5 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 6 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 7 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 8 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 9 "D:\Arachne\bzrArachne\_Imports.razor"
 using bzrArachne;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 10 "D:\Arachne\bzrArachne\_Imports.razor"
 using bzrArachne.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 11 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazor.AdminLte;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 12 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazored.Toast;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 13 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazored.Toast.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 14 "D:\Arachne\bzrArachne\_Imports.razor"
 using CurrieTechnologies.Razor.SweetAlert2;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+#line 15 "D:\Arachne\bzrArachne\_Imports.razor"
+using MudBlazor;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 2 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
 using bzrArachne.Service;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+#line 3 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
 using bzrArachne.Models;
 
 #line default
 #line hidden
 #nullable disable
-#nullable restore
-#line 4 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
-using Blazored.Typeahead;
-
-#line default
-#line hidden
-#nullable disable
-    [Microsoft.AspNetCore.Components.RouteAttribute("/formPenawaran")]
+    [Microsoft.AspNetCore.Components.RouteAttribute("/penawaranBaru")]
     public partial class FormPenawaran : Microsoft.AspNetCore.Components.ComponentBase
     {
         #pragma warning disable 1998
@@ -140,77 +140,169 @@ using Blazored.Typeahead;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 62 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
-  
+#line 244 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+       
+    //MODAL
+    DateTimeOffset Tanggal { get; set; }
+    double _grandtotal { get; set; }
+    double _grandDiskon { get; set; }
+    double _grandDetil { get; set; }
+    bool showModal = false;
+    void ModalShow() => showModal = true;
+    void ModalCancel() => showModal = false;
+    Random rnd = new Random();
+
+    public MudBlazor.Color merah = MudBlazor.Color.Error;
+    List<BarangPenawaran> _validation = new List<BarangPenawaran>();
     private DataUser user = new DataUser();
-    long IdSatuan;
-    public string ValidationMesssage { get; set; }
-    int Jumlah { get; set; } = 0;
-    protected DataBarang Item { get; set; }
+    //public string ValidationMesssage { get; set; }
+    private DataBarang Item { get; set; }
+    //private DataBarang ItemBaru { get; set; }
+    //int Jumlah { get; set; } = 0;
+    //private double totalharga;
+    private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
-    //DataBarang itemdipilih { get; set; }
+    List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
+    void TambahBarangKeList(DataBarang ItemBaru)
+    {
+        barangPenawarans.Add(new BarangPenawaran
+        {
+            IdBarang = ItemBaru.IdBarang,
+            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+            IdSatuan = ItemBaru.IdSatuan,
+            IdDivisiBarang = ItemBaru.IdDivisiBarang,
+            IdSubDivisiBarang = ItemBaru.IdSubDivisiBarang,
+            IdKategoriBarang = ItemBaru.IdKategoriBarang,
+            IdSubKategoriBarang = ItemBaru.IdSubKategoriBarang,
+            Satuan = ItemBaru.Satuan,
+            Nama = ItemBaru.Nama,
+            Stok = ItemBaru.Stok,
+            Minimum = ItemBaru.Minimum,
+            Maksimum = ItemBaru.Maksimum
+
+        });
+        ModalCancel();
+    }
+
+    void HapusBarangDariList(BarangPenawaran Item)
+    {
+        //DataService.SetNullBarangDipilih();
+        barangPenawarans.Remove(Item);
+    }
     protected override async Task OnInitializedAsync()
     {
+
         Item = DataService._barangDipilih;
+        barangPenawarans.Add(new BarangPenawaran
+        {
+            IdBarang = Item.IdBarang,
+            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+            IdSatuan = Item.IdSatuan,
+            IdDivisiBarang = Item.IdDivisiBarang,
+            IdSubDivisiBarang = Item.IdSubDivisiBarang,
+            IdKategoriBarang = Item.IdKategoriBarang,
+            IdSubKategoriBarang = Item.IdSubKategoriBarang,
+            Satuan = Item.Satuan,
+            Nama = Item.Nama,
+            Stok = Item.Stok,
+            Minimum = Item.Minimum,
+            Maksimum = Item.Maksimum
+
+
+        });
         user = DataService.User;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
         {
-
             var dataBarang = DataService.GetDataBarangWithGroupBy();
-            await foreach (var item in dataBarang)
+            foreach (var value in barangPenawarans)
             {
-                _daftarBarang.Add(new DataBarang
+                await foreach (var item in dataBarang)
                 {
-                    IdBarang = item.IdBarang,
-                    IdDivisiBarang = item.IdDivisiBarang,
-                    IdSubDivisiBarang = item.IdSubDivisiBarang,
-                    IdKategoriBarang = item.IdKategoriBarang,
-                    IdSubKategoriBarang = item.IdSubKategoriBarang,
-                    IdSupplier = item.IdSupplier,
-                    IdJenisSupplier = item.IdJenisSupplier,
-                    IdSatuan = item.IdSatuan,
-                    Nama = item.Nama,
-                    Satuan = item.Satuan,
-                    Stok = item.Stok,
-                    Minimum = item.Minimum,
-                    Maksimum = item.Maksimum,
-                });
-                this.StateHasChanged();
-            }
-        }
 
+                    if (item.Stok <= item.Minimum && item.IdBarang != value.IdBarang)
+                    {
+                        _daftarBarang.Add(new DataBarang
+                        {
+                            IdBarang = item.IdBarang,
+                            IdDivisiBarang = item.IdDivisiBarang,
+                            IdSubDivisiBarang = item.IdSubDivisiBarang,
+                            IdKategoriBarang = item.IdKategoriBarang,
+                            IdSubKategoriBarang = item.IdSubKategoriBarang,
+                            IdSupplier = item.IdSupplier,
+                            IdJenisSupplier = item.IdJenisSupplier,
+                            IdSatuan = item.IdSatuan,
+                            Nama = item.Nama,
+                            Satuan = item.Satuan,
+                            Stok = item.Stok,
+                            Minimum = item.Minimum,
+                            Maksimum = item.Maksimum,
+                            NamaSupplier = item.NamaSupplier
+                        });
+                        this.StateHasChanged();
+                    }
+                }
+            }
+            _validation = barangPenawarans.Where(i => i.Jumlah > i.Maksimum).ToList();
+        }
         else
         {
             NavigationManager.NavigateTo("/");
         }
     }
-    private async Task<IEnumerable<DataBarang>> AutoSearch(string searchBarang)
-    {
-        return await Task.FromResult(_daftarBarang.Where(x => x.Nama.ToLower().Contains(searchBarang.ToLower())).ToList());
-    }
 
-    void BarangClicked()
-    {
-        _daftarBarang.Clear();
-    }
     void BackToBarang()
     {
         DataService.SetNullBarangDipilih();
-        Item = null;
         NavigationManager.NavigateTo("dataBarang");
     }
 
-    void SendDataPenawaran()
+    async void SendDataPenawaran()
     {
 
+        //dataPenawaran = new DataPenawaran
+        //{
+        //    IdPenawaranPembelian = rnd.Next(1, 1000),
+        //    IdJenisSupplier = user.IdJenisSupplier,
+        //    IdSupplier = user.IdSupplier,
+        //    IdCompanyPenerima = "GWR",
+        //    BarangPenawaran = barangPenawarans,
+        //    GrandTotal = _grandtotal,
+        //    DiskonDetil = _grandDetil.ToString(),
+        //    DiskonNominal = _grandDiskon
+        //};
+        //var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+        //DataService.SetNullBarangDipilih();
+
+        //Item = null;
+        //barangPenawarans.Clear();
+        //dataPenawaran = null;
+        //if (send)
+        //{
+        //    await  Swal.FireAsync(
+        //     "Sukses",
+        //     "Data Penawaran Berhasil terkirim :)",
+        //     SweetAlertIcon.Success
+        //     );
+        //}
+        //else
+        //{
+        //    await Swal.FireAsync(
+        //    "Gagal",
+        //    "Data Penawaran gagal terkirim :)",
+        //    SweetAlertIcon.Error
+        //    );
+        //}
+        //   NavigationManager.NavigateTo("dataBarang");
     }
 
 
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private SweetAlertService Swal { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private PenawaranService PenawaranService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private DataService DataService { get; set; }
     }
 }

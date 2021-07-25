@@ -29,9 +29,6 @@
         <SideBarMenuItem Link="dataBarang" Icon="fas fa-th">
             Data Barang
         </SideBarMenuItem>
-        <SideBarMenuItem Link="formPenawaran" Icon="oi oi-basket">
-            Penawaran Baru
-        </SideBarMenuItem>
     </SideBarMenu>
     </SideBar>
 </SideBarContainer>
@@ -41,8 +38,12 @@
                     IconType="IconType.FontAwesome"
                     SuccessClass="success-toast-override"
                     SuccessIcon="fa fa-thumbs-up"
-                    ErrorIcon="fa fa-bug"/>
+                    ErrorIcon="fa fa-bug" />
+    <MudThemeProvider />
+    <MudDialogProvider />
+    <MudSnackbarProvider />
     @Body
+
 </ContentWrapper>
 @code {
     private DataUser user = new DataUser();

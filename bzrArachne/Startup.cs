@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using MudBlazor.Services;
 
 namespace bzrArachne
 {
@@ -24,8 +25,10 @@ namespace bzrArachne
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            
             services.AddServerSideBlazor();
             services.AddAdminLte();
+            services.AddMudServices();
             services.AddBlazoredToast();
             services.AddSweetAlert2();
             services.AddSingleton<DataService>();

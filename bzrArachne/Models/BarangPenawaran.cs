@@ -21,7 +21,10 @@ namespace bzrArachne.Models
 		 public double DiskonDetil {get;set;}
 		 public double DiskonNominal {get;set;}
 		 public double Total {get;set;}
-		 
+		public int Stok { get; set; }
+		public long Minimum { get; set; }
+		public long Maksimum { get; set; }
+
 
 
 	}

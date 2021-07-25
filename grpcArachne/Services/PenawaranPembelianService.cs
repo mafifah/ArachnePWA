@@ -82,10 +82,10 @@ namespace grpcArachne.Services
             catch (Exception ex)
             {
 
-                Metadata metadata = new Metadata { { "Error", "Error : " + ex.Message } };
-                throw new RpcException(new Status(StatusCode.Unknown, "Unknown"), metadata);
+                //Metadata metadata = new Metadata { { "Error", "Error : " + ex.Message } };
+                //throw new RpcException(new Status(StatusCode.Unknown, "Unknown"), metadata);
 
-                pesan = new pesan() { Pesan = "Data Gagal terkirim ke server" };
+                pesan = new pesan() { Pesan = "Data Gagal terkirim ke server"  };
             }
             return Task.FromResult(pesan);
         }

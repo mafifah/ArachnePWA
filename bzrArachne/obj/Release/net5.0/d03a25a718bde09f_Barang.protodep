@@ -1,2 +1,0 @@
-obj\Release\net5.0/Barang.cs \
-obj\Release\net5.0/BarangGrpc.cs: ../grpcArachne/Protos/Barang.proto
