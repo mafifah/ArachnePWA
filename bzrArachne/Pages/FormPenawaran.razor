@@ -170,23 +170,10 @@
         </div><!-- /.card-body -->
         <div class="card-footer">
             <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
-
-           
-            @if(_validation !=null)
-            {
             <button type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
-            }
-            else
-            {
-            <button disabled type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
-            }
-            
-
         </div>
            </div>
     </form>
-
-
     <!--MODAL-->
     @if (showModal)
     {
@@ -253,7 +240,6 @@
     Random rnd = new Random();
 
     public MudBlazor.Color merah = MudBlazor.Color.Error;
-    List<BarangPenawaran> _validation = new List<BarangPenawaran>();
     private DataUser user = new DataUser();
     //public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
@@ -343,7 +329,6 @@
                     }
                 }
             }
-            _validation = barangPenawarans.Where(i => i.Jumlah > i.Maksimum).ToList();
         }
         else
         {
@@ -360,40 +345,40 @@
     async void SendDataPenawaran()
     {
 
-        //dataPenawaran = new DataPenawaran
-        //{
-        //    IdPenawaranPembelian = rnd.Next(1, 1000),
-        //    IdJenisSupplier = user.IdJenisSupplier,
-        //    IdSupplier = user.IdSupplier,
-        //    IdCompanyPenerima = "GWR",
-        //    BarangPenawaran = barangPenawarans,
-        //    GrandTotal = _grandtotal,
-        //    DiskonDetil = _grandDetil.ToString(),
-        //    DiskonNominal = _grandDiskon
-        //};
-        //var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
-        //DataService.SetNullBarangDipilih();
+        dataPenawaran = new DataPenawaran
+        {
+            IdPenawaranPembelian = rnd.Next(1, 1000),
+            IdJenisSupplier = user.IdJenisSupplier,
+            IdSupplier = user.IdSupplier,
+            IdCompanyPenerima = "GWR",
+            BarangPenawaran = barangPenawarans,
+            GrandTotal = _grandtotal,
+            DiskonDetil = _grandDetil.ToString(),
+            DiskonNominal = _grandDiskon
+        };
+        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+        DataService.SetNullBarangDipilih();
 
-        //Item = null;
-        //barangPenawarans.Clear();
-        //dataPenawaran = null;
-        //if (send)
-        //{
-        //    await  Swal.FireAsync(
-        //     "Sukses",
-        //     "Data Penawaran Berhasil terkirim :)",
-        //     SweetAlertIcon.Success
-        //     );
-        //}
-        //else
-        //{
-        //    await Swal.FireAsync(
-        //    "Gagal",
-        //    "Data Penawaran gagal terkirim :)",
-        //    SweetAlertIcon.Error
-        //    );
-        //}
-        //   NavigationManager.NavigateTo("dataBarang");
+        Item = null;
+        barangPenawarans.Clear();
+        dataPenawaran = null;
+        if (send)
+        {
+            await Swal.FireAsync(
+             "Sukses",
+             "Data Penawaran Berhasil terkirim :)",
+             SweetAlertIcon.Success
+             );
+        }
+        else
+        {
+            await Swal.FireAsync(
+            "Gagal",
+            "Data Penawaran gagal terkirim :)",
+            SweetAlertIcon.Error
+            );
+        }
+        NavigationManager.NavigateTo("dataBarang");
     }
 
 }

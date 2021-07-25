@@ -140,7 +140,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 244 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 231 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
        
     //MODAL
     DateTimeOffset Tanggal { get; set; }
@@ -153,7 +153,6 @@ using bzrArachne.Models;
     Random rnd = new Random();
 
     public MudBlazor.Color merah = MudBlazor.Color.Error;
-    List<BarangPenawaran> _validation = new List<BarangPenawaran>();
     private DataUser user = new DataUser();
     //public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
@@ -243,7 +242,6 @@ using bzrArachne.Models;
                     }
                 }
             }
-            _validation = barangPenawarans.Where(i => i.Jumlah > i.Maksimum).ToList();
         }
         else
         {
@@ -260,40 +258,40 @@ using bzrArachne.Models;
     async void SendDataPenawaran()
     {
 
-        //dataPenawaran = new DataPenawaran
-        //{
-        //    IdPenawaranPembelian = rnd.Next(1, 1000),
-        //    IdJenisSupplier = user.IdJenisSupplier,
-        //    IdSupplier = user.IdSupplier,
-        //    IdCompanyPenerima = "GWR",
-        //    BarangPenawaran = barangPenawarans,
-        //    GrandTotal = _grandtotal,
-        //    DiskonDetil = _grandDetil.ToString(),
-        //    DiskonNominal = _grandDiskon
-        //};
-        //var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
-        //DataService.SetNullBarangDipilih();
+        dataPenawaran = new DataPenawaran
+        {
+            IdPenawaranPembelian = rnd.Next(1, 1000),
+            IdJenisSupplier = user.IdJenisSupplier,
+            IdSupplier = user.IdSupplier,
+            IdCompanyPenerima = "GWR",
+            BarangPenawaran = barangPenawarans,
+            GrandTotal = _grandtotal,
+            DiskonDetil = _grandDetil.ToString(),
+            DiskonNominal = _grandDiskon
+        };
+        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+        DataService.SetNullBarangDipilih();
 
-        //Item = null;
-        //barangPenawarans.Clear();
-        //dataPenawaran = null;
-        //if (send)
-        //{
-        //    await  Swal.FireAsync(
-        //     "Sukses",
-        //     "Data Penawaran Berhasil terkirim :)",
-        //     SweetAlertIcon.Success
-        //     );
-        //}
-        //else
-        //{
-        //    await Swal.FireAsync(
-        //    "Gagal",
-        //    "Data Penawaran gagal terkirim :)",
-        //    SweetAlertIcon.Error
-        //    );
-        //}
-        //   NavigationManager.NavigateTo("dataBarang");
+        Item = null;
+        barangPenawarans.Clear();
+        dataPenawaran = null;
+        if (send)
+        {
+            await Swal.FireAsync(
+             "Sukses",
+             "Data Penawaran Berhasil terkirim :)",
+             SweetAlertIcon.Success
+             );
+        }
+        else
+        {
+            await Swal.FireAsync(
+            "Gagal",
+            "Data Penawaran gagal terkirim :)",
+            SweetAlertIcon.Error
+            );
+        }
+        NavigationManager.NavigateTo("dataBarang");
     }
 
 
