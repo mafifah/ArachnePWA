@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mafif\\Source\\Repos\\ArachneGWR\\grpcArachne\\grpcArachne.csproj": {}
+    "D:\\Arachne\\grpcArachne\\grpcArachne.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mafif\\Source\\Repos\\ArachneGWR\\grpcArachne\\grpcArachne.csproj": {
+    "D:\\Arachne\\grpcArachne\\grpcArachne.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mafif\\Source\\Repos\\ArachneGWR\\grpcArachne\\grpcArachne.csproj",
+        "projectUniqueName": "D:\\Arachne\\grpcArachne\\grpcArachne.csproj",
         "projectName": "grpcArachne",
-        "projectPath": "C:\\Users\\mafif\\Source\\Repos\\ArachneGWR\\grpcArachne\\grpcArachne.csproj",
+        "projectPath": "D:\\Arachne\\grpcArachne\\grpcArachne.csproj",
         "packagesPath": "C:\\Users\\mafif\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mafif\\Source\\Repos\\ArachneGWR\\grpcArachne\\obj\\",
+        "outputPath": "D:\\Arachne\\grpcArachne\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tmk0O42VBzDeEd1/hDkt2sfGbDFNuvs/EMGMnhihyYIdbW7RbMU6eKn63Je4RD3Lo+qiehnaoyhMKtHgBhtVvA==",
+  "dgSpecHash": "uAuZBnA8dRitQtIZ3ixSM7EvK5Phi6g6kRbalhYy9DiA89dXcuJsw8HQKbAMC0wNbVN1rLdtuKSatIZPOV1cxQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mafif\\Source\\Repos\\ArachneGWR\\bzrArachne\\bzrArachne.csproj",
+  "projectFilePath": "D:\\Arachne\\bzrArachne\\bzrArachne.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mafif\\.nuget\\packages\\anyclone\\1.0.39\\anyclone.1.0.39.nupkg.sha512",
     "C:\\Users\\mafif\\.nuget\\packages\\blazor-state\\3.4.4\\blazor-state.3.4.4.nupkg.sha512",

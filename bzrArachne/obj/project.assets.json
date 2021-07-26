@@ -2320,11 +2320,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mafif\\Source\\Repos\\ArachneGWR\\bzrArachne\\bzrArachne.csproj",
+      "projectUniqueName": "D:\\Arachne\\bzrArachne\\bzrArachne.csproj",
       "projectName": "bzrArachne",
-      "projectPath": "C:\\Users\\mafif\\Source\\Repos\\ArachneGWR\\bzrArachne\\bzrArachne.csproj",
+      "projectPath": "D:\\Arachne\\bzrArachne\\bzrArachne.csproj",
       "packagesPath": "C:\\Users\\mafif\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mafif\\Source\\Repos\\ArachneGWR\\bzrArachne\\obj\\",
+      "outputPath": "D:\\Arachne\\bzrArachne\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

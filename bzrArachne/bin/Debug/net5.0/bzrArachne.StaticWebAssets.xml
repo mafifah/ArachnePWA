@@ -1,5 +1,5 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/" Path="C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="/" Path="D:\Arachne\bzrArachne\obj\Debug\net5.0\scopedcss\bundle\" />
   <ContentRoot BasePath="_content/Blazored.Toast" Path="C:\Users\mafif\.nuget\packages\blazored.toast\3.1.2\build\..\staticwebassets\" />
   <ContentRoot BasePath="_content/Blazored.Typeahead" Path="C:\Users\mafif\.nuget\packages\blazored.typeahead\4.6.0\build\..\staticwebassets\" />
   <ContentRoot BasePath="_content/Blazorized.AdminLte" Path="C:\Users\mafif\.nuget\packages\blazorized.adminlte\0.1.8\build\..\staticwebassets\" />

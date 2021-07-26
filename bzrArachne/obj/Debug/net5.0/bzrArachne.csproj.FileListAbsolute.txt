@@ -84,9 +84,6 @@ D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.pdb
 D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.genruntimeconfig.cache
 <<<<<<< HEAD
 =======
-D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaranBaru.razor.g.cs
-D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaranBaru.razor.g.cs
-D:\Arachne\bzrArachne\bin\Debug\net5.0\MudBlazor.dll
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\bin\Debug\net5.0\appsettings.Development.json
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\bin\Debug\net5.0\appsettings.json
 C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\bin\Debug\net5.0\bzrArachne.StaticWebAssets.xml
