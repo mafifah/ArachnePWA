@@ -325,10 +325,11 @@
                             Maksimum = item.Maksimum,
                             NamaSupplier = item.NamaSupplier
                         });
-                        this.StateHasChanged();
+                       
                     }
                 }
             }
+             this.StateHasChanged();
         }
         else
         {
@@ -380,5 +381,4 @@
         }
         NavigationManager.NavigateTo("dataBarang");
     }
-
 }

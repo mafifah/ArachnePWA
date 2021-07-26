@@ -238,10 +238,11 @@ using bzrArachne.Models;
                             Maksimum = item.Maksimum,
                             NamaSupplier = item.NamaSupplier
                         });
-                        this.StateHasChanged();
+                       
                     }
                 }
             }
+             this.StateHasChanged();
         }
         else
         {
@@ -293,7 +294,6 @@ using bzrArachne.Models;
         }
         NavigationManager.NavigateTo("dataBarang");
     }
-
 
 #line default
 #line hidden

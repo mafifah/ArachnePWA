@@ -39,7 +39,6 @@ namespace bzrArachne.Service
                 var output = false;
                 try
                 {
-
                     var channel = GrpcChannel.ForAddress("https://localhost:5001");
                     var client = new PenawaranPembelian.PenawaranPembelianClient(channel);
                     List<InsertDataT7Requset> data = new List<InsertDataT7Requset>();
@@ -62,14 +61,14 @@ namespace bzrArachne.Service
                     }
                     var request = new InsertDataT6Requset
                     {
-                        IdPenawaranPembelian = dataPenawaran.IdPenawaranPembelian,
-                        IdJenisSupplier = dataPenawaran.IdJenisSupplier,
-                        IdSupplier = dataPenawaran.IdSupplier,
-                        IdCompanyPenerima = dataPenawaran.IdCompanyPenerima,
-                        DiskonDetil = dataPenawaran.DiskonDetil,
-                        DiskonNominal = dataPenawaran.DiskonNominal,
-                        GrandTotal = dataPenawaran.GrandTotal,
-                        T7Requset = { data },
+                        IdPenawaranPembelian    = dataPenawaran.IdPenawaranPembelian,
+                        IdJenisSupplier         = dataPenawaran.IdJenisSupplier,
+                        IdSupplier              = dataPenawaran.IdSupplier,
+                        IdCompanyPenerima       = dataPenawaran.IdCompanyPenerima,
+                        DiskonDetil             = dataPenawaran.DiskonDetil,
+                        DiskonNominal           = dataPenawaran.DiskonNominal,
+                        GrandTotal              = dataPenawaran.GrandTotal,
+                        T7Requset               = { data },
                     };
                     var reply = await client.InsertPenawaranPembelianRepeatedAsync(request);
                 if (reply.Pesan== "Berhasil")
@@ -80,7 +79,6 @@ namespace bzrArachne.Service
                 {
                     output = false;
                 }
-              
             }
                 catch (Exception e)
                 {
