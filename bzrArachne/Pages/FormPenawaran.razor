@@ -77,8 +77,9 @@
                             </td>
                             <td>
                                 <div>
-
-                                  <input type="text" @bind="data.Harga" class="form-control">
+                                    @{
+                                        <input type="text" @bind="data.Harga" class="form-control">
+                                    }
                                 </div>
                                 
                             </td>
@@ -100,8 +101,9 @@
                                     @{
                                         var harga_diskon = data.Jumlah * data.Harga * data.DiskonNominal / 100;
                                         data.Total = data.Harga * data.Jumlah - harga_diskon;
+                                        var uang = data.Total.ToString("C");
+                                        <input type="text" @bind="uang" disabled class="form-control">
                                     }
-                                    <input type="number" @bind="data.Total" disabled class="form-control">
                                 </div>
                             </td>
                             @{
@@ -171,9 +173,10 @@
                             _grandtotal = barangPenawarans.Sum(m => m.Total);
                             _grandDetil = barangPenawarans.Sum(m => Convert.ToDouble(m.DiskonDetil));
                             _grandDiskon = barangPenawarans.Sum(m => m.DiskonNominal);
+                            var total = barangPenawarans.Sum(m => m.Total).ToString("C");
+                            <label class="col-sm-4 col-form-label">Total Penawaran (Rp.) : </label>
+                            <input style="text-align:center" type="text" disabled @bind="total" class="col-sm-4 col-form-label rounded-pill border border-success" />
                         }
-                        <label class="col-sm-4 col-form-label">Total Penawaran (Rp.) : </label>
-                        <input style="text-align:center" type="number" disabled @bind="_grandtotal" class="col-sm-4 col-form-label rounded-pill border border-success" />
                     </div>
                 </div>
             </div>

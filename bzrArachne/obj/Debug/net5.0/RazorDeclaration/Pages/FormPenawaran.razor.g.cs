@@ -140,7 +140,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 269 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 272 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
        
     //MODAL
     DateTimeOffset Tanggal { get; set; }
