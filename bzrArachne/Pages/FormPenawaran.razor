@@ -61,7 +61,7 @@
                         <tr>
                             <td>
                                 <div>
-                                    <input type="number" @bind="data.Jumlah" class="form-control border-danger">
+                                    <input type="number" @bind="data.Jumlah" class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -76,12 +76,12 @@
                             </td>
                             <td>
                                 <div>
-                                    <input type="number" @bind="data.Harga" class="form-control border-danger">
+                                    <input type="number" @bind="data.Harga" class="form-control">
                                 </div>
                             </td>
                             <td>
                                 <div>
-                                    <input type="number" min="1" @bind="data.DiskonNominal" class="form-control">
+                                    <input type="number" @bind="data.DiskonNominal" class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -89,7 +89,7 @@
                                     @{
                                         data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
                                     }
-                                    <input type="text" min="1" @bind="data.DiskonDetil" disabled class="form-control">
+                                    <input type="text" @bind="data.DiskonDetil" disabled class="form-control">
                                 </div>
                             </td>
                             <td>
@@ -98,54 +98,61 @@
                                         var harga_diskon = data.Jumlah * data.Harga * data.DiskonNominal / 100;
                                         data.Total = data.Harga * data.Jumlah - harga_diskon;
                                     }
-                                    <input type="number" min="1" @bind="data.Total" disabled class="form-control">
+                                    <input type="number" @bind="data.Total" disabled class="form-control">
                                 </div>
                             </td>
                             @{
-                            if (barangPenawarans.Count == 1)
-                            {
-                            <td style="text-align: center; vertical-align: middle;">
-                                <div>
+                                if (barangPenawarans.Count == 1)
+                                {
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <div>
 
-                                    <button disabled class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></button>
-                                </div>
-                            </td>
-                            }
-                            else
-                            {
-                            <td style="text-align: center; vertical-align: middle;">
-                                <div>
+                                            <a disabled class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></a>
+                                        </div>
+                                    </td>
+                                }
+                                else
+                                {
+                                    <td style="text-align: center; vertical-align: middle;">
+                                        <div>
 
-                                    <button class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></button>
-                                </div>
-                            </td>
+                                            <a class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></a>
+                                        </div>
+                                    </td>
+                                }
                             }
-                            }
-                            @if (data.Jumlah + data.Stok > data.Maksimum)
+                            @if (data.Jumlah == 0)
                             {
-                            var Max = data.Maksimum - data.Stok;
-                            var msg = "Jumlah lebih dari " + Max.ToString();
-                            <td style="color:red;">
-                                <MudTooltip Placement="Placement.Top" Text="@msg">
-                                    <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
-                                </MudTooltip>
-                            </td>
+                                <td>
+                                    <MudTooltip Placement="Placement.Top" Text="Jumlah Tidak Boleh 0">
+                                        <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
+                                    </MudTooltip>
+                                </td>
                             }
-                            else if(data.Harga <= 0)
+                            else if (data.Jumlah + data.Stok > data.Maksimum)
                             {
-                            <td style="color:red;">
-                                <MudTooltip Placement="Placement.Top" Text="Harga Tidak Boleh 0!">
-                                    <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
-                                </MudTooltip>
-                            </td>
+                                var Max = data.Maksimum - data.Stok;
+                                var msg = "Jumlah lebih dari " + Max.ToString();
+                                <td>
+                                    <MudTooltip Placement="Placement.Top" Text="@msg">
+                                        <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
+                                    </MudTooltip>
+                                </td>
+                            }
+                            else if (data.Harga <= 0)
+                            {
+                                <td>
+                                    <MudTooltip Placement="Placement.Top" Text="Harga Tidak Boleh 0!">
+                                        <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
+                                    </MudTooltip>
+                                </td>
                             }
                         </tr>
                          }
-                       
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td align="right" colspan="8"><button class="btn btn-success rounded-circle" @onclick="@ModalShow"><i class="oi oi-plus"></i></button></td>
+                            <td align="right" colspan="10"><a class="btn btn-success rounded-circle" @onclick="@ModalShow"><i class="oi oi-plus"></i></a></td>
                         </tr>
                     </tfoot>
                 </table>
@@ -170,9 +177,9 @@
         </div><!-- /.card-body -->
         <div class="card-footer">
             <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
-            <button type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
+            <button type="submit" disabled @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
         </div>
-           </div>
+    </div>
     </form>
     <!--MODAL-->
     @if (showModal)
@@ -212,22 +219,16 @@
                             </tbody>
                             </table>
                     </div>
-
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <button type="button" class="btn" @onclick="@ModalCancel">Tutup</button>
                     </div>
-
                 </div>
             </div>
         </div>
     }
     <!--MODAL-->
-
-
 </div>
-
-
 @code {
     //MODAL
     DateTimeOffset Tanggal { get; set; }
@@ -239,67 +240,34 @@
     void ModalCancel() => showModal = false;
     Random rnd = new Random();
 
-    public MudBlazor.Color merah = MudBlazor.Color.Error;
     private DataUser user = new DataUser();
-    //public string ValidationMesssage { get; set; }
     private DataBarang Item { get; set; }
-    //private DataBarang ItemBaru { get; set; }
-    //int Jumlah { get; set; } = 0;
-    //private double totalharga;
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
-    void TambahBarangKeList(DataBarang ItemBaru)
-    {
-        barangPenawarans.Add(new BarangPenawaran
-        {
-            IdBarang = ItemBaru.IdBarang,
-            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
-            IdSatuan = ItemBaru.IdSatuan,
-            IdDivisiBarang = ItemBaru.IdDivisiBarang,
-            IdSubDivisiBarang = ItemBaru.IdSubDivisiBarang,
-            IdKategoriBarang = ItemBaru.IdKategoriBarang,
-            IdSubKategoriBarang = ItemBaru.IdSubKategoriBarang,
-            Satuan = ItemBaru.Satuan,
-            Nama = ItemBaru.Nama,
-            Stok = ItemBaru.Stok,
-            Minimum = ItemBaru.Minimum,
-            Maksimum = ItemBaru.Maksimum
 
-        });
-        ModalCancel();
-    }
-
-    void HapusBarangDariList(BarangPenawaran Item)
-    {
-        //DataService.SetNullBarangDipilih();
-        barangPenawarans.Remove(Item);
-    }
     protected override async Task OnInitializedAsync()
     {
-
-        Item = DataService._barangDipilih;
-        barangPenawarans.Add(new BarangPenawaran
-        {
-            IdBarang = Item.IdBarang,
-            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
-            IdSatuan = Item.IdSatuan,
-            IdDivisiBarang = Item.IdDivisiBarang,
-            IdSubDivisiBarang = Item.IdSubDivisiBarang,
-            IdKategoriBarang = Item.IdKategoriBarang,
-            IdSubKategoriBarang = Item.IdSubKategoriBarang,
-            Satuan = Item.Satuan,
-            Nama = Item.Nama,
-            Stok = Item.Stok,
-            Minimum = Item.Minimum,
-            Maksimum = Item.Maksimum
-
-
-        });
         user = DataService.User;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
         {
+            Item = DataService._barangDipilih;
+            barangPenawarans.Add(new BarangPenawaran
+            {
+                IdBarang = Item.IdBarang,
+                IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+                IdSatuan = Item.IdSatuan,
+                IdDivisiBarang = Item.IdDivisiBarang,
+                IdSubDivisiBarang = Item.IdSubDivisiBarang,
+                IdKategoriBarang = Item.IdKategoriBarang,
+                IdSubKategoriBarang = Item.IdSubKategoriBarang,
+                Satuan = Item.Satuan,
+                Nama = Item.Nama,
+                Stok = Item.Stok,
+                Minimum = Item.Minimum,
+                Maksimum = Item.Maksimum
+            });
             var dataBarang = DataService.GetDataBarangWithGroupBy();
             foreach (var value in barangPenawarans)
             {
@@ -337,6 +305,32 @@
         }
     }
 
+    void TambahBarangKeList(DataBarang ItemBaru)
+    {
+        barangPenawarans.Add(new BarangPenawaran
+        {
+            IdBarang = ItemBaru.IdBarang,
+            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+            IdSatuan = ItemBaru.IdSatuan,
+            IdDivisiBarang = ItemBaru.IdDivisiBarang,
+            IdSubDivisiBarang = ItemBaru.IdSubDivisiBarang,
+            IdKategoriBarang = ItemBaru.IdKategoriBarang,
+            IdSubKategoriBarang = ItemBaru.IdSubKategoriBarang,
+            Satuan = ItemBaru.Satuan,
+            Nama = ItemBaru.Nama,
+            Stok = ItemBaru.Stok,
+            Minimum = ItemBaru.Minimum,
+            Maksimum = ItemBaru.Maksimum
+
+        });
+        _daftarBarang.Remove(ItemBaru);
+        ModalCancel();
+    }
+
+    void HapusBarangDariList(BarangPenawaran Item)
+    {
+        barangPenawarans.Remove(Item);
+    }
     void BackToBarang()
     {
         DataService.SetNullBarangDipilih();
@@ -345,7 +339,6 @@
 
     async void SendDataPenawaran()
     {
-
         dataPenawaran = new DataPenawaran
         {
             IdPenawaranPembelian = rnd.Next(1, 1000),
@@ -359,17 +352,17 @@
         };
         var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
         DataService.SetNullBarangDipilih();
-
         Item = null;
         barangPenawarans.Clear();
         dataPenawaran = null;
         if (send)
         {
             await Swal.FireAsync(
-             "Sukses",
-             "Data Penawaran Berhasil terkirim :)",
-             SweetAlertIcon.Success
-             );
+            "Sukses",
+            "Data Penawaran Berhasil terkirim :)",
+            SweetAlertIcon.Success
+            );
+            NavigationManager.NavigateTo("dataBarang");
         }
         else
         {
@@ -379,6 +372,5 @@
             SweetAlertIcon.Error
             );
         }
-        NavigationManager.NavigateTo("dataBarang");
     }
 }
