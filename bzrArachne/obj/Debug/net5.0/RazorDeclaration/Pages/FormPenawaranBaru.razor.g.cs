@@ -140,7 +140,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 220 "D:\Arachne\bzrArachne\Pages\FormPenawaranBaru.razor"
+#line 254 "D:\Arachne\bzrArachne\Pages\FormPenawaranBaru.razor"
        
     //MODAL
     DateTimeOffset Tanggal { get; set; }
@@ -151,7 +151,11 @@ using bzrArachne.Models;
     void ModalShow() =>showModal = true;
     void ModalCancel() => showModal = false;
     Random rnd = new Random();
-
+    bool showSearchNama = false;
+    bool showSearchSatuan = false;
+    string SearchNama { get; set; } = "";
+    string SearchSatuan { get; set; } = "";
+    List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan)).ToList();
     private DataUser user = new DataUser();
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
@@ -261,7 +265,12 @@ using bzrArachne.Models;
             SweetAlertIcon.Error
             );
         }
+
     }
+    void ShowSearchNama() => showSearchNama = true;
+    void RemoveSearchNama() { SearchNama = ""; showSearchNama = false; }
+    void ShowSearchSatuan() => showSearchSatuan = true;
+    void RemoveSearchSatuan() { SearchSatuan = ""; showSearchSatuan = false; }
 
 #line default
 #line hidden

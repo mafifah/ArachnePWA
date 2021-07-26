@@ -10,7 +10,11 @@
         "projectUniqueName": "D:\\Arachne\\grpcArachne\\grpcArachne.csproj",
         "projectName": "grpcArachne",
         "projectPath": "D:\\Arachne\\grpcArachne\\grpcArachne.csproj",
+<<<<<<< HEAD
         "packagesPath": "C:\\Users\\mafif\\.nuget\\packages\\",
+=======
+        "packagesPath": "C:\\Users\\devad\\.nuget\\packages\\",
+>>>>>>> fbb5f58c49414916af37dbef9070afdc3a9275b4
         "outputPath": "D:\\Arachne\\grpcArachne\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
@@ -18,7 +22,7 @@
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\mafif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\devad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -99,7 +103,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
         }
       }
     }
