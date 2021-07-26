@@ -140,13 +140,14 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 236 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+#line 246 "C:\Users\mafif\Source\Repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
        
     //MODAL
     DateTimeOffset Tanggal { get; set; }
     double _grandtotal { get; set; }
     double _grandDiskon { get; set; }
     double _grandDetil { get; set; }
+    bool ShowBtn = true;
     bool showModal = false;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
@@ -269,10 +270,10 @@ using bzrArachne.Models;
         if (send)
         {
             await Swal.FireAsync(
-             "Sukses",
-             "Data Penawaran Berhasil terkirim :)",
-             SweetAlertIcon.Success
-             );
+            "Sukses",
+            "Data Penawaran Berhasil terkirim :)",
+            SweetAlertIcon.Success
+            );
             NavigationManager.NavigateTo("dataBarang");
         }
         else
@@ -283,7 +284,6 @@ using bzrArachne.Models;
             SweetAlertIcon.Error
             );
         }
-
     }
 
 #line default

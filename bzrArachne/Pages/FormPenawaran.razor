@@ -107,7 +107,7 @@
                                     <td style="text-align: center; vertical-align: middle;">
                                         <div>
 
-                                            <button disabled class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></button>
+                                            <a disabled class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></a>
                                         </div>
                                     </td>
                                 }
@@ -116,7 +116,7 @@
                                     <td style="text-align: center; vertical-align: middle;">
                                         <div>
 
-                                            <button class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></button>
+                                            <a class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></a>
                                         </div>
                                     </td>
                                 }
@@ -177,9 +177,9 @@
         </div><!-- /.card-body -->
         <div class="card-footer">
             <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
-            <button type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
+            <button type="submit" disabled @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
         </div>
-           </div>
+    </div>
     </form>
     <!--MODAL-->
     @if (showModal)
@@ -228,11 +228,7 @@
         </div>
     }
     <!--MODAL-->
-
-
 </div>
-
-
 @code {
     //MODAL
     DateTimeOffset Tanggal { get; set; }
@@ -360,11 +356,11 @@
         dataPenawaran = null;
         if (send)
         {
-             await Swal.FireAsync(
-             "Sukses",
-             "Data Penawaran Berhasil terkirim :)",
-             SweetAlertIcon.Success
-             );
+            await Swal.FireAsync(
+            "Sukses",
+            "Data Penawaran Berhasil terkirim :)",
+            SweetAlertIcon.Success
+            );
             NavigationManager.NavigateTo("dataBarang");
         }
         else
@@ -375,6 +371,5 @@
             SweetAlertIcon.Error
             );
         }
-
     }
 }
