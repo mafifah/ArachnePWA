@@ -162,7 +162,7 @@
             </div><!-- /.card-body -->
             <div class="card-footer">
                 <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
-                <button type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</button>
+                <a type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</a>
             </div>
         </div>
     </form>
@@ -182,12 +182,46 @@
                         <table id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
                             <thead>
                                 <tr>
-                                    <th> Nama </th>
-                                    <th> Satuan </th>
+                                    <th>
+                                        Nama
+                                        <a type="button" style="float:right" @onclick="@ShowSearchNama">
+                                            <i class="fas fa-angle-down"></i>
+                                        </a>
+                                    </th>
+                                    <th>
+                                        Satuan
+                                        <a type="button" style="float:right" @onclick="@ShowSearchSatuan">
+                                            <i class="fas fa-angle-down"></i>
+                                        </a>
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var ItemBaru in _daftarBarang)
+                                <tr>
+                                    @if (showSearchNama)
+                                    {
+                                        <td>
+                                            <div class="input-group mb-3">
+                                                <input type="text" @bind-value="SearchNama" @bind-value:event="oninput" class="form-control" placeholder="Cari Barang ...">
+                                                <div class="input-group-append">
+                                                    <a type="button" class="input-group-text btn-danger" @onclick="@RemoveSearchNama">X</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    }
+                                    @if (showSearchSatuan)
+                                    {
+                                        <td>
+                                            <div class="input-group mb-3">
+                                                <input type="text" @bind-value="SearchSatuan" @bind-value:event="oninput" class="form-control" placeholder="Cari Satuan ...">
+                                                <div class="input-group-append">
+                                                    <a type="button" class="input-group-text btn-danger" @onclick="@RemoveSearchSatuan">X</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    }
+                                </tr>
+                                @foreach (var ItemBaru in FilteredBarang)
                                 {
                                     <tr>
                                         <td>
@@ -227,7 +261,11 @@
     void ModalShow() =>showModal = true;
     void ModalCancel() => showModal = false;
     Random rnd = new Random();
-
+    bool showSearchNama = false;
+    bool showSearchSatuan = false;
+    string SearchNama { get; set; } = "";
+    string SearchSatuan { get; set; } = "";
+    List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan)).ToList();
     private DataUser user = new DataUser();
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
@@ -337,5 +375,10 @@
             SweetAlertIcon.Error
             );
         }
+
     }
+    void ShowSearchNama() => showSearchNama = true;
+    void RemoveSearchNama() { SearchNama = ""; showSearchNama = false; }
+    void ShowSearchSatuan() => showSearchSatuan = true;
+    void RemoveSearchSatuan() { SearchSatuan = ""; showSearchSatuan = false; }
 }
