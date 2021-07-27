@@ -140,7 +140,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 380 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 368 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
  
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
@@ -173,16 +173,12 @@ using bzrArachne.Models;
     //
     async void ModalBarangShow()
     {
-        divisiBarangs = await AtributService.GetDivisBarang();
-        kategoriBarangs = await AtributService.GetkategoriBarang();
         showModal = false;
         showModalBarang = true;
     }
 
     void ModalBarangCancel() => showModalBarang = false;
-    //
-    List<M_DivisiBarang> divisiBarangs = new List<M_DivisiBarang>();
-    List<M_KategoriBarang> kategoriBarangs = new List<M_KategoriBarang>();
+    
     Random rnd = new Random();
     //filter
     bool showSearchNama = false;
@@ -352,7 +348,6 @@ using bzrArachne.Models;
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private SweetAlertService Swal { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private PenawaranService PenawaranService { get; set; }
-        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AtributService AtributService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private DataService DataService { get; set; }
     }
 }

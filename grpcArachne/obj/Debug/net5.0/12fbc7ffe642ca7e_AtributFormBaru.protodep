@@ -1,4 +1,0 @@
-obj\Debug\net5.0/AtributFormBaru.cs \
-obj\Debug\net5.0/AtributFormBaruGrpc.cs: C:/Users/mafif/.nuget/packages/grpc.tools/2.27.0/build/native/include/google/protobuf/empty.proto\
- C:/Users/mafif/.nuget/packages/grpc.tools/2.27.0/build/native/include/google/protobuf/wrappers.proto\
- Protos/AtributFormBaru.proto

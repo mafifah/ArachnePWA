@@ -2,7 +2,6 @@
 @using bzrArachne.Service
 @using bzrArachne.Models
 @inject DataService DataService
-@inject AtributService AtributService
 @inject PenawaranService PenawaranService
 @inject NavigationManager NavigationManager
 @inject NavigationManager NavigationManager
@@ -279,13 +278,7 @@
                                 <div class="form-group">
                                     <label>Divisi</label>
                                     <select class="form-control">
-                                        @foreach (var item in divisiBarangs)
-                                        {
-                                            <option value="@item.Divisi">@item.Divisi</option>
-                                        }
-
                                         <option value="Lainnya...">Lainnya.....</option>
-
                                     </select>
                                 </div>
                             </div>
@@ -320,11 +313,6 @@
                                 <div class="form-group">
                                     <label>kategori</label>
                                     <select class="form-control">
-                                        @foreach (var item in kategoriBarangs)
-                                        {
-                                            <option value="@item.Kategori">@item.Kategori</option>
-                                        }
-
                                         <option>option 2</option>
                                     </select>
                                 </div>
@@ -409,16 +397,12 @@
     //
     async void ModalBarangShow()
     {
-        divisiBarangs = await AtributService.GetDivisBarang();
-        kategoriBarangs = await AtributService.GetkategoriBarang();
         showModal = false;
         showModalBarang = true;
     }
 
     void ModalBarangCancel() => showModalBarang = false;
-    //
-    List<M_DivisiBarang> divisiBarangs = new List<M_DivisiBarang>();
-    List<M_KategoriBarang> kategoriBarangs = new List<M_KategoriBarang>();
+    
     Random rnd = new Random();
     //filter
     bool showSearchNama = false;
