@@ -17,5 +17,7 @@
         public long Maksimum { get; set; }
         public string NamaSupplier { get; set; }
         public string AlamatSupplier { get; set; }
+
+        public string CatatanPenawaran { get; set; }
     }
 }

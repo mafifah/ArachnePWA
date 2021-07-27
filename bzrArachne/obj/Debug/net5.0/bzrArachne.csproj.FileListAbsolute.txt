@@ -56,6 +56,7 @@ D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.RazorComponent.input.cache
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\Barang.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaran.razor.g.cs
+D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaranBarangBaru.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaranBaru.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Shared\LoginLayout.razor.g.cs
@@ -69,6 +70,7 @@ D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.RazorCoreGenerate.cache
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\App.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\Barang.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaran.razor.g.cs
+D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaranBarangBaru.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaranBaru.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Shared\LoginLayout.razor.g.cs

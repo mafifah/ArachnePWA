@@ -18,7 +18,8 @@ message InsertDataT6Requset
 	string IdCompanyPenerima = 5;
 	google.protobuf.StringValue DiskonDetil = 6;
 	double DiskonNominal = 7;
-	repeated InsertDataT7Requset T7Requset=8;
+	int64 IdTermin = 8;
+	repeated InsertDataT7Requset T7Requset=9;
 	
 }
 message InsertDataT7Requset
@@ -35,6 +36,17 @@ message InsertDataT7Requset
 	google.protobuf.StringValue DiskonDetil = 10;
 	double DiskonNominal = 11;
 	int64 Total=12;
+	string CatatanPenawaran=13;
+	string SatuanSatuan =14;
+	string BarangBarang =15;
+	string BarangMerk =16;
+	string BarangUkuran=17;
+	string BarangWarna = 18;
+	int32 BarangUmur=19;
+	string SubDivisiBarangSubDivisi=20;
+	string SubKategoriBarangSubKategori =21;
+	string DivisiBarangDivisi =22;
+	string KategoriBarangKategori=23;
 }
 
 message pesan

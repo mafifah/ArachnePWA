@@ -26,28 +26,35 @@ namespace grpcArachne {
           string.Concat(
             "ChhQZW5hd2FyYW5QZW1iZWxpYW4ucHJvdG8aG2dvb2dsZS9wcm90b2J1Zi9l",
             "bXB0eS5wcm90bxoeZ29vZ2xlL3Byb3RvYnVmL3dyYXBwZXJzLnByb3RvGh9n",
-            "b29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIoICChNJbnNlcnREYXRh",
+            "b29nbGUvcHJvdG9idWYvdGltZXN0YW1wLnByb3RvIpQCChNJbnNlcnREYXRh",
             "VDZSZXF1c2V0EhwKFElkUGVuYXdhcmFuUGVtYmVsaWFuGAEgASgDEhcKD0lk",
             "SmVuaXNTdXBwbGllchgCIAEoAxISCgpJZFN1cHBsaWVyGAMgASgDEhIKCkdy",
             "YW5kVG90YWwYBCABKAESGQoRSWRDb21wYW55UGVuZXJpbWEYBSABKAkSMQoL",
             "RGlza29uRGV0aWwYBiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFs",
-            "dWUSFQoNRGlza29uTm9taW5hbBgHIAEoARInCglUN1JlcXVzZXQYCCADKAsy",
-            "FC5JbnNlcnREYXRhVDdSZXF1c2V0Ir4CChNJbnNlcnREYXRhVDdSZXF1c2V0",
-            "EhAKCElkQmFyYW5nGAEgASgDEiEKGUlkRGV0aWxQZW5hd2FyYW5QZW1iZWxp",
-            "YW4YAiABKAMSEAoISWRTYXR1YW4YAyABKAMSFgoOSWREaXZpc2lCYXJhbmcY",
-            "BCABKAMSGQoRSWRTdWJEaXZpc2lCYXJhbmcYBSABKAMSGAoQSWRLYXRlZ29y",
-            "aUJhcmFuZxgGIAEoAxIbChNJZFN1YkthdGVnb3JpQmFyYW5nGAcgASgDEg0K",
-            "BUhhcmdhGAggASgBEg4KBkp1bWxhaBgJIAEoARIxCgtEaXNrb25EZXRpbBgK",
-            "IAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIVCg1EaXNrb25O",
-            "b21pbmFsGAsgASgBEg0KBVRvdGFsGAwgASgDIhYKBXBlc2FuEg0KBXBlc2Fu",
-            "GAEgASgJMlYKElBlbmF3YXJhblBlbWJlbGlhbhJACiBJbnNlcnRQZW5hd2Fy",
-            "YW5QZW1iZWxpYW5SZXBlYXRlZBIULkluc2VydERhdGFUNlJlcXVzZXQaBi5w",
-            "ZXNhbkIOqgILZ3JwY0FyYWNobmViBnByb3RvMw=="));
+            "dWUSFQoNRGlza29uTm9taW5hbBgHIAEoARIQCghJZFRlcm1pbhgIIAEoAxIn",
+            "CglUN1JlcXVzZXQYCSADKAsyFC5JbnNlcnREYXRhVDdSZXF1c2V0ItsEChNJ",
+            "bnNlcnREYXRhVDdSZXF1c2V0EhAKCElkQmFyYW5nGAEgASgDEiEKGUlkRGV0",
+            "aWxQZW5hd2FyYW5QZW1iZWxpYW4YAiABKAMSEAoISWRTYXR1YW4YAyABKAMS",
+            "FgoOSWREaXZpc2lCYXJhbmcYBCABKAMSGQoRSWRTdWJEaXZpc2lCYXJhbmcY",
+            "BSABKAMSGAoQSWRLYXRlZ29yaUJhcmFuZxgGIAEoAxIbChNJZFN1YkthdGVn",
+            "b3JpQmFyYW5nGAcgASgDEg0KBUhhcmdhGAggASgBEg4KBkp1bWxhaBgJIAEo",
+            "ARIxCgtEaXNrb25EZXRpbBgKIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJp",
+            "bmdWYWx1ZRIVCg1EaXNrb25Ob21pbmFsGAsgASgBEg0KBVRvdGFsGAwgASgD",
+            "EhgKEENhdGF0YW5QZW5hd2FyYW4YDSABKAkSFAoMU2F0dWFuU2F0dWFuGA4g",
+            "ASgJEhQKDEJhcmFuZ0JhcmFuZxgPIAEoCRISCgpCYXJhbmdNZXJrGBAgASgJ",
+            "EhQKDEJhcmFuZ1VrdXJhbhgRIAEoCRITCgtCYXJhbmdXYXJuYRgSIAEoCRIS",
+            "CgpCYXJhbmdVbXVyGBMgASgFEiAKGFN1YkRpdmlzaUJhcmFuZ1N1YkRpdmlz",
+            "aRgUIAEoCRIkChxTdWJLYXRlZ29yaUJhcmFuZ1N1YkthdGVnb3JpGBUgASgJ",
+            "EhoKEkRpdmlzaUJhcmFuZ0RpdmlzaRgWIAEoCRIeChZLYXRlZ29yaUJhcmFu",
+            "Z0thdGVnb3JpGBcgASgJIhYKBXBlc2FuEg0KBXBlc2FuGAEgASgJMlYKElBl",
+            "bmF3YXJhblBlbWJlbGlhbhJACiBJbnNlcnRQZW5hd2FyYW5QZW1iZWxpYW5S",
+            "ZXBlYXRlZBIULkluc2VydERhdGFUNlJlcXVzZXQaBi5wZXNhbkIOqgILZ3Jw",
+            "Y0FyYWNobmViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT6Requset), global::grpcArachne.InsertDataT6Requset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "GrandTotal", "IdCompanyPenerima", "DiskonDetil", "DiskonNominal", "T7Requset" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT7Requset), global::grpcArachne.InsertDataT7Requset.Parser, new[]{ "IdBarang", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "Harga", "Jumlah", "DiskonDetil", "DiskonNominal", "Total" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT6Requset), global::grpcArachne.InsertDataT6Requset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "GrandTotal", "IdCompanyPenerima", "DiskonDetil", "DiskonNominal", "IdTermin", "T7Requset" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT7Requset), global::grpcArachne.InsertDataT7Requset.Parser, new[]{ "IdBarang", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "Harga", "Jumlah", "DiskonDetil", "DiskonNominal", "Total", "CatatanPenawaran", "SatuanSatuan", "BarangBarang", "BarangMerk", "BarangUkuran", "BarangWarna", "BarangUmur", "SubDivisiBarangSubDivisi", "SubKategoriBarangSubKategori", "DivisiBarangDivisi", "KategoriBarangKategori" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.pesan), global::grpcArachne.pesan.Parser, new[]{ "Pesan" }, null, null, null, null)
           }));
     }
@@ -91,6 +98,7 @@ namespace grpcArachne {
       idCompanyPenerima_ = other.idCompanyPenerima_;
       DiskonDetil = other.DiskonDetil;
       diskonNominal_ = other.diskonNominal_;
+      idTermin_ = other.idTermin_;
       t7Requset_ = other.t7Requset_.Clone();
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
@@ -179,10 +187,21 @@ namespace grpcArachne {
       }
     }
 
+    /// <summary>Field number for the "IdTermin" field.</summary>
+    public const int IdTerminFieldNumber = 8;
+    private long idTermin_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdTermin {
+      get { return idTermin_; }
+      set {
+        idTermin_ = value;
+      }
+    }
+
     /// <summary>Field number for the "T7Requset" field.</summary>
-    public const int T7RequsetFieldNumber = 8;
+    public const int T7RequsetFieldNumber = 9;
     private static readonly pb::FieldCodec<global::grpcArachne.InsertDataT7Requset> _repeated_t7Requset_codec
-        = pb::FieldCodec.ForMessage(66, global::grpcArachne.InsertDataT7Requset.Parser);
+        = pb::FieldCodec.ForMessage(74, global::grpcArachne.InsertDataT7Requset.Parser);
     private readonly pbc::RepeatedField<global::grpcArachne.InsertDataT7Requset> t7Requset_ = new pbc::RepeatedField<global::grpcArachne.InsertDataT7Requset>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public pbc::RepeatedField<global::grpcArachne.InsertDataT7Requset> T7Requset {
@@ -209,6 +228,7 @@ namespace grpcArachne {
       if (IdCompanyPenerima != other.IdCompanyPenerima) return false;
       if (DiskonDetil != other.DiskonDetil) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(DiskonNominal, other.DiskonNominal)) return false;
+      if (IdTermin != other.IdTermin) return false;
       if(!t7Requset_.Equals(other.t7Requset_)) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
@@ -223,6 +243,7 @@ namespace grpcArachne {
       if (IdCompanyPenerima.Length != 0) hash ^= IdCompanyPenerima.GetHashCode();
       if (diskonDetil_ != null) hash ^= DiskonDetil.GetHashCode();
       if (DiskonNominal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DiskonNominal);
+      if (IdTermin != 0L) hash ^= IdTermin.GetHashCode();
       hash ^= t7Requset_.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
@@ -267,6 +288,10 @@ namespace grpcArachne {
         output.WriteRawTag(57);
         output.WriteDouble(DiskonNominal);
       }
+      if (IdTermin != 0L) {
+        output.WriteRawTag(64);
+        output.WriteInt64(IdTermin);
+      }
       t7Requset_.WriteTo(output, _repeated_t7Requset_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -304,6 +329,10 @@ namespace grpcArachne {
         output.WriteRawTag(57);
         output.WriteDouble(DiskonNominal);
       }
+      if (IdTermin != 0L) {
+        output.WriteRawTag(64);
+        output.WriteInt64(IdTermin);
+      }
       t7Requset_.WriteTo(ref output, _repeated_t7Requset_codec);
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
@@ -334,6 +363,9 @@ namespace grpcArachne {
       }
       if (DiskonNominal != 0D) {
         size += 1 + 8;
+      }
+      if (IdTermin != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdTermin);
       }
       size += t7Requset_.CalculateSize(_repeated_t7Requset_codec);
       if (_unknownFields != null) {
@@ -369,6 +401,9 @@ namespace grpcArachne {
       }
       if (other.DiskonNominal != 0D) {
         DiskonNominal = other.DiskonNominal;
+      }
+      if (other.IdTermin != 0L) {
+        IdTermin = other.IdTermin;
       }
       t7Requset_.Add(other.t7Requset_);
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -416,7 +451,11 @@ namespace grpcArachne {
             DiskonNominal = input.ReadDouble();
             break;
           }
-          case 66: {
+          case 64: {
+            IdTermin = input.ReadInt64();
+            break;
+          }
+          case 74: {
             t7Requset_.AddEntriesFrom(input, _repeated_t7Requset_codec);
             break;
           }
@@ -465,7 +504,11 @@ namespace grpcArachne {
             DiskonNominal = input.ReadDouble();
             break;
           }
-          case 66: {
+          case 64: {
+            IdTermin = input.ReadInt64();
+            break;
+          }
+          case 74: {
             t7Requset_.AddEntriesFrom(ref input, _repeated_t7Requset_codec);
             break;
           }
@@ -517,6 +560,17 @@ namespace grpcArachne {
       DiskonDetil = other.DiskonDetil;
       diskonNominal_ = other.diskonNominal_;
       total_ = other.total_;
+      catatanPenawaran_ = other.catatanPenawaran_;
+      satuanSatuan_ = other.satuanSatuan_;
+      barangBarang_ = other.barangBarang_;
+      barangMerk_ = other.barangMerk_;
+      barangUkuran_ = other.barangUkuran_;
+      barangWarna_ = other.barangWarna_;
+      barangUmur_ = other.barangUmur_;
+      subDivisiBarangSubDivisi_ = other.subDivisiBarangSubDivisi_;
+      subKategoriBarangSubKategori_ = other.subKategoriBarangSubKategori_;
+      divisiBarangDivisi_ = other.divisiBarangDivisi_;
+      kategoriBarangKategori_ = other.kategoriBarangKategori_;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -659,6 +713,127 @@ namespace grpcArachne {
       }
     }
 
+    /// <summary>Field number for the "CatatanPenawaran" field.</summary>
+    public const int CatatanPenawaranFieldNumber = 13;
+    private string catatanPenawaran_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string CatatanPenawaran {
+      get { return catatanPenawaran_; }
+      set {
+        catatanPenawaran_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "SatuanSatuan" field.</summary>
+    public const int SatuanSatuanFieldNumber = 14;
+    private string satuanSatuan_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string SatuanSatuan {
+      get { return satuanSatuan_; }
+      set {
+        satuanSatuan_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "BarangBarang" field.</summary>
+    public const int BarangBarangFieldNumber = 15;
+    private string barangBarang_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BarangBarang {
+      get { return barangBarang_; }
+      set {
+        barangBarang_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "BarangMerk" field.</summary>
+    public const int BarangMerkFieldNumber = 16;
+    private string barangMerk_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BarangMerk {
+      get { return barangMerk_; }
+      set {
+        barangMerk_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "BarangUkuran" field.</summary>
+    public const int BarangUkuranFieldNumber = 17;
+    private string barangUkuran_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BarangUkuran {
+      get { return barangUkuran_; }
+      set {
+        barangUkuran_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "BarangWarna" field.</summary>
+    public const int BarangWarnaFieldNumber = 18;
+    private string barangWarna_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string BarangWarna {
+      get { return barangWarna_; }
+      set {
+        barangWarna_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "BarangUmur" field.</summary>
+    public const int BarangUmurFieldNumber = 19;
+    private int barangUmur_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int BarangUmur {
+      get { return barangUmur_; }
+      set {
+        barangUmur_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "SubDivisiBarangSubDivisi" field.</summary>
+    public const int SubDivisiBarangSubDivisiFieldNumber = 20;
+    private string subDivisiBarangSubDivisi_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string SubDivisiBarangSubDivisi {
+      get { return subDivisiBarangSubDivisi_; }
+      set {
+        subDivisiBarangSubDivisi_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "SubKategoriBarangSubKategori" field.</summary>
+    public const int SubKategoriBarangSubKategoriFieldNumber = 21;
+    private string subKategoriBarangSubKategori_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string SubKategoriBarangSubKategori {
+      get { return subKategoriBarangSubKategori_; }
+      set {
+        subKategoriBarangSubKategori_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "DivisiBarangDivisi" field.</summary>
+    public const int DivisiBarangDivisiFieldNumber = 22;
+    private string divisiBarangDivisi_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string DivisiBarangDivisi {
+      get { return divisiBarangDivisi_; }
+      set {
+        divisiBarangDivisi_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    /// <summary>Field number for the "KategoriBarangKategori" field.</summary>
+    public const int KategoriBarangKategoriFieldNumber = 23;
+    private string kategoriBarangKategori_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string KategoriBarangKategori {
+      get { return kategoriBarangKategori_; }
+      set {
+        kategoriBarangKategori_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as InsertDataT7Requset);
@@ -684,6 +859,17 @@ namespace grpcArachne {
       if (DiskonDetil != other.DiskonDetil) return false;
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(DiskonNominal, other.DiskonNominal)) return false;
       if (Total != other.Total) return false;
+      if (CatatanPenawaran != other.CatatanPenawaran) return false;
+      if (SatuanSatuan != other.SatuanSatuan) return false;
+      if (BarangBarang != other.BarangBarang) return false;
+      if (BarangMerk != other.BarangMerk) return false;
+      if (BarangUkuran != other.BarangUkuran) return false;
+      if (BarangWarna != other.BarangWarna) return false;
+      if (BarangUmur != other.BarangUmur) return false;
+      if (SubDivisiBarangSubDivisi != other.SubDivisiBarangSubDivisi) return false;
+      if (SubKategoriBarangSubKategori != other.SubKategoriBarangSubKategori) return false;
+      if (DivisiBarangDivisi != other.DivisiBarangDivisi) return false;
+      if (KategoriBarangKategori != other.KategoriBarangKategori) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -702,6 +888,17 @@ namespace grpcArachne {
       if (diskonDetil_ != null) hash ^= DiskonDetil.GetHashCode();
       if (DiskonNominal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DiskonNominal);
       if (Total != 0L) hash ^= Total.GetHashCode();
+      if (CatatanPenawaran.Length != 0) hash ^= CatatanPenawaran.GetHashCode();
+      if (SatuanSatuan.Length != 0) hash ^= SatuanSatuan.GetHashCode();
+      if (BarangBarang.Length != 0) hash ^= BarangBarang.GetHashCode();
+      if (BarangMerk.Length != 0) hash ^= BarangMerk.GetHashCode();
+      if (BarangUkuran.Length != 0) hash ^= BarangUkuran.GetHashCode();
+      if (BarangWarna.Length != 0) hash ^= BarangWarna.GetHashCode();
+      if (BarangUmur != 0) hash ^= BarangUmur.GetHashCode();
+      if (SubDivisiBarangSubDivisi.Length != 0) hash ^= SubDivisiBarangSubDivisi.GetHashCode();
+      if (SubKategoriBarangSubKategori.Length != 0) hash ^= SubKategoriBarangSubKategori.GetHashCode();
+      if (DivisiBarangDivisi.Length != 0) hash ^= DivisiBarangDivisi.GetHashCode();
+      if (KategoriBarangKategori.Length != 0) hash ^= KategoriBarangKategori.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -765,6 +962,50 @@ namespace grpcArachne {
         output.WriteRawTag(96);
         output.WriteInt64(Total);
       }
+      if (CatatanPenawaran.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(CatatanPenawaran);
+      }
+      if (SatuanSatuan.Length != 0) {
+        output.WriteRawTag(114);
+        output.WriteString(SatuanSatuan);
+      }
+      if (BarangBarang.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteString(BarangBarang);
+      }
+      if (BarangMerk.Length != 0) {
+        output.WriteRawTag(130, 1);
+        output.WriteString(BarangMerk);
+      }
+      if (BarangUkuran.Length != 0) {
+        output.WriteRawTag(138, 1);
+        output.WriteString(BarangUkuran);
+      }
+      if (BarangWarna.Length != 0) {
+        output.WriteRawTag(146, 1);
+        output.WriteString(BarangWarna);
+      }
+      if (BarangUmur != 0) {
+        output.WriteRawTag(152, 1);
+        output.WriteInt32(BarangUmur);
+      }
+      if (SubDivisiBarangSubDivisi.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(SubDivisiBarangSubDivisi);
+      }
+      if (SubKategoriBarangSubKategori.Length != 0) {
+        output.WriteRawTag(170, 1);
+        output.WriteString(SubKategoriBarangSubKategori);
+      }
+      if (DivisiBarangDivisi.Length != 0) {
+        output.WriteRawTag(178, 1);
+        output.WriteString(DivisiBarangDivisi);
+      }
+      if (KategoriBarangKategori.Length != 0) {
+        output.WriteRawTag(186, 1);
+        output.WriteString(KategoriBarangKategori);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -821,6 +1062,50 @@ namespace grpcArachne {
         output.WriteRawTag(96);
         output.WriteInt64(Total);
       }
+      if (CatatanPenawaran.Length != 0) {
+        output.WriteRawTag(106);
+        output.WriteString(CatatanPenawaran);
+      }
+      if (SatuanSatuan.Length != 0) {
+        output.WriteRawTag(114);
+        output.WriteString(SatuanSatuan);
+      }
+      if (BarangBarang.Length != 0) {
+        output.WriteRawTag(122);
+        output.WriteString(BarangBarang);
+      }
+      if (BarangMerk.Length != 0) {
+        output.WriteRawTag(130, 1);
+        output.WriteString(BarangMerk);
+      }
+      if (BarangUkuran.Length != 0) {
+        output.WriteRawTag(138, 1);
+        output.WriteString(BarangUkuran);
+      }
+      if (BarangWarna.Length != 0) {
+        output.WriteRawTag(146, 1);
+        output.WriteString(BarangWarna);
+      }
+      if (BarangUmur != 0) {
+        output.WriteRawTag(152, 1);
+        output.WriteInt32(BarangUmur);
+      }
+      if (SubDivisiBarangSubDivisi.Length != 0) {
+        output.WriteRawTag(162, 1);
+        output.WriteString(SubDivisiBarangSubDivisi);
+      }
+      if (SubKategoriBarangSubKategori.Length != 0) {
+        output.WriteRawTag(170, 1);
+        output.WriteString(SubKategoriBarangSubKategori);
+      }
+      if (DivisiBarangDivisi.Length != 0) {
+        output.WriteRawTag(178, 1);
+        output.WriteString(DivisiBarangDivisi);
+      }
+      if (KategoriBarangKategori.Length != 0) {
+        output.WriteRawTag(186, 1);
+        output.WriteString(KategoriBarangKategori);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -865,6 +1150,39 @@ namespace grpcArachne {
       }
       if (Total != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Total);
+      }
+      if (CatatanPenawaran.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(CatatanPenawaran);
+      }
+      if (SatuanSatuan.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(SatuanSatuan);
+      }
+      if (BarangBarang.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(BarangBarang);
+      }
+      if (BarangMerk.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(BarangMerk);
+      }
+      if (BarangUkuran.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(BarangUkuran);
+      }
+      if (BarangWarna.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(BarangWarna);
+      }
+      if (BarangUmur != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeInt32Size(BarangUmur);
+      }
+      if (SubDivisiBarangSubDivisi.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SubDivisiBarangSubDivisi);
+      }
+      if (SubKategoriBarangSubKategori.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(SubKategoriBarangSubKategori);
+      }
+      if (DivisiBarangDivisi.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(DivisiBarangDivisi);
+      }
+      if (KategoriBarangKategori.Length != 0) {
+        size += 2 + pb::CodedOutputStream.ComputeStringSize(KategoriBarangKategori);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -914,6 +1232,39 @@ namespace grpcArachne {
       }
       if (other.Total != 0L) {
         Total = other.Total;
+      }
+      if (other.CatatanPenawaran.Length != 0) {
+        CatatanPenawaran = other.CatatanPenawaran;
+      }
+      if (other.SatuanSatuan.Length != 0) {
+        SatuanSatuan = other.SatuanSatuan;
+      }
+      if (other.BarangBarang.Length != 0) {
+        BarangBarang = other.BarangBarang;
+      }
+      if (other.BarangMerk.Length != 0) {
+        BarangMerk = other.BarangMerk;
+      }
+      if (other.BarangUkuran.Length != 0) {
+        BarangUkuran = other.BarangUkuran;
+      }
+      if (other.BarangWarna.Length != 0) {
+        BarangWarna = other.BarangWarna;
+      }
+      if (other.BarangUmur != 0) {
+        BarangUmur = other.BarangUmur;
+      }
+      if (other.SubDivisiBarangSubDivisi.Length != 0) {
+        SubDivisiBarangSubDivisi = other.SubDivisiBarangSubDivisi;
+      }
+      if (other.SubKategoriBarangSubKategori.Length != 0) {
+        SubKategoriBarangSubKategori = other.SubKategoriBarangSubKategori;
+      }
+      if (other.DivisiBarangDivisi.Length != 0) {
+        DivisiBarangDivisi = other.DivisiBarangDivisi;
+      }
+      if (other.KategoriBarangKategori.Length != 0) {
+        KategoriBarangKategori = other.KategoriBarangKategori;
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -980,6 +1331,50 @@ namespace grpcArachne {
             Total = input.ReadInt64();
             break;
           }
+          case 106: {
+            CatatanPenawaran = input.ReadString();
+            break;
+          }
+          case 114: {
+            SatuanSatuan = input.ReadString();
+            break;
+          }
+          case 122: {
+            BarangBarang = input.ReadString();
+            break;
+          }
+          case 130: {
+            BarangMerk = input.ReadString();
+            break;
+          }
+          case 138: {
+            BarangUkuran = input.ReadString();
+            break;
+          }
+          case 146: {
+            BarangWarna = input.ReadString();
+            break;
+          }
+          case 152: {
+            BarangUmur = input.ReadInt32();
+            break;
+          }
+          case 162: {
+            SubDivisiBarangSubDivisi = input.ReadString();
+            break;
+          }
+          case 170: {
+            SubKategoriBarangSubKategori = input.ReadString();
+            break;
+          }
+          case 178: {
+            DivisiBarangDivisi = input.ReadString();
+            break;
+          }
+          case 186: {
+            KategoriBarangKategori = input.ReadString();
+            break;
+          }
         }
       }
     #endif
@@ -1043,6 +1438,50 @@ namespace grpcArachne {
           }
           case 96: {
             Total = input.ReadInt64();
+            break;
+          }
+          case 106: {
+            CatatanPenawaran = input.ReadString();
+            break;
+          }
+          case 114: {
+            SatuanSatuan = input.ReadString();
+            break;
+          }
+          case 122: {
+            BarangBarang = input.ReadString();
+            break;
+          }
+          case 130: {
+            BarangMerk = input.ReadString();
+            break;
+          }
+          case 138: {
+            BarangUkuran = input.ReadString();
+            break;
+          }
+          case 146: {
+            BarangWarna = input.ReadString();
+            break;
+          }
+          case 152: {
+            BarangUmur = input.ReadInt32();
+            break;
+          }
+          case 162: {
+            SubDivisiBarangSubDivisi = input.ReadString();
+            break;
+          }
+          case 170: {
+            SubKategoriBarangSubKategori = input.ReadString();
+            break;
+          }
+          case 178: {
+            DivisiBarangDivisi = input.ReadString();
+            break;
+          }
+          case 186: {
+            KategoriBarangKategori = input.ReadString();
             break;
           }
         }
