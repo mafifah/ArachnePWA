@@ -9,11 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace grpcArachne
 {
@@ -67,6 +63,7 @@ namespace grpcArachne
                 });
 
             services.AddAuthorization();
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -82,15 +79,18 @@ namespace grpcArachne
             app.UseAuthorization();
             app.UseGrpcWeb();
             app.UseCors();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapGrpcService<BarangService>().EnableGrpcWeb().RequireCors("AllowAll");
                 endpoints.MapGrpcService<LoginTokenService>().EnableGrpcWeb().RequireCors("AllowAll");
                 endpoints.MapGrpcService<CryptoService>().EnableGrpcWeb().RequireCors("AllowAll");
                 endpoints.MapGrpcService<PenawaranPembelianService>().EnableGrpcWeb().RequireCors("AllowAll");
+<<<<<<< HEAD
                 endpoints.MapGrpcService<AtributService>().EnableGrpcWeb().RequireCors("AllowAll");
 
+=======
+                endpoints.MapHub<NotificationHub>("/notify");
+>>>>>>> fdab23bf46b8e54df35d7d3154f66631a2636beb
                 endpoints.MapGet("/", async context =>
                 {
                     await context.Response.WriteAsync("Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");

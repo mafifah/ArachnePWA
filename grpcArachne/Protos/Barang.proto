@@ -4,10 +4,21 @@ option csharp_namespace = "grpcArachne";
 
 service T1Barang{
 	rpc GetDataBarangWithGroupBy(ListBarangRequest) returns (stream Barang);
+	rpc UpdateStokBarang(UpdateBarangRequest) returns (Pesan);
+	rpc GetDataBarangById(BarangByIdRequest) returns (stream Barang);
 }
 
 message ListBarangRequest{
 	int64 IdSupplier = 1;
+}
+
+message BarangByIdRequest{
+	string IdSatuan = 1;
+}
+message UpdateBarangRequest{
+	int64 IdSatuan = 1;
+	int64 IdGudang = 2;
+	int32 Stok = 3;
 }
 
 message Barang {
@@ -27,4 +38,8 @@ message Barang {
 	string IdCompany = 14;
 	string NamaSupplier =15;
 	string AlamatSupplier=16;
+}
+
+message Pesan{
+	string Message = 1;
 }

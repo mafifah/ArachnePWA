@@ -119,13 +119,20 @@ using MudBlazor;
 #nullable disable
 #nullable restore
 #line 2 "D:\Arachne\bzrArachne\Pages\Barang.razor"
-using bzrArachne.Service;
+using Microsoft.AspNetCore.SignalR.Client;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
 #line 3 "D:\Arachne\bzrArachne\Pages\Barang.razor"
+using bzrArachne.Service;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 4 "D:\Arachne\bzrArachne\Pages\Barang.razor"
 using bzrArachne.Models;
 
 #line default
@@ -140,7 +147,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 116 "D:\Arachne\bzrArachne\Pages\Barang.razor"
+#line 117 "D:\Arachne\bzrArachne\Pages\Barang.razor"
        
     private DataUser user = new DataUser();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
@@ -152,43 +159,73 @@ using bzrArachne.Models;
     bool showSearchSatuan = false;
     bool showSearchStok = false;
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan) && i.Stok <= SearchStok).ToList();
-    List<DataBarang> StokBarang => FilteredBarang.Where(i => i.Stok <= i.Minimum).ToList();
+    //List<DataBarang> StokBarang => FilteredBarang.Where(i => i.Stok <= i.Minimum).ToList();
+    private NotificationMessages notificationMessage = new NotificationMessages();
     protected override async Task OnInitializedAsync()
     {
         user = DataService.User;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
         {
-            var dataBarang = DataService.GetDataBarangWithGroupBy();
-            await foreach (var item in dataBarang)
+            await GetBarang();
+            var hubConnection = new HubConnectionBuilder().WithUrl(NavigationManager.ToAbsoluteUri("/notified")).Build();
+            hubConnection.On<string>("ReceiveMessage", (msg) =>
             {
-                _daftarBarang.Add(new DataBarang
-                {
-                    IdBarang = item.IdBarang,
-                    IdDivisiBarang = item.IdDivisiBarang,
-                    IdSubDivisiBarang = item.IdSubDivisiBarang,
-                    IdKategoriBarang = item.IdKategoriBarang,
-                    IdSubKategoriBarang = item.IdSubKategoriBarang,
-                    IdSupplier = item.IdSupplier,
-                    IdJenisSupplier = item.IdJenisSupplier,
-                    IdSatuan = item.IdSatuan,
-                    Nama = item.Nama,
-                    Satuan = item.Satuan,
-                    Stok = item.Stok,
-                    Minimum = item.Minimum,
-                    Maksimum = item.Maksimum,
-                    NamaSupplier = item.NamaSupplier
-                });
-                this.StateHasChanged();
-            }
-            foreach (var item in StokBarang)
-            {
-                ToastService.ShowWarning($"{item.Nama} dengan satuan {item.Satuan} hampir habis");
-            }
+                notificationMessage.Msg = msg;
+                StateHasChanged();
+                GetDataById();
+            });
+            await hubConnection.StartAsync();
+            var IsConnected = hubConnection.State;
         }
         else
         {
             NavigationManager.NavigateTo("/");
+        }
+    }
+
+    async Task GetBarang()
+    {
+        var dataBarang = DataService.GetDataBarangWithGroupBy();
+        await foreach (var item in dataBarang)
+        {
+            _daftarBarang.Add(new DataBarang
+            {
+                IdBarang = item.IdBarang,
+                IdDivisiBarang = item.IdDivisiBarang,
+                IdSubDivisiBarang = item.IdSubDivisiBarang,
+                IdKategoriBarang = item.IdKategoriBarang,
+                IdSubKategoriBarang = item.IdSubKategoriBarang,
+                IdSupplier = item.IdSupplier,
+                IdJenisSupplier = item.IdJenisSupplier,
+                IdSatuan = item.IdSatuan,
+                Nama = item.Nama,
+                Satuan = item.Satuan,
+                Stok = item.Stok,
+                Minimum = item.Minimum,
+                Maksimum = item.Maksimum,
+                NamaSupplier = item.NamaSupplier
+            });
+            this.StateHasChanged();
+        }
+        //foreach (var item in StokBarang)
+        //{
+        //    ToastService.ShowWarning($"{item.Nama} dengan satuan {item.Satuan} hampir habis");
+        //}
+    }
+
+    async Task GetDataById()
+    {
+        var dataBarang = DataService.GetDataById(notificationMessage.Msg);
+        await foreach (var item in dataBarang)
+        {
+            var data = _daftarBarang.Where(i => i.IdBarang == item.IdBarang && i.IdSatuan == item.IdSatuan).FirstOrDefault();
+            data.Stok = item.Stok;
+            StateHasChanged();
+            if (data.Stok <= data.Minimum)
+            {
+                ToastService.ShowWarning($"{item.Nama} dengan satuan {item.Satuan} hampir habis");
+            }
         }
     }
     void ShowSearchNama() => showSearchNama = true;
@@ -200,7 +237,7 @@ using bzrArachne.Models;
     void MoveToPenawaran(DataBarang Item)
     {
         DataService.SetBarangDipilih(Item);
-        
+
         NavigationManager.NavigateTo("penawaranBaru");
     }
     void MoveToPenawaranBarangBaru()

@@ -44,12 +44,29 @@ namespace grpcArachne {
 
     static readonly grpc::Marshaller<global::grpcArachne.ListBarangRequest> __Marshaller_ListBarangRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.ListBarangRequest.Parser));
     static readonly grpc::Marshaller<global::grpcArachne.Barang> __Marshaller_Barang = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.Barang.Parser));
+    static readonly grpc::Marshaller<global::grpcArachne.UpdateBarangRequest> __Marshaller_UpdateBarangRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.UpdateBarangRequest.Parser));
+    static readonly grpc::Marshaller<global::grpcArachne.Pesan> __Marshaller_Pesan = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.Pesan.Parser));
+    static readonly grpc::Marshaller<global::grpcArachne.BarangByIdRequest> __Marshaller_BarangByIdRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.BarangByIdRequest.Parser));
 
     static readonly grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang> __Method_GetDataBarangWithGroupBy = new grpc::Method<global::grpcArachne.ListBarangRequest, global::grpcArachne.Barang>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
         "GetDataBarangWithGroupBy",
         __Marshaller_ListBarangRequest,
+        __Marshaller_Barang);
+
+    static readonly grpc::Method<global::grpcArachne.UpdateBarangRequest, global::grpcArachne.Pesan> __Method_UpdateStokBarang = new grpc::Method<global::grpcArachne.UpdateBarangRequest, global::grpcArachne.Pesan>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "UpdateStokBarang",
+        __Marshaller_UpdateBarangRequest,
+        __Marshaller_Pesan);
+
+    static readonly grpc::Method<global::grpcArachne.BarangByIdRequest, global::grpcArachne.Barang> __Method_GetDataBarangById = new grpc::Method<global::grpcArachne.BarangByIdRequest, global::grpcArachne.Barang>(
+        grpc::MethodType.ServerStreaming,
+        __ServiceName,
+        "GetDataBarangById",
+        __Marshaller_BarangByIdRequest,
         __Marshaller_Barang);
 
     /// <summary>Service descriptor</summary>
@@ -88,6 +105,30 @@ namespace grpcArachne {
       public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.Barang> GetDataBarangWithGroupBy(global::grpcArachne.ListBarangRequest request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_GetDataBarangWithGroupBy, null, options, request);
+      }
+      public virtual global::grpcArachne.Pesan UpdateStokBarang(global::grpcArachne.UpdateBarangRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateStokBarang(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::grpcArachne.Pesan UpdateStokBarang(global::grpcArachne.UpdateBarangRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_UpdateStokBarang, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::grpcArachne.Pesan> UpdateStokBarangAsync(global::grpcArachne.UpdateBarangRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return UpdateStokBarangAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::grpcArachne.Pesan> UpdateStokBarangAsync(global::grpcArachne.UpdateBarangRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_UpdateStokBarang, null, options, request);
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.Barang> GetDataBarangById(global::grpcArachne.BarangByIdRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDataBarangById(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.Barang> GetDataBarangById(global::grpcArachne.BarangByIdRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncServerStreamingCall(__Method_GetDataBarangById, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override T1BarangClient NewInstance(ClientBaseConfiguration configuration)
