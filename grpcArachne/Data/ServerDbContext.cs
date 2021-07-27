@@ -19,7 +19,7 @@ namespace grpcArachne.Data
         public DbSet<DbT0DivisiBarang> T0DivisiBarangDbSet { get; set; }
         public DbSet<DbT1SubDivisiBarang> T1SubDivisiBarangDbSet { get; set; }
         public DbSet<DbT0KategoriBarang> T0KategoriBarangDbSet { get; set; }
-        public DbSet<DbT1SubKategoriBarang> T1SubKategoriBarang { get; set; }
+        public DbSet<DbT1SubKategoriBarang> T1SubKategoriBarangDbSet { get; set; }
         public DbSet<DbT6PenawaranPembelian> T6PenawaranPembelianDbSet { get; set; }
         public DbSet<DbT7PenawaranPembelian> T7PenawaranPembelianDbSet { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

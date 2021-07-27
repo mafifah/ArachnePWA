@@ -21,7 +21,6 @@ namespace grpcArachne
             _logger = logger;
             _db = db;
         }
-
         public override async Task GetDataBarangWithGroupBy(ListBarangRequest request, IServerStreamWriter<Barang> responseStream, ServerCallContext context)
         {
             _idSupplier = request.IdSupplier;
@@ -41,7 +40,7 @@ namespace grpcArachne
                  on T3Satuan.IdSatuan equals T5CompanySatuan.IdSatuan
                  join T1SubDivisiBarang in _db.T1SubDivisiBarangDbSet
                  on T2Barang.IdSubDivisiBarang equals T1SubDivisiBarang.IdSubDivisiBarang
-                 join T1SubKategoriBarang in _db.T1SubKategoriBarang
+                 join T1SubKategoriBarang in _db.T1SubKategoriBarangDbSet
                  on T2Barang.IdSubKategoriBarang equals T1SubKategoriBarang.IdSubKategoriBarang
                  select new {
                      T3Satuan.IdBarang, T1SubDivisiBarang.IdDivisiBarang,
@@ -98,7 +97,7 @@ namespace grpcArachne
                  on T3Satuan.IdSatuan equals T5CompanySatuan.IdSatuan
                  join T1SubDivisiBarang in _db.T1SubDivisiBarangDbSet
                  on T2Barang.IdSubDivisiBarang equals T1SubDivisiBarang.IdSubDivisiBarang
-                 join T1SubKategoriBarang in _db.T1SubKategoriBarang
+                 join T1SubKategoriBarang in _db.T1SubKategoriBarangDbSet
                  on T2Barang.IdSubKategoriBarang equals T1SubKategoriBarang.IdSubKategoriBarang
                  where T5SupplierSatuan.IdSupplier == _idSupplier
                  select new
@@ -224,7 +223,7 @@ namespace grpcArachne
              on T3Satuan.IdSatuan equals T5CompanySatuan.IdSatuan
              join T1SubDivisiBarang in _db.T1SubDivisiBarangDbSet
              on T2Barang.IdSubDivisiBarang equals T1SubDivisiBarang.IdSubDivisiBarang
-             join T1SubKategoriBarang in _db.T1SubKategoriBarang
+             join T1SubKategoriBarang in _db.T1SubKategoriBarangDbSet
              on T2Barang.IdSubKategoriBarang equals T1SubKategoriBarang.IdSubKategoriBarang
              where T3Satuan.IdSatuan == Int64.Parse(request.IdSatuan)
              select new
