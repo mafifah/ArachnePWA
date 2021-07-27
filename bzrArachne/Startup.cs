@@ -1,5 +1,6 @@
 using Blazor.AdminLte;
 using Blazored.Toast;
+using bzrArachne.Models;
 using bzrArachne.Service;
 using CurrieTechnologies.Razor.SweetAlert2;
 using Microsoft.AspNetCore.Builder;
@@ -33,6 +34,7 @@ namespace bzrArachne
             services.AddSweetAlert2();
             services.AddSingleton<DataService>();
             services.AddSingleton<PenawaranService>();
+            services.AddSignalRCore();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -55,6 +57,8 @@ namespace bzrArachne
             {
                 endpoints.MapBlazorHub();
                 endpoints.MapFallbackToPage("/_Host");
+                endpoints.MapHub<NotifHub>("/notified");
+
             });
         }
     }

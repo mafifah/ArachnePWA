@@ -57,7 +57,7 @@ namespace grpcArachne.Data
             modelBuilder.Entity<DbT5StokGudang>(entity =>
             {
                 entity.ToTable("T5StokGudang");
-                entity.HasKey(e => e.IdSatuan);
+                entity.HasKey(e => new { e.IdSatuan, e.IdGudang });
             });
 
             modelBuilder.Entity<DbT5CompanySatuan>(entity =>

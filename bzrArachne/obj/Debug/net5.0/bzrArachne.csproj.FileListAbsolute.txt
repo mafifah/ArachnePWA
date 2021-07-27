@@ -31,8 +31,17 @@ D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.Authorization.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.Components.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Forms.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.Components.Web.dll
+D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.Connections.Abstractions.dll
+D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Connections.Client.dll
+D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Connections.Common.dll
+D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.Http.Features.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.Metadata.dll
+D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.SignalR.Client.dll
+D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.SignalR.Client.Core.dll
+D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.SignalR.Common.dll
+D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.AspNetCore.SignalR.Protocols.Json.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.Extensions.DependencyInjection.dll
+D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.JSInterop.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\MudBlazor.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\System.IO.Pipelines.dll

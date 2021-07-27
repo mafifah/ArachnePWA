@@ -25,21 +25,30 @@ namespace grpcArachne {
       byte[] descriptorData = global::System.Convert.FromBase64String(
           string.Concat(
             "CgxCYXJhbmcucHJvdG8iJwoRTGlzdEJhcmFuZ1JlcXVlc3QSEgoKSWRTdXBw",
-            "bGllchgBIAEoAyLTAgoGQmFyYW5nEhAKCElkQmFyYW5nGAEgASgDEhYKDklk",
-            "RGl2aXNpQmFyYW5nGAIgASgDEhkKEUlkU3ViRGl2aXNpQmFyYW5nGAMgASgD",
-            "EhgKEElkS2F0ZWdvcmlCYXJhbmcYBCABKAMSGwoTSWRTdWJLYXRlZ29yaUJh",
-            "cmFuZxgFIAEoAxISCgpJZFN1cHBsaWVyGAYgASgDEhcKD0lkSmVuaXNTdXBw",
-            "bGllchgHIAEoAxIQCghJZFNhdHVhbhgIIAEoAxIMCgROYW1hGAkgASgJEg4K",
-            "BlNhdHVhbhgKIAEoCRIMCgRTdG9rGAsgASgFEg8KB01pbmltdW0YDCABKAMS",
-            "EAoITWFrc2ltdW0YDSABKAMSEQoJSWRDb21wYW55GA4gASgJEhQKDE5hbWFT",
-            "dXBwbGllchgPIAEoCRIWCg5BbGFtYXRTdXBwbGllchgQIAEoCTJFCghUMUJh",
-            "cmFuZxI5ChhHZXREYXRhQmFyYW5nV2l0aEdyb3VwQnkSEi5MaXN0QmFyYW5n",
-            "UmVxdWVzdBoHLkJhcmFuZzABQg6qAgtncnBjQXJhY2huZWIGcHJvdG8z"));
+            "bGllchgBIAEoAyIlChFCYXJhbmdCeUlkUmVxdWVzdBIQCghJZFNhdHVhbhgB",
+            "IAEoCSJHChNVcGRhdGVCYXJhbmdSZXF1ZXN0EhAKCElkU2F0dWFuGAEgASgD",
+            "EhAKCElkR3VkYW5nGAIgASgDEgwKBFN0b2sYAyABKAUi0wIKBkJhcmFuZxIQ",
+            "CghJZEJhcmFuZxgBIAEoAxIWCg5JZERpdmlzaUJhcmFuZxgCIAEoAxIZChFJ",
+            "ZFN1YkRpdmlzaUJhcmFuZxgDIAEoAxIYChBJZEthdGVnb3JpQmFyYW5nGAQg",
+            "ASgDEhsKE0lkU3ViS2F0ZWdvcmlCYXJhbmcYBSABKAMSEgoKSWRTdXBwbGll",
+            "chgGIAEoAxIXCg9JZEplbmlzU3VwcGxpZXIYByABKAMSEAoISWRTYXR1YW4Y",
+            "CCABKAMSDAoETmFtYRgJIAEoCRIOCgZTYXR1YW4YCiABKAkSDAoEU3RvaxgL",
+            "IAEoBRIPCgdNaW5pbXVtGAwgASgDEhAKCE1ha3NpbXVtGA0gASgDEhEKCUlk",
+            "Q29tcGFueRgOIAEoCRIUCgxOYW1hU3VwcGxpZXIYDyABKAkSFgoOQWxhbWF0",
+            "U3VwcGxpZXIYECABKAkiGAoFUGVzYW4SDwoHTWVzc2FnZRgBIAEoCTKrAQoI",
+            "VDFCYXJhbmcSOQoYR2V0RGF0YUJhcmFuZ1dpdGhHcm91cEJ5EhIuTGlzdEJh",
+            "cmFuZ1JlcXVlc3QaBy5CYXJhbmcwARIwChBVcGRhdGVTdG9rQmFyYW5nEhQu",
+            "VXBkYXRlQmFyYW5nUmVxdWVzdBoGLlBlc2FuEjIKEUdldERhdGFCYXJhbmdC",
+            "eUlkEhIuQmFyYW5nQnlJZFJlcXVlc3QaBy5CYXJhbmcwAUIOqgILZ3JwY0Fy",
+            "YWNobmViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.ListBarangRequest), global::grpcArachne.ListBarangRequest.Parser, new[]{ "IdSupplier" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.Barang), global::grpcArachne.Barang.Parser, new[]{ "IdBarang", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "IdSupplier", "IdJenisSupplier", "IdSatuan", "Nama", "Satuan", "Stok", "Minimum", "Maksimum", "IdCompany", "NamaSupplier", "AlamatSupplier" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.BarangByIdRequest), global::grpcArachne.BarangByIdRequest.Parser, new[]{ "IdSatuan" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.UpdateBarangRequest), global::grpcArachne.UpdateBarangRequest.Parser, new[]{ "IdSatuan", "IdGudang", "Stok" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.Barang), global::grpcArachne.Barang.Parser, new[]{ "IdBarang", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "IdSupplier", "IdJenisSupplier", "IdSatuan", "Nama", "Satuan", "Stok", "Minimum", "Maksimum", "IdCompany", "NamaSupplier", "AlamatSupplier" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.Pesan), global::grpcArachne.Pesan.Parser, new[]{ "Message" }, null, null, null, null)
           }));
     }
     #endregion
@@ -218,6 +227,422 @@ namespace grpcArachne {
 
   }
 
+  public sealed partial class BarangByIdRequest : pb::IMessage<BarangByIdRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<BarangByIdRequest> _parser = new pb::MessageParser<BarangByIdRequest>(() => new BarangByIdRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<BarangByIdRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::grpcArachne.BarangReflection.Descriptor.MessageTypes[1]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BarangByIdRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BarangByIdRequest(BarangByIdRequest other) : this() {
+      idSatuan_ = other.idSatuan_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public BarangByIdRequest Clone() {
+      return new BarangByIdRequest(this);
+    }
+
+    /// <summary>Field number for the "IdSatuan" field.</summary>
+    public const int IdSatuanFieldNumber = 1;
+    private string idSatuan_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string IdSatuan {
+      get { return idSatuan_; }
+      set {
+        idSatuan_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as BarangByIdRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(BarangByIdRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (IdSatuan != other.IdSatuan) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (IdSatuan.Length != 0) hash ^= IdSatuan.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (IdSatuan.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(IdSatuan);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (IdSatuan.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(IdSatuan);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (IdSatuan.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(IdSatuan);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(BarangByIdRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.IdSatuan.Length != 0) {
+        IdSatuan = other.IdSatuan;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            IdSatuan = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            IdSatuan = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class UpdateBarangRequest : pb::IMessage<UpdateBarangRequest>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<UpdateBarangRequest> _parser = new pb::MessageParser<UpdateBarangRequest>(() => new UpdateBarangRequest());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<UpdateBarangRequest> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::grpcArachne.BarangReflection.Descriptor.MessageTypes[2]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateBarangRequest() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateBarangRequest(UpdateBarangRequest other) : this() {
+      idSatuan_ = other.idSatuan_;
+      idGudang_ = other.idGudang_;
+      stok_ = other.stok_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public UpdateBarangRequest Clone() {
+      return new UpdateBarangRequest(this);
+    }
+
+    /// <summary>Field number for the "IdSatuan" field.</summary>
+    public const int IdSatuanFieldNumber = 1;
+    private long idSatuan_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdSatuan {
+      get { return idSatuan_; }
+      set {
+        idSatuan_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "IdGudang" field.</summary>
+    public const int IdGudangFieldNumber = 2;
+    private long idGudang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdGudang {
+      get { return idGudang_; }
+      set {
+        idGudang_ = value;
+      }
+    }
+
+    /// <summary>Field number for the "Stok" field.</summary>
+    public const int StokFieldNumber = 3;
+    private int stok_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int Stok {
+      get { return stok_; }
+      set {
+        stok_ = value;
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as UpdateBarangRequest);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(UpdateBarangRequest other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (IdSatuan != other.IdSatuan) return false;
+      if (IdGudang != other.IdGudang) return false;
+      if (Stok != other.Stok) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (IdSatuan != 0L) hash ^= IdSatuan.GetHashCode();
+      if (IdGudang != 0L) hash ^= IdGudang.GetHashCode();
+      if (Stok != 0) hash ^= Stok.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (IdSatuan != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdSatuan);
+      }
+      if (IdGudang != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(IdGudang);
+      }
+      if (Stok != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Stok);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (IdSatuan != 0L) {
+        output.WriteRawTag(8);
+        output.WriteInt64(IdSatuan);
+      }
+      if (IdGudang != 0L) {
+        output.WriteRawTag(16);
+        output.WriteInt64(IdGudang);
+      }
+      if (Stok != 0) {
+        output.WriteRawTag(24);
+        output.WriteInt32(Stok);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (IdSatuan != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSatuan);
+      }
+      if (IdGudang != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdGudang);
+      }
+      if (Stok != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeInt32Size(Stok);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(UpdateBarangRequest other) {
+      if (other == null) {
+        return;
+      }
+      if (other.IdSatuan != 0L) {
+        IdSatuan = other.IdSatuan;
+      }
+      if (other.IdGudang != 0L) {
+        IdGudang = other.IdGudang;
+      }
+      if (other.Stok != 0) {
+        Stok = other.Stok;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 8: {
+            IdSatuan = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            IdGudang = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            Stok = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 8: {
+            IdSatuan = input.ReadInt64();
+            break;
+          }
+          case 16: {
+            IdGudang = input.ReadInt64();
+            break;
+          }
+          case 24: {
+            Stok = input.ReadInt32();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
   public sealed partial class Barang : pb::IMessage<Barang>
   #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
       , pb::IBufferMessage
@@ -230,7 +655,7 @@ namespace grpcArachne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return global::grpcArachne.BarangReflection.Descriptor.MessageTypes[1]; }
+      get { return global::grpcArachne.BarangReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -921,6 +1346,178 @@ namespace grpcArachne {
           }
           case 130: {
             AlamatSupplier = input.ReadString();
+            break;
+          }
+        }
+      }
+    }
+    #endif
+
+  }
+
+  public sealed partial class Pesan : pb::IMessage<Pesan>
+  #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      , pb::IBufferMessage
+  #endif
+  {
+    private static readonly pb::MessageParser<Pesan> _parser = new pb::MessageParser<Pesan>(() => new Pesan());
+    private pb::UnknownFieldSet _unknownFields;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pb::MessageParser<Pesan> Parser { get { return _parser; } }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public static pbr::MessageDescriptor Descriptor {
+      get { return global::grpcArachne.BarangReflection.Descriptor.MessageTypes[4]; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    pbr::MessageDescriptor pb::IMessage.Descriptor {
+      get { return Descriptor; }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Pesan() {
+      OnConstruction();
+    }
+
+    partial void OnConstruction();
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Pesan(Pesan other) : this() {
+      message_ = other.message_;
+      _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public Pesan Clone() {
+      return new Pesan(this);
+    }
+
+    /// <summary>Field number for the "Message" field.</summary>
+    public const int MessageFieldNumber = 1;
+    private string message_ = "";
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Message {
+      get { return message_; }
+      set {
+        message_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+      }
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override bool Equals(object other) {
+      return Equals(other as Pesan);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public bool Equals(Pesan other) {
+      if (ReferenceEquals(other, null)) {
+        return false;
+      }
+      if (ReferenceEquals(other, this)) {
+        return true;
+      }
+      if (Message != other.Message) return false;
+      return Equals(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override int GetHashCode() {
+      int hash = 1;
+      if (Message.Length != 0) hash ^= Message.GetHashCode();
+      if (_unknownFields != null) {
+        hash ^= _unknownFields.GetHashCode();
+      }
+      return hash;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public override string ToString() {
+      return pb::JsonFormatter.ToDiagnosticString(this);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void WriteTo(pb::CodedOutputStream output) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      output.WriteRawMessage(this);
+    #else
+      if (Message.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(output);
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalWriteTo(ref pb::WriteContext output) {
+      if (Message.Length != 0) {
+        output.WriteRawTag(10);
+        output.WriteString(Message);
+      }
+      if (_unknownFields != null) {
+        _unknownFields.WriteTo(ref output);
+      }
+    }
+    #endif
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public int CalculateSize() {
+      int size = 0;
+      if (Message.Length != 0) {
+        size += 1 + pb::CodedOutputStream.ComputeStringSize(Message);
+      }
+      if (_unknownFields != null) {
+        size += _unknownFields.CalculateSize();
+      }
+      return size;
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(Pesan other) {
+      if (other == null) {
+        return;
+      }
+      if (other.Message.Length != 0) {
+        Message = other.Message;
+      }
+      _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
+    }
+
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public void MergeFrom(pb::CodedInputStream input) {
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+      input.ReadRawMessage(this);
+    #else
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
+            break;
+          case 10: {
+            Message = input.ReadString();
+            break;
+          }
+        }
+      }
+    #endif
+    }
+
+    #if !GOOGLE_PROTOBUF_REFSTRUCT_COMPATIBILITY_MODE
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    void pb::IBufferMessage.InternalMergeFrom(ref pb::ParseContext input) {
+      uint tag;
+      while ((tag = input.ReadTag()) != 0) {
+        switch(tag) {
+          default:
+            _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, ref input);
+            break;
+          case 10: {
+            Message = input.ReadString();
             break;
           }
         }
