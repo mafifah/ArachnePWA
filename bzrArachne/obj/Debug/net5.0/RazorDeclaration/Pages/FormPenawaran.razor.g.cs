@@ -140,7 +140,11 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
+<<<<<<< HEAD
 #line 283 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+=======
+#line 272 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+>>>>>>> 5d471b1e2bcb599d635ee93010bc48e8984443e4
        
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)

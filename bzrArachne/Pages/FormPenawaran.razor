@@ -58,6 +58,7 @@
                         </tr>
                     </thead>
                     <tbody>
+<<<<<<< HEAD
                         @{
                             var no = 1;
                             foreach (var data in barangPenawarans)
@@ -68,6 +69,62 @@
                                         @no
                                     </td>
                                     <td>
+=======
+                        @foreach (var data in barangPenawarans)
+                        {
+                        <tr>
+                            <td>
+                                <div>
+                                    <input  type="number" @bind="data.Jumlah" class="form-control">
+                                   
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="text" disabled @bind="data.Satuan" class="form-control">
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="text" disabled @bind="data.Nama" class="form-control">
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    @{
+                                        <input type="text" @bind="data.Harga" class="form-control">
+                                    }
+                                </div>
+                                
+                            </td>
+                            <td>
+                                <div>
+                                    <input type="number" @bind="data.DiskonNominal" class="form-control">
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    @{
+                                        data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
+                                    }
+                                    <input type="text" @bind="data.DiskonDetil" disabled class="form-control">
+                                </div>
+                            </td>
+                            <td>
+                                <div>
+                                    @{
+                                        var harga_diskon = data.Jumlah * data.Harga * data.DiskonNominal / 100;
+                                        data.Total = data.Harga * data.Jumlah - harga_diskon;
+                                        var uang = data.Total.ToString("C");
+                                        <input type="text" @bind="uang" disabled class="form-control">
+                                    }
+                                </div>
+                            </td>
+                            @{
+                                if (barangPenawarans.Count == 1)
+                                {
+                                    <td style="text-align: center; vertical-align: middle;">
+>>>>>>> 5d471b1e2bcb599d635ee93010bc48e8984443e4
                                         <div>
                                             <input type="number" @bind="data.Jumlah" class="form-control">
 
@@ -173,9 +230,10 @@
                             _grandtotal = barangPenawarans.Sum(m => m.Total);
                             _grandDetil = barangPenawarans.Sum(m => Convert.ToDouble(m.DiskonDetil));
                             _grandDiskon = barangPenawarans.Sum(m => m.DiskonNominal);
+                            var total = barangPenawarans.Sum(m => m.Total).ToString("C");
+                            <label class="col-sm-4 col-form-label">Total Penawaran (Rp.) : </label>
+                            <input style="text-align:center" type="text" disabled @bind="total" class="col-sm-4 col-form-label rounded-pill border border-success" />
                         }
-                        <label class="col-sm-4 col-form-label">Total Penawaran (Rp.) : </label>
-                        <input style="text-align:center" type="number" disabled @bind="_grandtotal" class="col-sm-4 col-form-label rounded-pill border border-success" />
                     </div>
                 </div>
             </div>
