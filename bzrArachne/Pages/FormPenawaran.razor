@@ -2,10 +2,12 @@
 @using bzrArachne.Service
 @using bzrArachne.Models
 @inject DataService DataService
+@inject AtributService AtributService
 @inject PenawaranService PenawaranService
 @inject NavigationManager NavigationManager
 @inject NavigationManager NavigationManager
 @inject SweetAlertService Swal
+@inject IToastService ToastService
 <div class="card card-dark ml-4 mr-4">
     <div class="card-header">
         <h2 class="card-title">Form Penawaran</h2>
@@ -39,18 +41,18 @@
             <div class="card card-dark">
                 <div class="card-body">
                     <h4 class="card-blue">Detail Penawaran</h4>
-                    <table style="width: 100%" border="1">
+                    <table width="100%" id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
                         <thead>
                             <tr>
-                                <th align="center" width="5%"> <label for="Jumlah">No</label></th>
-                                <th align="center" width="9%"> <label for="Jumlah">Jumlah</label></th>
-                                <th align="center" width="10%"> <label for="Satuan">Satuan</label></th>
-                                <th align="center" width="25%"><label for="Nama">Nama Barang</label></th>
-                                <th align="center" width="13%"><label for="Harga">Harga Satuan</label></th>
-                                <th align="center" width="5%"><label for="DiskonNominal">Diskon%</label></th>
-                                <th align="center" width="10%"><label for="DiskonDetil">Diskon Rp.</label></th>
-                                <th align="center" width="15%"><label for="Total">Total</label></th>
-                                <th align="center" width="5%"><label for="Opsi">Opsi</label></th>
+                                <th width="1%">No</th>
+                                <th width="20%">Catatan</th>
+                                <th width="10%">Jml</th>
+                                <th width="6%">Satuan</th>
+                                <th width="20%">Nama</th>
+                                <th width="13%">Harga</th>
+                                <th width="3%">Diskon%</th>
+                                <th width="11%">Diskon(Rp.)</th>
+                                <th width="16%">Total</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -58,88 +60,65 @@
                                 var no = 1;
                                 foreach (var data in barangPenawarans)
                                 {
-                                <tr>
-                                    <td>
-                                        <div>
-                                            <input type="number" @bind="@no" class="form-control">
-                                        </div>
-                                    </td> 
-                                    <td>
-                                        <div>
-                                            <input type="number" @bind="data.Jumlah" class="form-control">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <input type="text" disabled @bind="data.Satuan" class="form-control">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <input type="text" disabled @bind="data.Nama" class="form-control">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <input type="number" @bind="data.Harga" class="form-control">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <input type="number" @bind="data.DiskonNominal" class="form-control">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            @{
-                                                data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
-                                            }
-                                            <input type="text" @bind="data.DiskonDetil" disabled class="form-control">
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            @{
-                                                var harga_diskon = data.Jumlah * data.Harga * data.DiskonNominal / 100;
-                                                data.Total = data.Harga * data.Jumlah - harga_diskon;
-                                            }
-                                            <input type="number" @bind="data.Total" disabled class="form-control">
-                                        </div>
-                                    </td>
-                                    <td style="text-align: center; vertical-align: middle;">
-                                        <div>
+                                    <tr>
+                                        <td>
+                                            @no
+                                        </td>
+                                        <td>
+                                            <input type="text" @bind="data.CatatanPenawaran" class="form-control"></input>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="number" @bind="data.Jumlah" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="text" disabled @bind="data.Satuan" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="text" disabled @bind="data.Nama" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="number" @bind="data.Harga" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <input type="number" @bind="data.DiskonNominal" class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                @{
+                                                    data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
+                                                }
+                                                <input type="text" @bind="data.DiskonDetil" disabled class="form-control">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                @{
 
-                                            <a class="btn btn-danger rounded btn-sm" @onclick="(() => HapusBarangDariList(data))">X</a>
-                                        </div>
-                                    </td>
-                                    @if (data.Jumlah == 0)
-                                    {
-                                        <td>
-                                            <MudTooltip Placement="Placement.Top" Text="Jumlah Tidak Boleh 0">
-                                                <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
-                                            </MudTooltip>
+                                                    var harga_diskon = data.Jumlah * data.Harga * data.DiskonNominal / 100;
+                                                    data.Total = data.Harga * data.Jumlah - harga_diskon;
+                                                    //string TotalString = String.Format("{0:C}", data.Total);
+                                                }
+                                                <input type="text" @bind="data.Total" disabled class="form-control">
+                                            </div>
                                         </td>
-                                    }
-                                    else if (data.Jumlah + data.Stok > data.Maksimum)
-                                    {
-                                        var Max = data.Maksimum - data.Stok;
-                                        var msg = "Jumlah lebih dari " + Max.ToString();
-                                        <td>
-                                            <MudTooltip Placement="Placement.Top" Text="@msg">
-                                                <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
-                                            </MudTooltip>
+                                        <td style="text-align: center; vertical-align: middle;">
+                                            <div>
+
+                                                <a @onclick="(() => HapusBarangDariList(data))"><i class="fa fa-trash" style="color:red;"></i></a>
+                                            </div>
                                         </td>
-                                    }
-                                    else if (data.Harga <= 0)
-                                    {
-                                        <td>
-                                            <MudTooltip Placement="Placement.Top" Text="Harga Tidak Boleh 0!">
-                                                <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
-                                            </MudTooltip>
-                                        </td>
-                                    }
-                                </tr>
-                                   no++;
+                                    </tr>
+                                    no++;
                                 }
                             }
                         </tbody>
@@ -161,21 +140,24 @@
                                 _grandtotal = barangPenawarans.Sum(m => m.Total);
                                 _grandDetil = barangPenawarans.Sum(m => Convert.ToDouble(m.DiskonDetil));
                                 _grandDiskon = barangPenawarans.Sum(m => m.DiskonNominal);
+                                //string GrandTotal = String.Format("{0:C}",_grandtotal);
                             }
                             <label class="col-sm-4 col-form-label">Total Penawaran (Rp.) : </label>
-                            <input style="text-align:center" type="number" disabled @bind="_grandtotal" class="col-sm-4 col-form-label rounded-pill border border-success" />
+                            <input style="text-align:center" type="text" disabled @bind="_grandtotal" class="col-sm-4 col-form-label rounded-pill border border-success" />
                         </div>
                     </div>
                 </div>
             </div><!-- /.card-body -->
             <div class="card-footer">
                 <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
-                <a type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</a>
+                <a type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Kirim Penawaran</a>
             </div>
         </div>
     </form>
 
-    <!--MODAL-->
+    <!--MODAL BARANG YANG SUDAH ADA-->
+    <!--MODAL BARANG YANG SUDAH ADA-->
+    <!--MODAL BARANG YANG SUDAH ADA-->
     @if (showModal)
     {
         <div class="modal fade show" id="myModal" style="display:block" aria-modal="true" role="dialog">
@@ -185,6 +167,9 @@
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h4 class="modal-title">Barang</h4>
+                        <button type="button" class="close" @onclick="@ModalCancel" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
                     <!-- Modal body -->
                     <div class="modal-body">
@@ -253,18 +238,145 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" @onclick="@ModalCancel">Tutup</button>
-                        <button type="button" @onclick="(() => TambahBarangKeList())" class="btn btn-success">ADD</button>
-                        <button type="button" class="btn btn-primary" @onclick="@FormBarangBaru">Barang Baru</button>
+
+                        <button type="button" style="float:left" class="btn btn-primary" @onclick="@ModalBarangShow">Tambah Barang Baru</button>
+                        <button type="button"  @onclick="(() => TambahBarangKeList())" class="btn btn-success">Tambah Barang</button>
                     </div>
                 </div>
             </div>
         </div>
     }
-    <!--MODAL-->
+    <!--MODAL BARANG YANG SUDAH ADA-->
+    <!--MODAL BARANG YANG SUDAH ADA-->
+    <!--MODAL BARANG YANG SUDAH ADA-->
+    <!------------------------------------------------------------ModalBarangBaru----------------------------------------------------------------->
+    <!------------------------------------------------------------ModalBarangBaru----------------------------------------------------------------->
+    <!------------------------------------------------------------ModalBarangBaru----------------------------------------------------------------->
+    @if (showModalBarang)
+    {
+        <div class="modal fade show" id="myModal2" style="display:block" aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-dialog-scrollable modal-lg">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Barang</h4>
+                        <button type="button" class="close" @onclick="@ModalBarangCancel" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Nama</label>
+                                    <input type="text" class="form-control" placeholder="Nama ...">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Divisi</label>
+                                    <select class="form-control">
+                                        @foreach (var item in divisiBarangs)
+                                        {
+                                            <option value="@item.Divisi">@item.Divisi</option>
+                                        }
+
+                                        <option value="Lainnya...">Lainnya.....</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Warna</label>
+                                    <input type="text" class="form-control" placeholder="Warna ...">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Sub Divisi</label>
+                                    <select class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Ukuran</label>
+                                    <input type="text" class="form-control" placeholder="Ukuran ...">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>kategori</label>
+                                    <select class="form-control">
+                                        @foreach (var item in kategoriBarangs)
+                                        {
+                                            <option value="@item.Kategori">@item.Kategori</option>
+                                        }
+
+                                        <option>option 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Umur</label>
+                                    <input type="text" class="form-control" placeholder="Umur ...">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Sub Kategori</label>
+                                    <select class="form-control">
+                                        <option>option 1</option>
+                                        <option>option 2</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Satuan</label>
+                                    <select class="form-control">
+                                        @foreach (var item in _daftarBarang)
+                                        {
+                                            <option value="@item.Satuan">@item.Satuan</option>
+                                        }
+
+                                        <option value="Lainnya...">Lainnya.....</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" @onclick="(() => TambahBarangKeList())" class="btn btn-success">Tambah</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+
 </div>
 
-@code 
+@code
 {
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
@@ -290,8 +402,23 @@
     double _grandDiskon { get; set; }
     double _grandDetil { get; set; }
     bool showModal = false;
+    bool showModalBarang = false;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
+
+    //
+    async void ModalBarangShow()
+    {
+        divisiBarangs = await AtributService.GetDivisBarang();
+        kategoriBarangs = await AtributService.GetkategoriBarang();
+        showModal = false;
+        showModalBarang = true;
+    }
+
+    void ModalBarangCancel() => showModalBarang = false;
+    //
+    List<M_DivisiBarang> divisiBarangs = new List<M_DivisiBarang>();
+    List<M_KategoriBarang> kategoriBarangs = new List<M_KategoriBarang>();
     Random rnd = new Random();
     //filter
     bool showSearchNama = false;
@@ -300,7 +427,7 @@
     string SearchSatuan { get; set; } = "";
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan)).ToList();
     List<DataBarang> datachecked { get; set; } = new List<DataBarang>();
-        //filter
+    //filter
     private DataUser user = new DataUser();
     private DataBarang Item { get; set; }
     private DataPenawaran dataPenawaran = new DataPenawaran();
@@ -308,6 +435,7 @@
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
     protected override async Task OnInitializedAsync()
     {
+
         user = DataService.User;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
@@ -402,40 +530,49 @@
     }
     async Task SendDataPenawaran()
     {
-        dataPenawaran = new DataPenawaran
+        var check = barangPenawarans.Where(x => x.Stok + x.Jumlah > x.Maksimum || x.Harga == 0 || x.Jumlah == 0).ToList();
+        if (check.Count == 0)
         {
-            IdPenawaranPembelian = rnd.Next(1, 1000),
-            IdJenisSupplier = user.IdJenisSupplier,
-            IdSupplier = user.IdSupplier,
-            IdCompanyPenerima = "GWR",
-            BarangPenawaran = barangPenawarans,
-            GrandTotal = _grandtotal,
-            DiskonDetil = _grandDetil.ToString(),
-            DiskonNominal = _grandDiskon
-        };
-        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
-        DataService.SetNullBarangDipilih();
-        Item = null;
-        barangPenawarans.Clear();
-        dataPenawaran = null;
+            dataPenawaran = new DataPenawaran
+            {
+                IdPenawaranPembelian = rnd.Next(1, 1000),
+                IdJenisSupplier = user.IdJenisSupplier,
+                IdSupplier = user.IdSupplier,
+                IdCompanyPenerima = "GWR",
+                BarangPenawaran = barangPenawarans,
+                GrandTotal = _grandtotal,
+                DiskonDetil = _grandDetil.ToString(),
+                DiskonNominal = _grandDiskon
+            };
+            var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+            DataService.SetNullBarangDipilih();
+            Item = null;
+            barangPenawarans.Clear();
+            dataPenawaran = null;
 
-        if (send)
-        {
-            await Swal.FireAsync(
-            "Sukses",
-            "Data Penawaran Berhasil terkirim :)",
-            SweetAlertIcon.Success
-            );
-            NavigationManager.NavigateTo("dataBarang");
+            if (send)
+            {
+                await Swal.FireAsync(
+                "Sukses",
+                "Data Penawaran Berhasil terkirim :)",
+                SweetAlertIcon.Success
+                );
+                NavigationManager.NavigateTo("dataBarang");
+            }
+            else
+            {
+                await Swal.FireAsync(
+                "Gagal",
+                "Data Penawaran gagal terkirim :)",
+                SweetAlertIcon.Error
+                );
+            }
         }
         else
         {
-            await Swal.FireAsync(
-            "Gagal",
-            "Data Penawaran gagal terkirim :)",
-            SweetAlertIcon.Error
-            );
+            ToastService.ShowWarning($" Pastikan Jumlah dan harga Sudah terisi dengan Benar");
         }
+
 
     }
     void ShowSearchNama() => showSearchNama = true;

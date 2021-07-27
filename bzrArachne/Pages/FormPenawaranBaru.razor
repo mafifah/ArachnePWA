@@ -168,7 +168,7 @@
     </form>
 
     <!--MODAL-->
-    @if (showModal)
+    @if (showModalBarang)
     {
         <div class="modal fade show" id="myModal" style="display:block" aria-modal="true" role="dialog">
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
@@ -258,8 +258,13 @@
     double _grandDiskon { get; set; }
     double _grandDetil { get; set; }
     bool showModal = false;
+    bool showModalBarang = false;
     void ModalShow() =>showModal = true;
     void ModalCancel() => showModal = false;
+    //
+    void ModalBarangShow() => showModalBarang = true;
+    void ModalBarangCancel () => showModal = false;
+    //
     Random rnd = new Random();
     bool showSearchNama = false;
     bool showSearchSatuan = false;

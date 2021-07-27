@@ -33,6 +33,7 @@ namespace bzrArachne
             services.AddSweetAlert2();
             services.AddSingleton<DataService>();
             services.AddSingleton<PenawaranService>();
+            services.AddSingleton<AtributService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

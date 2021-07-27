@@ -140,7 +140,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 268 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 379 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
  
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
@@ -166,8 +166,23 @@ using bzrArachne.Models;
     double _grandDiskon { get; set; }
     double _grandDetil { get; set; }
     bool showModal = false;
+    bool showModalBarang = false;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
+
+    //
+    async void ModalBarangShow()
+    {
+        divisiBarangs = await AtributService.GetDivisBarang();
+        kategoriBarangs = await AtributService.GetkategoriBarang();
+        showModal = false;
+        showModalBarang = true;
+    }
+
+    void ModalBarangCancel() => showModalBarang = false;
+    //
+    List<M_DivisiBarang> divisiBarangs = new List<M_DivisiBarang>();
+    List<M_KategoriBarang> kategoriBarangs = new List<M_KategoriBarang>();
     Random rnd = new Random();
     //filter
     bool showSearchNama = false;
@@ -176,7 +191,7 @@ using bzrArachne.Models;
     string SearchSatuan { get; set; } = "";
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan)).ToList();
     List<DataBarang> datachecked { get; set; } = new List<DataBarang>();
-        //filter
+    //filter
     private DataUser user = new DataUser();
     private DataBarang Item { get; set; }
     private DataPenawaran dataPenawaran = new DataPenawaran();
@@ -184,6 +199,7 @@ using bzrArachne.Models;
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
     protected override async Task OnInitializedAsync()
     {
+
         user = DataService.User;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
@@ -278,40 +294,49 @@ using bzrArachne.Models;
     }
     async Task SendDataPenawaran()
     {
-        dataPenawaran = new DataPenawaran
+        var check = barangPenawarans.Where(x => x.Stok + x.Jumlah > x.Maksimum || x.Harga == 0 || x.Jumlah == 0).ToList();
+        if (check.Count == 0)
         {
-            IdPenawaranPembelian = rnd.Next(1, 1000),
-            IdJenisSupplier = user.IdJenisSupplier,
-            IdSupplier = user.IdSupplier,
-            IdCompanyPenerima = "GWR",
-            BarangPenawaran = barangPenawarans,
-            GrandTotal = _grandtotal,
-            DiskonDetil = _grandDetil.ToString(),
-            DiskonNominal = _grandDiskon
-        };
-        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
-        DataService.SetNullBarangDipilih();
-        Item = null;
-        barangPenawarans.Clear();
-        dataPenawaran = null;
+            dataPenawaran = new DataPenawaran
+            {
+                IdPenawaranPembelian = rnd.Next(1, 1000),
+                IdJenisSupplier = user.IdJenisSupplier,
+                IdSupplier = user.IdSupplier,
+                IdCompanyPenerima = "GWR",
+                BarangPenawaran = barangPenawarans,
+                GrandTotal = _grandtotal,
+                DiskonDetil = _grandDetil.ToString(),
+                DiskonNominal = _grandDiskon
+            };
+            var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+            DataService.SetNullBarangDipilih();
+            Item = null;
+            barangPenawarans.Clear();
+            dataPenawaran = null;
 
-        if (send)
-        {
-            await Swal.FireAsync(
-            "Sukses",
-            "Data Penawaran Berhasil terkirim :)",
-            SweetAlertIcon.Success
-            );
-            NavigationManager.NavigateTo("dataBarang");
+            if (send)
+            {
+                await Swal.FireAsync(
+                "Sukses",
+                "Data Penawaran Berhasil terkirim :)",
+                SweetAlertIcon.Success
+                );
+                NavigationManager.NavigateTo("dataBarang");
+            }
+            else
+            {
+                await Swal.FireAsync(
+                "Gagal",
+                "Data Penawaran gagal terkirim :)",
+                SweetAlertIcon.Error
+                );
+            }
         }
         else
         {
-            await Swal.FireAsync(
-            "Gagal",
-            "Data Penawaran gagal terkirim :)",
-            SweetAlertIcon.Error
-            );
+            ToastService.ShowWarning($" Pastikan Jumlah dan harga Sudah terisi dengan Benar");
         }
+
 
     }
     void ShowSearchNama() => showSearchNama = true;
@@ -323,9 +348,11 @@ using bzrArachne.Models;
 #line default
 #line hidden
 #nullable disable
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private IToastService ToastService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private SweetAlertService Swal { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private PenawaranService PenawaranService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private AtributService AtributService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private DataService DataService { get; set; }
     }
 }

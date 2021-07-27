@@ -5,11 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Protos\AtributForm.proto" />
     <None Remove="Protos\LoginToken.proto" />
     <None Remove="Protos\PenawaranPembelian.proto" />
   </ItemGroup>
 
   <ItemGroup>
+    <Protobuf Include="Protos\AtributForm.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\Barang.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\LoginToken.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\PenawaranPembelian.proto" GrpcServices="Server" />

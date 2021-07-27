@@ -33,28 +33,32 @@ namespace grpcArachne {
             "ASgJEjEKC0Rpc2tvbkRldGlsGAYgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0",
             "cmluZ1ZhbHVlEhUKDURpc2tvbk5vbWluYWwYByABKAESEAoISWRUZXJtaW4Y",
             "CCABKAMSJwoJVDdSZXF1c2V0GAkgAygLMhQuSW5zZXJ0RGF0YVQ3UmVxdXNl",
-            "dCLbBAoTSW5zZXJ0RGF0YVQ3UmVxdXNldBIQCghJZEJhcmFuZxgBIAEoAxIh",
+            "dCKiBgoTSW5zZXJ0RGF0YVQ3UmVxdXNldBIQCghJZEJhcmFuZxgBIAEoAxIh",
             "ChlJZERldGlsUGVuYXdhcmFuUGVtYmVsaWFuGAIgASgDEhAKCElkU2F0dWFu",
             "GAMgASgDEhYKDklkRGl2aXNpQmFyYW5nGAQgASgDEhkKEUlkU3ViRGl2aXNp",
             "QmFyYW5nGAUgASgDEhgKEElkS2F0ZWdvcmlCYXJhbmcYBiABKAMSGwoTSWRT",
             "dWJLYXRlZ29yaUJhcmFuZxgHIAEoAxINCgVIYXJnYRgIIAEoARIOCgZKdW1s",
             "YWgYCSABKAESMQoLRGlza29uRGV0aWwYCiABKAsyHC5nb29nbGUucHJvdG9i",
             "dWYuU3RyaW5nVmFsdWUSFQoNRGlza29uTm9taW5hbBgLIAEoARINCgVUb3Rh",
-            "bBgMIAEoAxIYChBDYXRhdGFuUGVuYXdhcmFuGA0gASgJEhQKDFNhdHVhblNh",
-            "dHVhbhgOIAEoCRIUCgxCYXJhbmdCYXJhbmcYDyABKAkSEgoKQmFyYW5nTWVy",
-            "axgQIAEoCRIUCgxCYXJhbmdVa3VyYW4YESABKAkSEwoLQmFyYW5nV2FybmEY",
-            "EiABKAkSEgoKQmFyYW5nVW11chgTIAEoBRIgChhTdWJEaXZpc2lCYXJhbmdT",
-            "dWJEaXZpc2kYFCABKAkSJAocU3ViS2F0ZWdvcmlCYXJhbmdTdWJLYXRlZ29y",
-            "aRgVIAEoCRIaChJEaXZpc2lCYXJhbmdEaXZpc2kYFiABKAkSHgoWS2F0ZWdv",
-            "cmlCYXJhbmdLYXRlZ29yaRgXIAEoCSIWCgVwZXNhbhINCgVwZXNhbhgBIAEo",
-            "CTJWChJQZW5hd2FyYW5QZW1iZWxpYW4SQAogSW5zZXJ0UGVuYXdhcmFuUGVt",
-            "YmVsaWFuUmVwZWF0ZWQSFC5JbnNlcnREYXRhVDZSZXF1c2V0GgYucGVzYW5C",
-            "DqoCC2dycGNBcmFjaG5lYgZwcm90bzM="));
+            "bBgMIAEoAxI2ChBDYXRhdGFuUGVuYXdhcmFuGA0gASgLMhwuZ29vZ2xlLnBy",
+            "b3RvYnVmLlN0cmluZ1ZhbHVlEjIKDFNhdHVhblNhdHVhbhgOIAEoCzIcLmdv",
+            "b2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIyCgxCYXJhbmdCYXJhbmcYDyAB",
+            "KAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSMgoMQmFyYW5nVWt1",
+            "cmFuGBAgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEhIKCkJh",
+            "cmFuZ1VtdXIYESABKAUSPgoYU3ViRGl2aXNpQmFyYW5nU3ViRGl2aXNpGBIg",
+            "ASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEkIKHFN1YkthdGVn",
+            "b3JpQmFyYW5nU3ViS2F0ZWdvcmkYEyABKAsyHC5nb29nbGUucHJvdG9idWYu",
+            "U3RyaW5nVmFsdWUSOAoSRGl2aXNpQmFyYW5nRGl2aXNpGBQgASgLMhwuZ29v",
+            "Z2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjwKFkthdGVnb3JpQmFyYW5nS2F0",
+            "ZWdvcmkYFSABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUiFgoF",
+            "cGVzYW4SDQoFcGVzYW4YASABKAkyVgoSUGVuYXdhcmFuUGVtYmVsaWFuEkAK",
+            "IEluc2VydFBlbmF3YXJhblBlbWJlbGlhblJlcGVhdGVkEhQuSW5zZXJ0RGF0",
+            "YVQ2UmVxdXNldBoGLnBlc2FuQg6qAgtncnBjQXJhY2huZWIGcHJvdG8z"));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT6Requset), global::grpcArachne.InsertDataT6Requset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "GrandTotal", "IdCompanyPenerima", "DiskonDetil", "DiskonNominal", "IdTermin", "T7Requset" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT7Requset), global::grpcArachne.InsertDataT7Requset.Parser, new[]{ "IdBarang", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "Harga", "Jumlah", "DiskonDetil", "DiskonNominal", "Total", "CatatanPenawaran", "SatuanSatuan", "BarangBarang", "BarangMerk", "BarangUkuran", "BarangWarna", "BarangUmur", "SubDivisiBarangSubDivisi", "SubKategoriBarangSubKategori", "DivisiBarangDivisi", "KategoriBarangKategori" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT7Requset), global::grpcArachne.InsertDataT7Requset.Parser, new[]{ "IdBarang", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "Harga", "Jumlah", "DiskonDetil", "DiskonNominal", "Total", "CatatanPenawaran", "SatuanSatuan", "BarangBarang", "BarangUkuran", "BarangUmur", "SubDivisiBarangSubDivisi", "SubKategoriBarangSubKategori", "DivisiBarangDivisi", "KategoriBarangKategori" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.pesan), global::grpcArachne.pesan.Parser, new[]{ "Pesan" }, null, null, null, null)
           }));
     }
@@ -450,17 +454,15 @@ namespace grpcArachne {
       DiskonDetil = other.DiskonDetil;
       diskonNominal_ = other.diskonNominal_;
       total_ = other.total_;
-      catatanPenawaran_ = other.catatanPenawaran_;
-      satuanSatuan_ = other.satuanSatuan_;
-      barangBarang_ = other.barangBarang_;
-      barangMerk_ = other.barangMerk_;
-      barangUkuran_ = other.barangUkuran_;
-      barangWarna_ = other.barangWarna_;
+      CatatanPenawaran = other.CatatanPenawaran;
+      SatuanSatuan = other.SatuanSatuan;
+      BarangBarang = other.BarangBarang;
+      BarangUkuran = other.BarangUkuran;
       barangUmur_ = other.barangUmur_;
-      subDivisiBarangSubDivisi_ = other.subDivisiBarangSubDivisi_;
-      subKategoriBarangSubKategori_ = other.subKategoriBarangSubKategori_;
-      divisiBarangDivisi_ = other.divisiBarangDivisi_;
-      kategoriBarangKategori_ = other.kategoriBarangKategori_;
+      SubDivisiBarangSubDivisi = other.SubDivisiBarangSubDivisi;
+      SubKategoriBarangSubKategori = other.SubKategoriBarangSubKategori;
+      DivisiBarangDivisi = other.DivisiBarangDivisi;
+      KategoriBarangKategori = other.KategoriBarangKategori;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -605,72 +607,58 @@ namespace grpcArachne {
 
     /// <summary>Field number for the "CatatanPenawaran" field.</summary>
     public const int CatatanPenawaranFieldNumber = 13;
-    private string catatanPenawaran_ = "";
+    private static readonly pb::FieldCodec<string> _single_catatanPenawaran_codec = pb::FieldCodec.ForClassWrapper<string>(106);
+    private string catatanPenawaran_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string CatatanPenawaran {
       get { return catatanPenawaran_; }
       set {
-        catatanPenawaran_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        catatanPenawaran_ = value;
       }
     }
 
+
     /// <summary>Field number for the "SatuanSatuan" field.</summary>
     public const int SatuanSatuanFieldNumber = 14;
-    private string satuanSatuan_ = "";
+    private static readonly pb::FieldCodec<string> _single_satuanSatuan_codec = pb::FieldCodec.ForClassWrapper<string>(114);
+    private string satuanSatuan_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string SatuanSatuan {
       get { return satuanSatuan_; }
       set {
-        satuanSatuan_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        satuanSatuan_ = value;
       }
     }
 
+
     /// <summary>Field number for the "BarangBarang" field.</summary>
     public const int BarangBarangFieldNumber = 15;
-    private string barangBarang_ = "";
+    private static readonly pb::FieldCodec<string> _single_barangBarang_codec = pb::FieldCodec.ForClassWrapper<string>(122);
+    private string barangBarang_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string BarangBarang {
       get { return barangBarang_; }
       set {
-        barangBarang_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        barangBarang_ = value;
       }
     }
 
-    /// <summary>Field number for the "BarangMerk" field.</summary>
-    public const int BarangMerkFieldNumber = 16;
-    private string barangMerk_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string BarangMerk {
-      get { return barangMerk_; }
-      set {
-        barangMerk_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
 
     /// <summary>Field number for the "BarangUkuran" field.</summary>
-    public const int BarangUkuranFieldNumber = 17;
-    private string barangUkuran_ = "";
+    public const int BarangUkuranFieldNumber = 16;
+    private static readonly pb::FieldCodec<string> _single_barangUkuran_codec = pb::FieldCodec.ForClassWrapper<string>(130);
+    private string barangUkuran_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string BarangUkuran {
       get { return barangUkuran_; }
       set {
-        barangUkuran_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        barangUkuran_ = value;
       }
     }
 
-    /// <summary>Field number for the "BarangWarna" field.</summary>
-    public const int BarangWarnaFieldNumber = 18;
-    private string barangWarna_ = "";
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string BarangWarna {
-      get { return barangWarna_; }
-      set {
-        barangWarna_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-      }
-    }
 
     /// <summary>Field number for the "BarangUmur" field.</summary>
-    public const int BarangUmurFieldNumber = 19;
+    public const int BarangUmurFieldNumber = 17;
     private int barangUmur_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int BarangUmur {
@@ -681,48 +669,56 @@ namespace grpcArachne {
     }
 
     /// <summary>Field number for the "SubDivisiBarangSubDivisi" field.</summary>
-    public const int SubDivisiBarangSubDivisiFieldNumber = 20;
-    private string subDivisiBarangSubDivisi_ = "";
+    public const int SubDivisiBarangSubDivisiFieldNumber = 18;
+    private static readonly pb::FieldCodec<string> _single_subDivisiBarangSubDivisi_codec = pb::FieldCodec.ForClassWrapper<string>(146);
+    private string subDivisiBarangSubDivisi_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string SubDivisiBarangSubDivisi {
       get { return subDivisiBarangSubDivisi_; }
       set {
-        subDivisiBarangSubDivisi_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        subDivisiBarangSubDivisi_ = value;
       }
     }
 
+
     /// <summary>Field number for the "SubKategoriBarangSubKategori" field.</summary>
-    public const int SubKategoriBarangSubKategoriFieldNumber = 21;
-    private string subKategoriBarangSubKategori_ = "";
+    public const int SubKategoriBarangSubKategoriFieldNumber = 19;
+    private static readonly pb::FieldCodec<string> _single_subKategoriBarangSubKategori_codec = pb::FieldCodec.ForClassWrapper<string>(154);
+    private string subKategoriBarangSubKategori_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string SubKategoriBarangSubKategori {
       get { return subKategoriBarangSubKategori_; }
       set {
-        subKategoriBarangSubKategori_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        subKategoriBarangSubKategori_ = value;
       }
     }
 
+
     /// <summary>Field number for the "DivisiBarangDivisi" field.</summary>
-    public const int DivisiBarangDivisiFieldNumber = 22;
-    private string divisiBarangDivisi_ = "";
+    public const int DivisiBarangDivisiFieldNumber = 20;
+    private static readonly pb::FieldCodec<string> _single_divisiBarangDivisi_codec = pb::FieldCodec.ForClassWrapper<string>(162);
+    private string divisiBarangDivisi_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string DivisiBarangDivisi {
       get { return divisiBarangDivisi_; }
       set {
-        divisiBarangDivisi_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        divisiBarangDivisi_ = value;
       }
     }
 
+
     /// <summary>Field number for the "KategoriBarangKategori" field.</summary>
-    public const int KategoriBarangKategoriFieldNumber = 23;
-    private string kategoriBarangKategori_ = "";
+    public const int KategoriBarangKategoriFieldNumber = 21;
+    private static readonly pb::FieldCodec<string> _single_kategoriBarangKategori_codec = pb::FieldCodec.ForClassWrapper<string>(170);
+    private string kategoriBarangKategori_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string KategoriBarangKategori {
       get { return kategoriBarangKategori_; }
       set {
-        kategoriBarangKategori_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+        kategoriBarangKategori_ = value;
       }
     }
+
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
@@ -752,9 +748,7 @@ namespace grpcArachne {
       if (CatatanPenawaran != other.CatatanPenawaran) return false;
       if (SatuanSatuan != other.SatuanSatuan) return false;
       if (BarangBarang != other.BarangBarang) return false;
-      if (BarangMerk != other.BarangMerk) return false;
       if (BarangUkuran != other.BarangUkuran) return false;
-      if (BarangWarna != other.BarangWarna) return false;
       if (BarangUmur != other.BarangUmur) return false;
       if (SubDivisiBarangSubDivisi != other.SubDivisiBarangSubDivisi) return false;
       if (SubKategoriBarangSubKategori != other.SubKategoriBarangSubKategori) return false;
@@ -778,17 +772,15 @@ namespace grpcArachne {
       if (diskonDetil_ != null) hash ^= DiskonDetil.GetHashCode();
       if (DiskonNominal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DiskonNominal);
       if (Total != 0L) hash ^= Total.GetHashCode();
-      if (CatatanPenawaran.Length != 0) hash ^= CatatanPenawaran.GetHashCode();
-      if (SatuanSatuan.Length != 0) hash ^= SatuanSatuan.GetHashCode();
-      if (BarangBarang.Length != 0) hash ^= BarangBarang.GetHashCode();
-      if (BarangMerk.Length != 0) hash ^= BarangMerk.GetHashCode();
-      if (BarangUkuran.Length != 0) hash ^= BarangUkuran.GetHashCode();
-      if (BarangWarna.Length != 0) hash ^= BarangWarna.GetHashCode();
+      if (catatanPenawaran_ != null) hash ^= CatatanPenawaran.GetHashCode();
+      if (satuanSatuan_ != null) hash ^= SatuanSatuan.GetHashCode();
+      if (barangBarang_ != null) hash ^= BarangBarang.GetHashCode();
+      if (barangUkuran_ != null) hash ^= BarangUkuran.GetHashCode();
       if (BarangUmur != 0) hash ^= BarangUmur.GetHashCode();
-      if (SubDivisiBarangSubDivisi.Length != 0) hash ^= SubDivisiBarangSubDivisi.GetHashCode();
-      if (SubKategoriBarangSubKategori.Length != 0) hash ^= SubKategoriBarangSubKategori.GetHashCode();
-      if (DivisiBarangDivisi.Length != 0) hash ^= DivisiBarangDivisi.GetHashCode();
-      if (KategoriBarangKategori.Length != 0) hash ^= KategoriBarangKategori.GetHashCode();
+      if (subDivisiBarangSubDivisi_ != null) hash ^= SubDivisiBarangSubDivisi.GetHashCode();
+      if (subKategoriBarangSubKategori_ != null) hash ^= SubKategoriBarangSubKategori.GetHashCode();
+      if (divisiBarangDivisi_ != null) hash ^= DivisiBarangDivisi.GetHashCode();
+      if (kategoriBarangKategori_ != null) hash ^= KategoriBarangKategori.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -849,49 +841,33 @@ namespace grpcArachne {
         output.WriteRawTag(96);
         output.WriteInt64(Total);
       }
-      if (CatatanPenawaran.Length != 0) {
-        output.WriteRawTag(106);
-        output.WriteString(CatatanPenawaran);
+      if (catatanPenawaran_ != null) {
+        _single_catatanPenawaran_codec.WriteTagAndValue(output, CatatanPenawaran);
       }
-      if (SatuanSatuan.Length != 0) {
-        output.WriteRawTag(114);
-        output.WriteString(SatuanSatuan);
+      if (satuanSatuan_ != null) {
+        _single_satuanSatuan_codec.WriteTagAndValue(output, SatuanSatuan);
       }
-      if (BarangBarang.Length != 0) {
-        output.WriteRawTag(122);
-        output.WriteString(BarangBarang);
+      if (barangBarang_ != null) {
+        _single_barangBarang_codec.WriteTagAndValue(output, BarangBarang);
       }
-      if (BarangMerk.Length != 0) {
-        output.WriteRawTag(130, 1);
-        output.WriteString(BarangMerk);
-      }
-      if (BarangUkuran.Length != 0) {
-        output.WriteRawTag(138, 1);
-        output.WriteString(BarangUkuran);
-      }
-      if (BarangWarna.Length != 0) {
-        output.WriteRawTag(146, 1);
-        output.WriteString(BarangWarna);
+      if (barangUkuran_ != null) {
+        _single_barangUkuran_codec.WriteTagAndValue(output, BarangUkuran);
       }
       if (BarangUmur != 0) {
-        output.WriteRawTag(152, 1);
+        output.WriteRawTag(136, 1);
         output.WriteInt32(BarangUmur);
       }
-      if (SubDivisiBarangSubDivisi.Length != 0) {
-        output.WriteRawTag(162, 1);
-        output.WriteString(SubDivisiBarangSubDivisi);
+      if (subDivisiBarangSubDivisi_ != null) {
+        _single_subDivisiBarangSubDivisi_codec.WriteTagAndValue(output, SubDivisiBarangSubDivisi);
       }
-      if (SubKategoriBarangSubKategori.Length != 0) {
-        output.WriteRawTag(170, 1);
-        output.WriteString(SubKategoriBarangSubKategori);
+      if (subKategoriBarangSubKategori_ != null) {
+        _single_subKategoriBarangSubKategori_codec.WriteTagAndValue(output, SubKategoriBarangSubKategori);
       }
-      if (DivisiBarangDivisi.Length != 0) {
-        output.WriteRawTag(178, 1);
-        output.WriteString(DivisiBarangDivisi);
+      if (divisiBarangDivisi_ != null) {
+        _single_divisiBarangDivisi_codec.WriteTagAndValue(output, DivisiBarangDivisi);
       }
-      if (KategoriBarangKategori.Length != 0) {
-        output.WriteRawTag(186, 1);
-        output.WriteString(KategoriBarangKategori);
+      if (kategoriBarangKategori_ != null) {
+        _single_kategoriBarangKategori_codec.WriteTagAndValue(output, KategoriBarangKategori);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -937,38 +913,32 @@ namespace grpcArachne {
       if (Total != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(Total);
       }
-      if (CatatanPenawaran.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(CatatanPenawaran);
+      if (catatanPenawaran_ != null) {
+        size += _single_catatanPenawaran_codec.CalculateSizeWithTag(CatatanPenawaran);
       }
-      if (SatuanSatuan.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(SatuanSatuan);
+      if (satuanSatuan_ != null) {
+        size += _single_satuanSatuan_codec.CalculateSizeWithTag(SatuanSatuan);
       }
-      if (BarangBarang.Length != 0) {
-        size += 1 + pb::CodedOutputStream.ComputeStringSize(BarangBarang);
+      if (barangBarang_ != null) {
+        size += _single_barangBarang_codec.CalculateSizeWithTag(BarangBarang);
       }
-      if (BarangMerk.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(BarangMerk);
-      }
-      if (BarangUkuran.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(BarangUkuran);
-      }
-      if (BarangWarna.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(BarangWarna);
+      if (barangUkuran_ != null) {
+        size += _single_barangUkuran_codec.CalculateSizeWithTag(BarangUkuran);
       }
       if (BarangUmur != 0) {
         size += 2 + pb::CodedOutputStream.ComputeInt32Size(BarangUmur);
       }
-      if (SubDivisiBarangSubDivisi.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(SubDivisiBarangSubDivisi);
+      if (subDivisiBarangSubDivisi_ != null) {
+        size += _single_subDivisiBarangSubDivisi_codec.CalculateSizeWithTag(SubDivisiBarangSubDivisi);
       }
-      if (SubKategoriBarangSubKategori.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(SubKategoriBarangSubKategori);
+      if (subKategoriBarangSubKategori_ != null) {
+        size += _single_subKategoriBarangSubKategori_codec.CalculateSizeWithTag(SubKategoriBarangSubKategori);
       }
-      if (DivisiBarangDivisi.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(DivisiBarangDivisi);
+      if (divisiBarangDivisi_ != null) {
+        size += _single_divisiBarangDivisi_codec.CalculateSizeWithTag(DivisiBarangDivisi);
       }
-      if (KategoriBarangKategori.Length != 0) {
-        size += 2 + pb::CodedOutputStream.ComputeStringSize(KategoriBarangKategori);
+      if (kategoriBarangKategori_ != null) {
+        size += _single_kategoriBarangKategori_codec.CalculateSizeWithTag(KategoriBarangKategori);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -1019,38 +989,48 @@ namespace grpcArachne {
       if (other.Total != 0L) {
         Total = other.Total;
       }
-      if (other.CatatanPenawaran.Length != 0) {
-        CatatanPenawaran = other.CatatanPenawaran;
+      if (other.catatanPenawaran_ != null) {
+        if (catatanPenawaran_ == null || other.CatatanPenawaran != "") {
+          CatatanPenawaran = other.CatatanPenawaran;
+        }
       }
-      if (other.SatuanSatuan.Length != 0) {
-        SatuanSatuan = other.SatuanSatuan;
+      if (other.satuanSatuan_ != null) {
+        if (satuanSatuan_ == null || other.SatuanSatuan != "") {
+          SatuanSatuan = other.SatuanSatuan;
+        }
       }
-      if (other.BarangBarang.Length != 0) {
-        BarangBarang = other.BarangBarang;
+      if (other.barangBarang_ != null) {
+        if (barangBarang_ == null || other.BarangBarang != "") {
+          BarangBarang = other.BarangBarang;
+        }
       }
-      if (other.BarangMerk.Length != 0) {
-        BarangMerk = other.BarangMerk;
-      }
-      if (other.BarangUkuran.Length != 0) {
-        BarangUkuran = other.BarangUkuran;
-      }
-      if (other.BarangWarna.Length != 0) {
-        BarangWarna = other.BarangWarna;
+      if (other.barangUkuran_ != null) {
+        if (barangUkuran_ == null || other.BarangUkuran != "") {
+          BarangUkuran = other.BarangUkuran;
+        }
       }
       if (other.BarangUmur != 0) {
         BarangUmur = other.BarangUmur;
       }
-      if (other.SubDivisiBarangSubDivisi.Length != 0) {
-        SubDivisiBarangSubDivisi = other.SubDivisiBarangSubDivisi;
+      if (other.subDivisiBarangSubDivisi_ != null) {
+        if (subDivisiBarangSubDivisi_ == null || other.SubDivisiBarangSubDivisi != "") {
+          SubDivisiBarangSubDivisi = other.SubDivisiBarangSubDivisi;
+        }
       }
-      if (other.SubKategoriBarangSubKategori.Length != 0) {
-        SubKategoriBarangSubKategori = other.SubKategoriBarangSubKategori;
+      if (other.subKategoriBarangSubKategori_ != null) {
+        if (subKategoriBarangSubKategori_ == null || other.SubKategoriBarangSubKategori != "") {
+          SubKategoriBarangSubKategori = other.SubKategoriBarangSubKategori;
+        }
       }
-      if (other.DivisiBarangDivisi.Length != 0) {
-        DivisiBarangDivisi = other.DivisiBarangDivisi;
+      if (other.divisiBarangDivisi_ != null) {
+        if (divisiBarangDivisi_ == null || other.DivisiBarangDivisi != "") {
+          DivisiBarangDivisi = other.DivisiBarangDivisi;
+        }
       }
-      if (other.KategoriBarangKategori.Length != 0) {
-        KategoriBarangKategori = other.KategoriBarangKategori;
+      if (other.kategoriBarangKategori_ != null) {
+        if (kategoriBarangKategori_ == null || other.KategoriBarangKategori != "") {
+          KategoriBarangKategori = other.KategoriBarangKategori;
+        }
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
@@ -1115,47 +1095,63 @@ namespace grpcArachne {
             break;
           }
           case 106: {
-            CatatanPenawaran = input.ReadString();
+            string value = _single_catatanPenawaran_codec.Read(input);
+            if (catatanPenawaran_ == null || value != "") {
+              CatatanPenawaran = value;
+            }
             break;
           }
           case 114: {
-            SatuanSatuan = input.ReadString();
+            string value = _single_satuanSatuan_codec.Read(input);
+            if (satuanSatuan_ == null || value != "") {
+              SatuanSatuan = value;
+            }
             break;
           }
           case 122: {
-            BarangBarang = input.ReadString();
+            string value = _single_barangBarang_codec.Read(input);
+            if (barangBarang_ == null || value != "") {
+              BarangBarang = value;
+            }
             break;
           }
           case 130: {
-            BarangMerk = input.ReadString();
+            string value = _single_barangUkuran_codec.Read(input);
+            if (barangUkuran_ == null || value != "") {
+              BarangUkuran = value;
+            }
             break;
           }
-          case 138: {
-            BarangUkuran = input.ReadString();
-            break;
-          }
-          case 146: {
-            BarangWarna = input.ReadString();
-            break;
-          }
-          case 152: {
+          case 136: {
             BarangUmur = input.ReadInt32();
             break;
           }
+          case 146: {
+            string value = _single_subDivisiBarangSubDivisi_codec.Read(input);
+            if (subDivisiBarangSubDivisi_ == null || value != "") {
+              SubDivisiBarangSubDivisi = value;
+            }
+            break;
+          }
+          case 154: {
+            string value = _single_subKategoriBarangSubKategori_codec.Read(input);
+            if (subKategoriBarangSubKategori_ == null || value != "") {
+              SubKategoriBarangSubKategori = value;
+            }
+            break;
+          }
           case 162: {
-            SubDivisiBarangSubDivisi = input.ReadString();
+            string value = _single_divisiBarangDivisi_codec.Read(input);
+            if (divisiBarangDivisi_ == null || value != "") {
+              DivisiBarangDivisi = value;
+            }
             break;
           }
           case 170: {
-            SubKategoriBarangSubKategori = input.ReadString();
-            break;
-          }
-          case 178: {
-            DivisiBarangDivisi = input.ReadString();
-            break;
-          }
-          case 186: {
-            KategoriBarangKategori = input.ReadString();
+            string value = _single_kategoriBarangKategori_codec.Read(input);
+            if (kategoriBarangKategori_ == null || value != "") {
+              KategoriBarangKategori = value;
+            }
             break;
           }
         }
