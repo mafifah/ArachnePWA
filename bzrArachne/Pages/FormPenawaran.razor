@@ -6,8 +6,6 @@
 @inject NavigationManager NavigationManager
 @inject NavigationManager NavigationManager
 @inject SweetAlertService Swal
-
-<br />
 <div class="card card-dark ml-4 mr-4">
     <div class="card-header">
         <h2 class="card-title">Form Penawaran</h2>
@@ -19,7 +17,7 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Supplier</label>
                 <div class="col-sm-4">
-                    <input type="text"  disabled @bind="user.Nama" class="form-control">
+                    <input type="text" disabled @bind="user.Nama" class="form-control">
                 </div>
                 @{
                     Tanggal = DateTimeOffset.UtcNow.LocalDateTime;
@@ -35,105 +33,40 @@
                     <textarea type="text" disabled @bind="user.Alamat" class="form-control"></textarea>
                 </div>
             </div>
-        
-        <br />
-        <hr />
-        <!--Form Detail Penawaran-->
-        <div class="card card-dark">
-            <div class="card-body">
-                <h4 class="card-blue">Detail Penawaran</h4>
-                <table style="width: 100%" border="1">
-                    <thead>
-                        <tr>
-                            <th align="center" width="3%"> <label for="No">NO</label></th>
-                            <th align="center" width="7%"> <label for="Jumlah">Jml</label></th>
-                            <th align="center" width="11%"> <label for="Catatan">Catatan</label></th>
-                            <th align="center" width="10%"> <label for="Satuan">Satuan</label></th>
-                            <th align="center" width="25%"><label for="Nama">Nama Barang</label></th>
-                            <th align="center" width="10%"><label for="Harga">Harga Satuan</label></th>
-                            <th align="center" width="5%"><label for="DiskonNominal">Diskon%</label></th>
-                            <th align="center" width="10%"><label for="DiskonDetil">Diskon Rp.</label></th>
-                            <th align="center" width="15%"><label for="Total">Total</label></th>
-                            <th align="center" width="5%"><label for="Opsi">Opsi</label></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-<<<<<<< HEAD
-                        @{
-                            var no = 1;
-                            foreach (var data in barangPenawarans)
-
-                            {
+            <br />
+            <hr />
+            <!--Form Detail Penawaran-->
+            <div class="card card-dark">
+                <div class="card-body">
+                    <h4 class="card-blue">Detail Penawaran</h4>
+                    <table style="width: 100%" border="1">
+                        <thead>
+                            <tr>
+                                <th align="center" width="5%"> <label for="Jumlah">No</label></th>
+                                <th align="center" width="9%"> <label for="Jumlah">Jumlah</label></th>
+                                <th align="center" width="10%"> <label for="Satuan">Satuan</label></th>
+                                <th align="center" width="25%"><label for="Nama">Nama Barang</label></th>
+                                <th align="center" width="13%"><label for="Harga">Harga Satuan</label></th>
+                                <th align="center" width="5%"><label for="DiskonNominal">Diskon%</label></th>
+                                <th align="center" width="10%"><label for="DiskonDetil">Diskon Rp.</label></th>
+                                <th align="center" width="15%"><label for="Total">Total</label></th>
+                                <th align="center" width="5%"><label for="Opsi">Opsi</label></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                                var no = 1;
+                                foreach (var data in barangPenawarans)
+                                {
                                 <tr>
                                     <td>
-                                        @no
-                                    </td>
+                                        <div>
+                                            <input type="number" @bind="@no" class="form-control">
+                                        </div>
+                                    </td> 
                                     <td>
-=======
-                        @foreach (var data in barangPenawarans)
-                        {
-                        <tr>
-                            <td>
-                                <div>
-                                    <input  type="number" @bind="data.Jumlah" class="form-control">
-                                   
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <input type="text" disabled @bind="data.Satuan" class="form-control">
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <input type="text" disabled @bind="data.Nama" class="form-control">
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    @{
-                                        <input type="text" @bind="data.Harga" class="form-control">
-                                    }
-                                </div>
-                                
-                            </td>
-                            <td>
-                                <div>
-                                    <input type="number" @bind="data.DiskonNominal" class="form-control">
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    @{
-                                        data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
-                                    }
-                                    <input type="text" @bind="data.DiskonDetil" disabled class="form-control">
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    @{
-                                        var harga_diskon = data.Jumlah * data.Harga * data.DiskonNominal / 100;
-                                        data.Total = data.Harga * data.Jumlah - harga_diskon;
-                                        var uang = data.Total.ToString("C");
-                                        <input type="text" @bind="uang" disabled class="form-control">
-                                    }
-                                </div>
-                            </td>
-                            @{
-                                if (barangPenawarans.Count == 1)
-                                {
-                                    <td style="text-align: center; vertical-align: middle;">
->>>>>>> 5d471b1e2bcb599d635ee93010bc48e8984443e4
                                         <div>
                                             <input type="number" @bind="data.Jumlah" class="form-control">
-
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <textarea type="text" @bind="data.CatatanPenawaran" class="form-control"></textarea>
-
                                         </div>
                                     </td>
                                     <td>
@@ -148,7 +81,7 @@
                                     </td>
                                     <td>
                                         <div>
-                                            <input type="text" @bind="data.Harga" class="form-control">
+                                            <input type="number" @bind="data.Harga" class="form-control">
                                         </div>
                                     </td>
                                     <td>
@@ -174,13 +107,11 @@
                                         </div>
                                     </td>
                                     <td style="text-align: center; vertical-align: middle;">
-
                                         <div>
-                                            <a class="btn btn-danger rounded btn-sm" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></a>
+
+                                            <a class="btn btn-danger rounded btn-sm" @onclick="(() => HapusBarangDariList(data))">X</a>
                                         </div>
                                     </td>
-
-
                                     @if (data.Jumlah == 0)
                                     {
                                         <td>
@@ -208,42 +139,42 @@
                                         </td>
                                     }
                                 </tr>
-                                                    no++;
-                                                }
-                        }
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td align="right" colspan="10"><a class="btn btn-success rounded-circle" @onclick="@ModalShow"><i class="oi oi-plus"></i></a></td>
-                        </tr>
-                    </tfoot>
-                </table>
-                <div class="form-group row">
-                    <label class="col-sm-4 col-form-label border-danger">Catatan Penawaran</label>
-                </div>
-                <div class="form-group row">
-                    <div class="col-sm-4">
-                        <textarea type="text" class="form-control"></textarea>
+                                   no++;
+                                }
+                            }
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td align="right" colspan="10"><a class="btn btn-success rounded-circle" @onclick="@ModalShow"><i class="oi oi-plus"></i></a></td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <div class="form-group row">
+                        <label class="col-sm-4 col-form-label border-danger">Catatan Penawaran</label>
                     </div>
-                    <div class="col-sm-8 align-items-end pull-right right right">
-                        @{
-                            _grandtotal = barangPenawarans.Sum(m => m.Total);
-                            _grandDetil = barangPenawarans.Sum(m => Convert.ToDouble(m.DiskonDetil));
-                            _grandDiskon = barangPenawarans.Sum(m => m.DiskonNominal);
-                            var total = barangPenawarans.Sum(m => m.Total).ToString("C");
+                    <div class="form-group row">
+                        <div class="col-sm-4">
+                            <textarea type="text" class="form-control"></textarea>
+                        </div>
+                        <div class="col-sm-8 align-items-end pull-right right right">
+                            @{
+                                _grandtotal = barangPenawarans.Sum(m => m.Total);
+                                _grandDetil = barangPenawarans.Sum(m => Convert.ToDouble(m.DiskonDetil));
+                                _grandDiskon = barangPenawarans.Sum(m => m.DiskonNominal);
+                            }
                             <label class="col-sm-4 col-form-label">Total Penawaran (Rp.) : </label>
-                            <input style="text-align:center" type="text" disabled @bind="total" class="col-sm-4 col-form-label rounded-pill border border-success" />
-                        }
+                            <input style="text-align:center" type="number" disabled @bind="_grandtotal" class="col-sm-4 col-form-label rounded-pill border border-success" />
+                        </div>
                     </div>
                 </div>
+            </div><!-- /.card-body -->
+            <div class="card-footer">
+                <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
+                <a type="submit" @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</a>
             </div>
-        </div><!-- /.card-body -->
-        <div class="card-footer">
-            <button type="button" @onclick="(() => BackToBarang())" class="btn btn-default">Batal</button>
-            <a type="submit"  @onclick="(() => SendDataPenawaran())" class="btn btn-primary">Submit</a>
         </div>
-    </div>
     </form>
+
     <!--MODAL-->
     @if (showModal)
     {
@@ -300,7 +231,7 @@
                                     }
                                 </tr>
                                 @foreach (var ItemBaru in FilteredBarang)
-                                    {
+                                {
 
                                     <tr>
                                         <td>
@@ -309,16 +240,16 @@
                                         <td>@ItemBaru.Satuan</td>
 
                                         @*<td>
-                                            <input  type="checkbox" checked="checked"  @onclick="(() => TambahBarangKeList(ItemBaru))" class="btn btn-block btn-primary btn-sm"/>
-                                        </td>*@
+                                                <input  type="checkbox" checked="checked"  @onclick="(() => TambahBarangKeList(ItemBaru))" class="btn btn-block btn-primary btn-sm"/>
+                                            </td>*@
                                         <td>
-                                            <input  type="checkbox"   @onchange="eventArgs => { CheckboxClicked(ItemBaru, eventArgs.Value); }" class="btn btn-block btn-primary btn-sm"/>
-                                        </td> 
+                                            <input type="checkbox" @onchange="eventArgs => { CheckboxClicked(ItemBaru, eventArgs.Value); }" class="btn btn-block btn-primary btn-sm" />
+                                        </td>
                                     </tr>
-                                    }
+                                }
 
                             </tbody>
-                            </table>
+                        </table>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
@@ -332,7 +263,9 @@
     }
     <!--MODAL-->
 </div>
-@code {
+
+@code 
+{
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
     {
@@ -367,13 +300,12 @@
     string SearchSatuan { get; set; } = "";
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan)).ToList();
     List<DataBarang> datachecked { get; set; } = new List<DataBarang>();
-    //filter
+        //filter
     private DataUser user = new DataUser();
     private DataBarang Item { get; set; }
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
-
     protected override async Task OnInitializedAsync()
     {
         user = DataService.User;
@@ -434,9 +366,6 @@
             NavigationManager.NavigateTo("/");
         }
     }
-
-
-
     void TambahBarangKeList()
     {
         foreach (var data in datachecked)
@@ -462,7 +391,6 @@
         ModalCancel();
         datachecked.Clear();
     }
-
     void HapusBarangDariList(BarangPenawaran Item)
     {
         barangPenawarans.Remove(Item);
@@ -472,7 +400,6 @@
         DataService.SetNullBarangDipilih();
         NavigationManager.NavigateTo("dataBarang");
     }
-
     async Task SendDataPenawaran()
     {
         dataPenawaran = new DataPenawaran
@@ -515,5 +442,5 @@
     void RemoveSearchNama() { SearchNama = ""; showSearchNama = false; }
     void ShowSearchSatuan() => showSearchSatuan = true;
     void RemoveSearchSatuan() { SearchSatuan = ""; showSearchSatuan = false; }
-    void FormBarangBaru() => NavigationManager.NavigateTo("formPenawaranBarangBaru") ;
+    void FormBarangBaru() => NavigationManager.NavigateTo("formPenawaranBarangBaru");
 }

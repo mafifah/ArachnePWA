@@ -140,12 +140,8 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-<<<<<<< HEAD
-#line 283 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
-=======
-#line 272 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
->>>>>>> 5d471b1e2bcb599d635ee93010bc48e8984443e4
-       
+#line 268 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+ 
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
     {
@@ -180,13 +176,12 @@ using bzrArachne.Models;
     string SearchSatuan { get; set; } = "";
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan)).ToList();
     List<DataBarang> datachecked { get; set; } = new List<DataBarang>();
-    //filter
+        //filter
     private DataUser user = new DataUser();
     private DataBarang Item { get; set; }
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
-
     protected override async Task OnInitializedAsync()
     {
         user = DataService.User;
@@ -247,9 +242,6 @@ using bzrArachne.Models;
             NavigationManager.NavigateTo("/");
         }
     }
-
-
-
     void TambahBarangKeList()
     {
         foreach (var data in datachecked)
@@ -275,7 +267,6 @@ using bzrArachne.Models;
         ModalCancel();
         datachecked.Clear();
     }
-
     void HapusBarangDariList(BarangPenawaran Item)
     {
         barangPenawarans.Remove(Item);
@@ -285,7 +276,6 @@ using bzrArachne.Models;
         DataService.SetNullBarangDipilih();
         NavigationManager.NavigateTo("dataBarang");
     }
-
     async Task SendDataPenawaran()
     {
         dataPenawaran = new DataPenawaran
@@ -328,7 +318,7 @@ using bzrArachne.Models;
     void RemoveSearchNama() { SearchNama = ""; showSearchNama = false; }
     void ShowSearchSatuan() => showSearchSatuan = true;
     void RemoveSearchSatuan() { SearchSatuan = ""; showSearchSatuan = false; }
-    void FormBarangBaru() => NavigationManager.NavigateTo("formPenawaranBarangBaru") ;
+    void FormBarangBaru() => NavigationManager.NavigateTo("formPenawaranBarangBaru");
 
 #line default
 #line hidden

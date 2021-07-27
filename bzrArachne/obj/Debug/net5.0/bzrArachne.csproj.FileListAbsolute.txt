@@ -37,6 +37,7 @@ D:\Arachne\bzrArachne\bin\Debug\net5.0\Microsoft.JSInterop.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\MudBlazor.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\System.IO.Pipelines.dll
 D:\Arachne\bzrArachne\bin\Debug\net5.0\TypeSupport.dll
+D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.csproj.AssemblyReference.cache
 D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.GeneratedMSBuildEditorConfig.editorconfig
 D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.AssemblyInfoInputs.cache
 D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.AssemblyInfo.cs
@@ -46,6 +47,7 @@ D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.RazorComponent.input.cache
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\App.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\Barang.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaran.razor.g.cs
+D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaranBarangBaru.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaranBaru.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\Index.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Shared\LoginLayout.razor.g.cs
@@ -59,6 +61,7 @@ D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.RazorCoreGenerate.cache
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\App.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\Barang.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaran.razor.g.cs
+D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaranBarangBaru.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaranBaru.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\Index.razor.g.cs
 D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Shared\LoginLayout.razor.g.cs
@@ -81,6 +84,3 @@ D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.dll
 D:\Arachne\bzrArachne\obj\Debug\net5.0\ref\bzrArachne.dll
 D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.pdb
 D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.genruntimeconfig.cache
-D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.csproj.AssemblyReference.cache
-D:\Arachne\bzrArachne\obj\Debug\net5.0\RazorDeclaration\Pages\FormPenawaranBarangBaru.razor.g.cs
-D:\Arachne\bzrArachne\obj\Debug\net5.0\Razor\Pages\FormPenawaranBarangBaru.razor.g.cs
