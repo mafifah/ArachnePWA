@@ -70,7 +70,18 @@ namespace grpcArachne.Services
                                 Jumlah = (Decimal)item.Jumlah,
                                 DiskonDetil = item.DiskonDetil,
                                 DiskonNominal =(Decimal) item.DiskonNominal,
-                                Total = item.Total
+                                Total = item.Total,
+                                CatatanPenawaran = item.CatatanPenawaran,
+                                Satuan_Satuan = item.SatuanSatuan,
+                                Barang_Barang = item.BarangBarang,
+                                Barang_Merk = item.BarangMerk,
+                                Barang_Ukuran = item.BarangUkuran,
+                                Barang_Warna = item.BarangWarna,
+                                Barang_Umur = item.BarangUmur,
+                                SubDivisiBarang_SubDivisi = item.SubDivisiBarangSubDivisi,
+                                SubKategoriBarang_SubKategori = item.SubKategoriBarangSubKategori,
+                                DivisiBarang_Divisi = item.DivisiBarangDivisi,
+                                KategoriBarang_Kategori = item.KategoriBarangKategori,
                             };
                             _db.T7PenawaranPembelianDbSet.AddRange(t7PenawaranPembelian);
                             _db.SaveChanges();

@@ -56,7 +56,19 @@ namespace bzrArachne.Service
                             Jumlah = Item.Jumlah,
                             DiskonDetil = Item.DiskonDetil.ToString(),
                             DiskonNominal = Item.DiskonNominal,
-                            Total = (long)Item.Total
+                            Total = (long)Item.Total,
+                            CatatanPenawaran = Item.CatatanPenawaran,
+                            SatuanSatuan = Item.Satuan_Satuan,
+                            BarangBarang = Item.Barang_Barang,
+                            BarangMerk = Item.Barang_Merk,
+                            BarangUkuran = Item.Barang_Ukuran,
+                            BarangWarna = Item.Barang_Warna,
+                            BarangUmur = Item.Barang_Umur,
+                            SubDivisiBarangSubDivisi = Item.SubDivisiBarang_SubDivisi,
+                            SubKategoriBarangSubKategori = Item.SubKategoriBarang_SubKategori,
+                            DivisiBarangDivisi = Item.DivisiBarang_Divisi,
+                            KategoriBarangKategori = Item.KategoriBarang_Kategori,
+                            
                         });
                     }
                     var request = new InsertDataT6Requset

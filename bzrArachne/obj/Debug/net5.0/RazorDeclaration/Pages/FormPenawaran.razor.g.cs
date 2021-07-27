@@ -140,9 +140,27 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 269 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 283 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
        
     //MODAL
+    void CheckboxClicked(DataBarang ItemC, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!datachecked.Contains(ItemC))
+            {
+                datachecked.Add(ItemC);
+            }
+        }
+        else
+        {
+            if (datachecked.Contains(ItemC))
+            {
+                datachecked.Remove(ItemC);
+            }
+        }
+    }
+    bool checkedValue { get; set; }
     DateTimeOffset Tanggal { get; set; }
     double _grandtotal { get; set; }
     double _grandDiskon { get; set; }
@@ -157,6 +175,7 @@ using bzrArachne.Models;
     string SearchNama { get; set; } = "";
     string SearchSatuan { get; set; } = "";
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan)).ToList();
+    List<DataBarang> datachecked { get; set; } = new List<DataBarang>();
     //filter
     private DataUser user = new DataUser();
     private DataBarang Item { get; set; }
@@ -184,7 +203,9 @@ using bzrArachne.Models;
                 Nama = Item.Nama,
                 Stok = Item.Stok,
                 Minimum = Item.Minimum,
-                Maksimum = Item.Maksimum
+                Maksimum = Item.Maksimum,
+                CatatanPenawaran = Item.CatatanPenawaran
+
             });
             var dataBarang = DataService.GetDataBarangWithGroupBy();
             foreach (var value in barangPenawarans)
@@ -223,26 +244,32 @@ using bzrArachne.Models;
         }
     }
 
-    void TambahBarangKeList(DataBarang ItemBaru)
-    {
-        barangPenawarans.Add(new BarangPenawaran
-        {
-            IdBarang = ItemBaru.IdBarang,
-            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
-            IdSatuan = ItemBaru.IdSatuan,
-            IdDivisiBarang = ItemBaru.IdDivisiBarang,
-            IdSubDivisiBarang = ItemBaru.IdSubDivisiBarang,
-            IdKategoriBarang = ItemBaru.IdKategoriBarang,
-            IdSubKategoriBarang = ItemBaru.IdSubKategoriBarang,
-            Satuan = ItemBaru.Satuan,
-            Nama = ItemBaru.Nama,
-            Stok = ItemBaru.Stok,
-            Minimum = ItemBaru.Minimum,
-            Maksimum = ItemBaru.Maksimum
 
-        });
-        _daftarBarang.Add(ItemBaru);
+
+    void TambahBarangKeList()
+    {
+        foreach (var data in datachecked)
+        {
+            barangPenawarans.Add(new BarangPenawaran
+            {
+                IdBarang = data.IdBarang,
+                IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+                IdSatuan = data.IdSatuan,
+                IdDivisiBarang = data.IdDivisiBarang,
+                IdSubDivisiBarang = data.IdSubDivisiBarang,
+                IdKategoriBarang = data.IdKategoriBarang,
+                IdSubKategoriBarang = data.IdSubKategoriBarang,
+                Satuan = data.Satuan,
+                Nama = data.Nama,
+                Stok = data.Stok,
+                Minimum = data.Minimum,
+                Maksimum = data.Maksimum
+
+            });
+            _daftarBarang.Add(data);
+        }
         ModalCancel();
+        datachecked.Clear();
     }
 
     void HapusBarangDariList(BarangPenawaran Item)
@@ -297,6 +324,7 @@ using bzrArachne.Models;
     void RemoveSearchNama() { SearchNama = ""; showSearchNama = false; }
     void ShowSearchSatuan() => showSearchSatuan = true;
     void RemoveSearchSatuan() { SearchSatuan = ""; showSearchSatuan = false; }
+    void FormBarangBaru() => NavigationManager.NavigateTo("formPenawaranBarangBaru") ;
 
 #line default
 #line hidden

@@ -45,10 +45,12 @@
                 <table style="width: 100%" border="1">
                     <thead>
                         <tr>
-                            <th align="center" width="9%"> <label for="Jumlah">Jumlah</label></th>
+                            <th align="center" width="3%"> <label for="No">NO</label></th>
+                            <th align="center" width="7%"> <label for="Jumlah">Jml</label></th>
+                            <th align="center" width="11%"> <label for="Catatan">Catatan</label></th>
                             <th align="center" width="10%"> <label for="Satuan">Satuan</label></th>
-                            <th align="center" width="30%"><label for="Nama">Nama Barang</label></th>
-                            <th align="center" width="13%"><label for="Harga">Harga Satuan</label></th>
+                            <th align="center" width="25%"><label for="Nama">Nama Barang</label></th>
+                            <th align="center" width="10%"><label for="Harga">Harga Satuan</label></th>
                             <th align="center" width="5%"><label for="DiskonNominal">Diskon%</label></th>
                             <th align="center" width="10%"><label for="DiskonDetil">Diskon Rp.</label></th>
                             <th align="center" width="15%"><label for="Total">Total</label></th>
@@ -56,102 +58,102 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var data in barangPenawarans)
-                        {
-                        <tr>
-                            <td>
-                                <div>
-                                    <input  type="number" @bind="data.Jumlah" class="form-control">
-                                   
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <input type="text" disabled @bind="data.Satuan" class="form-control">
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    <input type="text" disabled @bind="data.Nama" class="form-control">
-                                </div>
-                            </td>
-                            <td>
-                                <div>
+                        @{
+                            var no = 1;
+                            foreach (var data in barangPenawarans)
 
-                                  <input type="text" @bind="data.Harga" class="form-control">
-                                </div>
-                                
-                            </td>
-                            <td>
-                                <div>
-                                    <input type="number" @bind="data.DiskonNominal" class="form-control">
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    @{
-                                        data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
-                                    }
-                                    <input type="text" @bind="data.DiskonDetil" disabled class="form-control">
-                                </div>
-                            </td>
-                            <td>
-                                <div>
-                                    @{
-                                        var harga_diskon = data.Jumlah * data.Harga * data.DiskonNominal / 100;
-                                        data.Total = data.Harga * data.Jumlah - harga_diskon;
-                                    }
-                                    <input type="number" @bind="data.Total" disabled class="form-control">
-                                </div>
-                            </td>
-                            @{
-                                if (barangPenawarans.Count == 1)
-                                {
-                                    <td style="text-align: center; vertical-align: middle;">
+                            {
+                                <tr>
+                                    <td>
+                                        @no
+                                    </td>
+                                    <td>
                                         <div>
+                                            <input type="number" @bind="data.Jumlah" class="form-control">
 
-                                            <a disabled class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></a>
                                         </div>
                                     </td>
-                                }
-                                else
-                                {
-                                    <td style="text-align: center; vertical-align: middle;">
+                                    <td>
                                         <div>
+                                            <textarea type="text" @bind="data.CatatanPenawaran" class="form-control"></textarea>
 
-                                            <a class="btn btn-danger rounded" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></a>
                                         </div>
                                     </td>
-                                }
-                            }
-                            @if (data.Jumlah == 0)
-                            {
-                                <td>
-                                    <MudTooltip Placement="Placement.Top" Text="Jumlah Tidak Boleh 0">
-                                        <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
-                                    </MudTooltip>
-                                </td>
-                            }
-                            else if (data.Jumlah + data.Stok > data.Maksimum)
-                            {
-                                var Max = data.Maksimum - data.Stok;
-                                var msg = "Jumlah lebih dari " + Max.ToString();
-                                <td>
-                                    <MudTooltip Placement="Placement.Top" Text="@msg">
-                                        <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
-                                    </MudTooltip>
-                                </td>
-                            }
-                            else if (data.Harga <= 0)
-                            {
-                                <td>
-                                    <MudTooltip Placement="Placement.Top" Text="Harga Tidak Boleh 0!">
-                                        <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
-                                    </MudTooltip>
-                                </td>
-                            }
-                        </tr>
-                         }
+                                    <td>
+                                        <div>
+                                            <input type="text" disabled @bind="data.Satuan" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <input type="text" disabled @bind="data.Nama" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <input type="text" @bind="data.Harga" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <input type="number" @bind="data.DiskonNominal" class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            @{
+                                                data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
+                                            }
+                                            <input type="text" @bind="data.DiskonDetil" disabled class="form-control">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            @{
+                                                var harga_diskon = data.Jumlah * data.Harga * data.DiskonNominal / 100;
+                                                data.Total = data.Harga * data.Jumlah - harga_diskon;
+                                            }
+                                            <input type="number" @bind="data.Total" disabled class="form-control">
+                                        </div>
+                                    </td>
+                                    <td style="text-align: center; vertical-align: middle;">
+
+                                        <div>
+                                            <a class="btn btn-danger rounded btn-sm" @onclick="(() => HapusBarangDariList(data))"><i class="oi oi-trash"></i></a>
+                                        </div>
+                                    </td>
+
+
+                                    @if (data.Jumlah == 0)
+                                    {
+                                        <td>
+                                            <MudTooltip Placement="Placement.Top" Text="Jumlah Tidak Boleh 0">
+                                                <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
+                                            </MudTooltip>
+                                        </td>
+                                    }
+                                    else if (data.Jumlah + data.Stok > data.Maksimum)
+                                    {
+                                        var Max = data.Maksimum - data.Stok;
+                                        var msg = "Jumlah lebih dari " + Max.ToString();
+                                        <td>
+                                            <MudTooltip Placement="Placement.Top" Text="@msg">
+                                                <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
+                                            </MudTooltip>
+                                        </td>
+                                    }
+                                    else if (data.Harga <= 0)
+                                    {
+                                        <td>
+                                            <MudTooltip Placement="Placement.Top" Text="Harga Tidak Boleh 0!">
+                                                <MudIconButton Icon="@Icons.Material.Filled.Info" Color="MudBlazor.Color.Error" />
+                                            </MudTooltip>
+                                        </td>
+                                    }
+                                </tr>
+                                                    no++;
+                                                }
+                        }
                     </tbody>
                     <tfoot>
                         <tr>
@@ -240,25 +242,31 @@
                                     }
                                 </tr>
                                 @foreach (var ItemBaru in FilteredBarang)
-                                {
+                                    {
+
                                     <tr>
                                         <td>
                                             @ItemBaru.Nama
                                         </td>
                                         <td>@ItemBaru.Satuan</td>
+
+                                        @*<td>
+                                            <input  type="checkbox" checked="checked"  @onclick="(() => TambahBarangKeList(ItemBaru))" class="btn btn-block btn-primary btn-sm"/>
+                                        </td>*@
                                         <td>
-                                            <a tabindex="_blank" @onclick="(() => TambahBarangKeList(ItemBaru))" class="btn btn-block btn-primary btn-sm">
-                                                ADD
-                                            </a>
-                                        </td>
+                                            <input  type="checkbox"   @onchange="eventArgs => { CheckboxClicked(ItemBaru, eventArgs.Value); }" class="btn btn-block btn-primary btn-sm"/>
+                                        </td> 
                                     </tr>
-                                }
+                                    }
+
                             </tbody>
                             </table>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" class="btn" @onclick="@ModalCancel">Tutup</button>
+                        <button type="button" class="btn btn-danger" @onclick="@ModalCancel">Tutup</button>
+                        <button type="button" @onclick="(() => TambahBarangKeList())" class="btn btn-success">ADD</button>
+                        <button type="button" class="btn btn-primary" @onclick="@FormBarangBaru">Barang Baru</button>
                     </div>
                 </div>
             </div>
@@ -268,6 +276,24 @@
 </div>
 @code {
     //MODAL
+    void CheckboxClicked(DataBarang ItemC, object checkedValue)
+    {
+        if ((bool)checkedValue)
+        {
+            if (!datachecked.Contains(ItemC))
+            {
+                datachecked.Add(ItemC);
+            }
+        }
+        else
+        {
+            if (datachecked.Contains(ItemC))
+            {
+                datachecked.Remove(ItemC);
+            }
+        }
+    }
+    bool checkedValue { get; set; }
     DateTimeOffset Tanggal { get; set; }
     double _grandtotal { get; set; }
     double _grandDiskon { get; set; }
@@ -282,6 +308,7 @@
     string SearchNama { get; set; } = "";
     string SearchSatuan { get; set; } = "";
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan)).ToList();
+    List<DataBarang> datachecked { get; set; } = new List<DataBarang>();
     //filter
     private DataUser user = new DataUser();
     private DataBarang Item { get; set; }
@@ -309,7 +336,9 @@
                 Nama = Item.Nama,
                 Stok = Item.Stok,
                 Minimum = Item.Minimum,
-                Maksimum = Item.Maksimum
+                Maksimum = Item.Maksimum,
+                CatatanPenawaran = Item.CatatanPenawaran
+
             });
             var dataBarang = DataService.GetDataBarangWithGroupBy();
             foreach (var value in barangPenawarans)
@@ -348,26 +377,32 @@
         }
     }
 
-    void TambahBarangKeList(DataBarang ItemBaru)
-    {
-        barangPenawarans.Add(new BarangPenawaran
-        {
-            IdBarang = ItemBaru.IdBarang,
-            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
-            IdSatuan = ItemBaru.IdSatuan,
-            IdDivisiBarang = ItemBaru.IdDivisiBarang,
-            IdSubDivisiBarang = ItemBaru.IdSubDivisiBarang,
-            IdKategoriBarang = ItemBaru.IdKategoriBarang,
-            IdSubKategoriBarang = ItemBaru.IdSubKategoriBarang,
-            Satuan = ItemBaru.Satuan,
-            Nama = ItemBaru.Nama,
-            Stok = ItemBaru.Stok,
-            Minimum = ItemBaru.Minimum,
-            Maksimum = ItemBaru.Maksimum
 
-        });
-        _daftarBarang.Add(ItemBaru);
+
+    void TambahBarangKeList()
+    {
+        foreach (var data in datachecked)
+        {
+            barangPenawarans.Add(new BarangPenawaran
+            {
+                IdBarang = data.IdBarang,
+                IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+                IdSatuan = data.IdSatuan,
+                IdDivisiBarang = data.IdDivisiBarang,
+                IdSubDivisiBarang = data.IdSubDivisiBarang,
+                IdKategoriBarang = data.IdKategoriBarang,
+                IdSubKategoriBarang = data.IdSubKategoriBarang,
+                Satuan = data.Satuan,
+                Nama = data.Nama,
+                Stok = data.Stok,
+                Minimum = data.Minimum,
+                Maksimum = data.Maksimum
+
+            });
+            _daftarBarang.Add(data);
+        }
         ModalCancel();
+        datachecked.Clear();
     }
 
     void HapusBarangDariList(BarangPenawaran Item)
@@ -422,4 +457,5 @@
     void RemoveSearchNama() { SearchNama = ""; showSearchNama = false; }
     void ShowSearchSatuan() => showSearchSatuan = true;
     void RemoveSearchSatuan() { SearchSatuan = ""; showSearchSatuan = false; }
+    void FormBarangBaru() => NavigationManager.NavigateTo("formPenawaranBarangBaru") ;
 }
