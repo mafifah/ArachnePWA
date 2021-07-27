@@ -1,0 +1,5 @@
+obj\Debug\net5.0/AtributForm.cs \
+obj\Debug\net5.0/AtributFormGrpc.cs: C:/Users/devad/.nuget/packages/grpc.tools/2.33.1/build/native/include/google/protobuf/empty.proto\
+ C:/Users/devad/.nuget/packages/grpc.tools/2.33.1/build/native/include/google/protobuf/wrappers.proto\
+ C:/Users/devad/.nuget/packages/grpc.tools/2.33.1/build/native/include/google/protobuf/timestamp.proto\
+ ../grpcArachne/Protos/AtributForm.proto

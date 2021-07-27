@@ -148,8 +148,13 @@ using bzrArachne.Models;
     double _grandDiskon { get; set; }
     double _grandDetil { get; set; }
     bool showModal = false;
+    bool showModalBarang = false;
     void ModalShow() =>showModal = true;
     void ModalCancel() => showModal = false;
+    //
+    void ModalBarangShow() => showModalBarang = true;
+    void ModalBarangCancel () => showModal = false;
+    //
     Random rnd = new Random();
     bool showSearchNama = false;
     bool showSearchSatuan = false;

@@ -21,6 +21,9 @@
 		<PackageReference Include="MudBlazor" Version="5.0.15" />
 	</ItemGroup>
 	<ItemGroup>
+	  <Protobuf Include="..\grpcArachne\Protos\AtributForm.proto" GrpcServices="Client">
+	    <Link>Protos\AtributForm.proto</Link>
+	  </Protobuf>
 	  <Protobuf Include="..\grpcArachne\Protos\Barang.proto" GrpcServices="Client">
 	    <Link>Protos\Barang.proto</Link>
 	  </Protobuf>

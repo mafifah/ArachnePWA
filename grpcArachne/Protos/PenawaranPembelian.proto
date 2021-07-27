@@ -36,17 +36,15 @@ message InsertDataT7Requset
 	google.protobuf.StringValue DiskonDetil = 10;
 	double DiskonNominal = 11;
 	int64 Total=12;
-	string CatatanPenawaran=13;
-	string SatuanSatuan =14;
-	string BarangBarang =15;
-	string BarangMerk =16;
-	string BarangUkuran=17;
-	string BarangWarna = 18;
-	int32 BarangUmur=19;
-	string SubDivisiBarangSubDivisi=20;
-	string SubKategoriBarangSubKategori =21;
-	string DivisiBarangDivisi =22;
-	string KategoriBarangKategori=23;
+	google.protobuf.StringValue CatatanPenawaran=13;
+	google.protobuf.StringValue SatuanSatuan =14;
+	google.protobuf.StringValue BarangBarang =15;
+	google.protobuf.StringValue BarangUkuran=16;
+	int32  BarangUmur=17;
+	google.protobuf.StringValue SubDivisiBarangSubDivisi=18;
+	google.protobuf.StringValue SubKategoriBarangSubKategori =19;
+	google.protobuf.StringValue DivisiBarangDivisi =20;
+	google.protobuf.StringValue KategoriBarangKategori=21;
 }
 
 message pesan
