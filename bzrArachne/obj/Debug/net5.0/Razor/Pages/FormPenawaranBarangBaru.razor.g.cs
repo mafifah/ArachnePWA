@@ -115,6 +115,13 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 16 "D:\Arachne\bzrArachne\_Imports.razor"
+using BlazorNumericTextBox;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 2 "D:\Arachne\bzrArachne\Pages\FormPenawaranBarangBaru.razor"
 using bzrArachne.Service;
 

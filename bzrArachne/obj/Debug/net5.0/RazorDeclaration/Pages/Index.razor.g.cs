@@ -118,6 +118,13 @@ using MudBlazor;
 #line hidden
 #nullable disable
 #nullable restore
+#line 16 "D:\Arachne\bzrArachne\_Imports.razor"
+using BlazorNumericTextBox;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
 #line 3 "D:\Arachne\bzrArachne\Pages\Index.razor"
 using bzrArachne.Service;
 

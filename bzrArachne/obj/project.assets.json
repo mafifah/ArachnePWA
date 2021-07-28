@@ -109,6 +109,25 @@
           "buildMultiTargeting/Blazorized.AdminLte.Content.props": {}
         }
       },
+      "BlazorNumericTextBox/2.9.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.0",
+          "Microsoft.AspNetCore.Components.Web": "5.0.0"
+        },
+        "compile": {
+          "lib/net5.0/BlazorNumericTextBox.dll": {}
+        },
+        "runtime": {
+          "lib/net5.0/BlazorNumericTextBox.dll": {}
+        },
+        "build": {
+          "buildTransitive/BlazorNumericTextBox.props": {}
+        },
+        "buildMultiTargeting": {
+          "buildMultiTargeting/BlazorNumericTextBox.props": {}
+        }
+      },
       "CurrieTechnologies.Razor.SweetAlert2/5.0.1": {
         "type": "package",
         "dependencies": {
@@ -1078,6 +1097,24 @@
         "staticwebassets/plugins/overlayScrollbars/js/OverlayScrollbars.min.js",
         "staticwebassets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.js",
         "staticwebassets/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"
+      ]
+    },
+    "BlazorNumericTextBox/2.9.5": {
+      "sha512": "ymTrrJWke3wqweyp4Ezq27O0rBFFS6gFcu/emczfWZcz5YxRP90QjtY8mNWJqpkqiohtX+8IvA40VkNn7I9HKw==",
+      "type": "package",
+      "path": "blazornumerictextbox/2.9.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "blazornumerictextbox.2.9.5.nupkg.sha512",
+        "blazornumerictextbox.nuspec",
+        "build/BlazorNumericTextBox.props",
+        "build/Microsoft.AspNetCore.StaticWebAssets.props",
+        "buildMultiTargeting/BlazorNumericTextBox.props",
+        "buildTransitive/BlazorNumericTextBox.props",
+        "lib/net5.0/BlazorNumericTextBox.dll",
+        "staticwebassets/numerictextbox.js"
       ]
     },
     "CurrieTechnologies.Razor.SweetAlert2/5.0.1": {
@@ -2513,6 +2550,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "BlazorNumericTextBox >= 2.9.5",
       "Blazored.Toast >= 3.1.2",
       "Blazored.Typeahead >= 4.6.0",
       "Blazorized.AdminLte >= 0.1.8",
@@ -2528,7 +2566,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mafif\\.nuget\\packages\\": {},
+    "C:\\Users\\devad\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {},
     "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
   },
@@ -2538,7 +2576,7 @@
       "projectUniqueName": "D:\\Arachne\\bzrArachne\\bzrArachne.csproj",
       "projectName": "bzrArachne",
       "projectPath": "D:\\Arachne\\bzrArachne\\bzrArachne.csproj",
-      "packagesPath": "C:\\Users\\mafif\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\devad\\.nuget\\packages\\",
       "outputPath": "D:\\Arachne\\bzrArachne\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
@@ -2546,7 +2584,7 @@
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
       ],
       "configFilePaths": [
-        "C:\\Users\\mafif\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\devad\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
@@ -2574,6 +2612,10 @@
       "net5.0": {
         "targetAlias": "net5.0",
         "dependencies": {
+          "BlazorNumericTextBox": {
+            "target": "Package",
+            "version": "[2.9.5, )"
+          },
           "Blazored.Toast": {
             "target": "Package",
             "version": "[3.1.2, )"
@@ -2643,7 +2685,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

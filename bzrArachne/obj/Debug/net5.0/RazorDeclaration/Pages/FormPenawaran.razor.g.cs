@@ -131,6 +131,13 @@ using bzrArachne.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+using BlazorNumericTextBox;
+
+#line default
+#line hidden
+#nullable disable
     [Microsoft.AspNetCore.Components.RouteAttribute("/penawaranBaru")]
     public partial class FormPenawaran : Microsoft.AspNetCore.Components.ComponentBase
     {
@@ -140,11 +147,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-<<<<<<< HEAD
-#line 421 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
-=======
-#line 410 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
->>>>>>> 0a13c8ac63293b4f4727f22203ecbf9ce04ecd94
+#line 442 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
  
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
@@ -172,7 +175,6 @@ using bzrArachne.Models;
     string _catatan { get; set; }
     bool showModal = false;
     bool showModalBarang = false;
-<<<<<<< HEAD
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
     bool showexpand = false;
@@ -187,7 +189,6 @@ using bzrArachne.Models;
 
     void ModalBarangCancel() => showModalBarang = false;
 
-=======
     private string NamaBaru { get; set; }
     private double HargaBaru { get; set; }
     private string SelectedDivisi { get; set; } = "3001";
@@ -204,7 +205,6 @@ using bzrArachne.Models;
     List<KategoriBarang> KategoriBarang = new List<KategoriBarang>();
     List<UkuranBarang> UkuranBarang = new List<UkuranBarang>();
     List<UkuranBarang> FilteredUkuranBarang = new List<UkuranBarang>();
->>>>>>> 0a13c8ac63293b4f4727f22203ecbf9ce04ecd94
     Random rnd = new Random();
     //filter
     bool showSearchNama = false;
@@ -282,14 +282,7 @@ using bzrArachne.Models;
             NavigationManager.NavigateTo("/");
         }
     }
-    void ModalShow() => showModal = true;
-    void ModalCancel() => showModal = false;
-    void ModalBarangShow()
-    {
-        showModal = false;
-        showModalBarang = true;
-    }
-    void ModalBarangCancel() => showModalBarang = false;
+
     void TambahBarangKeList()
     {
         foreach (var data in datachecked)
@@ -318,6 +311,7 @@ using bzrArachne.Models;
     void HapusBarangDariList(BarangPenawaran Item)
     {
         barangPenawarans.Remove(Item);
+
     }
     void BackToBarang()
     {
@@ -338,16 +332,8 @@ using bzrArachne.Models;
                 BarangPenawaran = barangPenawarans,
                 GrandTotal = _grandtotal,
                 DiskonDetil = _grandDetil.ToString(),
-<<<<<<< HEAD
                 DiskonNominal = _grandDiskon,
                 Catatan = _catatan,
-
-
-
-
-=======
-                DiskonNominal = _grandDiskon,  
->>>>>>> 0a13c8ac63293b4f4727f22203ecbf9ce04ecd94
             };
             var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
             DataService.SetNullBarangDipilih();

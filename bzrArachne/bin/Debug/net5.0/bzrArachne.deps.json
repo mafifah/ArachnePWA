@@ -33,6 +33,7 @@
     ".NETCoreApp,Version=v5.0": {
       "bzrArachne/1.0.0": {
         "dependencies": {
+          "BlazorNumericTextBox": "2.9.5",
           "Blazored.Toast": "3.1.2",
           "Blazored.Typeahead": "4.6.0",
           "Blazorized.AdminLte": "0.1.8",
@@ -409,6 +410,21 @@
         },
         "compile": {
           "lib/net5.0/Blazor.AdminLte.Content.dll": {}
+        }
+      },
+      "BlazorNumericTextBox/2.9.5": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components": "5.0.7",
+          "Microsoft.AspNetCore.Components.Web": "5.0.7"
+        },
+        "runtime": {
+          "lib/net5.0/BlazorNumericTextBox.dll": {
+            "assemblyVersion": "2.9.5.0",
+            "fileVersion": "2.9.5.0"
+          }
+        },
+        "compile": {
+          "lib/net5.0/BlazorNumericTextBox.dll": {}
         }
       },
       "CurrieTechnologies.Razor.SweetAlert2/5.0.1": {
@@ -2599,6 +2615,13 @@
       "sha512": "sha512-cIfxqBOgfecRIfqo4Nv54YYfLLEASpZpVhiYA/EwoDLP8hiZ4p7pM79Yjf88qsiGJY5sb0bJ4XgGS52hUtcMrQ==",
       "path": "blazorized.adminlte.content/3.0.7",
       "hashPath": "blazorized.adminlte.content.3.0.7.nupkg.sha512"
+    },
+    "BlazorNumericTextBox/2.9.5": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ymTrrJWke3wqweyp4Ezq27O0rBFFS6gFcu/emczfWZcz5YxRP90QjtY8mNWJqpkqiohtX+8IvA40VkNn7I9HKw==",
+      "path": "blazornumerictextbox/2.9.5",
+      "hashPath": "blazornumerictextbox.2.9.5.nupkg.sha512"
     },
     "CurrieTechnologies.Razor.SweetAlert2/5.0.1": {
       "type": "package",
