@@ -13,126 +13,126 @@ namespace bzrArachne.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 1 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 2 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 3 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 4 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 5 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 6 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 7 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 8 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 9 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using bzrArachne;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 10 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using bzrArachne.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 11 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Blazor.AdminLte;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 12 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Blazored.Toast;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 13 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using Blazored.Toast.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 14 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using CurrieTechnologies.Razor.SweetAlert2;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "D:\Arachne\bzrArachne\_Imports.razor"
+#line 15 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
 using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 2 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
 using bzrArachne.Service;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 3 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
 using bzrArachne.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 4 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
 using BlazorNumericTextBox;
 
 #line default
@@ -147,7 +147,7 @@ using BlazorNumericTextBox;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 442 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 449 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
  
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
@@ -180,14 +180,6 @@ using BlazorNumericTextBox;
     bool showexpand = false;
     void expandshow() => showexpand = true;
     void expandclose() => showexpand = false;
-    //
-    async void ModalBarangShow()
-    {
-        showModal = false;
-        showModalBarang = true;
-    }
-
-    void ModalBarangCancel() => showModalBarang = false;
 
     private string NamaBaru { get; set; }
     private double HargaBaru { get; set; }
@@ -206,7 +198,7 @@ using BlazorNumericTextBox;
     List<UkuranBarang> UkuranBarang = new List<UkuranBarang>();
     List<UkuranBarang> FilteredUkuranBarang = new List<UkuranBarang>();
     Random rnd = new Random();
-    //filter
+
     bool showSearchNama = false;
     bool showSearchSatuan = false;
     string SearchNama { get; set; } = "";
@@ -357,6 +349,8 @@ using BlazorNumericTextBox;
                 "Data Penawaran gagal terkirim :)",
                 SweetAlertIcon.Error
                 );
+
+                NavigationManager.NavigateTo("dataBarang");
             }
         }
         else
@@ -416,6 +410,27 @@ using BlazorNumericTextBox;
             });
         }
     }
+    void ModalBarangShow()
+    {
+        showModal = false;
+        showModalBarang = true;
+    }
+    void ModalBarangCancel()
+    {
+        NamaBaru = "";
+        HargaBaru = 0;
+        SelectedDivisi = "3001";
+        SelectedDivisiNama = "";
+        SelectedSubDivisi = "Spandex";
+        SelectedSubDivisiNama = "";
+        SelectedKategori = "Raw";
+        SelectedUkuran = "40D";
+        UkuranLainnya = "";
+        SelectedSatuan = "Cone";
+        this.StateHasChanged();
+
+        showModalBarang = false;
+    }
     void TambahBarangBaru()
     {
         var ukuran = "";
@@ -430,25 +445,17 @@ using BlazorNumericTextBox;
         {
             Nama = NamaBaru,
             Satuan = SelectedSatuan,
+            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
             DivisiBarang_Divisi = SelectedDivisiNama,
             SubDivisiBarang_SubDivisi = SelectedSubDivisiNama,
             KategoriBarang_Kategori = SelectedKategori,
             Barang_Ukuran = ukuran,
             Harga = HargaBaru,
         });
-        NamaBaru = "";
-        HargaBaru = 0;
-        SelectedDivisi = "3001";
-        SelectedDivisiNama = "";
-        SelectedSubDivisi = "Spandex";
-        SelectedSubDivisiNama = "";
-        SelectedKategori = "Raw";
-        SelectedUkuran = "40D";
-        UkuranLainnya = "";
-        SelectedSatuan = "Cone";
-        this.StateHasChanged();
         ModalBarangCancel();
     }
+
+
 
 #line default
 #line hidden
