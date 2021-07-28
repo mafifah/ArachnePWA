@@ -1,11 +1,11 @@
 ﻿<StaticWebAssets Version="1.0">
-  <ContentRoot BasePath="/" Path="D:\Arachne\bzrArachne\obj\Debug\net5.0\scopedcss\bundle\" />
-  <ContentRoot BasePath="_content/Blazored.Toast" Path="C:\Users\devad\.nuget\packages\blazored.toast\3.1.2\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazored.Typeahead" Path="C:\Users\devad\.nuget\packages\blazored.typeahead\4.6.0\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazorized.AdminLte" Path="C:\Users\devad\.nuget\packages\blazorized.adminlte\0.1.8\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazorized.AdminLte.Content" Path="C:\Users\devad\.nuget\packages\blazorized.adminlte.content\3.0.7\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/BlazorNumericTextBox" Path="C:\Users\devad\.nuget\packages\blazornumerictextbox\2.9.5\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/Blazor-State" Path="C:\Users\devad\.nuget\packages\blazor-state\3.4.4\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/CurrieTechnologies.Razor.SweetAlert2" Path="C:\Users\devad\.nuget\packages\currietechnologies.razor.sweetalert2\5.0.1\build\..\staticwebassets\" />
-  <ContentRoot BasePath="_content/MudBlazor" Path="C:\Users\devad\.nuget\packages\mudblazor\5.0.15\build\..\staticwebassets\" />
+  <ContentRoot BasePath="/" Path="C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\obj\Debug\net5.0\scopedcss\bundle\" />
+  <ContentRoot BasePath="_content/Blazored.Toast" Path="C:\Users\mafif\.nuget\packages\blazored.toast\3.1.2\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazored.Typeahead" Path="C:\Users\mafif\.nuget\packages\blazored.typeahead\4.6.0\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazorized.AdminLte" Path="C:\Users\mafif\.nuget\packages\blazorized.adminlte\0.1.8\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazorized.AdminLte.Content" Path="C:\Users\mafif\.nuget\packages\blazorized.adminlte.content\3.0.7\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/BlazorNumericTextBox" Path="C:\Users\mafif\.nuget\packages\blazornumerictextbox\2.9.5\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/Blazor-State" Path="C:\Users\mafif\.nuget\packages\blazor-state\3.4.4\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/CurrieTechnologies.Razor.SweetAlert2" Path="C:\Users\mafif\.nuget\packages\currietechnologies.razor.sweetalert2\5.0.1\build\..\staticwebassets\" />
+  <ContentRoot BasePath="_content/MudBlazor" Path="C:\Users\mafif\.nuget\packages\mudblazor\5.0.15\build\..\staticwebassets\" />
 </StaticWebAssets>

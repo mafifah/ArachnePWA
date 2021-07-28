@@ -334,7 +334,14 @@
                                         var SubDiv = SubDivisiBarang.Where(i => i.Keterangan == SelectedSubDivisi).FirstOrDefault();
                                         SelectedDivisiNama = Div.Divisi;
                                         SelectedSubDivisiNama = SubDiv.SubDivisi;
-                                        NamaBaru = $"{Div.Divisi} {SubDiv.SubDivisi} {SelectedUkuran}";
+                                        if (SelectedUkuran == "Lainnya")
+                                        {
+                                            NamaBaru = $"{Div.Divisi} {SubDiv.SubDivisi} {UkuranLainnya}";
+                                        }
+                                        else
+                                        {
+                                            NamaBaru = $"{Div.Divisi} {SubDiv.SubDivisi} {SelectedUkuran}";
+                                        }
                                     }
                                     <input type="text" @bind="NamaBaru" class="form-control" placeholder="Xyz">
                                 </div>
@@ -471,14 +478,6 @@
     bool showexpand = false;
     void expandshow() => showexpand = true;
     void expandclose() => showexpand = false;
-    //
-    async void ModalBarangShow()
-    {
-        showModal = false;
-        showModalBarang = true;
-    }
-
-    void ModalBarangCancel() => showModalBarang = false;
 
     private string NamaBaru { get; set; }
     private double HargaBaru { get; set; }
@@ -497,7 +496,7 @@
     List<UkuranBarang> UkuranBarang = new List<UkuranBarang>();
     List<UkuranBarang> FilteredUkuranBarang = new List<UkuranBarang>();
     Random rnd = new Random();
-    //filter
+
     bool showSearchNama = false;
     bool showSearchSatuan = false;
     string SearchNama { get; set; } = "";
@@ -648,6 +647,8 @@
                 "Data Penawaran gagal terkirim :)",
                 SweetAlertIcon.Error
                 );
+
+                NavigationManager.NavigateTo("dataBarang");
             }
         }
         else
@@ -707,6 +708,27 @@
             });
         }
     }
+    void ModalBarangShow()
+    {
+        showModal = false;
+        showModalBarang = true;
+    }
+    void ModalBarangCancel()
+    {
+        NamaBaru = "";
+        HargaBaru = 0;
+        SelectedDivisi = "3001";
+        SelectedDivisiNama = "";
+        SelectedSubDivisi = "Spandex";
+        SelectedSubDivisiNama = "";
+        SelectedKategori = "Raw";
+        SelectedUkuran = "40D";
+        UkuranLainnya = "";
+        SelectedSatuan = "Cone";
+        this.StateHasChanged();
+
+        showModalBarang = false;
+    }
     void TambahBarangBaru()
     {
         var ukuran = "";
@@ -721,23 +743,15 @@
         {
             Nama = NamaBaru,
             Satuan = SelectedSatuan,
+            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
             DivisiBarang_Divisi = SelectedDivisiNama,
             SubDivisiBarang_SubDivisi = SelectedSubDivisiNama,
             KategoriBarang_Kategori = SelectedKategori,
             Barang_Ukuran = ukuran,
             Harga = HargaBaru,
         });
-        NamaBaru = "";
-        HargaBaru = 0;
-        SelectedDivisi = "3001";
-        SelectedDivisiNama = "";
-        SelectedSubDivisi = "Spandex";
-        SelectedSubDivisiNama = "";
-        SelectedKategori = "Raw";
-        SelectedUkuran = "40D";
-        UkuranLainnya = "";
-        SelectedSatuan = "Cone";
-        this.StateHasChanged();
         ModalBarangCancel();
     }
+
+
 }
