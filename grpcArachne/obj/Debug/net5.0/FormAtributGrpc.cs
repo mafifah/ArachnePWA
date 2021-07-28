@@ -16,7 +16,7 @@ namespace grpcArachne {
     static readonly grpc::Marshaller<global::grpcArachne.T0DivisiBarang> __Marshaller_T0DivisiBarang = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.T0DivisiBarang.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::grpcArachne.T1SubDivisiBarang> __Marshaller_T1SubDivisiBarang = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.T1SubDivisiBarang.Parser.ParseFrom);
     static readonly grpc::Marshaller<global::grpcArachne.T0KategoriBarang> __Marshaller_T0KategoriBarang = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.T0KategoriBarang.Parser.ParseFrom);
-    static readonly grpc::Marshaller<global::grpcArachne.T1SubKategoriBarang> __Marshaller_T1SubKategoriBarang = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.T1SubKategoriBarang.Parser.ParseFrom);
+    static readonly grpc::Marshaller<global::grpcArachne.T9DataOption> __Marshaller_T9DataOption = grpc::Marshallers.Create((arg) => global::Google.Protobuf.MessageExtensions.ToByteArray(arg), global::grpcArachne.T9DataOption.Parser.ParseFrom);
 
     static readonly grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T0DivisiBarang> __Method_GetDivisiBarang = new grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T0DivisiBarang>(
         grpc::MethodType.ServerStreaming,
@@ -39,12 +39,12 @@ namespace grpcArachne {
         __Marshaller_Empty,
         __Marshaller_T0KategoriBarang);
 
-    static readonly grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T1SubKategoriBarang> __Method_GetSubKategoriBarang = new grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T1SubKategoriBarang>(
+    static readonly grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T9DataOption> __Method_GetDataOption = new grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T9DataOption>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
-        "GetSubKategoriBarang",
+        "GetDataOption",
         __Marshaller_Empty,
-        __Marshaller_T1SubKategoriBarang);
+        __Marshaller_T9DataOption);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -71,7 +71,7 @@ namespace grpcArachne {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
 
-      public virtual global::System.Threading.Tasks.Task GetSubKategoriBarang(global::grpcArachne.Empty request, grpc::IServerStreamWriter<global::grpcArachne.T1SubKategoriBarang> responseStream, grpc::ServerCallContext context)
+      public virtual global::System.Threading.Tasks.Task GetDataOption(global::grpcArachne.Empty request, grpc::IServerStreamWriter<global::grpcArachne.T9DataOption> responseStream, grpc::ServerCallContext context)
       {
         throw new grpc::RpcException(new grpc::Status(grpc::StatusCode.Unimplemented, ""));
       }
@@ -86,7 +86,7 @@ namespace grpcArachne {
           .AddMethod(__Method_GetDivisiBarang, serviceImpl.GetDivisiBarang)
           .AddMethod(__Method_GetSubDivisiBarang, serviceImpl.GetSubDivisiBarang)
           .AddMethod(__Method_GetKategoriBarang, serviceImpl.GetKategoriBarang)
-          .AddMethod(__Method_GetSubKategoriBarang, serviceImpl.GetSubKategoriBarang).Build();
+          .AddMethod(__Method_GetDataOption, serviceImpl.GetDataOption).Build();
     }
 
     /// <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
@@ -98,7 +98,7 @@ namespace grpcArachne {
       serviceBinder.AddMethod(__Method_GetDivisiBarang, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::grpcArachne.Empty, global::grpcArachne.T0DivisiBarang>(serviceImpl.GetDivisiBarang));
       serviceBinder.AddMethod(__Method_GetSubDivisiBarang, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::grpcArachne.Empty, global::grpcArachne.T1SubDivisiBarang>(serviceImpl.GetSubDivisiBarang));
       serviceBinder.AddMethod(__Method_GetKategoriBarang, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::grpcArachne.Empty, global::grpcArachne.T0KategoriBarang>(serviceImpl.GetKategoriBarang));
-      serviceBinder.AddMethod(__Method_GetSubKategoriBarang, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::grpcArachne.Empty, global::grpcArachne.T1SubKategoriBarang>(serviceImpl.GetSubKategoriBarang));
+      serviceBinder.AddMethod(__Method_GetDataOption, serviceImpl == null ? null : new grpc::ServerStreamingServerMethod<global::grpcArachne.Empty, global::grpcArachne.T9DataOption>(serviceImpl.GetDataOption));
     }
 
   }

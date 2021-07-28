@@ -140,7 +140,11 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
+<<<<<<< HEAD
 #line 421 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+=======
+#line 410 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+>>>>>>> 0a13c8ac63293b4f4727f22203ecbf9ce04ecd94
  
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
@@ -168,6 +172,7 @@ using bzrArachne.Models;
     string _catatan { get; set; }
     bool showModal = false;
     bool showModalBarang = false;
+<<<<<<< HEAD
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
     bool showexpand = false;
@@ -182,6 +187,24 @@ using bzrArachne.Models;
 
     void ModalBarangCancel() => showModalBarang = false;
 
+=======
+    private string NamaBaru { get; set; }
+    private double HargaBaru { get; set; }
+    private string SelectedDivisi { get; set; } = "3001";
+    private string SelectedDivisiNama { get; set; } = "";
+    private string SelectedSubDivisi { get; set; } = "Spandex";
+    private string SelectedSubDivisiNama { get; set; } = "";
+    private string SelectedKategori { get; set; } = "Raw";
+    private string SelectedUkuran { get; set; } = "40D";
+    private string UkuranLainnya { get; set; } = "";
+    private string SelectedSatuan { get; set; } = "Cone";
+    List<DivisiBarang> DivisiBarang = new List<DivisiBarang>();
+    List<SubDivisiBarang> SubDivisiBarang = new List<SubDivisiBarang>();
+    List<SubDivisiBarang> FilteredSubDivisiBarang => SubDivisiBarang.Where(i => i.IdDivisi.ToString() == SelectedDivisi).ToList();
+    List<KategoriBarang> KategoriBarang = new List<KategoriBarang>();
+    List<UkuranBarang> UkuranBarang = new List<UkuranBarang>();
+    List<UkuranBarang> FilteredUkuranBarang = new List<UkuranBarang>();
+>>>>>>> 0a13c8ac63293b4f4727f22203ecbf9ce04ecd94
     Random rnd = new Random();
     //filter
     bool showSearchNama = false;
@@ -190,7 +213,6 @@ using bzrArachne.Models;
     string SearchSatuan { get; set; } = "";
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan)).ToList();
     List<DataBarang> datachecked { get; set; } = new List<DataBarang>();
-    //filter
     private DataUser user = new DataUser();
     private DataBarang Item { get; set; }
     private DataPenawaran dataPenawaran = new DataPenawaran();
@@ -204,6 +226,8 @@ using bzrArachne.Models;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
         {
+
+            GetAtributForm();
             Item = DataService._barangDipilih;
             barangPenawarans.Add(new BarangPenawaran
             {
@@ -258,6 +282,14 @@ using bzrArachne.Models;
             NavigationManager.NavigateTo("/");
         }
     }
+    void ModalShow() => showModal = true;
+    void ModalCancel() => showModal = false;
+    void ModalBarangShow()
+    {
+        showModal = false;
+        showModalBarang = true;
+    }
+    void ModalBarangCancel() => showModalBarang = false;
     void TambahBarangKeList()
     {
         foreach (var data in datachecked)
@@ -306,12 +338,16 @@ using bzrArachne.Models;
                 BarangPenawaran = barangPenawarans,
                 GrandTotal = _grandtotal,
                 DiskonDetil = _grandDetil.ToString(),
+<<<<<<< HEAD
                 DiskonNominal = _grandDiskon,
                 Catatan = _catatan,
 
 
 
 
+=======
+                DiskonNominal = _grandDiskon,  
+>>>>>>> 0a13c8ac63293b4f4727f22203ecbf9ce04ecd94
             };
             var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
             DataService.SetNullBarangDipilih();
@@ -348,7 +384,85 @@ using bzrArachne.Models;
     void RemoveSearchNama() { SearchNama = ""; showSearchNama = false; }
     void ShowSearchSatuan() => showSearchSatuan = true;
     void RemoveSearchSatuan() { SearchSatuan = ""; showSearchSatuan = false; }
-    void FormBarangBaru() => NavigationManager.NavigateTo("formPenawaranBarangBaru");
+    async void GetAtributForm()
+    {
+        var dataDivisi = FormAtributService.GetDivisiBarang();
+        DivisiBarang.Clear();
+        await foreach (var item in dataDivisi)
+        {
+            DivisiBarang.Add(new DivisiBarang {
+                IdDivisi = item.IdDivisi,
+                Divisi = item.Divisi,
+            });
+        }
+
+        var dataSubDivisi = FormAtributService.GetSubDivisiBarang();
+        SubDivisiBarang.Clear();
+        await foreach (var item in dataSubDivisi)
+        {
+            SubDivisiBarang.Add(new SubDivisiBarang
+            {
+                IdDivisi = item.IdDivisiBarang,
+                IdSubDivisi = item.IdSubDivisi,
+                SubDivisi = item.SubDivisi,
+                Keterangan = item.Keterangan,
+            });
+        }
+
+        var dataKategori = FormAtributService.GetKategoriBarang();
+        KategoriBarang.Clear();
+        await foreach (var item in dataKategori)
+        {
+            KategoriBarang.Add(new KategoriBarang
+            {
+                IdKategori = item.IdKategoriBarang,
+                Kategori = item.KategoriBarang,
+            });
+        }
+
+        var dataUkuran = FormAtributService.GetUkuranBarang();
+        UkuranBarang.Clear();
+        await foreach (var item in dataUkuran)
+        {
+            UkuranBarang.Add(new UkuranBarang
+            {
+                Ukuran = item.DataOption
+            });
+        }
+    }
+    void TambahBarangBaru()
+    {
+        var ukuran = "";
+        if(SelectedUkuran == "Lainnya")
+        {
+            ukuran = UkuranLainnya;
+        }else
+        {
+            ukuran = SelectedUkuran;
+        }
+        barangPenawarans.Add(new BarangPenawaran
+        {
+            Nama = NamaBaru,
+            Satuan = SelectedSatuan,
+            DivisiBarang_Divisi = SelectedDivisiNama,
+            SubDivisiBarang_SubDivisi = SelectedSubDivisiNama,
+            KategoriBarang_Kategori = SelectedKategori,
+            Barang_Ukuran = ukuran,
+            Harga = HargaBaru,
+        });
+        NamaBaru = "";
+        HargaBaru = 0;
+        SelectedDivisi = "3001";
+        SelectedDivisiNama = "";
+        SelectedSubDivisi = "Spandex";
+        SelectedSubDivisiNama = "";
+        SelectedKategori = "Raw";
+        SelectedUkuran = "40D";
+        UkuranLainnya = "";
+        SelectedSatuan = "Cone";
+        this.StateHasChanged();
+        ModalBarangCancel();
+    }
 
 #line default
 #line hidden
@@ -357,6 +471,7 @@ using bzrArachne.Models;
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private SweetAlertService Swal { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private NavigationManager NavigationManager { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private PenawaranService PenawaranService { get; set; }
+        [global::Microsoft.AspNetCore.Components.InjectAttribute] private FormAtributService FormAtributService { get; set; }
         [global::Microsoft.AspNetCore.Components.InjectAttribute] private DataService DataService { get; set; }
     }
 }

@@ -46,7 +46,7 @@ namespace grpcArachne {
     static readonly grpc::Marshaller<global::grpcArachne.T0DivisiBarang> __Marshaller_T0DivisiBarang = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.T0DivisiBarang.Parser));
     static readonly grpc::Marshaller<global::grpcArachne.T1SubDivisiBarang> __Marshaller_T1SubDivisiBarang = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.T1SubDivisiBarang.Parser));
     static readonly grpc::Marshaller<global::grpcArachne.T0KategoriBarang> __Marshaller_T0KategoriBarang = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.T0KategoriBarang.Parser));
-    static readonly grpc::Marshaller<global::grpcArachne.T1SubKategoriBarang> __Marshaller_T1SubKategoriBarang = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.T1SubKategoriBarang.Parser));
+    static readonly grpc::Marshaller<global::grpcArachne.T9DataOption> __Marshaller_T9DataOption = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.T9DataOption.Parser));
 
     static readonly grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T0DivisiBarang> __Method_GetDivisiBarang = new grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T0DivisiBarang>(
         grpc::MethodType.ServerStreaming,
@@ -69,12 +69,12 @@ namespace grpcArachne {
         __Marshaller_Empty,
         __Marshaller_T0KategoriBarang);
 
-    static readonly grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T1SubKategoriBarang> __Method_GetSubKategoriBarang = new grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T1SubKategoriBarang>(
+    static readonly grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T9DataOption> __Method_GetDataOption = new grpc::Method<global::grpcArachne.Empty, global::grpcArachne.T9DataOption>(
         grpc::MethodType.ServerStreaming,
         __ServiceName,
-        "GetSubKategoriBarang",
+        "GetDataOption",
         __Marshaller_Empty,
-        __Marshaller_T1SubKategoriBarang);
+        __Marshaller_T9DataOption);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -129,13 +129,13 @@ namespace grpcArachne {
       {
         return CallInvoker.AsyncServerStreamingCall(__Method_GetKategoriBarang, null, options, request);
       }
-      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.T1SubKategoriBarang> GetSubKategoriBarang(global::grpcArachne.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.T9DataOption> GetDataOption(global::grpcArachne.Empty request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
       {
-        return GetSubKategoriBarang(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+        return GetDataOption(request, new grpc::CallOptions(headers, deadline, cancellationToken));
       }
-      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.T1SubKategoriBarang> GetSubKategoriBarang(global::grpcArachne.Empty request, grpc::CallOptions options)
+      public virtual grpc::AsyncServerStreamingCall<global::grpcArachne.T9DataOption> GetDataOption(global::grpcArachne.Empty request, grpc::CallOptions options)
       {
-        return CallInvoker.AsyncServerStreamingCall(__Method_GetSubKategoriBarang, null, options, request);
+        return CallInvoker.AsyncServerStreamingCall(__Method_GetDataOption, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override FormAtributClient NewInstance(ClientBaseConfiguration configuration)

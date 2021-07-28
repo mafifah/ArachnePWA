@@ -159,7 +159,6 @@ using bzrArachne.Models;
     bool showSearchSatuan = false;
     bool showSearchStok = false;
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan) && i.Stok <= SearchStok).ToList();
-    //List<DataBarang> StokBarang => FilteredBarang.Where(i => i.Stok <= i.Minimum).ToList();
     private NotificationMessages notificationMessage = new NotificationMessages();
     protected override async Task OnInitializedAsync()
     {
@@ -208,10 +207,6 @@ using bzrArachne.Models;
             });
             this.StateHasChanged();
         }
-        //foreach (var item in StokBarang)
-        //{
-        //    ToastService.ShowWarning($"{item.Nama} dengan satuan {item.Satuan} hampir habis");
-        //}
     }
 
     async Task GetDataById()

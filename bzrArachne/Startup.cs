@@ -34,6 +34,7 @@ namespace bzrArachne
             services.AddSweetAlert2();
             services.AddSingleton<DataService>();
             services.AddSingleton<PenawaranService>();
+            services.AddSingleton<FormAtributService>();
             services.AddSignalRCore();
         }
 

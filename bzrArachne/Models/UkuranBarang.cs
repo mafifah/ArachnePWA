@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace bzrArachne.Models
 {
-    public class SubKategoriBarang
+    public class UkuranBarang
     {
-        public long IdSubKategori { get; set; }
-        public string SubKategori { get; set; }
+        public string Ukuran { get; set; }
 
     }
 }

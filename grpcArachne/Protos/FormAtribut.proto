@@ -8,7 +8,7 @@ service FormAtribut{
 	rpc GetDivisiBarang(Empty) returns (stream T0DivisiBarang);
 	rpc GetSubDivisiBarang(Empty) returns (stream T1SubDivisiBarang);
 	rpc GetKategoriBarang(Empty) returns (stream T0KategoriBarang);
-	rpc GetSubKategoriBarang(Empty) returns (stream T1SubKategoriBarang);
+	rpc GetDataOption(Empty) returns (stream T9DataOption);
 }
 
 message Empty{
@@ -21,9 +21,10 @@ message T0DivisiBarang{
 }
 
 message T1SubDivisiBarang{
-	int64 IdSubDivisi = 1;
-	google.protobuf.StringValue SubDivisi = 2;
-	google.protobuf.StringValue Keterangan = 3;
+	int64 IdDivisiBarang = 1;
+	int64 IdSubDivisi = 2;
+	google.protobuf.StringValue SubDivisi = 3;
+	google.protobuf.StringValue Keterangan = 4;
 }
 
 message T0KategoriBarang{
@@ -31,7 +32,6 @@ message T0KategoriBarang{
 	google.protobuf.StringValue KategoriBarang = 2;
 }
 
-message T1SubKategoriBarang{
-	int64 IdSubKategoriBarang = 1;
-	google.protobuf.StringValue SubKategoriBarang = 2;
+message T9DataOption{
+	google.protobuf.StringValue DataOption = 1;
 }

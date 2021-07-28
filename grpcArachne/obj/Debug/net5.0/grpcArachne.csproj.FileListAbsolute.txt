@@ -1,3 +1,8 @@
+D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.GeneratedMSBuildEditorConfig.editorconfig
+D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.AssemblyInfoInputs.cache
+D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.AssemblyInfo.cs
+D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.csproj.CoreCompileInputs.cache
+D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.MvcApplicationPartsAssemblyInfo.cache
 D:\Arachne\grpcArachne\bin\Debug\net5.0\appsettings.Development.json
 D:\Arachne\grpcArachne\bin\Debug\net5.0\appsettings.json
 D:\Arachne\grpcArachne\bin\Debug\net5.0\grpcArachne.exe
@@ -59,11 +64,6 @@ D:\Arachne\grpcArachne\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.S
 D:\Arachne\grpcArachne\bin\Debug\net5.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 D:\Arachne\grpcArachne\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\Arachne\grpcArachne\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
-D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.GeneratedMSBuildEditorConfig.editorconfig
-D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.AssemblyInfoInputs.cache
-D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.AssemblyInfo.cs
-D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.csproj.CoreCompileInputs.cache
-D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.MvcApplicationPartsAssemblyInfo.cache
 D:\Arachne\grpcArachne\obj\Debug\net5.0\staticwebassets\grpcArachne.StaticWebAssets.Manifest.cache
 D:\Arachne\grpcArachne\obj\Debug\net5.0\staticwebassets\grpcArachne.StaticWebAssets.xml
 D:\Arachne\grpcArachne\obj\Debug\net5.0\scopedcss\bundle\grpcArachne.styles.css
@@ -73,4 +73,3 @@ D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.dll
 D:\Arachne\grpcArachne\obj\Debug\net5.0\ref\grpcArachne.dll
 D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.pdb
 D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.genruntimeconfig.cache
-D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.csproj.AssemblyReference.cache
