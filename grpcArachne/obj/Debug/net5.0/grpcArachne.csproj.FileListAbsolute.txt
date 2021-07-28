@@ -73,3 +73,4 @@ D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.dll
 D:\Arachne\grpcArachne\obj\Debug\net5.0\ref\grpcArachne.dll
 D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.pdb
 D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.genruntimeconfig.cache
+D:\Arachne\grpcArachne\obj\Debug\net5.0\grpcArachne.csproj.AssemblyReference.cache

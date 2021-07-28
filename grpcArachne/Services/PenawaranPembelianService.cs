@@ -2,6 +2,7 @@
 using grpcArachne.Data;
 using grpcArachne.Models;
 using grpcArachne.Utility;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -97,6 +98,19 @@ namespace grpcArachne.Services
                 pesan = new pesan() { Pesan = "Data Gagal terkirim ke server"  };
             }
             return Task.FromResult(pesan);
+        }
+
+        public override Task<ListTermin> GetDataTermin(TerminRequest request, ServerCallContext context)
+        {
+            var query = (from T0Termin in _db.T0TerminDbSet
+                         select new TerminResponse
+                         {
+                             IdTermin = T0Termin.IdTermin,
+                             Termin = T0Termin.Termin,
+                         }).AsNoTracking().AsEnumerable();
+            ListTermin listTermin = new ListTermin();
+            listTermin.TerminResponse.AddRange(query);
+            return Task.FromResult(listTermin);
         }
     }
 }

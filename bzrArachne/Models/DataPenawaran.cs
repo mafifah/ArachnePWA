@@ -10,6 +10,7 @@ namespace bzrArachne.Models
 		public long IdPenawaranPembelian {get;set;} 
 		public long IdJenisSupplier {get;set;} 
 		public long IdSupplier {get;set;}
+		public long IdTermin {get;set;}
 		public double GrandTotal { get; set; }
 		public string IdCompanyPenerima { get; set; }
 		public string DiskonDetil { get; set; }

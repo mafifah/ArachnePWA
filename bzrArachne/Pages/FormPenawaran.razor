@@ -33,6 +33,17 @@
                 <div class="col-sm-4">
                     <textarea type="text" disabled @bind="user.Alamat" class="form-control"></textarea>
                 </div>
+                <label class="col-sm-1 col-form-label">Termin</label>
+                <div class="col-sm-4">
+                    <select class="form-control">
+                        <option>Pilih Termin</option>
+
+                        @foreach (var itemTermin in dataTermins)
+                        {
+                            <option value="@itemTermin.IdTermin">@itemTermin.Termin</option>
+                        }
+                    </select>
+                </div>
             </div>
             <br />
             <hr />
@@ -40,55 +51,75 @@
             <div class="card card-dark">
                 <div class="card-body">
                     <h4 class="card-blue">Detail Penawaran</h4>
-                    <table width="100%" id="example1" class="table table-bordered table-striped dataTable dtr-inline" role="grid" aria-describedby="example1_info">
+                    <table width="100%" id="example1" class="table table-bordered table-striped dataTable dtr-inline" style="margin-bottom: 0;font-size:smaller" role="grid" aria-describedby="example1_info">
                         <thead>
                             <tr>
                                 <th width="1%">No</th>
                                 <th width="20%">Catatan</th>
                                 <th width="10%">Jml</th>
-                                <th width="6%">Satuan</th>
+                                <th width="9%">Satuan</th>
                                 <th width="20%">Nama</th>
-                                <th width="13%">Harga</th>
+                                <th width="12%">Harga</th>
                                 <th width="3%">Diskon%</th>
                                 <th width="11%">Diskon(Rp.)</th>
-                                <th width="16%">Total</th>
+                                <th width="14%">Total</th>
                             </tr>
                         </thead>
-                        <tbody>
+                        <tbody >
                             @{
                                 var no = 1;
                                 foreach (var data in barangPenawarans)
                                 {
                                     <tr>
-                                        <td>
+                                        <td style="font-size:small">
                                             @no
                                         </td>
                                         <td>
-                                            <input type="text" @bind="data.CatatanPenawaran" class="form-control"></input>
+                                            <input style="font-size:small" data-toggle="tooltip" data-placement="top" title="@data.CatatanPenawaran" type="text" @bind="data.CatatanPenawaran" class="form-control"/>
                                         </td>
-                                        <td>
-                                            <div>
-                                                <input type="number" @bind="data.Jumlah" class="form-control">
+                                        <td style="font-size:small">
+                                            <div style="font-size:small">
+
+                                                @{ 
+                                                    var pesanstok = data.Maksimum - data.Stok;
+                                                    if (data.Jumlah <= 0)
+                                                    {
+                                                    <input style="font-size:small" data-toggle="tooltip" data-placement="top" title="Jumlah Tidak Boleh Kosong dan lebih dari @pesanstok" type="text" @bind="data.Jumlah" id="validationServer05Feedback" class="form-control is-invalid" required>
+                                                    }
+                                                    else
+                                                    {
+                                                    <input style="font-size:small" type="text" @bind="data.Jumlah" id="validationServer05Feedback" class="form-control is-valid" required>
+                                                        }
+                                                    }
+
                                             </div>
                                         </td>
                                         <td>
                                             <div>
-                                                <input type="text" disabled @bind="data.Satuan" class="form-control">
+                                                <input style="font-size:small" type="text" disabled @bind="data.Satuan" class="form-control">
                                             </div>
                                         </td>
                                         <td>
                                             <div>
-                                                <input type="text" disabled @bind="data.Nama" class="form-control">
+                                                <input style="font-size:small" data-toggle="tooltip" data-placement="top" title="@data.Nama" type="text" disabled @bind="data.Nama" class="form-control">
                                             </div>
                                         </td>
                                         <td>
                                             <div>
-                                                <input type="number" @bind="data.Harga" class="form-control">
+                                                @if (data.Harga <= 0)
+                                                {
+                                                    <input style="font-size:small"  data-toggle="tooltip" data-placement="top" title="Harga harus diisi"  type="text" @bind="data.Harga" id="validationServer05Feedback" class="form-control is-invalid" required>
+                                                }
+                                                else
+                                                {
+                                                    <input style="font-size:small" type="text" @bind="data.Harga" id="validationServer05Feedback" class="form-control is-valid" required>
+                                                }
+
                                             </div>
                                         </td>
                                         <td>
                                             <div>
-                                                <input type="number" @bind="data.DiskonNominal" class="form-control">
+                                                <input style="font-size:small" type="number" @bind="data.DiskonNominal" class="form-control">
                                             </div>
                                         </td>
                                         <td>
@@ -96,7 +127,7 @@
                                                 @{
                                                     data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
                                                 }
-                                                <input type="text" @bind="data.DiskonDetil" disabled class="form-control">
+                                                <input style="font-size:small" type="text" @bind="data.DiskonDetil" disabled class="form-control">
                                             </div>
                                         </td>
                                         <td>
@@ -107,7 +138,7 @@
                                                     data.Total = data.Harga * data.Jumlah - harga_diskon;
                                                     //string TotalString = String.Format("{0:C}", data.Total);
                                                 }
-                                                <input type="text" @bind="data.Total" disabled class="form-control">
+                                                <input style="font-size:small" type="text" @bind="data.Total" disabled class="form-control">
                                             </div>
                                         </td>
                                         <td style="text-align: center; vertical-align: middle;">
@@ -142,7 +173,7 @@
                                 //string GrandTotal = String.Format("{0:C}",_grandtotal);
                             }
                             <label class="col-sm-4 col-form-label">Total Penawaran (Rp.) : </label>
-                            <input style="text-align:center" type="text" disabled @bind="_grandtotal" class="col-sm-4 col-form-label rounded-pill border border-success" />
+                            <input style="text-align:center" type="text" disabled @bind="_grandtotal" pattern="(d{3})([.])(d{2})" class="col-sm-4 col-form-label rounded-pill border border-success" />
                         </div>
                     </div>
                 </div>
@@ -402,7 +433,7 @@
     }
 
     void ModalBarangCancel() => showModalBarang = false;
-    
+
     Random rnd = new Random();
     //filter
     bool showSearchNama = false;
@@ -417,9 +448,10 @@
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
+    List<DataTermin> dataTermins = new List<DataTermin>();
     protected override async Task OnInitializedAsync()
     {
-
+        dataTermins = await Task.Run(() => PenawaranService.GetDataTermin());
         user = DataService.User;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
@@ -526,7 +558,10 @@
                 BarangPenawaran = barangPenawarans,
                 GrandTotal = _grandtotal,
                 DiskonDetil = _grandDetil.ToString(),
-                DiskonNominal = _grandDiskon
+                DiskonNominal = _grandDiskon,
+                
+                
+                
             };
             var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
             DataService.SetNullBarangDipilih();

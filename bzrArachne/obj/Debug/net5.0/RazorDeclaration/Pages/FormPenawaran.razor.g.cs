@@ -140,7 +140,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 368 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 399 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
  
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
@@ -178,7 +178,7 @@ using bzrArachne.Models;
     }
 
     void ModalBarangCancel() => showModalBarang = false;
-    
+
     Random rnd = new Random();
     //filter
     bool showSearchNama = false;
@@ -193,9 +193,10 @@ using bzrArachne.Models;
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
+    List<DataTermin> dataTermins = new List<DataTermin>();
     protected override async Task OnInitializedAsync()
     {
-
+        dataTermins = await Task.Run(() => PenawaranService.GetDataTermin());
         user = DataService.User;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
@@ -302,7 +303,10 @@ using bzrArachne.Models;
                 BarangPenawaran = barangPenawarans,
                 GrandTotal = _grandtotal,
                 DiskonDetil = _grandDetil.ToString(),
-                DiskonNominal = _grandDiskon
+                DiskonNominal = _grandDiskon,
+                
+                
+                
             };
             var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
             DataService.SetNullBarangDipilih();

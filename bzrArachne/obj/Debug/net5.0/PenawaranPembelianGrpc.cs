@@ -44,6 +44,8 @@ namespace grpcArachne {
 
     static readonly grpc::Marshaller<global::grpcArachne.InsertDataT6Requset> __Marshaller_InsertDataT6Requset = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.InsertDataT6Requset.Parser));
     static readonly grpc::Marshaller<global::grpcArachne.pesan> __Marshaller_pesan = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.pesan.Parser));
+    static readonly grpc::Marshaller<global::grpcArachne.TerminRequest> __Marshaller_TerminRequest = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.TerminRequest.Parser));
+    static readonly grpc::Marshaller<global::grpcArachne.ListTermin> __Marshaller_ListTermin = grpc::Marshallers.Create(__Helper_SerializeMessage, context => __Helper_DeserializeMessage(context, global::grpcArachne.ListTermin.Parser));
 
     static readonly grpc::Method<global::grpcArachne.InsertDataT6Requset, global::grpcArachne.pesan> __Method_InsertPenawaranPembelianRepeated = new grpc::Method<global::grpcArachne.InsertDataT6Requset, global::grpcArachne.pesan>(
         grpc::MethodType.Unary,
@@ -51,6 +53,13 @@ namespace grpcArachne {
         "InsertPenawaranPembelianRepeated",
         __Marshaller_InsertDataT6Requset,
         __Marshaller_pesan);
+
+    static readonly grpc::Method<global::grpcArachne.TerminRequest, global::grpcArachne.ListTermin> __Method_GetDataTermin = new grpc::Method<global::grpcArachne.TerminRequest, global::grpcArachne.ListTermin>(
+        grpc::MethodType.Unary,
+        __ServiceName,
+        "GetDataTermin",
+        __Marshaller_TerminRequest,
+        __Marshaller_ListTermin);
 
     /// <summary>Service descriptor</summary>
     public static global::Google.Protobuf.Reflection.ServiceDescriptor Descriptor
@@ -96,6 +105,22 @@ namespace grpcArachne {
       public virtual grpc::AsyncUnaryCall<global::grpcArachne.pesan> InsertPenawaranPembelianRepeatedAsync(global::grpcArachne.InsertDataT6Requset request, grpc::CallOptions options)
       {
         return CallInvoker.AsyncUnaryCall(__Method_InsertPenawaranPembelianRepeated, null, options, request);
+      }
+      public virtual global::grpcArachne.ListTermin GetDataTermin(global::grpcArachne.TerminRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDataTermin(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual global::grpcArachne.ListTermin GetDataTermin(global::grpcArachne.TerminRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.BlockingUnaryCall(__Method_GetDataTermin, null, options, request);
+      }
+      public virtual grpc::AsyncUnaryCall<global::grpcArachne.ListTermin> GetDataTerminAsync(global::grpcArachne.TerminRequest request, grpc::Metadata headers = null, global::System.DateTime? deadline = null, global::System.Threading.CancellationToken cancellationToken = default(global::System.Threading.CancellationToken))
+      {
+        return GetDataTerminAsync(request, new grpc::CallOptions(headers, deadline, cancellationToken));
+      }
+      public virtual grpc::AsyncUnaryCall<global::grpcArachne.ListTermin> GetDataTerminAsync(global::grpcArachne.TerminRequest request, grpc::CallOptions options)
+      {
+        return CallInvoker.AsyncUnaryCall(__Method_GetDataTermin, null, options, request);
       }
       /// <summary>Creates a new instance of client from given <c>ClientBaseConfiguration</c>.</summary>
       protected override PenawaranPembelianClient NewInstance(ClientBaseConfiguration configuration)
