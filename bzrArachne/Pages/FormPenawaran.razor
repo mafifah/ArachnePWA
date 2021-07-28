@@ -65,32 +65,39 @@
                                 <th width="14%">Total</th>
                             </tr>
                         </thead>
-                        <tbody >
+                        <tbody>
                             @{
                                 var no = 1;
                                 foreach (var data in barangPenawarans)
                                 {
-                                    <tr>
+                                    <tr aria-expanded="false">
                                         <td style="font-size:small">
                                             @no
                                         </td>
                                         <td>
-                                            <input style="font-size:small" data-toggle="tooltip" data-placement="top" title="@data.CatatanPenawaran" type="text" @bind="data.CatatanPenawaran" class="form-control"/>
+                                            <div class="input-group mb-3">
+                                                <input style="font-size:small" data-toggle="tooltip" data-placement="top" title="@data.CatatanPenawaran" autofocus="" type="text" @bind="data.CatatanPenawaran" class="form-control">
+                                                <div class="input-group-append">
+                                                    <div id="@data.IdBarang" class="input-group-text">
+                                                        <span @onclick="@expandshow" class="fas fa-search-plus"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </td>
                                         <td style="font-size:small">
                                             <div style="font-size:small">
 
-                                                @{ 
+                                                @{
                                                     var pesanstok = data.Maksimum - data.Stok;
-                                                    if (data.Jumlah <= 0)
+                                                    if (data.Jumlah <= 0 || data.Stok + data.Jumlah > data.Maksimum)
                                                     {
-                                                    <input style="font-size:small" data-toggle="tooltip" data-placement="top" title="Jumlah Tidak Boleh Kosong dan lebih dari @pesanstok" type="text" @bind="data.Jumlah" id="validationServer05Feedback" class="form-control is-invalid" required>
+                                                        <input style="font-size:small" data-toggle="tooltip" data-placement="top" title="Jumlah Tidak Boleh Kosong dan lebih dari @pesanstok" type="text" @bind="data.Jumlah" id="validationServer05Feedback" class="form-control is-invalid" required>
                                                     }
                                                     else
                                                     {
-                                                    <input style="font-size:small" type="text" @bind="data.Jumlah" id="validationServer05Feedback" class="form-control is-valid" required>
-                                                        }
+                                                        <input style="font-size:small" type="text" @bind="data.Jumlah" id="validationServer05Feedback" class="form-control is-valid" required>
                                                     }
+                                                }
 
                                             </div>
                                         </td>
@@ -108,7 +115,7 @@
                                             <div>
                                                 @if (data.Harga <= 0)
                                                 {
-                                                    <input style="font-size:small"  data-toggle="tooltip" data-placement="top" title="Harga harus diisi"  type="text" @bind="data.Harga" id="validationServer05Feedback" class="form-control is-invalid" required>
+                                                    <input style="font-size:small" data-toggle="tooltip" data-placement="top" title="Harga harus diisi" type="text" @bind="data.Harga" id="validationServer05Feedback" class="form-control is-invalid" required>
                                                 }
                                                 else
                                                 {
@@ -148,8 +155,23 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    no++;
-                                }
+                                    @if (showexpand)
+                                    {
+                                        <tr class="expandable-body">
+                                            <td colspan="5">
+                                                <div class="input-group mb-3">
+                                                    <input autofocus="" type="text" @bind="data.CatatanPenawaran" class="form-control" >
+                                                    <div class="input-group-append">
+                                                        <div class="input-group-text">
+                                                            <span @onclick="@expandclose" class="fas fa-search-minus" style="color:red"></span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    }
+                                 no++;
+                                 }
                             }
                         </tbody>
                         <tfoot>
@@ -163,7 +185,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-4">
-                            <textarea type="text" class="form-control"></textarea>
+                            <textarea type="text" @bind="@_catatan" class="form-control"></textarea>
                         </div>
                         <div class="col-sm-8 align-items-end pull-right right right">
                             @{
@@ -420,11 +442,14 @@
     double _grandtotal { get; set; }
     double _grandDiskon { get; set; }
     double _grandDetil { get; set; }
+    string _catatan { get; set; }
     bool showModal = false;
     bool showModalBarang = false;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
-
+    bool showexpand = false;
+    void expandshow() => showexpand = true;
+    void expandclose() => showexpand = false;
     //
     async void ModalBarangShow()
     {
@@ -530,7 +555,7 @@
                 Maksimum = data.Maksimum
 
             });
-            _daftarBarang.Add(data);
+            _daftarBarang.Remove(data);
         }
         ModalCancel();
         datachecked.Clear();
@@ -538,6 +563,7 @@
     void HapusBarangDariList(BarangPenawaran Item)
     {
         barangPenawarans.Remove(Item);
+
     }
     void BackToBarang()
     {
@@ -559,9 +585,11 @@
                 GrandTotal = _grandtotal,
                 DiskonDetil = _grandDetil.ToString(),
                 DiskonNominal = _grandDiskon,
-                
-                
-                
+                Catatan = _catatan,
+
+
+
+
             };
             var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
             DataService.SetNullBarangDipilih();
@@ -589,7 +617,7 @@
         }
         else
         {
-            ToastService.ShowWarning($" Pastikan Jumlah dan harga Sudah terisi dengan Benar");
+            ToastService.ShowError($" Pastikan Jumlah dan harga Sudah terisi dengan Benar");
         }
 
 

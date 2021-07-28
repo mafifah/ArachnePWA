@@ -15,6 +15,7 @@ namespace bzrArachne.Models
 		public string IdCompanyPenerima { get; set; }
 		public string DiskonDetil { get; set; }
 		public double DiskonNominal { get; set; }
+		public string Catatan { get; set; }
 		public List<BarangPenawaran> BarangPenawaran { get; set; }
 	}
 }

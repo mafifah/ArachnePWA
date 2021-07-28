@@ -140,7 +140,7 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 399 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+#line 421 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
  
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
@@ -165,11 +165,14 @@ using bzrArachne.Models;
     double _grandtotal { get; set; }
     double _grandDiskon { get; set; }
     double _grandDetil { get; set; }
+    string _catatan { get; set; }
     bool showModal = false;
     bool showModalBarang = false;
     void ModalShow() => showModal = true;
     void ModalCancel() => showModal = false;
-
+    bool showexpand = false;
+    void expandshow() => showexpand = true;
+    void expandclose() => showexpand = false;
     //
     async void ModalBarangShow()
     {
@@ -275,7 +278,7 @@ using bzrArachne.Models;
                 Maksimum = data.Maksimum
 
             });
-            _daftarBarang.Add(data);
+            _daftarBarang.Remove(data);
         }
         ModalCancel();
         datachecked.Clear();
@@ -304,9 +307,11 @@ using bzrArachne.Models;
                 GrandTotal = _grandtotal,
                 DiskonDetil = _grandDetil.ToString(),
                 DiskonNominal = _grandDiskon,
-                
-                
-                
+                Catatan = _catatan,
+
+
+
+
             };
             var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
             DataService.SetNullBarangDipilih();
@@ -334,7 +339,7 @@ using bzrArachne.Models;
         }
         else
         {
-            ToastService.ShowWarning($" Pastikan Jumlah dan harga Sudah terisi dengan Benar");
+            ToastService.ShowError($" Pastikan Jumlah dan harga Sudah terisi dengan Benar");
         }
 
 

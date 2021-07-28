@@ -30,42 +30,43 @@ namespace grpcArachne {
             "c3QiUAoOVGVybWluUmVzcG9uc2USEAoISWRUZXJtaW4YASABKAMSLAoGVGVy",
             "bWluGAIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlIjUKCkxp",
             "c3RUZXJtaW4SJwoOVGVybWluUmVzcG9uc2UYASADKAsyDy5UZXJtaW5SZXNw",
-            "b25zZSKUAgoTSW5zZXJ0RGF0YVQ2UmVxdXNldBIcChRJZFBlbmF3YXJhblBl",
+            "b25zZSLDAgoTSW5zZXJ0RGF0YVQ2UmVxdXNldBIcChRJZFBlbmF3YXJhblBl",
             "bWJlbGlhbhgBIAEoAxIXCg9JZEplbmlzU3VwcGxpZXIYAiABKAMSEgoKSWRT",
             "dXBwbGllchgDIAEoAxISCgpHcmFuZFRvdGFsGAQgASgBEhkKEUlkQ29tcGFu",
             "eVBlbmVyaW1hGAUgASgJEjEKC0Rpc2tvbkRldGlsGAYgASgLMhwuZ29vZ2xl",
             "LnByb3RvYnVmLlN0cmluZ1ZhbHVlEhUKDURpc2tvbk5vbWluYWwYByABKAES",
             "EAoISWRUZXJtaW4YCCABKAMSJwoJVDdSZXF1c2V0GAkgAygLMhQuSW5zZXJ0",
-            "RGF0YVQ3UmVxdXNldCKiBgoTSW5zZXJ0RGF0YVQ3UmVxdXNldBIQCghJZEJh",
-            "cmFuZxgBIAEoAxIhChlJZERldGlsUGVuYXdhcmFuUGVtYmVsaWFuGAIgASgD",
-            "EhAKCElkU2F0dWFuGAMgASgDEhYKDklkRGl2aXNpQmFyYW5nGAQgASgDEhkK",
-            "EUlkU3ViRGl2aXNpQmFyYW5nGAUgASgDEhgKEElkS2F0ZWdvcmlCYXJhbmcY",
-            "BiABKAMSGwoTSWRTdWJLYXRlZ29yaUJhcmFuZxgHIAEoAxINCgVIYXJnYRgI",
-            "IAEoARIOCgZKdW1sYWgYCSABKAESMQoLRGlza29uRGV0aWwYCiABKAsyHC5n",
-            "b29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSFQoNRGlza29uTm9taW5hbBgL",
-            "IAEoARINCgVUb3RhbBgMIAEoAxI2ChBDYXRhdGFuUGVuYXdhcmFuGA0gASgL",
-            "MhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjIKDFNhdHVhblNhdHVh",
-            "bhgOIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIyCgxCYXJh",
-            "bmdCYXJhbmcYDyABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUS",
-            "MgoMQmFyYW5nVWt1cmFuGBAgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmlu",
-            "Z1ZhbHVlEhIKCkJhcmFuZ1VtdXIYESABKAUSPgoYU3ViRGl2aXNpQmFyYW5n",
-            "U3ViRGl2aXNpGBIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
-            "EkIKHFN1YkthdGVnb3JpQmFyYW5nU3ViS2F0ZWdvcmkYEyABKAsyHC5nb29n",
-            "bGUucHJvdG9idWYuU3RyaW5nVmFsdWUSOAoSRGl2aXNpQmFyYW5nRGl2aXNp",
-            "GBQgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjwKFkthdGVn",
-            "b3JpQmFyYW5nS2F0ZWdvcmkYFSABKAsyHC5nb29nbGUucHJvdG9idWYuU3Ry",
-            "aW5nVmFsdWUiFgoFcGVzYW4SDQoFcGVzYW4YASABKAkyhAEKElBlbmF3YXJh",
-            "blBlbWJlbGlhbhJACiBJbnNlcnRQZW5hd2FyYW5QZW1iZWxpYW5SZXBlYXRl",
-            "ZBIULkluc2VydERhdGFUNlJlcXVzZXQaBi5wZXNhbhIsCg1HZXREYXRhVGVy",
-            "bWluEg4uVGVybWluUmVxdWVzdBoLLkxpc3RUZXJtaW5CDqoCC2dycGNBcmFj",
-            "aG5lYgZwcm90bzM="));
+            "RGF0YVQ3UmVxdXNldBItCgdDYXRhdGFuGAogASgLMhwuZ29vZ2xlLnByb3Rv",
+            "YnVmLlN0cmluZ1ZhbHVlIqIGChNJbnNlcnREYXRhVDdSZXF1c2V0EhAKCElk",
+            "QmFyYW5nGAEgASgDEiEKGUlkRGV0aWxQZW5hd2FyYW5QZW1iZWxpYW4YAiAB",
+            "KAMSEAoISWRTYXR1YW4YAyABKAMSFgoOSWREaXZpc2lCYXJhbmcYBCABKAMS",
+            "GQoRSWRTdWJEaXZpc2lCYXJhbmcYBSABKAMSGAoQSWRLYXRlZ29yaUJhcmFu",
+            "ZxgGIAEoAxIbChNJZFN1YkthdGVnb3JpQmFyYW5nGAcgASgDEg0KBUhhcmdh",
+            "GAggASgBEg4KBkp1bWxhaBgJIAEoARIxCgtEaXNrb25EZXRpbBgKIAEoCzIc",
+            "Lmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIVCg1EaXNrb25Ob21pbmFs",
+            "GAsgASgBEg0KBVRvdGFsGAwgASgDEjYKEENhdGF0YW5QZW5hd2FyYW4YDSAB",
+            "KAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSMgoMU2F0dWFuU2F0",
+            "dWFuGA4gASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjIKDEJh",
+            "cmFuZ0JhcmFuZxgPIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1",
+            "ZRIyCgxCYXJhbmdVa3VyYW4YECABKAsyHC5nb29nbGUucHJvdG9idWYuU3Ry",
+            "aW5nVmFsdWUSEgoKQmFyYW5nVW11chgRIAEoBRI+ChhTdWJEaXZpc2lCYXJh",
+            "bmdTdWJEaXZpc2kYEiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFs",
+            "dWUSQgocU3ViS2F0ZWdvcmlCYXJhbmdTdWJLYXRlZ29yaRgTIAEoCzIcLmdv",
+            "b2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRI4ChJEaXZpc2lCYXJhbmdEaXZp",
+            "c2kYFCABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSPAoWS2F0",
+            "ZWdvcmlCYXJhbmdLYXRlZ29yaRgVIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5T",
+            "dHJpbmdWYWx1ZSIWCgVwZXNhbhINCgVwZXNhbhgBIAEoCTKEAQoSUGVuYXdh",
+            "cmFuUGVtYmVsaWFuEkAKIEluc2VydFBlbmF3YXJhblBlbWJlbGlhblJlcGVh",
+            "dGVkEhQuSW5zZXJ0RGF0YVQ2UmVxdXNldBoGLnBlc2FuEiwKDUdldERhdGFU",
+            "ZXJtaW4SDi5UZXJtaW5SZXF1ZXN0GgsuTGlzdFRlcm1pbkIOqgILZ3JwY0Fy",
+            "YWNobmViBnByb3RvMw=="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.TerminRequest), global::grpcArachne.TerminRequest.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.TerminResponse), global::grpcArachne.TerminResponse.Parser, new[]{ "IdTermin", "Termin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.ListTermin), global::grpcArachne.ListTermin.Parser, new[]{ "TerminResponse" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT6Requset), global::grpcArachne.InsertDataT6Requset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "GrandTotal", "IdCompanyPenerima", "DiskonDetil", "DiskonNominal", "IdTermin", "T7Requset" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT6Requset), global::grpcArachne.InsertDataT6Requset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "GrandTotal", "IdCompanyPenerima", "DiskonDetil", "DiskonNominal", "IdTermin", "T7Requset", "Catatan" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT7Requset), global::grpcArachne.InsertDataT7Requset.Parser, new[]{ "IdBarang", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "Harga", "Jumlah", "DiskonDetil", "DiskonNominal", "Total", "CatatanPenawaran", "SatuanSatuan", "BarangBarang", "BarangUkuran", "BarangUmur", "SubDivisiBarangSubDivisi", "SubKategoriBarangSubKategori", "DivisiBarangDivisi", "KategoriBarangKategori" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.pesan), global::grpcArachne.pesan.Parser, new[]{ "Pesan" }, null, null, null, null)
           }));
@@ -625,6 +626,7 @@ namespace grpcArachne {
       diskonNominal_ = other.diskonNominal_;
       idTermin_ = other.idTermin_;
       t7Requset_ = other.t7Requset_.Clone();
+      Catatan = other.Catatan;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -733,6 +735,19 @@ namespace grpcArachne {
       get { return t7Requset_; }
     }
 
+    /// <summary>Field number for the "Catatan" field.</summary>
+    public const int CatatanFieldNumber = 10;
+    private static readonly pb::FieldCodec<string> _single_catatan_codec = pb::FieldCodec.ForClassWrapper<string>(82);
+    private string catatan_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Catatan {
+      get { return catatan_; }
+      set {
+        catatan_ = value;
+      }
+    }
+
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as InsertDataT6Requset);
@@ -755,6 +770,7 @@ namespace grpcArachne {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(DiskonNominal, other.DiskonNominal)) return false;
       if (IdTermin != other.IdTermin) return false;
       if(!t7Requset_.Equals(other.t7Requset_)) return false;
+      if (Catatan != other.Catatan) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -770,6 +786,7 @@ namespace grpcArachne {
       if (DiskonNominal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DiskonNominal);
       if (IdTermin != 0L) hash ^= IdTermin.GetHashCode();
       hash ^= t7Requset_.GetHashCode();
+      if (catatan_ != null) hash ^= Catatan.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -818,6 +835,9 @@ namespace grpcArachne {
         output.WriteInt64(IdTermin);
       }
       t7Requset_.WriteTo(output, _repeated_t7Requset_codec);
+      if (catatan_ != null) {
+        _single_catatan_codec.WriteTagAndValue(output, Catatan);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -859,6 +879,9 @@ namespace grpcArachne {
         output.WriteInt64(IdTermin);
       }
       t7Requset_.WriteTo(ref output, _repeated_t7Requset_codec);
+      if (catatan_ != null) {
+        _single_catatan_codec.WriteTagAndValue(ref output, Catatan);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(ref output);
       }
@@ -893,6 +916,9 @@ namespace grpcArachne {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdTermin);
       }
       size += t7Requset_.CalculateSize(_repeated_t7Requset_codec);
+      if (catatan_ != null) {
+        size += _single_catatan_codec.CalculateSizeWithTag(Catatan);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -931,6 +957,11 @@ namespace grpcArachne {
         IdTermin = other.IdTermin;
       }
       t7Requset_.Add(other.t7Requset_);
+      if (other.catatan_ != null) {
+        if (catatan_ == null || other.Catatan != "") {
+          Catatan = other.Catatan;
+        }
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -984,6 +1015,13 @@ namespace grpcArachne {
             t7Requset_.AddEntriesFrom(input, _repeated_t7Requset_codec);
             break;
           }
+          case 82: {
+            string value = _single_catatan_codec.Read(input);
+            if (catatan_ == null || value != "") {
+              Catatan = value;
+            }
+            break;
+          }
         }
       }
     #endif
@@ -1035,6 +1073,13 @@ namespace grpcArachne {
           }
           case 74: {
             t7Requset_.AddEntriesFrom(ref input, _repeated_t7Requset_codec);
+            break;
+          }
+          case 82: {
+            string value = _single_catatan_codec.Read(ref input);
+            if (catatan_ == null || value != "") {
+              Catatan = value;
+            }
             break;
           }
         }

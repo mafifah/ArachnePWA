@@ -76,6 +76,8 @@ namespace bzrArachne.Service
                         DiskonNominal           = dataPenawaran.DiskonNominal,
                         GrandTotal              = dataPenawaran.GrandTotal,
                         T7Requset               = { data },
+                        Catatan                 =dataPenawaran.Catatan,
+                        
                     };
                     var reply = await client.InsertPenawaranPembelianRepeatedAsync(request);
                 if (reply.Pesan== "Berhasil")

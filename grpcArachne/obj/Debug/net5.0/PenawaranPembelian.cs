@@ -30,42 +30,43 @@ namespace grpcArachne {
             "aW5SZXF1ZXN0IlAKDlRlcm1pblJlc3BvbnNlEhAKCElkVGVybWluGAEgASgD",
             "EiwKBlRlcm1pbhgCIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1",
             "ZSI1CgpMaXN0VGVybWluEicKDlRlcm1pblJlc3BvbnNlGAEgAygLMg8uVGVy",
-            "bWluUmVzcG9uc2UilAIKE0luc2VydERhdGFUNlJlcXVzZXQSHAoUSWRQZW5h",
+            "bWluUmVzcG9uc2UiwwIKE0luc2VydERhdGFUNlJlcXVzZXQSHAoUSWRQZW5h",
             "d2FyYW5QZW1iZWxpYW4YASABKAMSFwoPSWRKZW5pc1N1cHBsaWVyGAIgASgD",
             "EhIKCklkU3VwcGxpZXIYAyABKAMSEgoKR3JhbmRUb3RhbBgEIAEoARIZChFJ",
             "ZENvbXBhbnlQZW5lcmltYRgFIAEoCRIxCgtEaXNrb25EZXRpbBgGIAEoCzIc",
             "Lmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIVCg1EaXNrb25Ob21pbmFs",
             "GAcgASgBEhAKCElkVGVybWluGAggASgDEicKCVQ3UmVxdXNldBgJIAMoCzIU",
-            "Lkluc2VydERhdGFUN1JlcXVzZXQiogYKE0luc2VydERhdGFUN1JlcXVzZXQS",
-            "EAoISWRCYXJhbmcYASABKAMSIQoZSWREZXRpbFBlbmF3YXJhblBlbWJlbGlh",
-            "bhgCIAEoAxIQCghJZFNhdHVhbhgDIAEoAxIWCg5JZERpdmlzaUJhcmFuZxgE",
-            "IAEoAxIZChFJZFN1YkRpdmlzaUJhcmFuZxgFIAEoAxIYChBJZEthdGVnb3Jp",
-            "QmFyYW5nGAYgASgDEhsKE0lkU3ViS2F0ZWdvcmlCYXJhbmcYByABKAMSDQoF",
-            "SGFyZ2EYCCABKAESDgoGSnVtbGFoGAkgASgBEjEKC0Rpc2tvbkRldGlsGAog",
-            "ASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEhUKDURpc2tvbk5v",
-            "bWluYWwYCyABKAESDQoFVG90YWwYDCABKAMSNgoQQ2F0YXRhblBlbmF3YXJh",
-            "bhgNIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIyCgxTYXR1",
-            "YW5TYXR1YW4YDiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUS",
-            "MgoMQmFyYW5nQmFyYW5nGA8gASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmlu",
-            "Z1ZhbHVlEjIKDEJhcmFuZ1VrdXJhbhgQIAEoCzIcLmdvb2dsZS5wcm90b2J1",
-            "Zi5TdHJpbmdWYWx1ZRISCgpCYXJhbmdVbXVyGBEgASgFEj4KGFN1YkRpdmlz",
-            "aUJhcmFuZ1N1YkRpdmlzaRgSIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJp",
-            "bmdWYWx1ZRJCChxTdWJLYXRlZ29yaUJhcmFuZ1N1YkthdGVnb3JpGBMgASgL",
-            "MhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjgKEkRpdmlzaUJhcmFu",
-            "Z0RpdmlzaRgUIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRI8",
-            "ChZLYXRlZ29yaUJhcmFuZ0thdGVnb3JpGBUgASgLMhwuZ29vZ2xlLnByb3Rv",
-            "YnVmLlN0cmluZ1ZhbHVlIhYKBXBlc2FuEg0KBXBlc2FuGAEgASgJMoQBChJQ",
-            "ZW5hd2FyYW5QZW1iZWxpYW4SQAogSW5zZXJ0UGVuYXdhcmFuUGVtYmVsaWFu",
-            "UmVwZWF0ZWQSFC5JbnNlcnREYXRhVDZSZXF1c2V0GgYucGVzYW4SLAoNR2V0",
-            "RGF0YVRlcm1pbhIOLlRlcm1pblJlcXVlc3QaCy5MaXN0VGVybWluQg6qAgtn",
-            "cnBjQXJhY2huZWIGcHJvdG8z"));
+            "Lkluc2VydERhdGFUN1JlcXVzZXQSLQoHQ2F0YXRhbhgKIAEoCzIcLmdvb2ds",
+            "ZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZSKiBgoTSW5zZXJ0RGF0YVQ3UmVxdXNl",
+            "dBIQCghJZEJhcmFuZxgBIAEoAxIhChlJZERldGlsUGVuYXdhcmFuUGVtYmVs",
+            "aWFuGAIgASgDEhAKCElkU2F0dWFuGAMgASgDEhYKDklkRGl2aXNpQmFyYW5n",
+            "GAQgASgDEhkKEUlkU3ViRGl2aXNpQmFyYW5nGAUgASgDEhgKEElkS2F0ZWdv",
+            "cmlCYXJhbmcYBiABKAMSGwoTSWRTdWJLYXRlZ29yaUJhcmFuZxgHIAEoAxIN",
+            "CgVIYXJnYRgIIAEoARIOCgZKdW1sYWgYCSABKAESMQoLRGlza29uRGV0aWwY",
+            "CiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSFQoNRGlza29u",
+            "Tm9taW5hbBgLIAEoARINCgVUb3RhbBgMIAEoAxI2ChBDYXRhdGFuUGVuYXdh",
+            "cmFuGA0gASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjIKDFNh",
+            "dHVhblNhdHVhbhgOIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1",
+            "ZRIyCgxCYXJhbmdCYXJhbmcYDyABKAsyHC5nb29nbGUucHJvdG9idWYuU3Ry",
+            "aW5nVmFsdWUSMgoMQmFyYW5nVWt1cmFuGBAgASgLMhwuZ29vZ2xlLnByb3Rv",
+            "YnVmLlN0cmluZ1ZhbHVlEhIKCkJhcmFuZ1VtdXIYESABKAUSPgoYU3ViRGl2",
+            "aXNpQmFyYW5nU3ViRGl2aXNpGBIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0",
+            "cmluZ1ZhbHVlEkIKHFN1YkthdGVnb3JpQmFyYW5nU3ViS2F0ZWdvcmkYEyAB",
+            "KAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSOAoSRGl2aXNpQmFy",
+            "YW5nRGl2aXNpGBQgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
+            "EjwKFkthdGVnb3JpQmFyYW5nS2F0ZWdvcmkYFSABKAsyHC5nb29nbGUucHJv",
+            "dG9idWYuU3RyaW5nVmFsdWUiFgoFcGVzYW4SDQoFcGVzYW4YASABKAkyhAEK",
+            "ElBlbmF3YXJhblBlbWJlbGlhbhJACiBJbnNlcnRQZW5hd2FyYW5QZW1iZWxp",
+            "YW5SZXBlYXRlZBIULkluc2VydERhdGFUNlJlcXVzZXQaBi5wZXNhbhIsCg1H",
+            "ZXREYXRhVGVybWluEg4uVGVybWluUmVxdWVzdBoLLkxpc3RUZXJtaW5CDqoC",
+            "C2dycGNBcmFjaG5lYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.TerminRequest), global::grpcArachne.TerminRequest.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.TerminResponse), global::grpcArachne.TerminResponse.Parser, new[]{ "IdTermin", "Termin" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.ListTermin), global::grpcArachne.ListTermin.Parser, new[]{ "TerminResponse" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT6Requset), global::grpcArachne.InsertDataT6Requset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "GrandTotal", "IdCompanyPenerima", "DiskonDetil", "DiskonNominal", "IdTermin", "T7Requset" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT6Requset), global::grpcArachne.InsertDataT6Requset.Parser, new[]{ "IdPenawaranPembelian", "IdJenisSupplier", "IdSupplier", "GrandTotal", "IdCompanyPenerima", "DiskonDetil", "DiskonNominal", "IdTermin", "T7Requset", "Catatan" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.InsertDataT7Requset), global::grpcArachne.InsertDataT7Requset.Parser, new[]{ "IdBarang", "IdDetilPenawaranPembelian", "IdSatuan", "IdDivisiBarang", "IdSubDivisiBarang", "IdKategoriBarang", "IdSubKategoriBarang", "Harga", "Jumlah", "DiskonDetil", "DiskonNominal", "Total", "CatatanPenawaran", "SatuanSatuan", "BarangBarang", "BarangUkuran", "BarangUmur", "SubDivisiBarangSubDivisi", "SubKategoriBarangSubKategori", "DivisiBarangDivisi", "KategoriBarangKategori" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.pesan), global::grpcArachne.pesan.Parser, new[]{ "Pesan" }, null, null, null, null)
           }));
@@ -493,6 +494,7 @@ namespace grpcArachne {
       diskonNominal_ = other.diskonNominal_;
       idTermin_ = other.idTermin_;
       t7Requset_ = other.t7Requset_.Clone();
+      Catatan = other.Catatan;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
@@ -601,6 +603,19 @@ namespace grpcArachne {
       get { return t7Requset_; }
     }
 
+    /// <summary>Field number for the "Catatan" field.</summary>
+    public const int CatatanFieldNumber = 10;
+    private static readonly pb::FieldCodec<string> _single_catatan_codec = pb::FieldCodec.ForClassWrapper<string>(82);
+    private string catatan_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public string Catatan {
+      get { return catatan_; }
+      set {
+        catatan_ = value;
+      }
+    }
+
+
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
       return Equals(other as InsertDataT6Requset);
@@ -623,6 +638,7 @@ namespace grpcArachne {
       if (!pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.Equals(DiskonNominal, other.DiskonNominal)) return false;
       if (IdTermin != other.IdTermin) return false;
       if(!t7Requset_.Equals(other.t7Requset_)) return false;
+      if (Catatan != other.Catatan) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
@@ -638,6 +654,7 @@ namespace grpcArachne {
       if (DiskonNominal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DiskonNominal);
       if (IdTermin != 0L) hash ^= IdTermin.GetHashCode();
       hash ^= t7Requset_.GetHashCode();
+      if (catatan_ != null) hash ^= Catatan.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -683,6 +700,9 @@ namespace grpcArachne {
         output.WriteInt64(IdTermin);
       }
       t7Requset_.WriteTo(output, _repeated_t7Requset_codec);
+      if (catatan_ != null) {
+        _single_catatan_codec.WriteTagAndValue(output, Catatan);
+      }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
       }
@@ -716,6 +736,9 @@ namespace grpcArachne {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdTermin);
       }
       size += t7Requset_.CalculateSize(_repeated_t7Requset_codec);
+      if (catatan_ != null) {
+        size += _single_catatan_codec.CalculateSizeWithTag(Catatan);
+      }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
       }
@@ -754,6 +777,11 @@ namespace grpcArachne {
         IdTermin = other.IdTermin;
       }
       t7Requset_.Add(other.t7Requset_);
+      if (other.catatan_ != null) {
+        if (catatan_ == null || other.Catatan != "") {
+          Catatan = other.Catatan;
+        }
+      }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
     }
 
@@ -802,6 +830,13 @@ namespace grpcArachne {
           }
           case 74: {
             t7Requset_.AddEntriesFrom(input, _repeated_t7Requset_codec);
+            break;
+          }
+          case 82: {
+            string value = _single_catatan_codec.Read(input);
+            if (catatan_ == null || value != "") {
+              Catatan = value;
+            }
             break;
           }
         }

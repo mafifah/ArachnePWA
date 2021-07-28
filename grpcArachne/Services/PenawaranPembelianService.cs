@@ -41,6 +41,7 @@ namespace grpcArachne.Services
                         IdCompany_Penerima = request.IdCompanyPenerima,
                         IdSupplier = request.IdSupplier,
                         GrandTotal =(decimal) request.GrandTotal,
+                        Catatan = request.Catatan,
                         DiskonDetil = request.DiskonDetil,
                         DiskonNominal =(decimal) request.DiskonNominal,
                         WaktuInsert = DateTimeOffset.UtcNow.LocalDateTime

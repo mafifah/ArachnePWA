@@ -37,6 +37,7 @@ message InsertDataT6Requset
 	double DiskonNominal = 7;
 	int64 IdTermin = 8;
 	repeated InsertDataT7Requset T7Requset=9;
+	google.protobuf.StringValue Catatan = 10;
 	
 }
 message InsertDataT7Requset
