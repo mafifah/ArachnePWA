@@ -11,13 +11,10 @@ namespace bzrArachne.Service
     public class PenawaranService
     {
         List<DataPenawaran> listBarangs = new List<DataPenawaran>();
-
+        List<DataTermin> dataTermins = new List<DataTermin>();
         DataPenawaran dataPenawaran = new DataPenawaran();
 
-        public PenawaranService()
-        {
 
-        }
 
         //public async Task<bool> InsertDataRepeated(DataPenawaran dataPenawaran)
         //{
@@ -96,5 +93,23 @@ namespace bzrArachne.Service
                 }
                 return output;
             }
+
+       public async Task <List<DataTermin>>GetDataTermin()
+        {
+            var channel = GrpcChannel.ForAddress("https://localhost:5001");
+            var client = new PenawaranPembelian.PenawaranPembelianClient(channel);
+            var request = new TerminRequest();
+            var reply = await client.GetDataTerminAsync(request);
+            dataTermins = new List<DataTermin>();
+            foreach (var item in reply.TerminResponse)
+            {
+                dataTermins.Add(new DataTermin
+                {
+                    IdTermin = item.IdTermin,
+                    Termin = item.Termin,
+                });
+            }
+            return dataTermins;
         }
-    } 
+     }
+} 

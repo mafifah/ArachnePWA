@@ -22,7 +22,11 @@ namespace grpcArachne.Data
         public DbSet<DbT1SubKategoriBarang> T1SubKategoriBarangDbSet { get; set; }
         public DbSet<DbT6PenawaranPembelian> T6PenawaranPembelianDbSet { get; set; }
         public DbSet<DbT7PenawaranPembelian> T7PenawaranPembelianDbSet { get; set; }
+<<<<<<< HEAD
         public DbSet<DbT9Option> T9DataOptionDbSet { get; set; }
+=======
+        public DbSet<DbT0Termin> T0TerminDbSet { get; set; }
+>>>>>>> 1fd5b6edf0e39571c545c753f8ab487e54c420c2
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DbT1Supplier>(entity =>
@@ -112,11 +116,18 @@ namespace grpcArachne.Data
                 entity.ToTable("T7PenawaranPembelian");
                 entity.HasKey(e => e.IdDetilPenawaranPembelian);
             });
+<<<<<<< HEAD
 
             modelBuilder.Entity<DbT9Option>(entity =>
             {
                 entity.ToTable("T9DataOption");
                 entity.HasKey(e => e.IdDataOption);
+=======
+            modelBuilder.Entity<DbT0Termin>(entity =>
+            {
+                entity.ToTable("T0Termin");
+                entity.HasKey(e => e.IdTermin);
+>>>>>>> 1fd5b6edf0e39571c545c753f8ab487e54c420c2
             });
         }
     }

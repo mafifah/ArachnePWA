@@ -140,7 +140,11 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
+<<<<<<< HEAD
 #line 380 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+=======
+#line 399 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
+>>>>>>> 1fd5b6edf0e39571c545c753f8ab487e54c420c2
  
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
@@ -167,6 +171,7 @@ using bzrArachne.Models;
     double _grandDetil { get; set; }
     bool showModal = false;
     bool showModalBarang = false;
+<<<<<<< HEAD
     private string NamaBaru { get; set; }
     private double HargaBaru { get; set; }
     private string SelectedDivisi { get; set; } = "3001";
@@ -183,6 +188,20 @@ using bzrArachne.Models;
     List<KategoriBarang> KategoriBarang = new List<KategoriBarang>();
     List<UkuranBarang> UkuranBarang = new List<UkuranBarang>();
     List<UkuranBarang> FilteredUkuranBarang = new List<UkuranBarang>();
+=======
+    void ModalShow() => showModal = true;
+    void ModalCancel() => showModal = false;
+
+    //
+    async void ModalBarangShow()
+    {
+        showModal = false;
+        showModalBarang = true;
+    }
+
+    void ModalBarangCancel() => showModalBarang = false;
+
+>>>>>>> 1fd5b6edf0e39571c545c753f8ab487e54c420c2
     Random rnd = new Random();
     //filter
     bool showSearchNama = false;
@@ -196,9 +215,10 @@ using bzrArachne.Models;
     private DataPenawaran dataPenawaran = new DataPenawaran();
     private List<DataBarang> _daftarBarang = new List<DataBarang>();
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
+    List<DataTermin> dataTermins = new List<DataTermin>();
     protected override async Task OnInitializedAsync()
     {
-
+        dataTermins = await Task.Run(() => PenawaranService.GetDataTermin());
         user = DataService.User;
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
@@ -316,7 +336,10 @@ using bzrArachne.Models;
                 BarangPenawaran = barangPenawarans,
                 GrandTotal = _grandtotal,
                 DiskonDetil = _grandDetil.ToString(),
-                DiskonNominal = _grandDiskon
+                DiskonNominal = _grandDiskon,
+                
+                
+                
             };
             var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
             DataService.SetNullBarangDipilih();
