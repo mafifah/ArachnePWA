@@ -37,8 +37,10 @@ namespace grpcArachne
         {
             var qryT0SubDivisiBarang =
                 (from T1SubDivisiBarang in _db.T1SubDivisiBarangDbSet
+                 where T1SubDivisiBarang.IdSubDivisiBarang != 56001
                  select new T1SubDivisiBarang
                  {
+                     IdDivisiBarang = (long)T1SubDivisiBarang.IdDivisiBarang,
                      IdSubDivisi = T1SubDivisiBarang.IdSubDivisiBarang,
                      SubDivisi = T1SubDivisiBarang.SubDivisi,
                      Keterangan = T1SubDivisiBarang.Keterangan,
@@ -64,16 +66,16 @@ namespace grpcArachne
             }
         }
 
-        public override async Task GetSubKategoriBarang(Empty request, IServerStreamWriter<T1SubKategoriBarang> responseStream, ServerCallContext context)
+        public override async Task GetDataOption(Empty request, IServerStreamWriter<T9DataOption> responseStream, ServerCallContext context)
         {
-            var qryT1SubKategoriBarang =
-                (from T1SubKategoriBarang in _db.T1SubKategoriBarangDbSet
-                 select new T1SubKategoriBarang
+            var qryT9DataOption =
+                (from T9DataOption in _db.T9DataOptionDbSet
+                 where T9DataOption.Entity == "Isi Atribut2 Barang"
+                 select new T9DataOption
                  {
-                     IdSubKategoriBarang = T1SubKategoriBarang.IdSubKategoriBarang,
-                     SubKategoriBarang = T1SubKategoriBarang.SubKategori
+                     DataOption = T9DataOption.DataOption
                  }).AsEnumerable();
-            foreach (var item in qryT1SubKategoriBarang)
+            foreach (var item in qryT9DataOption)
             {
                 await responseStream.WriteAsync(item);
             }

@@ -2,6 +2,7 @@
 @using bzrArachne.Service
 @using bzrArachne.Models
 @inject DataService DataService
+@inject FormAtributService FormAtributService
 @inject PenawaranService PenawaranService
 @inject NavigationManager NavigationManager
 @inject NavigationManager NavigationManager
@@ -155,8 +156,6 @@
     </form>
 
     <!--MODAL BARANG YANG SUDAH ADA-->
-    <!--MODAL BARANG YANG SUDAH ADA-->
-    <!--MODAL BARANG YANG SUDAH ADA-->
     @if (showModal)
     {
         <div class="modal fade show" id="myModal" style="display:block" aria-modal="true" role="dialog">
@@ -246,20 +245,16 @@
         </div>
     }
     <!--MODAL BARANG YANG SUDAH ADA-->
-    <!--MODAL BARANG YANG SUDAH ADA-->
-    <!--MODAL BARANG YANG SUDAH ADA-->
-    <!------------------------------------------------------------ModalBarangBaru----------------------------------------------------------------->
-    <!------------------------------------------------------------ModalBarangBaru----------------------------------------------------------------->
+
     <!------------------------------------------------------------ModalBarangBaru----------------------------------------------------------------->
     @if (showModalBarang)
     {
         <div class="modal fade show" id="myModal2" style="display:block" aria-modal="true" role="dialog">
             <div class="modal-dialog modal-dialog-scrollable modal-lg">
                 <div class="modal-content">
-
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">Barang</h4>
+                        <h4 class="modal-title">Form Barang Baru</h4>
                         <button type="button" class="close" @onclick="@ModalBarangCancel" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -270,51 +265,46 @@
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Nama</label>
-                                    <input type="text" class="form-control" placeholder="Nama ...">
+                                    <label>Nama Barang</label>
+                                    @{
+                                        var Div = DivisiBarang.Where(i => i.IdDivisi.ToString() == SelectedDivisi).FirstOrDefault();
+                                        var SubDiv = SubDivisiBarang.Where(i => i.Keterangan == SelectedSubDivisi).FirstOrDefault();
+                                        SelectedDivisiNama = Div.Divisi;
+                                        SelectedSubDivisiNama = SubDiv.SubDivisi;
+                                        NamaBaru = $"{Div.Divisi} {SubDiv.SubDivisi} {SelectedUkuran}";
+                                    }
+                                    <input type="text" @bind="NamaBaru" class="form-control" placeholder="Xyz">
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Divisi</label>
-                                    <select class="form-control">
-                                        <option value="Lainnya...">Lainnya.....</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <!-- text input -->
-                                <div class="form-group">
-                                    <label>Warna</label>
-                                    <input type="text" class="form-control" placeholder="Warna ...">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Sub Divisi</label>
-                                    <select class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <!-- text input -->
                                 <div class="form-group">
                                     <label>Ukuran</label>
-                                    <input type="text" class="form-control" placeholder="Ukuran ...">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>kategori</label>
-                                    <select class="form-control">
-                                        <option>option 2</option>
+                                    <select class="form-control" @bind="SelectedUkuran">
+                                        @{
+                                            if (SelectedSubDivisi.Contains("Cotton"))
+                                            {
+                                                var data = UkuranBarang.Where(i => i.Ukuran.Contains("S")).ToList();
+                                                @foreach (var item in data)
+                                                {
+                                                    <option value="@item.Ukuran">@item.Ukuran</option>
+                                                }
+                                                <option>Lainnya</option>
+                                            }
+                                            else
+                                            {
+                                                var data = UkuranBarang.Where(i => i.Ukuran.Contains("D")).ToList();
+                                                @foreach (var item in data)
+                                                {
+                                                    <option value="@item.Ukuran">@item.Ukuran</option>
+                                                }
+                                                <option>Lainnya</option>
+                                            }
+                                        }
                                     </select>
+                                    @if (SelectedUkuran == "Lainnya") {
+                                    <br />
+                                    <input @bind="UkuranLainnya" type="text" class="form-control" placeholder="Ukuran Lainnya">
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -322,32 +312,54 @@
                             <div class="col-sm-6">
                                 <!-- text input -->
                                 <div class="form-group">
-                                    <label>Umur</label>
-                                    <input type="text" class="form-control" placeholder="Umur ...">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Sub Kategori</label>
-                                    <select class="form-control">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
+                                    <label>Divisi Barang</label>
+                                    <select @bind="SelectedDivisi" class="form-control">
+                                        @foreach (var item in DivisiBarang)
+                                        {
+                                            <option value="@item.IdDivisi.ToString()">@item.Divisi</option>
+                                        }
                                     </select>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row">
                             <div class="col-sm-6">
-                                <!-- text input -->
                                 <div class="form-group">
                                     <label>Satuan</label>
-                                    <select class="form-control">
-                                        @foreach (var item in _daftarBarang)
+                                    <select class="form-control" @bind="SelectedSatuan">
+                                        <option value="Cone">Cone</option>
+                                        <option value="Bale">Bale</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Sub Divisi Barang</label>
+                                    <select class="form-control" @bind="SelectedSubDivisi">
+                                        @foreach (var item in FilteredSubDivisiBarang)
                                         {
-                                            <option value="@item.Satuan">@item.Satuan</option>
+                                            <option value="@item.Keterangan">@item.Keterangan</option>
                                         }
-
-                                        <option value="Lainnya...">Lainnya.....</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label>Harga Barang</label>
+                                    <input @bind="HargaBaru" type="number" class="form-control" placeholder="Rp0">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <!-- text input -->
+                                <div class="form-group">
+                                    <label>Kategori Barang</label>
+                                    <select class="form-control" @bind="SelectedKategori">
+                                        @foreach (var item in KategoriBarang)
+                                        {
+                                            <option value="@item.Kategori">@item.Kategori</option>
+                                        }
                                     </select>
                                 </div>
                             </div>
@@ -355,13 +367,12 @@
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="button" @onclick="(() => TambahBarangKeList())" class="btn btn-success">Tambah</button>
+                        <button type="button" @onclick="(() => TambahBarangBaru())" class="btn btn-success">Tambah</button>
                     </div>
                 </div>
             </div>
         </div>
     }
-
 </div>
 
 @code
@@ -391,18 +402,22 @@
     double _grandDetil { get; set; }
     bool showModal = false;
     bool showModalBarang = false;
-    void ModalShow() => showModal = true;
-    void ModalCancel() => showModal = false;
-
-    //
-    async void ModalBarangShow()
-    {
-        showModal = false;
-        showModalBarang = true;
-    }
-
-    void ModalBarangCancel() => showModalBarang = false;
-    
+    private string NamaBaru { get; set; }
+    private double HargaBaru { get; set; }
+    private string SelectedDivisi { get; set; } = "3001";
+    private string SelectedDivisiNama { get; set; } = "";
+    private string SelectedSubDivisi { get; set; } = "Spandex";
+    private string SelectedSubDivisiNama { get; set; } = "";
+    private string SelectedKategori { get; set; } = "Raw";
+    private string SelectedUkuran { get; set; } = "40D";
+    private string UkuranLainnya { get; set; } = "";
+    private string SelectedSatuan { get; set; } = "Cone";
+    List<DivisiBarang> DivisiBarang = new List<DivisiBarang>();
+    List<SubDivisiBarang> SubDivisiBarang = new List<SubDivisiBarang>();
+    List<SubDivisiBarang> FilteredSubDivisiBarang => SubDivisiBarang.Where(i => i.IdDivisi.ToString() == SelectedDivisi).ToList();
+    List<KategoriBarang> KategoriBarang = new List<KategoriBarang>();
+    List<UkuranBarang> UkuranBarang = new List<UkuranBarang>();
+    List<UkuranBarang> FilteredUkuranBarang = new List<UkuranBarang>();
     Random rnd = new Random();
     //filter
     bool showSearchNama = false;
@@ -411,7 +426,6 @@
     string SearchSatuan { get; set; } = "";
     List<DataBarang> FilteredBarang => _daftarBarang.Where(i => i.Nama.ToLower().Contains(SearchNama) && i.Satuan.ToLower().Contains(SearchSatuan)).ToList();
     List<DataBarang> datachecked { get; set; } = new List<DataBarang>();
-    //filter
     private DataUser user = new DataUser();
     private DataBarang Item { get; set; }
     private DataPenawaran dataPenawaran = new DataPenawaran();
@@ -424,6 +438,8 @@
         var Token = DataService.Token;
         if (!String.IsNullOrEmpty(Token))
         {
+
+            GetAtributForm();
             Item = DataService._barangDipilih;
             barangPenawarans.Add(new BarangPenawaran
             {
@@ -478,6 +494,15 @@
             NavigationManager.NavigateTo("/");
         }
     }
+    void ModalShow() => showModal = true;
+    void ModalCancel() => showModal = false;
+
+    void ModalBarangShow()
+    {
+        showModal = false;
+        showModalBarang = true;
+    }
+    void ModalBarangCancel() => showModalBarang = false;
     void TambahBarangKeList()
     {
         foreach (var data in datachecked)
@@ -563,5 +588,83 @@
     void RemoveSearchNama() { SearchNama = ""; showSearchNama = false; }
     void ShowSearchSatuan() => showSearchSatuan = true;
     void RemoveSearchSatuan() { SearchSatuan = ""; showSearchSatuan = false; }
-    void FormBarangBaru() => NavigationManager.NavigateTo("formPenawaranBarangBaru");
+    async void GetAtributForm()
+    {
+        var dataDivisi = FormAtributService.GetDivisiBarang();
+        DivisiBarang.Clear();
+        await foreach (var item in dataDivisi)
+        {
+            DivisiBarang.Add(new DivisiBarang {
+                IdDivisi = item.IdDivisi,
+                Divisi = item.Divisi,
+            });
+        }
+
+        var dataSubDivisi = FormAtributService.GetSubDivisiBarang();
+        SubDivisiBarang.Clear();
+        await foreach (var item in dataSubDivisi)
+        {
+            SubDivisiBarang.Add(new SubDivisiBarang
+            {
+                IdDivisi = item.IdDivisiBarang,
+                IdSubDivisi = item.IdSubDivisi,
+                SubDivisi = item.SubDivisi,
+                Keterangan = item.Keterangan,
+            });
+        }
+
+        var dataKategori = FormAtributService.GetKategoriBarang();
+        KategoriBarang.Clear();
+        await foreach (var item in dataKategori)
+        {
+            KategoriBarang.Add(new KategoriBarang
+            {
+                IdKategori = item.IdKategoriBarang,
+                Kategori = item.KategoriBarang,
+            });
+        }
+
+        var dataUkuran = FormAtributService.GetUkuranBarang();
+        UkuranBarang.Clear();
+        await foreach (var item in dataUkuran)
+        {
+            UkuranBarang.Add(new UkuranBarang
+            {
+                Ukuran = item.DataOption
+            });
+        }
+    }
+    void TambahBarangBaru()
+    {
+        var ukuran = "";
+        if(SelectedUkuran == "Lainnya")
+        {
+            ukuran = UkuranLainnya;
+        }else
+        {
+            ukuran = SelectedUkuran;
+        }
+        barangPenawarans.Add(new BarangPenawaran
+        {
+            Nama = NamaBaru,
+            Satuan = SelectedSatuan,
+            DivisiBarang_Divisi = SelectedDivisiNama,
+            SubDivisiBarang_SubDivisi = SelectedSubDivisiNama,
+            KategoriBarang_Kategori = SelectedKategori,
+            Barang_Ukuran = ukuran,
+            Harga = HargaBaru,
+        });
+        NamaBaru = "";
+        HargaBaru = 0;
+        SelectedDivisi = "3001";
+        SelectedDivisiNama = "";
+        SelectedSubDivisi = "Spandex";
+        SelectedSubDivisiNama = "";
+        SelectedKategori = "Raw";
+        SelectedUkuran = "40D";
+        UkuranLainnya = "";
+        SelectedSatuan = "Cone";
+        this.StateHasChanged();
+        ModalBarangCancel();
+    }
 }

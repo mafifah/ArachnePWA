@@ -27,29 +27,28 @@ namespace grpcArachne {
             "ChhQcm90b3MvRm9ybUF0cmlidXQucHJvdG8aG2dvb2dsZS9wcm90b2J1Zi9l",
             "bXB0eS5wcm90bxoeZ29vZ2xlL3Byb3RvYnVmL3dyYXBwZXJzLnByb3RvIgcK",
             "BUVtcHR5IlAKDlQwRGl2aXNpQmFyYW5nEhAKCElkRGl2aXNpGAEgASgDEiwK",
-            "BkRpdmlzaRgCIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZSKL",
-            "AQoRVDFTdWJEaXZpc2lCYXJhbmcSEwoLSWRTdWJEaXZpc2kYASABKAMSLwoJ",
-            "U3ViRGl2aXNpGAIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
-            "EjAKCktldGVyYW5nYW4YAyABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5n",
-            "VmFsdWUiYgoQVDBLYXRlZ29yaUJhcmFuZxIYChBJZEthdGVnb3JpQmFyYW5n",
-            "GAEgASgDEjQKDkthdGVnb3JpQmFyYW5nGAIgASgLMhwuZ29vZ2xlLnByb3Rv",
-            "YnVmLlN0cmluZ1ZhbHVlImsKE1QxU3ViS2F0ZWdvcmlCYXJhbmcSGwoTSWRT",
-            "dWJLYXRlZ29yaUJhcmFuZxgBIAEoAxI3ChFTdWJLYXRlZ29yaUJhcmFuZxgC",
-            "IAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZTLZAQoLRm9ybUF0",
-            "cmlidXQSLAoPR2V0RGl2aXNpQmFyYW5nEgYuRW1wdHkaDy5UMERpdmlzaUJh",
-            "cmFuZzABEjIKEkdldFN1YkRpdmlzaUJhcmFuZxIGLkVtcHR5GhIuVDFTdWJE",
-            "aXZpc2lCYXJhbmcwARIwChFHZXRLYXRlZ29yaUJhcmFuZxIGLkVtcHR5GhEu",
-            "VDBLYXRlZ29yaUJhcmFuZzABEjYKFEdldFN1YkthdGVnb3JpQmFyYW5nEgYu",
-            "RW1wdHkaFC5UMVN1YkthdGVnb3JpQmFyYW5nMAFCDqoCC2dycGNBcmFjaG5l",
-            "YgZwcm90bzM="));
+            "BkRpdmlzaRgCIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZSKj",
+            "AQoRVDFTdWJEaXZpc2lCYXJhbmcSFgoOSWREaXZpc2lCYXJhbmcYASABKAMS",
+            "EwoLSWRTdWJEaXZpc2kYAiABKAMSLwoJU3ViRGl2aXNpGAMgASgLMhwuZ29v",
+            "Z2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjAKCktldGVyYW5nYW4YBCABKAsy",
+            "HC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUiYgoQVDBLYXRlZ29yaUJh",
+            "cmFuZxIYChBJZEthdGVnb3JpQmFyYW5nGAEgASgDEjQKDkthdGVnb3JpQmFy",
+            "YW5nGAIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlIkAKDFQ5",
+            "RGF0YU9wdGlvbhIwCgpEYXRhT3B0aW9uGAEgASgLMhwuZ29vZ2xlLnByb3Rv",
+            "YnVmLlN0cmluZ1ZhbHVlMssBCgtGb3JtQXRyaWJ1dBIsCg9HZXREaXZpc2lC",
+            "YXJhbmcSBi5FbXB0eRoPLlQwRGl2aXNpQmFyYW5nMAESMgoSR2V0U3ViRGl2",
+            "aXNpQmFyYW5nEgYuRW1wdHkaEi5UMVN1YkRpdmlzaUJhcmFuZzABEjAKEUdl",
+            "dEthdGVnb3JpQmFyYW5nEgYuRW1wdHkaES5UMEthdGVnb3JpQmFyYW5nMAES",
+            "KAoNR2V0RGF0YU9wdGlvbhIGLkVtcHR5Gg0uVDlEYXRhT3B0aW9uMAFCDqoC",
+            "C2dycGNBcmFjaG5lYgZwcm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.Empty), global::grpcArachne.Empty.Parser, null, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T0DivisiBarang), global::grpcArachne.T0DivisiBarang.Parser, new[]{ "IdDivisi", "Divisi" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T1SubDivisiBarang), global::grpcArachne.T1SubDivisiBarang.Parser, new[]{ "IdSubDivisi", "SubDivisi", "Keterangan" }, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T1SubDivisiBarang), global::grpcArachne.T1SubDivisiBarang.Parser, new[]{ "IdDivisiBarang", "IdSubDivisi", "SubDivisi", "Keterangan" }, null, null, null, null),
             new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T0KategoriBarang), global::grpcArachne.T0KategoriBarang.Parser, new[]{ "IdKategoriBarang", "KategoriBarang" }, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T1SubKategoriBarang), global::grpcArachne.T1SubKategoriBarang.Parser, new[]{ "IdSubKategoriBarang", "SubKategoriBarang" }, null, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(global::grpcArachne.T9DataOption), global::grpcArachne.T9DataOption.Parser, new[]{ "DataOption" }, null, null, null, null)
           }));
     }
     #endregion
@@ -345,6 +344,7 @@ namespace grpcArachne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public T1SubDivisiBarang(T1SubDivisiBarang other) : this() {
+      idDivisiBarang_ = other.idDivisiBarang_;
       idSubDivisi_ = other.idSubDivisi_;
       SubDivisi = other.SubDivisi;
       Keterangan = other.Keterangan;
@@ -356,8 +356,19 @@ namespace grpcArachne {
       return new T1SubDivisiBarang(this);
     }
 
+    /// <summary>Field number for the "IdDivisiBarang" field.</summary>
+    public const int IdDivisiBarangFieldNumber = 1;
+    private long idDivisiBarang_;
+    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+    public long IdDivisiBarang {
+      get { return idDivisiBarang_; }
+      set {
+        idDivisiBarang_ = value;
+      }
+    }
+
     /// <summary>Field number for the "IdSubDivisi" field.</summary>
-    public const int IdSubDivisiFieldNumber = 1;
+    public const int IdSubDivisiFieldNumber = 2;
     private long idSubDivisi_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public long IdSubDivisi {
@@ -368,8 +379,8 @@ namespace grpcArachne {
     }
 
     /// <summary>Field number for the "SubDivisi" field.</summary>
-    public const int SubDivisiFieldNumber = 2;
-    private static readonly pb::FieldCodec<string> _single_subDivisi_codec = pb::FieldCodec.ForClassWrapper<string>(18);
+    public const int SubDivisiFieldNumber = 3;
+    private static readonly pb::FieldCodec<string> _single_subDivisi_codec = pb::FieldCodec.ForClassWrapper<string>(26);
     private string subDivisi_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string SubDivisi {
@@ -381,8 +392,8 @@ namespace grpcArachne {
 
 
     /// <summary>Field number for the "Keterangan" field.</summary>
-    public const int KeteranganFieldNumber = 3;
-    private static readonly pb::FieldCodec<string> _single_keterangan_codec = pb::FieldCodec.ForClassWrapper<string>(26);
+    public const int KeteranganFieldNumber = 4;
+    private static readonly pb::FieldCodec<string> _single_keterangan_codec = pb::FieldCodec.ForClassWrapper<string>(34);
     private string keterangan_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public string Keterangan {
@@ -406,6 +417,7 @@ namespace grpcArachne {
       if (ReferenceEquals(other, this)) {
         return true;
       }
+      if (IdDivisiBarang != other.IdDivisiBarang) return false;
       if (IdSubDivisi != other.IdSubDivisi) return false;
       if (SubDivisi != other.SubDivisi) return false;
       if (Keterangan != other.Keterangan) return false;
@@ -415,6 +427,7 @@ namespace grpcArachne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
+      if (IdDivisiBarang != 0L) hash ^= IdDivisiBarang.GetHashCode();
       if (IdSubDivisi != 0L) hash ^= IdSubDivisi.GetHashCode();
       if (subDivisi_ != null) hash ^= SubDivisi.GetHashCode();
       if (keterangan_ != null) hash ^= Keterangan.GetHashCode();
@@ -431,8 +444,12 @@ namespace grpcArachne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (IdSubDivisi != 0L) {
+      if (IdDivisiBarang != 0L) {
         output.WriteRawTag(8);
+        output.WriteInt64(IdDivisiBarang);
+      }
+      if (IdSubDivisi != 0L) {
+        output.WriteRawTag(16);
         output.WriteInt64(IdSubDivisi);
       }
       if (subDivisi_ != null) {
@@ -449,6 +466,9 @@ namespace grpcArachne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
+      if (IdDivisiBarang != 0L) {
+        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdDivisiBarang);
+      }
       if (IdSubDivisi != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSubDivisi);
       }
@@ -468,6 +488,9 @@ namespace grpcArachne {
     public void MergeFrom(T1SubDivisiBarang other) {
       if (other == null) {
         return;
+      }
+      if (other.IdDivisiBarang != 0L) {
+        IdDivisiBarang = other.IdDivisiBarang;
       }
       if (other.IdSubDivisi != 0L) {
         IdSubDivisi = other.IdSubDivisi;
@@ -494,17 +517,21 @@ namespace grpcArachne {
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
           case 8: {
+            IdDivisiBarang = input.ReadInt64();
+            break;
+          }
+          case 16: {
             IdSubDivisi = input.ReadInt64();
             break;
           }
-          case 18: {
+          case 26: {
             string value = _single_subDivisi_codec.Read(input);
             if (subDivisi_ == null || value != "") {
               SubDivisi = value;
             }
             break;
           }
-          case 26: {
+          case 34: {
             string value = _single_keterangan_codec.Read(input);
             if (keterangan_ == null || value != "") {
               Keterangan = value;
@@ -680,11 +707,11 @@ namespace grpcArachne {
 
   }
 
-  public sealed partial class T1SubKategoriBarang : pb::IMessage<T1SubKategoriBarang> {
-    private static readonly pb::MessageParser<T1SubKategoriBarang> _parser = new pb::MessageParser<T1SubKategoriBarang>(() => new T1SubKategoriBarang());
+  public sealed partial class T9DataOption : pb::IMessage<T9DataOption> {
+    private static readonly pb::MessageParser<T9DataOption> _parser = new pb::MessageParser<T9DataOption>(() => new T9DataOption());
     private pb::UnknownFieldSet _unknownFields;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public static pb::MessageParser<T1SubKategoriBarang> Parser { get { return _parser; } }
+    public static pb::MessageParser<T9DataOption> Parser { get { return _parser; } }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
@@ -697,71 +724,57 @@ namespace grpcArachne {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public T1SubKategoriBarang() {
+    public T9DataOption() {
       OnConstruction();
     }
 
     partial void OnConstruction();
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public T1SubKategoriBarang(T1SubKategoriBarang other) : this() {
-      idSubKategoriBarang_ = other.idSubKategoriBarang_;
-      SubKategoriBarang = other.SubKategoriBarang;
+    public T9DataOption(T9DataOption other) : this() {
+      DataOption = other.DataOption;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public T1SubKategoriBarang Clone() {
-      return new T1SubKategoriBarang(this);
+    public T9DataOption Clone() {
+      return new T9DataOption(this);
     }
 
-    /// <summary>Field number for the "IdSubKategoriBarang" field.</summary>
-    public const int IdSubKategoriBarangFieldNumber = 1;
-    private long idSubKategoriBarang_;
+    /// <summary>Field number for the "DataOption" field.</summary>
+    public const int DataOptionFieldNumber = 1;
+    private static readonly pb::FieldCodec<string> _single_dataOption_codec = pb::FieldCodec.ForClassWrapper<string>(10);
+    private string dataOption_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdSubKategoriBarang {
-      get { return idSubKategoriBarang_; }
+    public string DataOption {
+      get { return dataOption_; }
       set {
-        idSubKategoriBarang_ = value;
-      }
-    }
-
-    /// <summary>Field number for the "SubKategoriBarang" field.</summary>
-    public const int SubKategoriBarangFieldNumber = 2;
-    private static readonly pb::FieldCodec<string> _single_subKategoriBarang_codec = pb::FieldCodec.ForClassWrapper<string>(18);
-    private string subKategoriBarang_;
-    [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public string SubKategoriBarang {
-      get { return subKategoriBarang_; }
-      set {
-        subKategoriBarang_ = value;
+        dataOption_ = value;
       }
     }
 
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override bool Equals(object other) {
-      return Equals(other as T1SubKategoriBarang);
+      return Equals(other as T9DataOption);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public bool Equals(T1SubKategoriBarang other) {
+    public bool Equals(T9DataOption other) {
       if (ReferenceEquals(other, null)) {
         return false;
       }
       if (ReferenceEquals(other, this)) {
         return true;
       }
-      if (IdSubKategoriBarang != other.IdSubKategoriBarang) return false;
-      if (SubKategoriBarang != other.SubKategoriBarang) return false;
+      if (DataOption != other.DataOption) return false;
       return Equals(_unknownFields, other._unknownFields);
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (IdSubKategoriBarang != 0L) hash ^= IdSubKategoriBarang.GetHashCode();
-      if (subKategoriBarang_ != null) hash ^= SubKategoriBarang.GetHashCode();
+      if (dataOption_ != null) hash ^= DataOption.GetHashCode();
       if (_unknownFields != null) {
         hash ^= _unknownFields.GetHashCode();
       }
@@ -775,12 +788,8 @@ namespace grpcArachne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (IdSubKategoriBarang != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(IdSubKategoriBarang);
-      }
-      if (subKategoriBarang_ != null) {
-        _single_subKategoriBarang_codec.WriteTagAndValue(output, SubKategoriBarang);
+      if (dataOption_ != null) {
+        _single_dataOption_codec.WriteTagAndValue(output, DataOption);
       }
       if (_unknownFields != null) {
         _unknownFields.WriteTo(output);
@@ -790,11 +799,8 @@ namespace grpcArachne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (IdSubKategoriBarang != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSubKategoriBarang);
-      }
-      if (subKategoriBarang_ != null) {
-        size += _single_subKategoriBarang_codec.CalculateSizeWithTag(SubKategoriBarang);
+      if (dataOption_ != null) {
+        size += _single_dataOption_codec.CalculateSizeWithTag(DataOption);
       }
       if (_unknownFields != null) {
         size += _unknownFields.CalculateSize();
@@ -803,16 +809,13 @@ namespace grpcArachne {
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public void MergeFrom(T1SubKategoriBarang other) {
+    public void MergeFrom(T9DataOption other) {
       if (other == null) {
         return;
       }
-      if (other.IdSubKategoriBarang != 0L) {
-        IdSubKategoriBarang = other.IdSubKategoriBarang;
-      }
-      if (other.subKategoriBarang_ != null) {
-        if (subKategoriBarang_ == null || other.SubKategoriBarang != "") {
-          SubKategoriBarang = other.SubKategoriBarang;
+      if (other.dataOption_ != null) {
+        if (dataOption_ == null || other.DataOption != "") {
+          DataOption = other.DataOption;
         }
       }
       _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
@@ -826,14 +829,10 @@ namespace grpcArachne {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            IdSubKategoriBarang = input.ReadInt64();
-            break;
-          }
-          case 18: {
-            string value = _single_subKategoriBarang_codec.Read(input);
-            if (subKategoriBarang_ == null || value != "") {
-              SubKategoriBarang = value;
+          case 10: {
+            string value = _single_dataOption_codec.Read(input);
+            if (dataOption_ == null || value != "") {
+              DataOption = value;
             }
             break;
           }

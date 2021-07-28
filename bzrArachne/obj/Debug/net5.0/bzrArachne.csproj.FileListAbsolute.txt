@@ -92,3 +92,4 @@ D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.dll
 D:\Arachne\bzrArachne\obj\Debug\net5.0\ref\bzrArachne.dll
 D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.pdb
 D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.genruntimeconfig.cache
+D:\Arachne\bzrArachne\obj\Debug\net5.0\bzrArachne.csproj.AssemblyReference.cache
