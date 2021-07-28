@@ -30,36 +30,43 @@ namespace grpcArachne {
             "aW5SZXF1ZXN0IlAKDlRlcm1pblJlc3BvbnNlEhAKCElkVGVybWluGAEgASgD",
             "EiwKBlRlcm1pbhgCIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1",
             "ZSI1CgpMaXN0VGVybWluEicKDlRlcm1pblJlc3BvbnNlGAEgAygLMg8uVGVy",
-            "bWluUmVzcG9uc2UiwwIKE0luc2VydERhdGFUNlJlcXVzZXQSHAoUSWRQZW5h",
-            "d2FyYW5QZW1iZWxpYW4YASABKAMSFwoPSWRKZW5pc1N1cHBsaWVyGAIgASgD",
-            "EhIKCklkU3VwcGxpZXIYAyABKAMSEgoKR3JhbmRUb3RhbBgEIAEoARIZChFJ",
-            "ZENvbXBhbnlQZW5lcmltYRgFIAEoCRIxCgtEaXNrb25EZXRpbBgGIAEoCzIc",
-            "Lmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIVCg1EaXNrb25Ob21pbmFs",
-            "GAcgASgBEhAKCElkVGVybWluGAggASgDEicKCVQ3UmVxdXNldBgJIAMoCzIU",
+            "bWluUmVzcG9uc2UinQMKE0luc2VydERhdGFUNlJlcXVzZXQSHAoUSWRQZW5h",
+            "d2FyYW5QZW1iZWxpYW4YASABKAMSNQoPSWRKZW5pc1N1cHBsaWVyGAIgASgL",
+            "MhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjAKCklkU3VwcGxpZXIY",
+            "AyABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSEgoKR3JhbmRU",
+            "b3RhbBgEIAEoARIZChFJZENvbXBhbnlQZW5lcmltYRgFIAEoCRIxCgtEaXNr",
+            "b25EZXRpbBgGIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIV",
+            "Cg1EaXNrb25Ob21pbmFsGAcgASgBEi4KCElkVGVybWluGAggASgLMhwuZ29v",
+            "Z2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEicKCVQ3UmVxdXNldBgJIAMoCzIU",
             "Lkluc2VydERhdGFUN1JlcXVzZXQSLQoHQ2F0YXRhbhgKIAEoCzIcLmdvb2ds",
-            "ZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZSKiBgoTSW5zZXJ0RGF0YVQ3UmVxdXNl",
-            "dBIQCghJZEJhcmFuZxgBIAEoAxIhChlJZERldGlsUGVuYXdhcmFuUGVtYmVs",
-            "aWFuGAIgASgDEhAKCElkU2F0dWFuGAMgASgDEhYKDklkRGl2aXNpQmFyYW5n",
-            "GAQgASgDEhkKEUlkU3ViRGl2aXNpQmFyYW5nGAUgASgDEhgKEElkS2F0ZWdv",
-            "cmlCYXJhbmcYBiABKAMSGwoTSWRTdWJLYXRlZ29yaUJhcmFuZxgHIAEoAxIN",
+            "ZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZSL0BwoTSW5zZXJ0RGF0YVQ3UmVxdXNl",
+            "dBIuCghJZEJhcmFuZxgBIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdW",
+            "YWx1ZRIhChlJZERldGlsUGVuYXdhcmFuUGVtYmVsaWFuGAIgASgDEi4KCElk",
+            "U2F0dWFuGAMgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjQK",
+            "DklkRGl2aXNpQmFyYW5nGAQgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmlu",
+            "Z1ZhbHVlEjcKEUlkU3ViRGl2aXNpQmFyYW5nGAUgASgLMhwuZ29vZ2xlLnBy",
+            "b3RvYnVmLlN0cmluZ1ZhbHVlEjYKEElkS2F0ZWdvcmlCYXJhbmcYBiABKAsy",
+            "HC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSOQoTSWRTdWJLYXRlZ29y",
+            "aUJhcmFuZxgHIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIN",
             "CgVIYXJnYRgIIAEoARIOCgZKdW1sYWgYCSABKAESMQoLRGlza29uRGV0aWwY",
             "CiABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSFQoNRGlza29u",
-            "Tm9taW5hbBgLIAEoARINCgVUb3RhbBgMIAEoAxI2ChBDYXRhdGFuUGVuYXdh",
-            "cmFuGA0gASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjIKDFNh",
-            "dHVhblNhdHVhbhgOIAEoCzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1",
-            "ZRIyCgxCYXJhbmdCYXJhbmcYDyABKAsyHC5nb29nbGUucHJvdG9idWYuU3Ry",
-            "aW5nVmFsdWUSMgoMQmFyYW5nVWt1cmFuGBAgASgLMhwuZ29vZ2xlLnByb3Rv",
-            "YnVmLlN0cmluZ1ZhbHVlEhIKCkJhcmFuZ1VtdXIYESABKAUSPgoYU3ViRGl2",
-            "aXNpQmFyYW5nU3ViRGl2aXNpGBIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0",
-            "cmluZ1ZhbHVlEkIKHFN1YkthdGVnb3JpQmFyYW5nU3ViS2F0ZWdvcmkYEyAB",
-            "KAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSOAoSRGl2aXNpQmFy",
-            "YW5nRGl2aXNpGBQgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
-            "EjwKFkthdGVnb3JpQmFyYW5nS2F0ZWdvcmkYFSABKAsyHC5nb29nbGUucHJv",
-            "dG9idWYuU3RyaW5nVmFsdWUiFgoFcGVzYW4SDQoFcGVzYW4YASABKAkyhAEK",
-            "ElBlbmF3YXJhblBlbWJlbGlhbhJACiBJbnNlcnRQZW5hd2FyYW5QZW1iZWxp",
-            "YW5SZXBlYXRlZBIULkluc2VydERhdGFUNlJlcXVzZXQaBi5wZXNhbhIsCg1H",
-            "ZXREYXRhVGVybWluEg4uVGVybWluUmVxdWVzdBoLLkxpc3RUZXJtaW5CDqoC",
-            "C2dycGNBcmFjaG5lYgZwcm90bzM="));
+            "Tm9taW5hbBgLIAEoARIrCgVUb3RhbBgMIAEoCzIcLmdvb2dsZS5wcm90b2J1",
+            "Zi5TdHJpbmdWYWx1ZRI2ChBDYXRhdGFuUGVuYXdhcmFuGA0gASgLMhwuZ29v",
+            "Z2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjIKDFNhdHVhblNhdHVhbhgOIAEo",
+            "CzIcLmdvb2dsZS5wcm90b2J1Zi5TdHJpbmdWYWx1ZRIyCgxCYXJhbmdCYXJh",
+            "bmcYDyABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFsdWUSMgoMQmFy",
+            "YW5nVWt1cmFuGBAgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVl",
+            "EhIKCkJhcmFuZ1VtdXIYESABKAUSPgoYU3ViRGl2aXNpQmFyYW5nU3ViRGl2",
+            "aXNpGBIgASgLMhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEkIKHFN1",
+            "YkthdGVnb3JpQmFyYW5nU3ViS2F0ZWdvcmkYEyABKAsyHC5nb29nbGUucHJv",
+            "dG9idWYuU3RyaW5nVmFsdWUSOAoSRGl2aXNpQmFyYW5nRGl2aXNpGBQgASgL",
+            "MhwuZ29vZ2xlLnByb3RvYnVmLlN0cmluZ1ZhbHVlEjwKFkthdGVnb3JpQmFy",
+            "YW5nS2F0ZWdvcmkYFSABKAsyHC5nb29nbGUucHJvdG9idWYuU3RyaW5nVmFs",
+            "dWUiFgoFcGVzYW4SDQoFcGVzYW4YASABKAkyhAEKElBlbmF3YXJhblBlbWJl",
+            "bGlhbhJACiBJbnNlcnRQZW5hd2FyYW5QZW1iZWxpYW5SZXBlYXRlZBIULklu",
+            "c2VydERhdGFUNlJlcXVzZXQaBi5wZXNhbhIsCg1HZXREYXRhVGVybWluEg4u",
+            "VGVybWluUmVxdWVzdBoLLkxpc3RUZXJtaW5CDqoCC2dycGNBcmFjaG5lYgZw",
+            "cm90bzM="));
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { global::Google.Protobuf.WellKnownTypes.EmptyReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.WrappersReflection.Descriptor, global::Google.Protobuf.WellKnownTypes.TimestampReflection.Descriptor, },
           new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
@@ -486,13 +493,13 @@ namespace grpcArachne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public InsertDataT6Requset(InsertDataT6Requset other) : this() {
       idPenawaranPembelian_ = other.idPenawaranPembelian_;
-      idJenisSupplier_ = other.idJenisSupplier_;
-      idSupplier_ = other.idSupplier_;
+      IdJenisSupplier = other.IdJenisSupplier;
+      IdSupplier = other.IdSupplier;
       grandTotal_ = other.grandTotal_;
       idCompanyPenerima_ = other.idCompanyPenerima_;
       DiskonDetil = other.DiskonDetil;
       diskonNominal_ = other.diskonNominal_;
-      idTermin_ = other.idTermin_;
+      IdTermin = other.IdTermin;
       t7Requset_ = other.t7Requset_.Clone();
       Catatan = other.Catatan;
       _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
@@ -516,25 +523,29 @@ namespace grpcArachne {
 
     /// <summary>Field number for the "IdJenisSupplier" field.</summary>
     public const int IdJenisSupplierFieldNumber = 2;
-    private long idJenisSupplier_;
+    private static readonly pb::FieldCodec<string> _single_idJenisSupplier_codec = pb::FieldCodec.ForClassWrapper<string>(18);
+    private string idJenisSupplier_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdJenisSupplier {
+    public string IdJenisSupplier {
       get { return idJenisSupplier_; }
       set {
         idJenisSupplier_ = value;
       }
     }
 
+
     /// <summary>Field number for the "IdSupplier" field.</summary>
     public const int IdSupplierFieldNumber = 3;
-    private long idSupplier_;
+    private static readonly pb::FieldCodec<string> _single_idSupplier_codec = pb::FieldCodec.ForClassWrapper<string>(26);
+    private string idSupplier_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdSupplier {
+    public string IdSupplier {
       get { return idSupplier_; }
       set {
         idSupplier_ = value;
       }
     }
+
 
     /// <summary>Field number for the "GrandTotal" field.</summary>
     public const int GrandTotalFieldNumber = 4;
@@ -584,14 +595,16 @@ namespace grpcArachne {
 
     /// <summary>Field number for the "IdTermin" field.</summary>
     public const int IdTerminFieldNumber = 8;
-    private long idTermin_;
+    private static readonly pb::FieldCodec<string> _single_idTermin_codec = pb::FieldCodec.ForClassWrapper<string>(66);
+    private string idTermin_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdTermin {
+    public string IdTermin {
       get { return idTermin_; }
       set {
         idTermin_ = value;
       }
     }
+
 
     /// <summary>Field number for the "T7Requset" field.</summary>
     public const int T7RequsetFieldNumber = 9;
@@ -646,13 +659,13 @@ namespace grpcArachne {
     public override int GetHashCode() {
       int hash = 1;
       if (IdPenawaranPembelian != 0L) hash ^= IdPenawaranPembelian.GetHashCode();
-      if (IdJenisSupplier != 0L) hash ^= IdJenisSupplier.GetHashCode();
-      if (IdSupplier != 0L) hash ^= IdSupplier.GetHashCode();
+      if (idJenisSupplier_ != null) hash ^= IdJenisSupplier.GetHashCode();
+      if (idSupplier_ != null) hash ^= IdSupplier.GetHashCode();
       if (GrandTotal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(GrandTotal);
       if (IdCompanyPenerima.Length != 0) hash ^= IdCompanyPenerima.GetHashCode();
       if (diskonDetil_ != null) hash ^= DiskonDetil.GetHashCode();
       if (DiskonNominal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DiskonNominal);
-      if (IdTermin != 0L) hash ^= IdTermin.GetHashCode();
+      if (idTermin_ != null) hash ^= IdTermin.GetHashCode();
       hash ^= t7Requset_.GetHashCode();
       if (catatan_ != null) hash ^= Catatan.GetHashCode();
       if (_unknownFields != null) {
@@ -672,13 +685,11 @@ namespace grpcArachne {
         output.WriteRawTag(8);
         output.WriteInt64(IdPenawaranPembelian);
       }
-      if (IdJenisSupplier != 0L) {
-        output.WriteRawTag(16);
-        output.WriteInt64(IdJenisSupplier);
+      if (idJenisSupplier_ != null) {
+        _single_idJenisSupplier_codec.WriteTagAndValue(output, IdJenisSupplier);
       }
-      if (IdSupplier != 0L) {
-        output.WriteRawTag(24);
-        output.WriteInt64(IdSupplier);
+      if (idSupplier_ != null) {
+        _single_idSupplier_codec.WriteTagAndValue(output, IdSupplier);
       }
       if (GrandTotal != 0D) {
         output.WriteRawTag(33);
@@ -695,9 +706,8 @@ namespace grpcArachne {
         output.WriteRawTag(57);
         output.WriteDouble(DiskonNominal);
       }
-      if (IdTermin != 0L) {
-        output.WriteRawTag(64);
-        output.WriteInt64(IdTermin);
+      if (idTermin_ != null) {
+        _single_idTermin_codec.WriteTagAndValue(output, IdTermin);
       }
       t7Requset_.WriteTo(output, _repeated_t7Requset_codec);
       if (catatan_ != null) {
@@ -714,11 +724,11 @@ namespace grpcArachne {
       if (IdPenawaranPembelian != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdPenawaranPembelian);
       }
-      if (IdJenisSupplier != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdJenisSupplier);
+      if (idJenisSupplier_ != null) {
+        size += _single_idJenisSupplier_codec.CalculateSizeWithTag(IdJenisSupplier);
       }
-      if (IdSupplier != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSupplier);
+      if (idSupplier_ != null) {
+        size += _single_idSupplier_codec.CalculateSizeWithTag(IdSupplier);
       }
       if (GrandTotal != 0D) {
         size += 1 + 8;
@@ -732,8 +742,8 @@ namespace grpcArachne {
       if (DiskonNominal != 0D) {
         size += 1 + 8;
       }
-      if (IdTermin != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdTermin);
+      if (idTermin_ != null) {
+        size += _single_idTermin_codec.CalculateSizeWithTag(IdTermin);
       }
       size += t7Requset_.CalculateSize(_repeated_t7Requset_codec);
       if (catatan_ != null) {
@@ -753,11 +763,15 @@ namespace grpcArachne {
       if (other.IdPenawaranPembelian != 0L) {
         IdPenawaranPembelian = other.IdPenawaranPembelian;
       }
-      if (other.IdJenisSupplier != 0L) {
-        IdJenisSupplier = other.IdJenisSupplier;
+      if (other.idJenisSupplier_ != null) {
+        if (idJenisSupplier_ == null || other.IdJenisSupplier != "") {
+          IdJenisSupplier = other.IdJenisSupplier;
+        }
       }
-      if (other.IdSupplier != 0L) {
-        IdSupplier = other.IdSupplier;
+      if (other.idSupplier_ != null) {
+        if (idSupplier_ == null || other.IdSupplier != "") {
+          IdSupplier = other.IdSupplier;
+        }
       }
       if (other.GrandTotal != 0D) {
         GrandTotal = other.GrandTotal;
@@ -773,8 +787,10 @@ namespace grpcArachne {
       if (other.DiskonNominal != 0D) {
         DiskonNominal = other.DiskonNominal;
       }
-      if (other.IdTermin != 0L) {
-        IdTermin = other.IdTermin;
+      if (other.idTermin_ != null) {
+        if (idTermin_ == null || other.IdTermin != "") {
+          IdTermin = other.IdTermin;
+        }
       }
       t7Requset_.Add(other.t7Requset_);
       if (other.catatan_ != null) {
@@ -797,12 +813,18 @@ namespace grpcArachne {
             IdPenawaranPembelian = input.ReadInt64();
             break;
           }
-          case 16: {
-            IdJenisSupplier = input.ReadInt64();
+          case 18: {
+            string value = _single_idJenisSupplier_codec.Read(input);
+            if (idJenisSupplier_ == null || value != "") {
+              IdJenisSupplier = value;
+            }
             break;
           }
-          case 24: {
-            IdSupplier = input.ReadInt64();
+          case 26: {
+            string value = _single_idSupplier_codec.Read(input);
+            if (idSupplier_ == null || value != "") {
+              IdSupplier = value;
+            }
             break;
           }
           case 33: {
@@ -824,8 +846,11 @@ namespace grpcArachne {
             DiskonNominal = input.ReadDouble();
             break;
           }
-          case 64: {
-            IdTermin = input.ReadInt64();
+          case 66: {
+            string value = _single_idTermin_codec.Read(input);
+            if (idTermin_ == null || value != "") {
+              IdTermin = value;
+            }
             break;
           }
           case 74: {
@@ -870,18 +895,18 @@ namespace grpcArachne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public InsertDataT7Requset(InsertDataT7Requset other) : this() {
-      idBarang_ = other.idBarang_;
+      IdBarang = other.IdBarang;
       idDetilPenawaranPembelian_ = other.idDetilPenawaranPembelian_;
-      idSatuan_ = other.idSatuan_;
-      idDivisiBarang_ = other.idDivisiBarang_;
-      idSubDivisiBarang_ = other.idSubDivisiBarang_;
-      idKategoriBarang_ = other.idKategoriBarang_;
-      idSubKategoriBarang_ = other.idSubKategoriBarang_;
+      IdSatuan = other.IdSatuan;
+      IdDivisiBarang = other.IdDivisiBarang;
+      IdSubDivisiBarang = other.IdSubDivisiBarang;
+      IdKategoriBarang = other.IdKategoriBarang;
+      IdSubKategoriBarang = other.IdSubKategoriBarang;
       harga_ = other.harga_;
       jumlah_ = other.jumlah_;
       DiskonDetil = other.DiskonDetil;
       diskonNominal_ = other.diskonNominal_;
-      total_ = other.total_;
+      Total = other.Total;
       CatatanPenawaran = other.CatatanPenawaran;
       SatuanSatuan = other.SatuanSatuan;
       BarangBarang = other.BarangBarang;
@@ -901,14 +926,16 @@ namespace grpcArachne {
 
     /// <summary>Field number for the "IdBarang" field.</summary>
     public const int IdBarangFieldNumber = 1;
-    private long idBarang_;
+    private static readonly pb::FieldCodec<string> _single_idBarang_codec = pb::FieldCodec.ForClassWrapper<string>(10);
+    private string idBarang_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdBarang {
+    public string IdBarang {
       get { return idBarang_; }
       set {
         idBarang_ = value;
       }
     }
+
 
     /// <summary>Field number for the "IdDetilPenawaranPembelian" field.</summary>
     public const int IdDetilPenawaranPembelianFieldNumber = 2;
@@ -923,58 +950,68 @@ namespace grpcArachne {
 
     /// <summary>Field number for the "IdSatuan" field.</summary>
     public const int IdSatuanFieldNumber = 3;
-    private long idSatuan_;
+    private static readonly pb::FieldCodec<string> _single_idSatuan_codec = pb::FieldCodec.ForClassWrapper<string>(26);
+    private string idSatuan_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdSatuan {
+    public string IdSatuan {
       get { return idSatuan_; }
       set {
         idSatuan_ = value;
       }
     }
 
+
     /// <summary>Field number for the "IdDivisiBarang" field.</summary>
     public const int IdDivisiBarangFieldNumber = 4;
-    private long idDivisiBarang_;
+    private static readonly pb::FieldCodec<string> _single_idDivisiBarang_codec = pb::FieldCodec.ForClassWrapper<string>(34);
+    private string idDivisiBarang_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdDivisiBarang {
+    public string IdDivisiBarang {
       get { return idDivisiBarang_; }
       set {
         idDivisiBarang_ = value;
       }
     }
 
+
     /// <summary>Field number for the "IdSubDivisiBarang" field.</summary>
     public const int IdSubDivisiBarangFieldNumber = 5;
-    private long idSubDivisiBarang_;
+    private static readonly pb::FieldCodec<string> _single_idSubDivisiBarang_codec = pb::FieldCodec.ForClassWrapper<string>(42);
+    private string idSubDivisiBarang_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdSubDivisiBarang {
+    public string IdSubDivisiBarang {
       get { return idSubDivisiBarang_; }
       set {
         idSubDivisiBarang_ = value;
       }
     }
 
+
     /// <summary>Field number for the "IdKategoriBarang" field.</summary>
     public const int IdKategoriBarangFieldNumber = 6;
-    private long idKategoriBarang_;
+    private static readonly pb::FieldCodec<string> _single_idKategoriBarang_codec = pb::FieldCodec.ForClassWrapper<string>(50);
+    private string idKategoriBarang_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdKategoriBarang {
+    public string IdKategoriBarang {
       get { return idKategoriBarang_; }
       set {
         idKategoriBarang_ = value;
       }
     }
 
+
     /// <summary>Field number for the "IdSubKategoriBarang" field.</summary>
     public const int IdSubKategoriBarangFieldNumber = 7;
-    private long idSubKategoriBarang_;
+    private static readonly pb::FieldCodec<string> _single_idSubKategoriBarang_codec = pb::FieldCodec.ForClassWrapper<string>(58);
+    private string idSubKategoriBarang_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long IdSubKategoriBarang {
+    public string IdSubKategoriBarang {
       get { return idSubKategoriBarang_; }
       set {
         idSubKategoriBarang_ = value;
       }
     }
+
 
     /// <summary>Field number for the "Harga" field.</summary>
     public const int HargaFieldNumber = 8;
@@ -1024,14 +1061,16 @@ namespace grpcArachne {
 
     /// <summary>Field number for the "Total" field.</summary>
     public const int TotalFieldNumber = 12;
-    private long total_;
+    private static readonly pb::FieldCodec<string> _single_total_codec = pb::FieldCodec.ForClassWrapper<string>(98);
+    private string total_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public long Total {
+    public string Total {
       get { return total_; }
       set {
         total_ = value;
       }
     }
+
 
     /// <summary>Field number for the "CatatanPenawaran" field.</summary>
     public const int CatatanPenawaranFieldNumber = 13;
@@ -1188,18 +1227,18 @@ namespace grpcArachne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public override int GetHashCode() {
       int hash = 1;
-      if (IdBarang != 0L) hash ^= IdBarang.GetHashCode();
+      if (idBarang_ != null) hash ^= IdBarang.GetHashCode();
       if (IdDetilPenawaranPembelian != 0L) hash ^= IdDetilPenawaranPembelian.GetHashCode();
-      if (IdSatuan != 0L) hash ^= IdSatuan.GetHashCode();
-      if (IdDivisiBarang != 0L) hash ^= IdDivisiBarang.GetHashCode();
-      if (IdSubDivisiBarang != 0L) hash ^= IdSubDivisiBarang.GetHashCode();
-      if (IdKategoriBarang != 0L) hash ^= IdKategoriBarang.GetHashCode();
-      if (IdSubKategoriBarang != 0L) hash ^= IdSubKategoriBarang.GetHashCode();
+      if (idSatuan_ != null) hash ^= IdSatuan.GetHashCode();
+      if (idDivisiBarang_ != null) hash ^= IdDivisiBarang.GetHashCode();
+      if (idSubDivisiBarang_ != null) hash ^= IdSubDivisiBarang.GetHashCode();
+      if (idKategoriBarang_ != null) hash ^= IdKategoriBarang.GetHashCode();
+      if (idSubKategoriBarang_ != null) hash ^= IdSubKategoriBarang.GetHashCode();
       if (Harga != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Harga);
       if (Jumlah != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(Jumlah);
       if (diskonDetil_ != null) hash ^= DiskonDetil.GetHashCode();
       if (DiskonNominal != 0D) hash ^= pbc::ProtobufEqualityComparers.BitwiseDoubleEqualityComparer.GetHashCode(DiskonNominal);
-      if (Total != 0L) hash ^= Total.GetHashCode();
+      if (total_ != null) hash ^= Total.GetHashCode();
       if (catatanPenawaran_ != null) hash ^= CatatanPenawaran.GetHashCode();
       if (satuanSatuan_ != null) hash ^= SatuanSatuan.GetHashCode();
       if (barangBarang_ != null) hash ^= BarangBarang.GetHashCode();
@@ -1222,33 +1261,27 @@ namespace grpcArachne {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public void WriteTo(pb::CodedOutputStream output) {
-      if (IdBarang != 0L) {
-        output.WriteRawTag(8);
-        output.WriteInt64(IdBarang);
+      if (idBarang_ != null) {
+        _single_idBarang_codec.WriteTagAndValue(output, IdBarang);
       }
       if (IdDetilPenawaranPembelian != 0L) {
         output.WriteRawTag(16);
         output.WriteInt64(IdDetilPenawaranPembelian);
       }
-      if (IdSatuan != 0L) {
-        output.WriteRawTag(24);
-        output.WriteInt64(IdSatuan);
+      if (idSatuan_ != null) {
+        _single_idSatuan_codec.WriteTagAndValue(output, IdSatuan);
       }
-      if (IdDivisiBarang != 0L) {
-        output.WriteRawTag(32);
-        output.WriteInt64(IdDivisiBarang);
+      if (idDivisiBarang_ != null) {
+        _single_idDivisiBarang_codec.WriteTagAndValue(output, IdDivisiBarang);
       }
-      if (IdSubDivisiBarang != 0L) {
-        output.WriteRawTag(40);
-        output.WriteInt64(IdSubDivisiBarang);
+      if (idSubDivisiBarang_ != null) {
+        _single_idSubDivisiBarang_codec.WriteTagAndValue(output, IdSubDivisiBarang);
       }
-      if (IdKategoriBarang != 0L) {
-        output.WriteRawTag(48);
-        output.WriteInt64(IdKategoriBarang);
+      if (idKategoriBarang_ != null) {
+        _single_idKategoriBarang_codec.WriteTagAndValue(output, IdKategoriBarang);
       }
-      if (IdSubKategoriBarang != 0L) {
-        output.WriteRawTag(56);
-        output.WriteInt64(IdSubKategoriBarang);
+      if (idSubKategoriBarang_ != null) {
+        _single_idSubKategoriBarang_codec.WriteTagAndValue(output, IdSubKategoriBarang);
       }
       if (Harga != 0D) {
         output.WriteRawTag(65);
@@ -1265,9 +1298,8 @@ namespace grpcArachne {
         output.WriteRawTag(89);
         output.WriteDouble(DiskonNominal);
       }
-      if (Total != 0L) {
-        output.WriteRawTag(96);
-        output.WriteInt64(Total);
+      if (total_ != null) {
+        _single_total_codec.WriteTagAndValue(output, Total);
       }
       if (catatanPenawaran_ != null) {
         _single_catatanPenawaran_codec.WriteTagAndValue(output, CatatanPenawaran);
@@ -1305,26 +1337,26 @@ namespace grpcArachne {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public int CalculateSize() {
       int size = 0;
-      if (IdBarang != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdBarang);
+      if (idBarang_ != null) {
+        size += _single_idBarang_codec.CalculateSizeWithTag(IdBarang);
       }
       if (IdDetilPenawaranPembelian != 0L) {
         size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdDetilPenawaranPembelian);
       }
-      if (IdSatuan != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSatuan);
+      if (idSatuan_ != null) {
+        size += _single_idSatuan_codec.CalculateSizeWithTag(IdSatuan);
       }
-      if (IdDivisiBarang != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdDivisiBarang);
+      if (idDivisiBarang_ != null) {
+        size += _single_idDivisiBarang_codec.CalculateSizeWithTag(IdDivisiBarang);
       }
-      if (IdSubDivisiBarang != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSubDivisiBarang);
+      if (idSubDivisiBarang_ != null) {
+        size += _single_idSubDivisiBarang_codec.CalculateSizeWithTag(IdSubDivisiBarang);
       }
-      if (IdKategoriBarang != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdKategoriBarang);
+      if (idKategoriBarang_ != null) {
+        size += _single_idKategoriBarang_codec.CalculateSizeWithTag(IdKategoriBarang);
       }
-      if (IdSubKategoriBarang != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(IdSubKategoriBarang);
+      if (idSubKategoriBarang_ != null) {
+        size += _single_idSubKategoriBarang_codec.CalculateSizeWithTag(IdSubKategoriBarang);
       }
       if (Harga != 0D) {
         size += 1 + 8;
@@ -1338,8 +1370,8 @@ namespace grpcArachne {
       if (DiskonNominal != 0D) {
         size += 1 + 8;
       }
-      if (Total != 0L) {
-        size += 1 + pb::CodedOutputStream.ComputeInt64Size(Total);
+      if (total_ != null) {
+        size += _single_total_codec.CalculateSizeWithTag(Total);
       }
       if (catatanPenawaran_ != null) {
         size += _single_catatanPenawaran_codec.CalculateSizeWithTag(CatatanPenawaran);
@@ -1379,26 +1411,38 @@ namespace grpcArachne {
       if (other == null) {
         return;
       }
-      if (other.IdBarang != 0L) {
-        IdBarang = other.IdBarang;
+      if (other.idBarang_ != null) {
+        if (idBarang_ == null || other.IdBarang != "") {
+          IdBarang = other.IdBarang;
+        }
       }
       if (other.IdDetilPenawaranPembelian != 0L) {
         IdDetilPenawaranPembelian = other.IdDetilPenawaranPembelian;
       }
-      if (other.IdSatuan != 0L) {
-        IdSatuan = other.IdSatuan;
+      if (other.idSatuan_ != null) {
+        if (idSatuan_ == null || other.IdSatuan != "") {
+          IdSatuan = other.IdSatuan;
+        }
       }
-      if (other.IdDivisiBarang != 0L) {
-        IdDivisiBarang = other.IdDivisiBarang;
+      if (other.idDivisiBarang_ != null) {
+        if (idDivisiBarang_ == null || other.IdDivisiBarang != "") {
+          IdDivisiBarang = other.IdDivisiBarang;
+        }
       }
-      if (other.IdSubDivisiBarang != 0L) {
-        IdSubDivisiBarang = other.IdSubDivisiBarang;
+      if (other.idSubDivisiBarang_ != null) {
+        if (idSubDivisiBarang_ == null || other.IdSubDivisiBarang != "") {
+          IdSubDivisiBarang = other.IdSubDivisiBarang;
+        }
       }
-      if (other.IdKategoriBarang != 0L) {
-        IdKategoriBarang = other.IdKategoriBarang;
+      if (other.idKategoriBarang_ != null) {
+        if (idKategoriBarang_ == null || other.IdKategoriBarang != "") {
+          IdKategoriBarang = other.IdKategoriBarang;
+        }
       }
-      if (other.IdSubKategoriBarang != 0L) {
-        IdSubKategoriBarang = other.IdSubKategoriBarang;
+      if (other.idSubKategoriBarang_ != null) {
+        if (idSubKategoriBarang_ == null || other.IdSubKategoriBarang != "") {
+          IdSubKategoriBarang = other.IdSubKategoriBarang;
+        }
       }
       if (other.Harga != 0D) {
         Harga = other.Harga;
@@ -1414,8 +1458,10 @@ namespace grpcArachne {
       if (other.DiskonNominal != 0D) {
         DiskonNominal = other.DiskonNominal;
       }
-      if (other.Total != 0L) {
-        Total = other.Total;
+      if (other.total_ != null) {
+        if (total_ == null || other.Total != "") {
+          Total = other.Total;
+        }
       }
       if (other.catatanPenawaran_ != null) {
         if (catatanPenawaran_ == null || other.CatatanPenawaran != "") {
@@ -1471,32 +1517,50 @@ namespace grpcArachne {
           default:
             _unknownFields = pb::UnknownFieldSet.MergeFieldFrom(_unknownFields, input);
             break;
-          case 8: {
-            IdBarang = input.ReadInt64();
+          case 10: {
+            string value = _single_idBarang_codec.Read(input);
+            if (idBarang_ == null || value != "") {
+              IdBarang = value;
+            }
             break;
           }
           case 16: {
             IdDetilPenawaranPembelian = input.ReadInt64();
             break;
           }
-          case 24: {
-            IdSatuan = input.ReadInt64();
+          case 26: {
+            string value = _single_idSatuan_codec.Read(input);
+            if (idSatuan_ == null || value != "") {
+              IdSatuan = value;
+            }
             break;
           }
-          case 32: {
-            IdDivisiBarang = input.ReadInt64();
+          case 34: {
+            string value = _single_idDivisiBarang_codec.Read(input);
+            if (idDivisiBarang_ == null || value != "") {
+              IdDivisiBarang = value;
+            }
             break;
           }
-          case 40: {
-            IdSubDivisiBarang = input.ReadInt64();
+          case 42: {
+            string value = _single_idSubDivisiBarang_codec.Read(input);
+            if (idSubDivisiBarang_ == null || value != "") {
+              IdSubDivisiBarang = value;
+            }
             break;
           }
-          case 48: {
-            IdKategoriBarang = input.ReadInt64();
+          case 50: {
+            string value = _single_idKategoriBarang_codec.Read(input);
+            if (idKategoriBarang_ == null || value != "") {
+              IdKategoriBarang = value;
+            }
             break;
           }
-          case 56: {
-            IdSubKategoriBarang = input.ReadInt64();
+          case 58: {
+            string value = _single_idSubKategoriBarang_codec.Read(input);
+            if (idSubKategoriBarang_ == null || value != "") {
+              IdSubKategoriBarang = value;
+            }
             break;
           }
           case 65: {
@@ -1518,8 +1582,11 @@ namespace grpcArachne {
             DiskonNominal = input.ReadDouble();
             break;
           }
-          case 96: {
-            Total = input.ReadInt64();
+          case 98: {
+            string value = _single_total_codec.Read(input);
+            if (total_ == null || value != "") {
+              Total = value;
+            }
             break;
           }
           case 106: {

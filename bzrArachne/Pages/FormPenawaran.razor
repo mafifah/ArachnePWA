@@ -51,9 +51,9 @@
             <hr />
             <!--Form Detail Penawaran-->
             <div class="card card-dark">
-                <div class="card-body">
+                <div class="card-body table-responsive p-0" style="height: 500px;">
                     <h4 class="card-blue">Detail Penawaran</h4>
-                    <table width="100%" id="example1" class="table table-bordered table-striped dataTable dtr-inline" style="margin-bottom: 0;font-size:smaller" role="grid" aria-describedby="example1_info">
+                    <table width="100%" id="example1" class="table table-head-fixed text-nowrap" style="margin-bottom: 0;font-size:smaller" role="grid" aria-describedby="example1_info">
                         <thead>
                             <tr>
                                 <th width="1%">No</th>
@@ -94,7 +94,7 @@
                                                     if (data.Jumlah <= 0 || data.Stok + data.Jumlah > data.Maksimum)
                                                     {
                                                         <input style="font-size:small" data-toggle="tooltip" data-placement="top" title="Jumlah Tidak Boleh Kosong dan lebih dari @pesanstok" type="text" @bind="data.Jumlah" id="validationServer05Feedback" class="form-control is-invalid" required>
-                                                        
+
 
                                                     }
                                                     else
@@ -170,7 +170,7 @@
                                         <tr class="expandable-body">
                                             <td colspan="5">
                                                 <div class="input-group mb-3">
-                                                    <input autofocus="" type="text" @bind="data.CatatanPenawaran" class="form-control" >
+                                                    <input autofocus="" type="text" @bind="data.CatatanPenawaran" class="form-control">
                                                     <div class="input-group-append">
                                                         <div class="input-group-text">
                                                             <span @onclick="@expandclose" class="fas fa-search-minus" style="color:red"></span>
@@ -180,8 +180,8 @@
                                             </td>
                                         </tr>
                                     }
-                                 no++;
-                                 }
+                                    no++;
+                                }
                             }
                         </tbody>
                         <tfoot>
@@ -611,8 +611,8 @@
     }
     async Task SendDataPenawaran()
     {
-        var check = barangPenawarans.Where(x => x.Stok + x.Jumlah > x.Maksimum || x.Harga == 0 || x.Jumlah == 0).ToList();
-        if (check.Count == 0)
+        var check = 0;
+        if (check == 0)
         {
             dataPenawaran = new DataPenawaran
             {

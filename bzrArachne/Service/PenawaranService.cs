@@ -42,18 +42,18 @@ namespace bzrArachne.Service
                     foreach (var Item in dataPenawaran.BarangPenawaran)
                     {
                         data.Add(new InsertDataT7Requset {
-                            IdBarang = Item.IdBarang,
+                            IdBarang = Item.IdBarang.ToString(),
                             IdDetilPenawaranPembelian = Item.IdDetilPenawaranPembelian,
-                            IdSatuan = Item.IdSatuan,
-                            IdDivisiBarang = Item.IdDivisiBarang,
-                            IdSubDivisiBarang = Item.IdSubDivisiBarang,
-                            IdKategoriBarang = Item.IdKategoriBarang,
-                            IdSubKategoriBarang = Item.IdSubKategoriBarang,
+                            IdSatuan = Item.IdSatuan.ToString(),
+                            IdDivisiBarang = Item.IdDivisiBarang.ToString(),
+                            IdSubDivisiBarang = Item.IdSubDivisiBarang.ToString(),
+                            IdKategoriBarang = Item.IdKategoriBarang.ToString(),
+                            IdSubKategoriBarang = Item.IdSubKategoriBarang.ToString(),
                             Harga = Item.Harga,
                             Jumlah = Item.Jumlah,
                             DiskonDetil = Item.DiskonDetil.ToString(),
                             DiskonNominal = Item.DiskonNominal,
-                            Total = (long)Item.Total,
+                            Total = Item.Total.ToString(),
                             CatatanPenawaran = Item.CatatanPenawaran,
                             SatuanSatuan = Item.Satuan_Satuan,
                             BarangBarang = Item.Barang_Barang,
@@ -69,8 +69,8 @@ namespace bzrArachne.Service
                     var request = new InsertDataT6Requset
                     {
                         IdPenawaranPembelian    = dataPenawaran.IdPenawaranPembelian,
-                        IdJenisSupplier         = dataPenawaran.IdJenisSupplier,
-                        IdSupplier              = dataPenawaran.IdSupplier,
+                        IdJenisSupplier         = dataPenawaran.IdJenisSupplier.ToString(),
+                        IdSupplier              = dataPenawaran.IdSupplier.ToString(),
                         IdCompanyPenerima       = dataPenawaran.IdCompanyPenerima,
                         DiskonDetil             = dataPenawaran.DiskonDetil,
                         DiskonNominal           = dataPenawaran.DiskonNominal,

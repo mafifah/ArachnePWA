@@ -320,8 +320,8 @@ using BlazorNumericTextBox;
     }
     async Task SendDataPenawaran()
     {
-        var check = barangPenawarans.Where(x => x.Stok + x.Jumlah > x.Maksimum || x.Harga == 0 || x.Jumlah == 0).ToList();
-        if (check.Count == 0)
+        var check = 0;
+        if (check == 0)
         {
             dataPenawaran = new DataPenawaran
             {

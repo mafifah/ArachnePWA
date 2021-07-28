@@ -29,31 +29,31 @@ message ListTermin
 message InsertDataT6Requset
 {
 	int64 IdPenawaranPembelian=1;
-	int64 IdJenisSupplier=2;
-	int64 IdSupplier = 3;
+	google.protobuf.StringValue IdJenisSupplier=2;
+	google.protobuf.StringValue IdSupplier = 3;
 	double GrandTotal = 4;
 	string IdCompanyPenerima = 5;
 	google.protobuf.StringValue DiskonDetil = 6;
 	double DiskonNominal = 7;
-	int64 IdTermin = 8;
+	google.protobuf.StringValue IdTermin = 8;
 	repeated InsertDataT7Requset T7Requset=9;
 	google.protobuf.StringValue Catatan = 10;
 	
 }
 message InsertDataT7Requset
 {
-	int64 IdBarang=1;
+	google.protobuf.StringValue IdBarang=1;
 	int64 IdDetilPenawaranPembelian= 2;
-	int64 IdSatuan=3;
-	int64 IdDivisiBarang=4;
-	int64 IdSubDivisiBarang=5;
-	int64 IdKategoriBarang=6;
-	int64 IdSubKategoriBarang=7;
+	google.protobuf.StringValue IdSatuan=3;
+	google.protobuf.StringValue IdDivisiBarang=4;
+	google.protobuf.StringValue IdSubDivisiBarang=5;
+	google.protobuf.StringValue IdKategoriBarang=6;
+	google.protobuf.StringValue IdSubKategoriBarang=7;
 	double Harga=8;
 	double Jumlah=9;
 	google.protobuf.StringValue DiskonDetil = 10;
 	double DiskonNominal = 11;
-	int64 Total=12;
+	google.protobuf.StringValue Total=12;
 	google.protobuf.StringValue CatatanPenawaran=13;
 	google.protobuf.StringValue SatuanSatuan =14;
 	google.protobuf.StringValue BarangBarang =15;
