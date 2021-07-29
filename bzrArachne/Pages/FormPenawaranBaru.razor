@@ -316,23 +316,23 @@
 
     void TambahBarangKeList(DataBarang ItemBaru)
     {
-        barangPenawarans.Add(new BarangPenawaran
-        {
-            IdBarang = ItemBaru.IdBarang,
-            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
-            IdSatuan = ItemBaru.IdSatuan,
-            IdDivisiBarang = ItemBaru.IdDivisiBarang,
-            IdSubDivisiBarang = ItemBaru.IdSubDivisiBarang,
-            IdKategoriBarang = ItemBaru.IdKategoriBarang,
-            IdSubKategoriBarang = ItemBaru.IdSubKategoriBarang,
-            Satuan = ItemBaru.Satuan,
-            Nama = ItemBaru.Nama,
-            Stok = ItemBaru.Stok,
-            Minimum = ItemBaru.Minimum,
-            Maksimum = ItemBaru.Maksimum
-        });
-        _daftarBarang.Remove(ItemBaru);
-        ModalCancel();
+        //barangPenawarans.Add(new BarangPenawaran
+        //{
+        //    IdBarang = ItemBaru.IdBarang,
+        //    IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+        //    IdSatuan = ItemBaru.IdSatuan,
+        //    IdDivisiBarang = ItemBaru.IdDivisiBarang,
+        //    IdSubDivisiBarang = ItemBaru.IdSubDivisiBarang,
+        //    IdKategoriBarang = ItemBaru.IdKategoriBarang,
+        //    IdSubKategoriBarang = ItemBaru.IdSubKategoriBarang,
+        //    Satuan = ItemBaru.Satuan,
+        //    Nama = ItemBaru.Nama,
+        //    Stok = ItemBaru.Stok,
+        //    Minimum = ItemBaru.Minimum,
+        //    Maksimum = ItemBaru.Maksimum
+        //});
+        //_daftarBarang.Remove(ItemBaru);
+        //ModalCancel();
     }
 
     void HapusBarangDariList(BarangPenawaran Item)

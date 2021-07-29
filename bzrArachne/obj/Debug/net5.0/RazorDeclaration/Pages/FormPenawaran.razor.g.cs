@@ -13,126 +13,126 @@ namespace bzrArachne.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
-#line 1 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 1 "D:\Arachne\bzrArachne\_Imports.razor"
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 2 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 3 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 4 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 5 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 5 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 6 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 6 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 7 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 7 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 8 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 8 "D:\Arachne\bzrArachne\_Imports.razor"
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 9 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 9 "D:\Arachne\bzrArachne\_Imports.razor"
 using bzrArachne;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 10 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 10 "D:\Arachne\bzrArachne\_Imports.razor"
 using bzrArachne.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 11 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 11 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazor.AdminLte;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 12 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 12 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazored.Toast;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 13 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 13 "D:\Arachne\bzrArachne\_Imports.razor"
 using Blazored.Toast.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 14 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 14 "D:\Arachne\bzrArachne\_Imports.razor"
 using CurrieTechnologies.Razor.SweetAlert2;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 15 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\_Imports.razor"
+#line 15 "D:\Arachne\bzrArachne\_Imports.razor"
 using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 2 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+#line 2 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
 using bzrArachne.Service;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 3 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+#line 3 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
 using bzrArachne.Models;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
-#line 4 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+#line 4 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
 using BlazorNumericTextBox;
 
 #line default
@@ -147,7 +147,7 @@ using BlazorNumericTextBox;
         }
         #pragma warning restore 1998
 #nullable restore
-#line 449 "C:\Users\mafif\source\repos\ArachneGWR\bzrArachne\Pages\FormPenawaran.razor"
+#line 449 "D:\Arachne\bzrArachne\Pages\FormPenawaran.razor"
  
     //MODAL
     void CheckboxClicked(DataBarang ItemC, object checkedValue)
@@ -223,13 +223,13 @@ using BlazorNumericTextBox;
             Item = DataService._barangDipilih;
             barangPenawarans.Add(new BarangPenawaran
             {
-                IdBarang = Item.IdBarang,
+                IdBarang = Item.IdBarang.ToString(),
                 IdDetilPenawaranPembelian = rnd.Next(1, 1000),
-                IdSatuan = Item.IdSatuan,
-                IdDivisiBarang = Item.IdDivisiBarang,
-                IdSubDivisiBarang = Item.IdSubDivisiBarang,
-                IdKategoriBarang = Item.IdKategoriBarang,
-                IdSubKategoriBarang = Item.IdSubKategoriBarang,
+                IdSatuan = Item.IdSatuan.ToString(),
+                IdDivisiBarang = Item.IdDivisiBarang.ToString(),
+                IdSubDivisiBarang = Item.IdSubDivisiBarang.ToString(),
+                IdKategoriBarang = Item.IdKategoriBarang.ToString(),
+                IdSubKategoriBarang = Item.IdSubKategoriBarang.ToString(),
                 Satuan = Item.Satuan,
                 Nama = Item.Nama,
                 Stok = Item.Stok,
@@ -244,7 +244,7 @@ using BlazorNumericTextBox;
                 await foreach (var item in dataBarang)
                 {
 
-                    if (item.Stok <= item.Minimum && item.IdBarang != value.IdBarang)
+                    if (item.Stok <= item.Minimum && item.IdBarang.ToString() != value.IdBarang)
                     {
                         _daftarBarang.Add(new DataBarang
                         {
@@ -281,13 +281,13 @@ using BlazorNumericTextBox;
         {
             barangPenawarans.Add(new BarangPenawaran
             {
-                IdBarang = data.IdBarang,
+                IdBarang = data.IdBarang.ToString(),
                 IdDetilPenawaranPembelian = rnd.Next(1, 1000),
-                IdSatuan = data.IdSatuan,
-                IdDivisiBarang = data.IdDivisiBarang,
-                IdSubDivisiBarang = data.IdSubDivisiBarang,
-                IdKategoriBarang = data.IdKategoriBarang,
-                IdSubKategoriBarang = data.IdSubKategoriBarang,
+                IdSatuan = data.IdSatuan.ToString(),
+                IdDivisiBarang = data.IdDivisiBarang.ToString(),
+                IdSubDivisiBarang = data.IdSubDivisiBarang.ToString(),
+                IdKategoriBarang = data.IdKategoriBarang.ToString(),
+                IdSubKategoriBarang = data.IdSubKategoriBarang.ToString(),
                 Satuan = data.Satuan,
                 Nama = data.Nama,
                 Stok = data.Stok,
@@ -312,51 +312,51 @@ using BlazorNumericTextBox;
     }
     async Task SendDataPenawaran()
     {
-        var check = 0;
-        if (check == 0)
+        //var check = barangPenawarans.Where(x => x.Stok + x.Jumlah > x.Maksimum || x.Harga == 0 || x.Jumlah == 0).ToList();
+        //if (check == 0)
+        //{
+        dataPenawaran = new DataPenawaran
         {
-            dataPenawaran = new DataPenawaran
-            {
-                IdPenawaranPembelian = rnd.Next(1, 1000),
-                IdJenisSupplier = user.IdJenisSupplier,
-                IdSupplier = user.IdSupplier,
-                IdCompanyPenerima = "GWR",
-                BarangPenawaran = barangPenawarans,
-                GrandTotal = _grandtotal,
-                DiskonDetil = _grandDetil.ToString(),
-                DiskonNominal = _grandDiskon,
-                Catatan = _catatan,
-            };
-            var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
-            DataService.SetNullBarangDipilih();
-            Item = null;
-            barangPenawarans.Clear();
-            dataPenawaran = null;
+            IdPenawaranPembelian = rnd.Next(1, 1000),
+            IdJenisSupplier = user.IdJenisSupplier,
+            IdSupplier = user.IdSupplier,
+            IdCompanyPenerima = "GWR",
+            BarangPenawaran = barangPenawarans,
+            GrandTotal = _grandtotal,
+            DiskonDetil = _grandDetil.ToString(),
+            DiskonNominal = _grandDiskon,
+            Catatan = _catatan,
+        };
+        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+        DataService.SetNullBarangDipilih();
+        Item = null;
+        barangPenawarans.Clear();
+        dataPenawaran = null;
 
-            if (send)
-            {
-                await Swal.FireAsync(
-                "Sukses",
-                "Data Penawaran Berhasil terkirim :)",
-                SweetAlertIcon.Success
-                );
-                NavigationManager.NavigateTo("dataBarang");
-            }
-            else
-            {
-                await Swal.FireAsync(
-                "Gagal",
-                "Data Penawaran gagal terkirim :)",
-                SweetAlertIcon.Error
-                );
-
-                NavigationManager.NavigateTo("dataBarang");
-            }
+        if (send)
+        {
+            await Swal.FireAsync(
+            "Sukses",
+            "Data Penawaran Berhasil terkirim :)",
+            SweetAlertIcon.Success
+            );
+            NavigationManager.NavigateTo("dataBarang");
         }
         else
         {
-            ToastService.ShowError($" Pastikan Jumlah dan harga Sudah terisi dengan Benar");
+            await Swal.FireAsync(
+            "Gagal",
+            "Data Penawaran gagal terkirim :)",
+            SweetAlertIcon.Error
+            );
+
+            NavigationManager.NavigateTo("dataBarang");
         }
+        //}
+        //else
+        //{
+        //    ToastService.ShowError($" Pastikan Jumlah dan harga Sudah terisi dengan Benar");
+        //}
 
 
     }
@@ -443,6 +443,12 @@ using BlazorNumericTextBox;
         }
         barangPenawarans.Add(new BarangPenawaran
         {
+            IdBarang = null,
+            IdSatuan = null,
+            IdDivisiBarang = null,
+            IdSubDivisiBarang = null,
+            IdKategoriBarang = null,
+            IdSubKategoriBarang = null,
             Nama = NamaBaru,
             Satuan = SelectedSatuan,
             IdDetilPenawaranPembelian = rnd.Next(1, 1000),

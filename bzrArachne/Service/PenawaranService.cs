@@ -41,7 +41,10 @@ namespace bzrArachne.Service
                     List<InsertDataT7Requset> data = new List<InsertDataT7Requset>();
                     foreach (var Item in dataPenawaran.BarangPenawaran)
                     {
-                        data.Add(new InsertDataT7Requset {
+                    if (Item.IdBarang !=null)
+                    {
+                        data.Add(new InsertDataT7Requset
+                        {
                             IdBarang = Item.IdBarang.ToString(),
                             IdDetilPenawaranPembelian = Item.IdDetilPenawaranPembelian,
                             IdSatuan = Item.IdSatuan.ToString(),
@@ -63,8 +66,38 @@ namespace bzrArachne.Service
                             SubKategoriBarangSubKategori = Item.SubKategoriBarang_SubKategori,
                             DivisiBarangDivisi = Item.DivisiBarang_Divisi,
                             KategoriBarangKategori = Item.KategoriBarang_Kategori,
-                            
+
                         });
+                    }
+                    else
+                    {
+                        data.Add(new InsertDataT7Requset
+                        {
+                            IdBarang = null,
+                            IdDetilPenawaranPembelian = Item.IdDetilPenawaranPembelian,
+                            IdSatuan = null,
+                            IdDivisiBarang = null,
+                            IdSubDivisiBarang = null,
+                            IdKategoriBarang = null,
+                            IdSubKategoriBarang = null,
+                            Harga = Item.Harga,
+                            Jumlah = Item.Jumlah,
+                            DiskonDetil = Item.DiskonDetil.ToString(),
+                            DiskonNominal = Item.DiskonNominal,
+                            Total = Item.Total.ToString(),
+                            CatatanPenawaran = Item.CatatanPenawaran,
+                            SatuanSatuan = Item.Satuan_Satuan,
+                            BarangBarang = Item.Barang_Barang,
+                            BarangUkuran = Item.Barang_Ukuran,
+                            BarangUmur = Item.Barang_Umur,
+                            SubDivisiBarangSubDivisi = Item.SubDivisiBarang_SubDivisi,
+                            SubKategoriBarangSubKategori = Item.SubKategoriBarang_SubKategori,
+                            DivisiBarangDivisi = Item.DivisiBarang_Divisi,
+                            KategoriBarangKategori = Item.KategoriBarang_Kategori,
+
+                        });
+                    }
+                      
                     }
                     var request = new InsertDataT6Requset
                     {

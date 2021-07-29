@@ -58,33 +58,61 @@ namespace grpcArachne.Services
 
                         if (!queryT7.Any())
                         {
-                            DbT7PenawaranPembelian t7PenawaranPembelian = new DbT7PenawaranPembelian
+                            if (item.IdBarang !=null)
                             {
-                                IdDetilPenawaranPembelian = item.IdDetilPenawaranPembelian,
-                                IdPenawaranPembelian = request.IdPenawaranPembelian,
-                                IdSatuan =Convert.ToInt64( item.IdSatuan),
-                                IdDivisiBarang = Convert.ToInt64(item.IdDivisiBarang),
-                                IdSubDivisiBarang = Convert.ToInt64(item.IdSubDivisiBarang),
-                                IdKategoriBarang = Convert.ToInt64(item.IdKategoriBarang),
-                                IdSubKategoriBarang = Convert.ToInt64(item.IdSubKategoriBarang),
-                                IdBarang = Convert.ToInt64(item.IdBarang),
-                                Harga = (Decimal)item.Harga,
-                                Jumlah = (Decimal)item.Jumlah,
-                                DiskonDetil = item.DiskonDetil,
-                                DiskonNominal =(Decimal) item.DiskonNominal,
-                                Total = Convert.ToInt64(item.Total),
-                                CatatanPenawaran = item.CatatanPenawaran,
-                                Satuan_Satuan = item.SatuanSatuan,
-                                Barang_Barang = item.BarangBarang,
-                                Barang_Ukuran = item.BarangUkuran,
-                                Barang_Umur = item.BarangUmur,
-                                SubDivisiBarang_SubDivisi = item.SubDivisiBarangSubDivisi,
-                                SubKategoriBarang_SubKategori = item.SubKategoriBarangSubKategori,
-                                DivisiBarang_Divisi = item.DivisiBarangDivisi,
-                                KategoriBarang_Kategori = item.KategoriBarangKategori,
-                            };
-                            _db.T7PenawaranPembelianDbSet.AddRange(t7PenawaranPembelian);
-                            _db.SaveChanges();
+                                DbT7PenawaranPembelian t7PenawaranPembelian = new DbT7PenawaranPembelian
+                                {
+                                    IdDetilPenawaranPembelian = item.IdDetilPenawaranPembelian,
+                                    IdPenawaranPembelian = request.IdPenawaranPembelian,
+                                    IdSatuan = Convert.ToInt64(item.IdSatuan),
+                                    IdDivisiBarang = Convert.ToInt64(item.IdDivisiBarang),
+                                    IdSubDivisiBarang = Convert.ToInt64(item.IdSubDivisiBarang),
+                                    IdKategoriBarang = Convert.ToInt64(item.IdKategoriBarang),
+                                    IdSubKategoriBarang = Convert.ToInt64(item.IdSubKategoriBarang),
+                                    IdBarang = Convert.ToInt64(item.IdBarang),
+                                    Harga = (Decimal)item.Harga,
+                                    Jumlah = (Decimal)item.Jumlah,
+                                    DiskonDetil = item.DiskonDetil,
+                                    DiskonNominal = (Decimal)item.DiskonNominal,
+                                    Total = Convert.ToInt64(item.Total),
+                                    CatatanPenawaran = item.CatatanPenawaran,
+                                    Satuan_Satuan = item.SatuanSatuan,
+                                    Barang_Barang = item.BarangBarang,
+                                    Barang_Ukuran = item.BarangUkuran,
+                                    Barang_Umur = item.BarangUmur,
+                                    SubDivisiBarang_SubDivisi = item.SubDivisiBarangSubDivisi,
+                                    SubKategoriBarang_SubKategori = item.SubKategoriBarangSubKategori,
+                                    DivisiBarang_Divisi = item.DivisiBarangDivisi,
+                                    KategoriBarang_Kategori = item.KategoriBarangKategori,
+                                };
+                                _db.T7PenawaranPembelianDbSet.AddRange(t7PenawaranPembelian);
+                                _db.SaveChanges();
+                            }
+                            else 
+                            {
+                                DbT7PenawaranPembelian t7PenawaranPembelian = new DbT7PenawaranPembelian
+                                {
+                                    IdDetilPenawaranPembelian = item.IdDetilPenawaranPembelian,
+                                    IdPenawaranPembelian = request.IdPenawaranPembelian,
+                                    Harga = (Decimal)item.Harga,
+                                    Jumlah = (Decimal)item.Jumlah,
+                                    DiskonDetil = item.DiskonDetil,
+                                    DiskonNominal = (Decimal)item.DiskonNominal,
+                                    Total = Convert.ToInt64(item.Total),
+                                    CatatanPenawaran = item.CatatanPenawaran,
+                                    Satuan_Satuan = item.SatuanSatuan,
+                                    Barang_Barang = item.BarangBarang,
+                                    Barang_Ukuran = item.BarangUkuran,
+                                    Barang_Umur = item.BarangUmur,
+                                    SubDivisiBarang_SubDivisi = item.SubDivisiBarangSubDivisi,
+                                    SubKategoriBarang_SubKategori = item.SubKategoriBarangSubKategori,
+                                    DivisiBarang_Divisi = item.DivisiBarangDivisi,
+                                    KategoriBarang_Kategori = item.KategoriBarangKategori,
+                                };
+                                _db.T7PenawaranPembelianDbSet.AddRange(t7PenawaranPembelian);
+                                _db.SaveChanges();
+                            }
+                           
                         }
                     }
                 }
