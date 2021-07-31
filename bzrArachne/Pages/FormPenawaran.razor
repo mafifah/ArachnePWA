@@ -119,13 +119,13 @@
                                             <div>
                                                 @if (data.Harga <= 0)
                                                 {
-                                                    <NumericTextBox @bind-Value="@data.Harga" Format="###,###" Style="max-width:20em;" Class="form-control border-danger"></NumericTextBox>
-                                                    //<input style="font-size:small" data-toggle="tooltip" data-placement="top" title="Harga harus diisi" type="text" @bind="data.Harga" id="validationServer05Feedback" class="form-control is-invalid" required>
+                                                    <NumericTextBox @bind-Value="@data.Harga" Format="C" Style="max-width: 20em; font-size: small" Class="form-control border-danger"></NumericTextBox>
+                                                   // <input style="font-size:small" format-value="#,###,###"  for data-toggle="tooltip"  data-placement="top" title="Harga harus diisi" type="text" @bind="data.Harga" id="validationServer05Feedback" class="form-control is-invalid" required>
                                                 }
                                                 else
                                                 {
-                                                    <NumericTextBox @bind-Value="@data.Harga" Format="###,###" Style="max-width:20em;" Class="form-control border-success"></NumericTextBox>
-                                                    //<input style="font-size:small" type="text" @bind="data.Harga" id="validationServer05Feedback" class="form-control border-success" required>
+                                                    <NumericTextBox @bind-Value="@data.Harga" Format="C" Style="max-width: 20em; font-size: small" Class="form-control border-danger"></NumericTextBox>
+                                                   // <input style="font-size:small" format-value="#,###,###"  type="text" @bind="data.Harga" id="validationServer05Feedback" class="form-control border-success" required>
                                                 }
 
                                             </div>
@@ -141,7 +141,7 @@
                                                 @{
                                                     data.DiskonDetil = data.Jumlah * data.Harga * data.DiskonNominal / 100;
                                                 }
-                                                <NumericTextBox @bind-Value="@data.DiskonDetil" Format="###,###" Style="max-width:20em;" Class="form-control border-success"></NumericTextBox>
+                                                <NumericTextBox @bind-Value="@data.DiskonDetil"Format="C" Style="max-width: 20em; font-size: small" Class="form-control border-success"></NumericTextBox>
 
                                                 @*<input style="font-size:small" type="text" @bind="data.DiskonDetil" disabled class="form-control">*@
                                             </div>
@@ -154,14 +154,14 @@
                                                     data.Total = data.Harga * data.Jumlah - harga_diskon;
                                                     //string TotalString = String.Format("{0:C}", data.Total);
                                                 }
-                                                <NumericTextBox @bind-Value="@data.Total" Format="###,##0" Style="max-width:20em;" Class="form-control border-success"></NumericTextBox>
-                                                @*<input style="font-size:small" type="text" @bind="data.Total" disabled class="form-control">*@
+                                                <NumericTextBox @bind-Value="@data.Total" Format="C" Style="max-width: 20em; font-size: small"  Class="form-control border-success"></NumericTextBox>
+                                                @*<input style="font-size:small" type="text" format-value="C2" @bind="data.Total" disabled class="form-control">*@
                                             </div>
                                         </td>
                                         <td style="text-align: center; vertical-align: middle;">
                                             <div>
 
-                                                <a @onclick="(() => HapusBarangDariList(data))"><i class="fa fa-trash" style="color:red;"></i></a>
+                                                <a @onclick="(() => HapusBarangDariList(data))"><i class="fa fa-trash" style="color: red; font-size: small"></i></a>
                                             </div>
                                         </td>
                                     </tr>
@@ -205,7 +205,7 @@
                                 //string GrandTotal = String.Format("{0:C}",_grandtotal);
                             }
                             <label class="col-sm-4 col-form-label">Total Penawaran (Rp.) : </label>
-                            <NumericTextBox @bind-Value="@_grandtotal" Format="###,##0" Style="max-width:20em;" Class="form-control rounded-pill border border-success"></NumericTextBox>
+                            <NumericTextBox @bind-Value="@_grandtotal" Format="C" Style="max-width:20em;" Class="form-control rounded-pill border border-success disabled"></NumericTextBox>
                             @*<input style="text-align:center" type="text" disabled @bind="_grandtotal" class="col-sm-4 col-form-label rounded-pill border border-success" />*@
                         </div>
                     </div>
@@ -610,8 +610,8 @@
     }
     async Task SendDataPenawaran()
     {
-        var check = 0;
-        if (check == 0)
+        var check = barangPenawarans.Where(x => x.Stok + x.Jumlah > x.Maksimum || x.Harga == 0 || x.Jumlah == 0).ToList();
+        if (check.Count == 0)
         {
             dataPenawaran = new DataPenawaran
             {
@@ -741,6 +741,7 @@
         }
         barangPenawarans.Add(new BarangPenawaran
         {
+
             Nama = NamaBaru,
             Satuan = SelectedSatuan,
             IdDetilPenawaranPembelian = rnd.Next(1, 1000),
