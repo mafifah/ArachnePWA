@@ -9,7 +9,7 @@ service PenawaranPembelian
 	rpc InsertPenawaranPembelianRepeated(InsertDataT6Requset)returns(pesan);
 	rpc GetDataTermin(TerminRequest)returns(ListTermin);
 	rpc GetDataPenawaran(PenawaranRequest) returns (stream PenawaranResponse);
-	rpc GetDataPenawaranById(PenawaranRequestById) returns (PenawaranResponse);
+	rpc GetDataPenawaranById(PenawaranRequestById) returns ( stream PenawaranResponse);
 }
 
 message TerminRequest
@@ -78,15 +78,15 @@ message InsertDataT7Requset
 }
 
 message PenawaranResponse{
-	int64 IdPenawaranPembelian=1;
-	int64 IdJenisSupplier=2;
-	int64 IdSupplier = 3;
-	double GrandTotal = 4;
-	string IdCompanyPenerima = 5;
-	google.protobuf.StringValue DiskonDetil = 6;
-	double DiskonNominal = 7;
-	int64 IdTermin = 8;
-	repeated DetailPenawaranResponse DetailPenawaranResponse=9;
+	int64 IdDetilPenawaranPembelian=1;
+	int64 IdPenawaranPembelian=2;
+	int64 IdJenisSupplier=3;
+	int64 IdSupplier = 4;
+	double GrandTotal = 5;
+	string IdCompanyPenerima = 6;
+	google.protobuf.StringValue DiskonDetil = 7;
+	double DiskonNominal = 8;
+	int64 IdTermin = 9;
 	google.protobuf.StringValue Catatan = 10;
 }
 

@@ -5,6 +5,7 @@ using grpcArachne;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -147,14 +148,63 @@ namespace bzrArachnePWA.Server.Services
             return Task.FromResult(listTermin);
         }
 
-        public override Task GetDataPenawaran(PenawaranRequest request, IServerStreamWriter<PenawaranResponse> responseStream, ServerCallContext context)
+        public override async Task GetDataPenawaran(PenawaranRequest request, IServerStreamWriter<PenawaranResponse> responseStream, ServerCallContext context)
         {
-            return base.GetDataPenawaran(request, responseStream, context);
+            var query = (from T7PenawaranPembelian in _db.T7PenawaranPembelianDbSet
+                         join T6PenawaranPembelian in _db.T6PenawaranPembelianDbSet on T7PenawaranPembelian.IdPenawaranPembelian 
+                         equals T6PenawaranPembelian.IdPenawaranPembelian
+                         join T1Supplier in _db.T1SupplierDbSet
+                         on T6PenawaranPembelian.IdSupplier
+                         equals T1Supplier.IdSupplier
+                         where T6PenawaranPembelian.IdSupplier ==request.IdSupplier
+                         select new PenawaranResponse
+                         {
+                             IdDetilPenawaranPembelian = T7PenawaranPembelian.IdDetilPenawaranPembelian,
+                             IdPenawaranPembelian = (long)T7PenawaranPembelian.IdPenawaranPembelian,
+                             IdJenisSupplier = (long)T6PenawaranPembelian.IdJenisSupplier,
+                             IdSupplier = (long)T1Supplier.IdSupplier,
+                             GrandTotal = (double)T6PenawaranPembelian.GrandTotal,
+                             IdCompanyPenerima = T6PenawaranPembelian.IdCompany_Penerima,
+                             DiskonDetil = T7PenawaranPembelian.DiskonDetil,
+                             DiskonNominal = (double)T7PenawaranPembelian.DiskonNominal,
+                             Catatan = T6PenawaranPembelian.Catatan,
+                             IdTermin = (long)T6PenawaranPembelian.IdTermin,
+                         }).AsNoTracking().AsEnumerable();
+
+            foreach (var item in query)
+            {
+                await responseStream.WriteAsync(item);
+            }
+                
+        }
+        public override async Task GetDataPenawaranById(PenawaranRequestById request, IServerStreamWriter<PenawaranResponse> responseStream, ServerCallContext context)
+        {
+            var qry = (from T7PenawaranPembelian in _db.T7PenawaranPembelianDbSet
+                         join T6PenawaranPembelian in _db.T6PenawaranPembelianDbSet on T7PenawaranPembelian.IdPenawaranPembelian
+                         equals T6PenawaranPembelian.IdPenawaranPembelian
+                         join T1Supplier in _db.T1SupplierDbSet
+                         on T6PenawaranPembelian.IdSupplier
+                         equals T1Supplier.IdSupplier
+                         where T6PenawaranPembelian.IdPenawaranPembelian == request.IdPenawaranPembelian && T6PenawaranPembelian.IdSupplier ==request.IdSupplier
+                         select new PenawaranResponse
+                         {
+                             IdDetilPenawaranPembelian = T7PenawaranPembelian.IdDetilPenawaranPembelian,
+                             IdPenawaranPembelian = (long)T7PenawaranPembelian.IdPenawaranPembelian,
+                             IdJenisSupplier = (long)T6PenawaranPembelian.IdJenisSupplier,
+                             IdSupplier = (long)T1Supplier.IdSupplier,
+                             GrandTotal = (double)T6PenawaranPembelian.GrandTotal,
+                             IdCompanyPenerima = T6PenawaranPembelian.IdCompany_Penerima,
+                             DiskonDetil = T7PenawaranPembelian.DiskonDetil,
+                             DiskonNominal = (double)T7PenawaranPembelian.DiskonNominal,
+                             Catatan = T6PenawaranPembelian.Catatan,
+                             IdTermin = (long)T6PenawaranPembelian.IdTermin,
+                         }).AsNoTracking().AsEnumerable();
+
+            foreach (var item in qry)
+            {
+                await responseStream.WriteAsync(item);
+            }
         }
 
-        public override Task<PenawaranResponse> GetDataPenawaranById(PenawaranRequestById request, ServerCallContext context)
-        {
-            return base.GetDataPenawaranById(request, context);
-        }
     }
 }
