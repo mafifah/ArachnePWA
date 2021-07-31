@@ -1,0 +1,120 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpcArachne";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+import "google/protobuf/timestamp.proto";
+service PenawaranPembelian
+{
+	rpc InsertPenawaranPembelianRepeated(InsertDataT6Requset)returns(pesan);
+	rpc GetDataTermin(TerminRequest)returns(ListTermin);
+	rpc GetDataPenawaran(PenawaranRequest) returns (stream PenawaranResponse);
+	rpc GetDataPenawaranById(PenawaranRequestById) returns (PenawaranResponse);
+}
+
+message TerminRequest
+{
+	
+}
+
+message TerminResponse
+{
+	int64 IdTermin = 1;
+	google.protobuf.StringValue  Termin = 2;
+}
+
+message ListTermin
+{
+	repeated TerminResponse TerminResponse=1;
+}
+
+message PenawaranRequest{
+	int64 IdSupplier = 1;
+}
+
+message PenawaranRequestById{
+	int64 IdSupplier = 1;
+	int64 IdPenawaranPembelian= 2;
+}
+
+
+message InsertDataT6Requset
+{
+	int64 IdPenawaranPembelian=1;
+	int64 IdJenisSupplier=2;
+	int64 IdSupplier = 3;
+	double GrandTotal = 4;
+	string IdCompanyPenerima = 5;
+	google.protobuf.StringValue DiskonDetil = 6;
+	double DiskonNominal = 7;
+	int64 IdTermin = 8;
+	repeated InsertDataT7Requset T7Requset=9;
+	google.protobuf.StringValue Catatan = 10;
+	
+}
+message InsertDataT7Requset
+{
+	int64 IdBarang=1;
+	int64 IdDetilPenawaranPembelian= 2;
+	int64 IdSatuan=3;
+	int64 IdDivisiBarang=4;
+	int64 IdSubDivisiBarang=5;
+	int64 IdKategoriBarang=6;
+	int64 IdSubKategoriBarang=7;
+	double Harga=8;
+	double Jumlah=9;
+	google.protobuf.StringValue DiskonDetil = 10;
+	double DiskonNominal = 11;
+	int64 Total=12;
+	google.protobuf.StringValue CatatanPenawaran=13;
+	google.protobuf.StringValue SatuanSatuan =14;
+	google.protobuf.StringValue BarangBarang =15;
+	google.protobuf.StringValue BarangUkuran=16;
+	int32  BarangUmur=17;
+	google.protobuf.StringValue SubDivisiBarangSubDivisi=18;
+	google.protobuf.StringValue SubKategoriBarangSubKategori =19;
+	google.protobuf.StringValue DivisiBarangDivisi =20;
+	google.protobuf.StringValue KategoriBarangKategori=21;
+}
+
+message PenawaranResponse{
+	int64 IdPenawaranPembelian=1;
+	int64 IdJenisSupplier=2;
+	int64 IdSupplier = 3;
+	double GrandTotal = 4;
+	string IdCompanyPenerima = 5;
+	google.protobuf.StringValue DiskonDetil = 6;
+	double DiskonNominal = 7;
+	int64 IdTermin = 8;
+	repeated DetailPenawaranResponse DetailPenawaranResponse=9;
+	google.protobuf.StringValue Catatan = 10;
+}
+
+message DetailPenawaranResponse{
+	int64 IdBarang=1;
+	int64 IdDetilPenawaranPembelian= 2;
+	int64 IdSatuan=3;
+	int64 IdDivisiBarang=4;
+	int64 IdSubDivisiBarang=5;
+	int64 IdKategoriBarang=6;
+	int64 IdSubKategoriBarang=7;
+	double Harga=8;
+	double Jumlah=9;
+	google.protobuf.StringValue DiskonDetil = 10;
+	double DiskonNominal = 11;
+	int64 Total=12;
+	google.protobuf.StringValue CatatanPenawaran=13;
+	google.protobuf.StringValue SatuanSatuan =14;
+	google.protobuf.StringValue BarangBarang =15;
+	google.protobuf.StringValue BarangUkuran=16;
+	int32  BarangUmur=17;
+	google.protobuf.StringValue SubDivisiBarangSubDivisi=18;
+	google.protobuf.StringValue SubKategoriBarangSubKategori =19;
+	google.protobuf.StringValue DivisiBarangDivisi =20;
+	google.protobuf.StringValue KategoriBarangKategori=21;
+}
+
+message pesan
+{
+	string pesan=1;
+}

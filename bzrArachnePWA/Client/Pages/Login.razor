@@ -1,0 +1,74 @@
+﻿@layout LoginLayout
+@page "/"
+@using bzrArachnePWA.Client.Models
+@using bzrArachnePWA.Client.Service
+@inject DataService DataService
+@using System.ComponentModel.DataAnnotations
+@inject NavigationManager NavigationManager
+
+<center>
+    <div style="max-width: 400px; text-align:center;">
+        <br />
+        <br />
+        <MudCard>
+            <MudCardHeader>
+                <CardHeaderContent>
+                    <MudText Typo="Typo.h6">Log In</MudText>
+                </CardHeaderContent>
+            </MudCardHeader>
+            <MudCardContent>
+                @if (!string.IsNullOrEmpty(message))
+                {
+                    <MudAlert Severity="@(isLoggedIn ? Severity.Success : Severity.Error)" Variant="Variant.Filled">@message</MudAlert>
+                }
+                <MudForm @bind-IsValid="@success" @bind-Errors="@errors">
+                    <MudTextField T="string" Label="Username" Required="true" RequiredError="Email is required!"
+                                  @bind-Value="user.UserName"
+                                  Validation="@(new RequiredAttribute() {ErrorMessage = "Username tidak boleh kosong"})" />
+                    <MudTextField T="string" Label="Password"
+                                  InputType="InputType.Password"
+                                  @bind-Value="user.UserPassword" />
+                </MudForm>
+            </MudCardContent>
+            <MudCardActions>
+                @if (isBusy)
+                {
+                    <MudProgressCircular Color="Color.Primary" Indeterminate="true" Class="ml-auto" />
+                }
+                else
+                {
+                    <MudButton Variant="Variant.Filled" Color="Color.Primary" Disabled="@(!success || isBusy)" Class="ml-auto" @onclick="LoginAsync">Login</MudButton>
+                }
+
+            </MudCardActions>
+        </MudCard>
+    </div>
+</center>
+
+@code {
+    private bool success;
+    private string[] errors = new string[0];
+    private bool isBusy = false;
+    private string username = string.Empty;
+    private string password = string.Empty;
+    private bool isLoggedIn = false;
+    private string message = string.Empty;
+    private DataUser user = new DataUser();
+    private async Task LoginAsync()
+    {
+        isBusy = true;
+        await Task.Delay(1000);
+        var currentUser = await DataService.GetLogin(user);
+        if (currentUser.Nama != null)
+        {
+            isLoggedIn = true;
+            NavigationManager.NavigateTo("/stokBarang");
+        }
+        else
+        {
+            isLoggedIn = false;
+            message = "Username atau password salah";
+        }
+        isBusy = false;
+    }
+}

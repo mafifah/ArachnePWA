@@ -1,0 +1,118 @@
+﻿@page "/stokBarang"
+@using Microsoft.AspNetCore.SignalR.Client
+@using bzrArachnePWA.Client.Models
+@using bzrArachnePWA.Client.Service
+@inject DataService DataService
+@inject NavigationManager NavigationManager
+@inject IToastService toastService
+@inject ISnackbar Snackbar
+<h3>Stok Barang</h3>
+<MudTable Items="@_daftarBarang" Hover="true" SortLabel="Sort By" Filter="new Func<DataBarang, bool>(FilterCycleCheck)">
+    <ToolBarContent>
+        <MudSpacer />
+        <MudTextField @bind-Value="SearchTerm" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<DataBarang, object>(x => x.Nama)">Nama</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<DataBarang, object>(x => x.Satuan)">Satuan</MudTableSortLabel></MudTh>
+        <MudTh><MudTableSortLabel InitialDirection="SortDirection.Ascending" SortBy="new Func<DataBarang, object>(x => x.Stok)">Stok</MudTableSortLabel></MudTh>
+        <MudTh>Opsi</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Nama">@context.Nama</MudTd>
+        <MudTd DataLabel="Satuan">@context.Satuan</MudTd>
+        <MudTd DataLabel="Stok">@context.Stok</MudTd>
+        <MudTd DataLabel="Opsi">
+            @if (context.Stok <= context.Minimum)
+            {<MudButton Variant="Variant.Filled" Color="Color.Primary" OnClick="(() => MoveToPenawaran(context))">Buat Penawaran</MudButton>}
+        </MudTd>
+    </RowTemplate>
+</MudTable>
+
+@code {
+    private DataUser user = new DataUser();
+    private List<DataBarang> _daftarBarang = new List<DataBarang>();
+    DataBarang BarangDipilih = new DataBarang();
+    string SearchTerm { get; set; } = "";
+    protected override async Task OnInitializedAsync()
+    {
+        user = DataService.User;
+        var Token = DataService.Token;
+        if (!String.IsNullOrEmpty(Token))
+        {
+            await GetBarang();
+            var hubConnection = new HubConnectionBuilder().WithUrl(NavigationManager.ToAbsoluteUri("/broadcastHub")).Build();
+            hubConnection.On<string>("ReceiveMessage", (msg) =>
+            {
+                StateHasChanged();
+                GetDataById(msg);
+            });
+            await hubConnection.StartAsync();
+            var IsConnected = hubConnection.State;
+
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/");
+        }
+    }
+    async Task GetBarang()
+    {
+        var dataBarang = DataService.GetDataBarangWithGroupBy();
+        await foreach (var item in dataBarang)
+        {
+            _daftarBarang.Add(new DataBarang
+            {
+                IdBarang = item.IdBarang,
+                IdDivisiBarang = item.IdDivisiBarang,
+                IdSubDivisiBarang = item.IdSubDivisiBarang,
+                IdKategoriBarang = item.IdKategoriBarang,
+                IdSubKategoriBarang = item.IdSubKategoriBarang,
+                IdSupplier = item.IdSupplier,
+                IdJenisSupplier = item.IdJenisSupplier,
+                IdSatuan = item.IdSatuan,
+                Nama = item.Nama,
+                Satuan = item.Satuan,
+                Stok = item.Stok,
+                Minimum = item.Minimum,
+                Maksimum = item.Maksimum,
+                NamaSupplier = item.NamaSupplier
+            });
+            this.StateHasChanged();
+        }
+    }
+    async Task GetDataById(string id)
+    {
+        var dataBarang = DataService.GetDataById(id);
+        await foreach (var item in dataBarang)
+        {
+            var data = _daftarBarang.Where(i => i.IdBarang == item.IdBarang && i.IdSatuan == item.IdSatuan).FirstOrDefault();
+            data.Stok = item.Stok;
+            StateHasChanged();
+            if (data.Stok <= data.Minimum)
+            {
+                Snackbar.Add($"{item.Nama} dengan satuan {item.Satuan} hampir habis");
+                //toastService.ShowWarning($"{item.Nama} dengan satuan {item.Satuan} hampir habis");
+            }
+        }
+    }
+
+    void MoveToPenawaran(DataBarang Item)
+    {
+        DataService.SetBarangDipilih(Item);
+
+        NavigationManager.NavigateTo("formPenawaran");
+    }
+    void MoveToPenawaranBarangBaru()
+    {
+        NavigationManager.NavigateTo("penawaranBarangBaru");
+    }
+    private bool FilterCycleCheck(DataBarang item)
+    {
+        if (item.Nama.ToLower().Contains(SearchTerm) || item.Satuan.ToLower().Contains(SearchTerm) || item.Stok.ToString() == SearchTerm)
+        {
+            return true;
+        }
+        return false;
+    }
+}

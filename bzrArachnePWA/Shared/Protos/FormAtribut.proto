@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option csharp_namespace = "grpcArachne";
+import "google/protobuf/empty.proto";
+import "google/protobuf/wrappers.proto";
+
+service FormAtribut{
+	rpc GetDivisiBarang(Empty) returns (stream T0DivisiBarang);
+	rpc GetSubDivisiBarang(Empty) returns (stream T1SubDivisiBarang);
+	rpc GetKategoriBarang(Empty) returns (stream T0KategoriBarang);
+	rpc GetDataOption(Empty) returns (stream T9DataOption);
+}
+
+message Empty{
+
+}
+
+message T0DivisiBarang{
+	int64 IdDivisi = 1;
+	google.protobuf.StringValue Divisi = 2;
+}
+
+message T1SubDivisiBarang{
+	int64 IdDivisiBarang = 1;
+	int64 IdSubDivisi = 2;
+	google.protobuf.StringValue SubDivisi = 3;
+	google.protobuf.StringValue Keterangan = 4;
+}
+
+message T0KategoriBarang{
+	int64 IdKategoriBarang = 1;
+	google.protobuf.StringValue KategoriBarang = 2;
+}
+
+message T9DataOption{
+	google.protobuf.StringValue DataOption = 1;
+}
