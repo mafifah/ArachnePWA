@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <ServiceWorkerAssetsManifest>service-worker-assets.js</ServiceWorkerAssetsManifest>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Blazored.Toast" Version="3.1.2" />
+    <PackageReference Include="CurrieTechnologies.Razor.SweetAlert2" Version="5.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="5.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="5.0.7" PrivateAssets="all" />
+    <PackageReference Include="System.Net.Http.Json" Version="5.0.0" />
+	<PackageReference Include="Google.Protobuf" Version="3.17.3" />
+	<PackageReference Include="Grpc.Net.Client" Version="2.38.0" />
+	<PackageReference Include="Grpc.Net.Client.Web" Version="2.38.0" />
+	<PackageReference Include="MudBlazor" Version="5.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\bzrArachnePWA.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ServiceWorker Include="wwwroot\service-worker.js" PublishedContent="wwwroot\service-worker.published.js" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<Protobuf Include="..\Shared\Protos\Barang.proto" />
+		<Protobuf Include="..\Shared\Protos\FormAtribut.proto" />
+		<Protobuf Include="..\Shared\Protos\LoginToken.proto" />
+		<Protobuf Include="..\Shared\Protos\PenawaranPembelian.proto" />
+	</ItemGroup>
+
+</Project>

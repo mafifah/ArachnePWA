@@ -1,0 +1,623 @@
+﻿@page "/formPenawaran"
+@using bzrArachnePWA.Client.Models
+@using bzrArachnePWA.Client.Service
+@inject DataService DataService
+@inject FormAtributService FormAtributService
+@inject PenawaranService PenawaranService
+@inject NavigationManager NavigationManager
+@using System.Globalization
+@inject SweetAlertService Swal
+@inject ISnackbar Snackbar
+<h3>Form Penawaran</h3>
+<MudCard>
+    <MudCardContent>
+        <MudGrid>
+            <MudItem xs="6" sm="6" md="6">
+                <MudTextField @bind-Value="user.Nama" Label="Nama" Disabled="true" Variant="Variant.Filled"></MudTextField>
+            </MudItem>
+            <MudItem xs="6" sm="6" md="6">
+                @{
+                    Tanggal = DateTimeOffset.UtcNow.LocalDateTime;
+                }
+                <MudTextField @bind-Value="Tanggal" Label="Tanggal" Disabled="true" Variant="Variant.Outlined"></MudTextField>
+            </MudItem>
+            <MudItem xs="12" sm="6" md="6">
+                <MudTextField T="string" Label="Alamat" @bind-Value="user.Alamat" Disabled="true" Variant="Variant.Outlined" Text="" Lines="2" />
+            </MudItem>
+            <MudItem xs="12" sm="6" md="6">
+                <MudTextField T="string" Label="Termin" Placeholder="Termin" Disabled="true" Variant="Variant.Outlined" Text="" Lines="2" />
+            </MudItem>
+        </MudGrid>
+        <hr />
+        <MudTable Items="@barangPenawarans" Dense="@dense" Hover="@hover" ReadOnly="@ronly" CanCancelEdit="@canCancelEdit" @bind-SelectedItem="selectedItem1" SortLabel="Sort By"
+                  CommitEditTooltip="Simpan" OnCommitEditClick="@(() => Snackbar.Add("Data berhasil diedit"))" RowEditCommit="ItemHasBeenCommitted">
+            <HeaderContent>
+                <MudTh>Catatan</MudTh>
+                <MudTh>Jml</MudTh>
+                <MudTh>Nama</MudTh>
+                <MudTh>Harga</MudTh>
+                <MudTh>Diskon(%)</MudTh>
+                <MudTh>Diskon(Rp)</MudTh>
+                <MudTh>Total</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Catatan">@context.CatatanPenawaran</MudTd>
+                <MudTd Class="clm-row-small" DataLabel="Jml">@context.Jumlah</MudTd>
+                <MudTd DataLabel="Nama">@context.Nama</MudTd>
+                @{ CultureInfo culture = new CultureInfo("id-ID");
+                    var CrHarga = context.Harga.ToString("C2", culture);
+                    var CrTotal = context.Total.ToString("C2", culture);
+                    var CrNominalDiskon = context.DiskonNominal.ToString("C2", culture);}
+                <MudTd Class="clm-row-small" DataLabel="Harga">@CrHarga</MudTd>
+                <MudTd Class="clm-row-small" DataLabel="Diskon(%)">@context.DiskonDetil</MudTd>
+                <MudTd DataLabel="Diskon(Rp)">@CrNominalDiskon</MudTd>
+                <MudTd DataLabel="Total">@CrTotal</MudTd>
+            </RowTemplate>
+            <RowEditingTemplate>
+                <MudTd DataLabel="Catatan">
+                    <MudTextField  @bind-Value="@context.CatatanPenawaran" />
+                </MudTd>
+                <MudTd DataLabel="Jml">
+                    @{
+                        var pesanstok = context.Maksimum - context.Stok;
+                        if (context.Jumlah <= 0 || context.Stok + context.Jumlah > context.Maksimum)
+                        {
+                            <MudNumericField @bind-Value="@context.Jumlah" RequiredError="Tidak boleh lebih dari Stok Maksimum" Required="true" />
+                        }
+                        else
+                        {
+                            <MudNumericField @bind-Value="@context.Jumlah" Required="true" />
+                        }
+                        return;
+                    }
+
+                </MudTd>
+                <MudTd DataLabel="Nama">
+                    <MudTextField @bind-Value="@context.Nama" Required />
+                </MudTd>
+                <MudTd DataLabel="Harga">
+                    <MudNumericField @bind-Value="@context.Harga" Format="N2" Culture="CultureInfo.CurrentCulture" Required Min="1" />
+                </MudTd>
+                <MudTd DataLabel="Diskon(%)">
+                    <MudTextField  Format="N2" Culture="CultureInfo.CurrentCulture" @bind-Value="@context.DiskonDetil" />
+                </MudTd>
+                <MudTd DataLabel="Diskon(Rp)">
+                    @{
+                        context.DiskonNominal = context.Jumlah * context.Harga * context.DiskonDetil / 100;
+                    }
+                    <MudTextField Format="N2" Disabled="true" Culture="CultureInfo.CurrentCulture" @bind-Value="@context.DiskonNominal" />
+                </MudTd>
+                <MudTd DataLabel="Total">
+                    @{
+                        var harga_diskon = (context.Jumlah * context.Harga) * context.DiskonDetil / 100;
+                        context.Total = (context.Harga * context.Jumlah) - harga_diskon;
+                       
+                    }
+                    <MudTextField Format="N2" Culture="CultureInfo.CurrentCulture" @bind-Value="@context.Total" Disabled="true" />
+                </MudTd>
+                <MudTd Style="font-size:small" DataLabel="OPSI">
+                    <MudContainer Style="max-width:fit-content">
+                        <a @onclick="(() => HapusBarangDariList(context))" style="color:red">X</a>
+                    </MudContainer>
+                </MudTd>
+            </RowEditingTemplate>
+        </MudTable>
+        <br />
+        <br />
+        <MudFab Color="Color.Primary" Icon="@Icons.Material.Filled.Add" OnClick="@ModalShow" Size="Size.Medium" aria-label="Tambah" />
+        <br />
+        <br />
+        <MudGrid>
+            <MudItem xs="12" sm="6" md="6">
+                <MudTextField T="string" Label="Catatan Penawaran" @bind-Value="_catatan" Variant="Variant.Outlined" Placeholder="Catatan Penawaran" Lines="2" />
+            </MudItem>
+            <MudItem xs="12" sm="6" md="6">
+                @{
+                    CultureInfo culture = new CultureInfo("id-ID");
+                    _grandDetil = barangPenawarans.Sum(m => Convert.ToDouble(m.DiskonDetil));
+                    _grandDiskon = barangPenawarans.Sum(m => m.DiskonNominal);
+                    _grandtotal = barangPenawarans.Sum(m => m.Total);
+                    var CrGrandTotal = _grandtotal.ToString("C2", culture);
+                }
+                <MudTextField Format="N2" Label="Grand Total" Culture="CultureInfo.CurrentCulture" @bind-Value="CrGrandTotal" Disabled="true" />
+            </MudItem>
+        </MudGrid>
+    </MudCardContent>
+    <MudCardActions>
+        <MudButton @onclick="(() => BackToBarang())" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.NavigateBefore" Color="Color.Dark">Batal</MudButton>&nbsp;
+        <MudButton @onclick="(() => SendDataPenawaran())" EndIcon="@Icons.Material.Filled.NavigateNext" Variant="Variant.Filled" Color="Color.Primary">Kirim</MudButton>
+    </MudCardActions>
+</MudCard>
+@if (showModal)
+{
+<MudCard>
+    <div class="modal fade show" id="exampleModalLong" tabindex="-1" style="display:block;z-index:1500" aria-modal="true" role="dialog">
+        <div class="modal-dialog" role="document" style="position:center;">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Data Barang</h4>
+                    <button type="button" class="close" @onclick="@ModalCancel">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <MudTable Items="@_daftarBarang" FixedHeader="@fixed_header" FixedFooter="@fixed_footer" Height="@(fixed_header || fixed_footer ? "400px" : "")" Filter="new Func<DataBarang, bool>(FilterCycleCheck)" MultiSelection="true" @bind-SelectedItems="datachecked" Hover="true">
+                        <ToolBarContent>
+                            <MudTextField @bind-Value="SearchTerm" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                        </ToolBarContent>
+                        <HeaderContent>
+                            <MudTh>Nama</MudTh>
+                            <MudTh>Satuan</MudTh>
+                            <MudTh>Stok</MudTh>
+                        </HeaderContent>
+                        <RowTemplate>
+                            <MudTd DataLabel="Nama">@context.Nama</MudTd>
+                            <MudTd DataLabel="Satuan">@context.Satuan</MudTd>
+                            <MudTd DataLabel="Stok">@context.Stok</MudTd>
+                        </RowTemplate>
+                    </MudTable>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <MudFab Icon="@Icons.Material.Filled.AddTask" Size="Size.Small" Label="Barang Baru" @onclick="@ModalBarangShow" aria-label="Barang Baru" />
+                    <MudFab Icon="@Icons.Material.Filled.Save" Size="Size.Small" Label="Tambah" @onclick="(() => TambahBarangKeList())" aria-label="Tambah" />
+                </div>
+            </div>
+        </div>
+    </div>
+</MudCard>}
+
+@if (showModalBarang)
+{
+    <MudCard>
+        <div class="modal fade show" id="exampleModalScrollable" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true" style="display:block;z-index:1500" aria-modal="true" role="dialog">
+            <div class="modal-dialog modal-lg modal-dialog-scrollable" role="document" style="position:center;">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Form Barang Baru</h4>
+                        <button type="button" class="close" @onclick="@ModalBarangCancel">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <MudGrid>
+                            <MudItem xs="6" sm="6" md="6">
+                                @{
+                                    var Div = DivisiBarang.Where(i => i.IdDivisi.ToString() == SelectedDivisi).FirstOrDefault();
+                                    var SubDiv = SubDivisiBarang.Where(i => i.Keterangan == SelectedSubDivisi).FirstOrDefault();
+                                    SelectedDivisiNama = Div.Divisi;
+                                    SelectedSubDivisiNama = SubDiv.SubDivisi;
+                                    if (SelectedUkuran == "Lainnya")
+                                    {
+                                        NamaBaru = $"{Div.Divisi} {SubDiv.SubDivisi} {UkuranLainnya}";
+                                    }
+                                    else
+                                    {
+                                        NamaBaru = $"{Div.Divisi} {SubDiv.SubDivisi} {SelectedUkuran}";
+                                    }
+                                }
+                                <MudTextField @bind-Value="NamaBaru" Label="Nama" Variant="Variant.Text"></MudTextField>
+                            </MudItem>
+                            <MudItem xs="6" sm="6" md="6">
+                                <div class="form-group">
+                                    <label>Ukuran</label>
+                                    <select class="form-control" @bind="SelectedUkuran">
+                                        @{
+                                            if (SelectedSubDivisi.Contains("Cotton"))
+                                            {
+                                                var data = UkuranBarang.Where(i => i.Ukuran.Contains("S")).ToList();
+                                                @foreach (var item in data)
+                                                {
+                                                    <option value="@item.Ukuran">@item.Ukuran</option>
+                                                }
+                                                <option>Lainnya</option>
+                                            }
+                                            else
+                                            {
+                                                var data = UkuranBarang.Where(i => i.Ukuran.Contains("D")).ToList();
+                                                @foreach (var item in data)
+                                                {
+                                                    <option value="@item.Ukuran">@item.Ukuran</option>
+                                                }
+                                                <option>Lainnya</option>
+                                            }
+                                        }
+                                    </select>
+                                    @if (SelectedUkuran == "Lainnya")
+                                    {
+                                        <br />
+                                        <input @bind="UkuranLainnya" type="text" class="form-control" placeholder="Ukuran Lainnya">
+                                    }
+                                </div>
+
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="6">
+                                <div class="form-group">
+                                    <label>Divisi Barang</label>
+                                    <select @bind="SelectedDivisi" class="form-control">
+                                        @foreach (var item in DivisiBarang)
+                                        {
+                                            <option value="@item.IdDivisi.ToString()">@item.Divisi</option>
+                                        }
+                                    </select>
+                                </div>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="6">
+                                <div class="form-group">
+                                    <label>Satuan</label>
+                                    <select class="form-control" @bind="SelectedSatuan">
+                                        <option value="Cone">Cone</option>
+                                        <option value="Bale">Bale</option>
+                                    </select>
+                                </div>
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="6">
+                                <div class="form-group">
+                                    <label>Sub Divisi Barang</label>
+                                    <select class="form-control" @bind="SelectedSubDivisi">
+                                        @foreach (var item in FilteredSubDivisiBarang)
+                                        {
+                                            <option value="@item.Keterangan">@item.Keterangan</option>
+                                        }
+                                    </select>
+                                </div>
+
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="6">
+                                <MudNumericField Margin="Margin.Dense" Variant="Variant.Text" @bind-Value="HargaBaru" Format="N2" Immediate Culture="CultureInfo.CurrentCulture" />
+                            </MudItem>
+                            <MudItem xs="12" sm="6" md="6">
+                                <div class="col-sm-6">
+                                    <!-- text input -->
+                                    <div class="form-group">
+                                        <label>Kategori Barang</label>
+                                        <select class="form-control" @bind="SelectedKategori">
+                                            @foreach (var item in KategoriBarang)
+                                            {
+                                                <option value="@item.Kategori">@item.Kategori</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+
+                            </MudItem>
+                        </MudGrid>
+                        <div class="modal-footer">
+                            <MudButton Variant="Variant.Filled" @onclick="(() => TambahBarangBaru())" StartIcon="@Icons.Material.Filled.Save" IconColor="Color.Primary" Size="Size.Large">Simpan</MudButton>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </MudCard>
+}
+@code
+{
+
+    #region PropertyMudBlazor
+    private bool canCancelEdit = false;
+    private bool dense = false;
+    private bool hover = true;
+    private bool ronly = false;
+    bool fixed_header = true;
+    bool fixed_footer = false;
+    List<string> editEvents = new();
+    private BarangPenawaran selectedItem1 = null;
+
+    #endregion
+    #region Property List
+    List<DivisiBarang> DivisiBarang = new List<DivisiBarang>();
+    List<SubDivisiBarang> SubDivisiBarang = new List<SubDivisiBarang>();
+    List<SubDivisiBarang> FilteredSubDivisiBarang => SubDivisiBarang.Where(i => i.IdDivisi.ToString() == SelectedDivisi).ToList();
+    List<KategoriBarang> KategoriBarang = new List<KategoriBarang>();
+    List<UkuranBarang> UkuranBarang = new List<UkuranBarang>();
+    List<UkuranBarang> FilteredUkuranBarang = new List<UkuranBarang>();
+    List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
+    List<DataBarang> _daftarBarang = new List<DataBarang>();
+    HashSet<DataBarang> datachecked = new HashSet<DataBarang>();
+
+    #endregion
+    #region Property Modal
+    bool showexpand = false;
+    private long _expandId { get; set; }
+    bool showModalBarang = false;
+    bool showModal = false;
+
+    #endregion
+    #region Property Penawaran Barang
+    private string NamaBaru { get; set; }
+    private double HargaBaru { get; set; }
+    private string SelectedDivisi { get; set; } = "3001";
+    private string SelectedDivisiNama { get; set; } = "";
+    private string SelectedSubDivisi { get; set; } = "Spandex";
+    private string SelectedSubDivisiNama { get; set; } = "";
+    private string SelectedKategori { get; set; } = "Raw";
+    private string SelectedUkuran { get; set; } = "40D";
+    private string UkuranLainnya { get; set; } = "";
+    private string SelectedSatuan { get; set; } = "Cone";
+    double _grandtotal { get; set; }
+    double _grandDiskon { get; set; }
+    double _grandDetil { get; set; }
+    string _catatan { get; set; }
+    DateTimeOffset Tanggal { get; set; }
+    private DataBarang Context { get; set; }
+    private DataUser user = new DataUser();
+    Random rnd = new Random();
+    string SearchTerm { get; set; } = "";
+    private DataPenawaran dataPenawaran = new DataPenawaran();
+    #endregion
+
+    protected override async Task OnInitializedAsync()
+    {
+        user = DataService.User;
+        var Token = DataService.Token;
+        if (!String.IsNullOrEmpty(Token))
+        {
+            GetAtributForm();
+            Context = DataService._barangDipilih;
+            if (Context != null)
+            {
+                barangPenawarans.Add(new BarangPenawaran
+                {
+                    IdBarang = Context.IdBarang,
+                    IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+                    IdSatuan = Context.IdSatuan,
+                    IdDivisiBarang = Context.IdDivisiBarang,
+                    IdSubDivisiBarang = Context.IdSubDivisiBarang,
+                    IdKategoriBarang = Context.IdKategoriBarang,
+                    IdSubKategoriBarang = Context.IdSubKategoriBarang,
+                    Satuan = Context.Satuan,
+                    Nama = Context.Nama,
+                    Stok = Context.Stok,
+                    Minimum = Context.Minimum,
+                    Maksimum = Context.Maksimum,
+                    CatatanPenawaran = Context.CatatanPenawaran,
+
+
+                });
+                await GetDataBarang();
+            } else
+            {
+                await GetDataBarang();
+            }
+
+
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/");
+        }
+    }
+    private async Task GetDataBarang()
+    {
+        var dataBarang = DataService.GetDataBarangWithGroupBy();
+        foreach (var value in barangPenawarans)
+        {
+            await foreach (var item in dataBarang)
+            {
+
+                if (item.Stok <= item.Minimum && item.IdBarang != value.IdBarang)
+                {
+                    _daftarBarang.Add(new DataBarang
+                    {
+                        IdBarang = item.IdBarang,
+                        IdDivisiBarang = item.IdDivisiBarang,
+                        IdSubDivisiBarang = item.IdSubDivisiBarang,
+                        IdKategoriBarang = item.IdKategoriBarang,
+                        IdSubKategoriBarang = item.IdSubKategoriBarang,
+                        IdSupplier = item.IdSupplier,
+                        IdJenisSupplier = item.IdJenisSupplier,
+                        IdSatuan = item.IdSatuan,
+                        Nama = item.Nama,
+                        Satuan = item.Satuan,
+                        Stok = item.Stok,
+                        Minimum = item.Minimum,
+                        Maksimum = item.Maksimum,
+                        NamaSupplier = item.NamaSupplier
+                    });
+
+                }
+            }
+        }
+        this.StateHasChanged();
+    }
+    private void AddEditionEvent(string message)
+    {
+        editEvents.Add(message);
+        StateHasChanged();
+    }
+    private void ItemHasBeenCommitted(object element)
+    {
+        AddEditionEvent($"RowEditCommit event: Changes to Element {((BarangPenawaran)element).Nama} committed");
+    }
+    void ModalShow() => showModal = true;
+    void ModalCancel() => showModal = false;
+    private bool FilterCycleCheck(DataBarang item)
+    {
+        if (item.Nama.ToLower().Contains(SearchTerm) || item.Satuan.ToLower().Contains(SearchTerm) || item.Stok.ToString() == SearchTerm)
+        {
+            return true;
+        }
+        return false;
+    }
+    void TambahBarangKeList()
+    {
+        foreach (var data in datachecked)
+        {
+            barangPenawarans.Add(new BarangPenawaran
+            {
+                IdBarang = data.IdBarang,
+                IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+                IdSatuan = data.IdSatuan,
+                IdDivisiBarang = data.IdDivisiBarang,
+                IdSubDivisiBarang = data.IdSubDivisiBarang,
+                IdKategoriBarang = data.IdKategoriBarang,
+                IdSubKategoriBarang = data.IdSubKategoriBarang,
+                Satuan = data.Satuan,
+                Nama = data.Nama,
+                Stok = data.Stok,
+                Minimum = data.Minimum,
+                Maksimum = data.Maksimum
+
+            });
+            _daftarBarang.Remove(data);
+        }
+        ModalCancel();
+        datachecked.Clear();
+    }
+    void HapusBarangDariList(BarangPenawaran context)
+    {
+        barangPenawarans.Remove(context);
+
+    }
+    void BackToBarang()
+    {
+        if (Context != null) { DataService.SetNullBarangDipilih(); }
+        NavigationManager.NavigateTo("stokBarang");
+    }
+    async Task SendDataPenawaran()
+    {
+
+        dataPenawaran = new DataPenawaran
+        {
+            IdPenawaranPembelian = rnd.Next(1, 1000),
+            IdJenisSupplier = user.IdJenisSupplier,
+            IdSupplier = user.IdSupplier,
+            IdCompanyPenerima = "GWR",
+            BarangPenawaran = barangPenawarans,
+            GrandTotal = _grandtotal,
+            DiskonDetil = _grandDetil.ToString(),
+            DiskonNominal = _grandDiskon,
+            Catatan = _catatan,
+        };
+        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+        DataService.SetNullBarangDipilih();
+        Context = null;
+        barangPenawarans.Clear();
+        dataPenawaran = null;
+        if (send)
+        {
+            await Swal.FireAsync(
+            "Sukses",
+            "Data Penawaran Berhasil terkirim :)",
+            SweetAlertIcon.Success
+            );
+            NavigationManager.NavigateTo("stokBarang");
+        }
+        else
+        {
+            await Swal.FireAsync(
+            "Gagal",
+            "Data Penawaran gagal terkirim :)",
+            SweetAlertIcon.Error
+            );
+
+            NavigationManager.NavigateTo("stokBarang");
+        }
+    }
+    void ModalBarangShow()
+    {
+        showModal = false;
+        showModalBarang = true;
+    }
+    void expandshow(long Id)
+    {
+        _expandId = Id;
+        showexpand = true;
+    }
+    void expandclose(long Id)
+    {
+
+        showexpand = false;
+
+    }
+    void ModalBarangCancel()
+    {
+        NamaBaru = "";
+        HargaBaru = 0;
+        SelectedDivisi = "3001";
+        SelectedDivisiNama = "";
+        SelectedSubDivisi = "Spandex";
+        SelectedSubDivisiNama = "";
+        SelectedKategori = "Raw";
+        SelectedUkuran = "40D";
+        UkuranLainnya = "";
+        SelectedSatuan = "Cone";
+        this.StateHasChanged();
+
+        showModalBarang = false;
+    }
+    void TambahBarangBaru()
+    {
+        var ukuran = "";
+        if (SelectedUkuran == "Lainnya")
+        {
+            ukuran = UkuranLainnya;
+        }
+        else
+        {
+            ukuran = SelectedUkuran;
+        }
+        barangPenawarans.Add(new BarangPenawaran
+        {
+
+            Nama = NamaBaru,
+            Satuan = SelectedSatuan,
+            IdDetilPenawaranPembelian = rnd.Next(1, 1000),
+            DivisiBarang_Divisi = SelectedDivisiNama,
+            SubDivisiBarang_SubDivisi = SelectedSubDivisiNama,
+            KategoriBarang_Kategori = SelectedKategori,
+            Barang_Ukuran = ukuran,
+            Harga = HargaBaru,
+            Maksimum = 100,
+        });
+        ModalBarangCancel();
+    }
+    async void GetAtributForm()
+    {
+        var dataDivisi = FormAtributService.GetDivisiBarang();
+        DivisiBarang.Clear();
+        await foreach (var item in dataDivisi)
+        {
+            DivisiBarang.Add(new DivisiBarang
+            {
+                IdDivisi = item.IdDivisi,
+                Divisi = item.Divisi,
+            });
+        }
+
+        var dataSubDivisi = FormAtributService.GetSubDivisiBarang();
+        SubDivisiBarang.Clear();
+        await foreach (var item in dataSubDivisi)
+        {
+            SubDivisiBarang.Add(new SubDivisiBarang
+            {
+                IdDivisi = item.IdDivisiBarang,
+                IdSubDivisi = item.IdSubDivisi,
+                SubDivisi = item.SubDivisi,
+                Keterangan = item.Keterangan,
+            });
+        }
+
+        var dataKategori = FormAtributService.GetKategoriBarang();
+        KategoriBarang.Clear();
+        await foreach (var item in dataKategori)
+        {
+            KategoriBarang.Add(new KategoriBarang
+            {
+                IdKategori = item.IdKategoriBarang,
+                Kategori = item.KategoriBarang,
+            });
+        }
+
+        var dataUkuran = FormAtributService.GetUkuranBarang();
+        UkuranBarang.Clear();
+        await foreach (var item in dataUkuran)
+        {
+            UkuranBarang.Add(new UkuranBarang
+            {
+                Ukuran = item.DataOption
+            });
+        }
+    }
+}
