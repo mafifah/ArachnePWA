@@ -13,126 +13,198 @@ namespace bzrArachne.Pages
     using System.Threading.Tasks;
     using Microsoft.AspNetCore.Components;
 #nullable restore
+<<<<<<< HEAD
 #line 1 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 1 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using System.Net.Http;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 2 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 2 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using Microsoft.AspNetCore.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 3 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 3 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using Microsoft.AspNetCore.Components.Authorization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 4 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 4 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using Microsoft.AspNetCore.Components.Forms;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 5 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 5 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using Microsoft.AspNetCore.Components.Routing;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 6 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 6 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using Microsoft.AspNetCore.Components.Web;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 7 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 7 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using Microsoft.AspNetCore.Components.Web.Virtualization;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 8 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 8 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using Microsoft.JSInterop;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 9 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 9 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using bzrArachne;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 10 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 10 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using bzrArachne.Shared;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 11 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 11 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using Blazor.AdminLte;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 12 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 12 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using Blazored.Toast;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 13 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 13 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using Blazored.Toast.Services;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 14 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 14 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using CurrieTechnologies.Razor.SweetAlert2;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 15 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 15 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using MudBlazor;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 16 "D:\Arachne\bzrArachne\_Imports.razor"
+=======
+#line 16 "D:\ArachnePWA\bzrArachne\_Imports.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using BlazorNumericTextBox;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 3 "D:\Arachne\bzrArachne\Pages\Index.razor"
+=======
+#line 3 "D:\ArachnePWA\bzrArachne\Pages\Index.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using bzrArachne.Service;
 
 #line default
 #line hidden
 #nullable disable
 #nullable restore
+<<<<<<< HEAD
 #line 4 "D:\Arachne\bzrArachne\Pages\Index.razor"
+=======
+#line 4 "D:\ArachnePWA\bzrArachne\Pages\Index.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
 using bzrArachne.Models;
 
 #line default
@@ -148,7 +220,11 @@ using bzrArachne.Models;
         }
         #pragma warning restore 1998
 #nullable restore
+<<<<<<< HEAD
 #line 52 "D:\Arachne\bzrArachne\Pages\Index.razor"
+=======
+#line 52 "D:\ArachnePWA\bzrArachne\Pages\Index.razor"
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
        
     private DataUser user = new DataUser();
     public string LoginMesssage { get; set; }

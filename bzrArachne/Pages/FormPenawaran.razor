@@ -119,12 +119,20 @@
                                             <div>
                                                 @if (data.Harga <= 0)
                                                 {
+<<<<<<< HEAD
                                                     <NumericTextBox @bind-Value="@data.Harga" Format="C" Style="max-width: 20em; font-size: small" Class="form-control border-danger"></NumericTextBox>
+=======
+                                                    <NumericTextBox @bind-Value="@data.Harga" Format="C"  Style="max-width: 20em; font-size: small" Class="form-control border-danger"></NumericTextBox>
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
                                                    // <input style="font-size:small" format-value="#,###,###"  for data-toggle="tooltip"  data-placement="top" title="Harga harus diisi" type="text" @bind="data.Harga" id="validationServer05Feedback" class="form-control is-invalid" required>
                                                 }
                                                 else
                                                 {
+<<<<<<< HEAD
                                                     <NumericTextBox @bind-Value="@data.Harga" Format="C" Style="max-width: 20em; font-size: small" Class="form-control border-danger"></NumericTextBox>
+=======
+                                                    <NumericTextBox @bind-Value="@data.Harga" Format="C" Style="max-width: 20em; font-size: small" Class="form-control border-success"></NumericTextBox>
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
                                                    // <input style="font-size:small" format-value="#,###,###"  type="text" @bind="data.Harga" id="validationServer05Feedback" class="form-control border-success" required>
                                                 }
 
@@ -413,12 +421,6 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label>Harga Barang</label>
-                                    <input @bind="HargaBaru" type="number" class="form-control" placeholder="Rp0">
-                                </div>
-                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-6">
@@ -521,13 +523,13 @@
             Item = DataService._barangDipilih;
             barangPenawarans.Add(new BarangPenawaran
             {
-                IdBarang = Item.IdBarang,
+                IdBarang = Item.IdBarang.ToString(),
                 IdDetilPenawaranPembelian = rnd.Next(1, 1000),
-                IdSatuan = Item.IdSatuan,
-                IdDivisiBarang = Item.IdDivisiBarang,
-                IdSubDivisiBarang = Item.IdSubDivisiBarang,
-                IdKategoriBarang = Item.IdKategoriBarang,
-                IdSubKategoriBarang = Item.IdSubKategoriBarang,
+                IdSatuan = Item.IdSatuan.ToString(),
+                IdDivisiBarang = Item.IdDivisiBarang.ToString(),
+                IdSubDivisiBarang = Item.IdSubDivisiBarang.ToString(),
+                IdKategoriBarang = Item.IdKategoriBarang.ToString(),
+                IdSubKategoriBarang = Item.IdSubKategoriBarang.ToString(),
                 Satuan = Item.Satuan,
                 Nama = Item.Nama,
                 Stok = Item.Stok,
@@ -542,7 +544,7 @@
                 await foreach (var item in dataBarang)
                 {
 
-                    if (item.Stok <= item.Minimum && item.IdBarang != value.IdBarang)
+                    if (item.Stok <= item.Minimum && item.IdBarang.ToString() != value.IdBarang)
                     {
                         _daftarBarang.Add(new DataBarang
                         {
@@ -579,13 +581,13 @@
         {
             barangPenawarans.Add(new BarangPenawaran
             {
-                IdBarang = data.IdBarang,
+                IdBarang = data.IdBarang.ToString(),
                 IdDetilPenawaranPembelian = rnd.Next(1, 1000),
-                IdSatuan = data.IdSatuan,
-                IdDivisiBarang = data.IdDivisiBarang,
-                IdSubDivisiBarang = data.IdSubDivisiBarang,
-                IdKategoriBarang = data.IdKategoriBarang,
-                IdSubKategoriBarang = data.IdSubKategoriBarang,
+                IdSatuan = data.IdSatuan.ToString(),
+                IdDivisiBarang = data.IdDivisiBarang.ToString(),
+                IdSubDivisiBarang = data.IdSubDivisiBarang.ToString(),
+                IdKategoriBarang = data.IdKategoriBarang.ToString(),
+                IdSubKategoriBarang = data.IdSubKategoriBarang.ToString(),
                 Satuan = data.Satuan,
                 Nama = data.Nama,
                 Stok = data.Stok,
@@ -610,51 +612,56 @@
     }
     async Task SendDataPenawaran()
     {
+<<<<<<< HEAD
         var check = barangPenawarans.Where(x => x.Stok + x.Jumlah > x.Maksimum || x.Harga == 0 || x.Jumlah == 0).ToList();
         if (check.Count == 0)
+=======
+        //var check = barangPenawarans.Where(x => x.Stok + x.Jumlah > x.Maksimum || x.Harga == 0 || x.Jumlah == 0).ToList();
+        //if (check == 0)
+        //{
+        dataPenawaran = new DataPenawaran
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
         {
-            dataPenawaran = new DataPenawaran
-            {
-                IdPenawaranPembelian = rnd.Next(1, 1000),
-                IdJenisSupplier = user.IdJenisSupplier,
-                IdSupplier = user.IdSupplier,
-                IdCompanyPenerima = "GWR",
-                BarangPenawaran = barangPenawarans,
-                GrandTotal = _grandtotal,
-                DiskonDetil = _grandDetil.ToString(),
-                DiskonNominal = _grandDiskon,
-                Catatan = _catatan,
-            };
-            var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
-            DataService.SetNullBarangDipilih();
-            Item = null;
-            barangPenawarans.Clear();
-            dataPenawaran = null;
+            IdPenawaranPembelian = rnd.Next(1, 1000),
+            IdJenisSupplier = user.IdJenisSupplier,
+            IdSupplier = user.IdSupplier,
+            IdCompanyPenerima = "GWR",
+            BarangPenawaran = barangPenawarans,
+            GrandTotal = _grandtotal,
+            DiskonDetil = _grandDetil.ToString(),
+            DiskonNominal = _grandDiskon,
+            Catatan = _catatan,
+        };
+        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+        DataService.SetNullBarangDipilih();
+        Item = null;
+        barangPenawarans.Clear();
+        dataPenawaran = null;
 
-            if (send)
-            {
-                await Swal.FireAsync(
-                "Sukses",
-                "Data Penawaran Berhasil terkirim :)",
-                SweetAlertIcon.Success
-                );
-                NavigationManager.NavigateTo("dataBarang");
-            }
-            else
-            {
-                await Swal.FireAsync(
-                "Gagal",
-                "Data Penawaran gagal terkirim :)",
-                SweetAlertIcon.Error
-                );
-
-                NavigationManager.NavigateTo("dataBarang");
-            }
+        if (send)
+        {
+            await Swal.FireAsync(
+            "Sukses",
+            "Data Penawaran Berhasil terkirim :)",
+            SweetAlertIcon.Success
+            );
+            NavigationManager.NavigateTo("dataBarang");
         }
         else
         {
-            ToastService.ShowError($" Pastikan Jumlah dan harga Sudah terisi dengan Benar");
+            await Swal.FireAsync(
+            "Gagal",
+            "Data Penawaran gagal terkirim :)",
+            SweetAlertIcon.Error
+            );
+
+            NavigationManager.NavigateTo("dataBarang");
         }
+        //}
+        //else
+        //{
+        //    ToastService.ShowError($" Pastikan Jumlah dan harga Sudah terisi dengan Benar");
+        //}
 
 
     }
@@ -741,7 +748,16 @@
         }
         barangPenawarans.Add(new BarangPenawaran
         {
+<<<<<<< HEAD
 
+=======
+            IdBarang = null,
+            IdSatuan = null,
+            IdDivisiBarang = null,
+            IdSubDivisiBarang = null,
+            IdKategoriBarang = null,
+            IdSubKategoriBarang = null,
+>>>>>>> 987a2c365d5f9fddfb55068f636bf34881c7cf5c
             Nama = NamaBaru,
             Satuan = SelectedSatuan,
             IdDetilPenawaranPembelian = rnd.Next(1, 1000),
