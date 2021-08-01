@@ -6,6 +6,8 @@
 @inject PenawaranService PenawaranService
 @inject NavigationManager NavigationManager
 @inject IToastService toastService
+@inject IJSRuntime _IJSRuntime
+
 @inject ISnackbar Snackbar
 @using System.Globalization
 <h3>Invoice Penawaran</h3>
@@ -19,7 +21,7 @@
     <RowTemplate>
         <MudTd>
             <MudButton Variant="Variant.Outlined" Size="Size.Small" OnClick="@(() => ShowBtnPress(context.IdPenawaranPembelian))">@((context.ShowDetails == true)? "Hide" : "Show") Detail Penawaran</MudButton>
-            &nbsp;<MudButton Variant="Variant.Outlined" Size="Size.Small">Print</MudButton>
+
         </MudTd>
         <MudTd DataLabel="Status">@context.Status</MudTd>
         <MudTd DataLabel="No. PO">@context.IdPenawaranPembelian</MudTd>
@@ -68,15 +70,144 @@
                         </MudCardContent>
                     </MudCard>
                 </td>
+               
+            </MudTr>
+            <MudTr>
+                <td align="right" colspan="4" style="padding-right:50px;">
+                    <MudButton Class="align-content-end" Variant="Variant.Outlined" Size="Size.Small" OnClick="(() => Print())">Print</MudButton>
+                </td>
             </MudTr>
         }
     </ChildRowContent>
 </MudTable>
+@{ var no = 1;
+    if (_idPenawaran != 0)
+    {
+        DataPenawaran item = _dataPenawaran.Where(x => x.IdPenawaranPembelian == _idPenawaran).FirstOrDefault();
+        <div id="myFaktur" hidden>
+            <p style="padding-left: 25px">PT. EXPLOITASI PERINDUSTRIAN GAWEREDJO</p>
+            <p style="padding-left: 25px">Jl. Raya Bogangin No. 6</p>
+            <p style="padding-left: 25px">Surabaya</p>
+            <p style="padding-left: 25px">Telp   : 9908878789798u9</p>
+            <p style="padding-left: 25px">Email  : e.p.gaweredjo@gmail.com</p>
+            <p style="padding-left: 25px">HP     : 087.852923028</p>
+            <br />
+            <br />
+            <p style="padding-left: 25px">Kepada Yth :</p>
+            <p style="padding-left: 25px">@user.Nama</p>
+            <p style="padding-left: 25px">Attn Ibu Ratna</p>
+            <br />
+            <br />
+            <h5 style="text-align:center;">NO. PO : @item.IdPenawaranPembelian</h5>
+            <table style=" font-family: arial, sans-serif; border-collapse: collapse; width: 100%; padding-left:75px;">
+                <thead style="padding-left:75px">
+                    <tr style="padding-left:75px">
+                        <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">No</th>
+                        <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">Nama</th>
+                        <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">Quantity</th>
+                        <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">Satuan</th>
+                        <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">Harga Satuan</th>
+                        <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">Total Harga</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var data in item.BarangPenawaran)
+                    {
+                        <tr>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                <p>@no</p>
+                            </td>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                @if (data.IdBarang == null)
+                                {
+                                    <p>@data.Barang_Barang</p>
+                                }
+                                else
+                                {
+                                    <p>@data.Nama</p>
+
+                                }
+                            </td>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                <p>@data.Jumlah</p>
+                            </td>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                <p>@data.Satuan</p>
+                            </td>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                @{
+                                    CultureInfo culture = new CultureInfo("id-ID");
+                                    var crHarga = data.Harga.ToString("C2", culture);
+                                    var CrTotal = data.Total.ToString("C2", culture);
+                                }
+                                <p style=" font-variant-numeric: proportional-nums">@crHarga</p>
+                            </td>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                <p>@CrTotal</p>
+                            </td>
+                        </tr>
+                        no++;
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td align="right" colspan="9">
+                            @{
+                                CultureInfo culture2 = new CultureInfo("id-ID");
+                                var CrGrandTotal = item.GrandTotal.ToString("C2", culture2);
+                            }
+                            <h3 style="padding-top:25px;padding-left:500px;padding-right:25px;">Grand Total : @CrGrandTotal</h3>
+                        </td>
+                    </tr>
+                    <tr style="padding-left:75px">
+                        <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;" colspan="9">
+                            <p style="padding-left: 25px">Keterangan</p>
+                            <p style="padding-left: 25px">@item.Catatan</p>
+                            @{
+                                DateTime tanggal2 = DateTime.Now;
+                                <p style="padding-left: 25px" class="text-bold font-italic">Pengiriman barang bulan @tanggal2.ToLocalTime().Month.ToString() @tanggal2.Year  </p>
+
+                            }
+
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                    </div>
+                    <div class="col-md-auto">
+                        <p style="padding-left: 500px">Surabaya,  @tanggal2.ToLocalTime().ToString() </p>
+                        <p style="padding-left: 500px">Hormat Kami</p>
+                    </div>
+                    <div class="col col-lg-2">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    }
+    else
+    {
+
+    }
+}
+
+
+
+
 @code {
+    double _grandtotal { get; set; }
+    double _grandDiskon { get; set; }
+    double _grandDetil { get; set; }
     private DataUser user = new DataUser();
     List<DataPenawaran> _dataPenawaran = new List<DataPenawaran>();
+    List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
     List<DataBarang> _daftarBarang = new List<DataBarang>();
-
+    private long _idPenawaran { get; set; }
+    Random rnd = new Random();
     protected override async Task OnInitializedAsync()
     {
         user = DataService.User;
@@ -179,5 +310,11 @@
     {
         DataPenawaran tmp = _dataPenawaran.FirstOrDefault(f => f.IdPenawaranPembelian == nr);
         tmp.ShowDetails = !tmp.ShowDetails;
+        _idPenawaran = nr;
+    }
+
+    private async void Print()
+    {
+        await _IJSRuntime.InvokeVoidAsync("myFaktur");
     }
 }

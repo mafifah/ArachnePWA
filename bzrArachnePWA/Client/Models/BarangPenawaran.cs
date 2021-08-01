@@ -4,6 +4,7 @@
     {
 		 public long IdBarang {get;set;} 
 		 public long IdDetilPenawaranPembelian {get;set;}
+		 public long IdPenawaranPembelian {get;set;}
 		 public long IdSatuan {get;set;}
 		 public string Satuan { get; set; } 
 		 public string Nama { get; set; } 

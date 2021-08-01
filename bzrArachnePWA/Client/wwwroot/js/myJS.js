@@ -11,6 +11,8 @@
     a.document.write(divContents);
     a.document.write('</body></html>');
     a.document.close();
+    a.focus();
     a.print();
+    setTimeout(a.close, 500);
 }
 
