@@ -35,6 +35,7 @@
             <HeaderContent>
                 <MudTh>Catatan</MudTh>
                 <MudTh>Jml</MudTh>
+                <MudTh>Satuan</MudTh>
                 <MudTh>Nama</MudTh>
                 <MudTh>Harga</MudTh>
                 <MudTh>Diskon(%)</MudTh>
@@ -44,6 +45,7 @@
             <RowTemplate>
                 <MudTd DataLabel="Catatan">@context.CatatanPenawaran</MudTd>
                 <MudTd Class="clm-row-small" DataLabel="Jml">@context.Jumlah</MudTd>
+                <MudTd Class="clm-row-small" DataLabel="Satuan">@context.Satuan</MudTd>
                 <MudTd DataLabel="Nama">
                     @context.Nama
                     @{ foreach (var item in CekbarangPenawarans)
@@ -93,6 +95,9 @@
                         return;
                     }
 
+                </MudTd>
+                <MudTd DataLabel="Satuan">
+                    <MudTextField @bind-Value="@context.Satuan" Required />
                 </MudTd>
                 <MudTd DataLabel="Nama">
                     <MudTextField @bind-Value="@context.Nama" Required />
@@ -543,8 +548,6 @@
             {
                 await GetDataBarang();
             }
-
-
         }
         else
         {
@@ -640,8 +643,8 @@
     }
     async Task SendDataPenawaran()
     {
-        CekbarangPenawarans = barangPenawarans.Where(i => i.Stok + i.Jumlah >= i.Maksimum || i.Jumlah == 0 || i.Harga == 0).ToList();
-        if (CekbarangPenawarans == null)
+        CekbarangPenawarans = barangPenawarans.Where(i => i.Stok + i.Jumlah > i.Maksimum || i.Jumlah == 0 || i.Harga == 0).ToList();
+        if (CekbarangPenawarans.Count() == 0)
         {
             dataPenawaran = new DataPenawaran
             {
@@ -730,6 +733,7 @@
 
             Nama = NamaBaru,
             Satuan = SelectedSatuan,
+            Satuan_Satuan = SelectedSatuan,
             IdDetilPenawaranPembelian = rnd.Next(1, 1000),
             DivisiBarang_Divisi = SelectedDivisiNama,
             SubDivisiBarang_SubDivisi = SelectedSubDivisiNama,
