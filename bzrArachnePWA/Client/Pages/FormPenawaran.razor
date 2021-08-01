@@ -220,10 +220,15 @@
                                 <p>@data.Satuan</p>
                             </td>
                             <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
-                                <p style=" font-variant-numeric: proportional-nums">@data.Harga</p>
+                                @{ 
+                                    CultureInfo culture = new CultureInfo("id-ID");
+                                    var crHarga = data.Harga.ToString("C2", culture);
+                                    var CrTotal = data.Total.ToString("C2", culture);
+                                }
+                                <p style=" font-variant-numeric: proportional-nums">@crHarga</p>
                             </td>
                             <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
-                                <p>@data.Total</p>
+                                <p>@CrTotal</p>
                             </td>
                         </tr>
                         no++;
@@ -258,7 +263,6 @@
             </div>
         </div>
     </div>
-
 <!--End Faktur-->
 <!--End Faktur-->
 <!--End Faktur-->
