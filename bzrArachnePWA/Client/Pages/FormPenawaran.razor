@@ -5,6 +5,7 @@
 @inject FormAtributService FormAtributService
 @inject PenawaranService PenawaranService
 @inject NavigationManager NavigationManager
+@inject IJSRuntime _IJSRuntime
 @using System.Globalization
 @inject SweetAlertService Swal
 @inject ISnackbar Snackbar
@@ -76,7 +77,7 @@
             </RowTemplate>
             <RowEditingTemplate>
                 <MudTd DataLabel="Catatan">
-                    <MudTextField @bind-Value="@context.CatatanPenawaran" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.ZoomIn" OnAdornmentClick="(()=>expandshow(context.IdBarang))" />
+                    <MudTextField @bind-Value="@context.CatatanPenawaran" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.ZoomIn" OnAdornmentClick="(() => expandshow(context.IdBarang))" />
                 </MudTd>
                 <MudTd DataLabel="Jml">
                     @{
@@ -147,8 +148,118 @@
     <MudCardActions>
         <MudButton @onclick="(() => BackToBarang())" Variant="Variant.Filled" StartIcon="@Icons.Material.Filled.NavigateBefore" Color="Color.Dark">Batal</MudButton>&nbsp;
         <MudButton @onclick="(() => SendDataPenawaran())" EndIcon="@Icons.Material.Filled.NavigateNext" Variant="Variant.Filled" Color="Color.Primary">Kirim</MudButton>
+        <MudFab Icon="@Icons.Material.Filled.Save" Size="Size.Small" Label="Tambah" @onclick="Print" aria-label="Print" />
+
     </MudCardActions>
 </MudCard>
+
+
+
+<!--Start Faktur-->
+<!--Start Faktur-->
+<!--Start Faktur-->
+<!--Start Faktur-->
+<!--Start Faktur-->
+
+
+<div  id="myFaktur" hidden>
+
+        <p style="padding-left: 25px">PT. EXPLOITASI PERINDUSTRIAN GAWEREDJO</p>
+        <p style="padding-left: 25px">Jl. Raya Bogangin No. 6</p>
+        <p style="padding-left: 25px">Surabaya</p>
+        <p style="padding-left: 25px">Telp   : 9908878789798u9</p>
+        <p style="padding-left: 25px">Email  : e.p.gaweredjo@gmail.com</p>
+        <p style="padding-left: 25px">HP     : 087.852923028</p>
+        <br />
+        <br />
+        <p style="padding-left: 25px">Kepada Yth :</p>
+        <p style="padding-left: 25px">@user.Nama</p>
+        <p style="padding-left: 25px">Attn Ibu Ratna</p>
+        <br />
+        <br />
+        <table style=" font-family: arial, sans-serif; border-collapse: collapse; width: 100%; padding-left:75px;">
+            <thead style="padding-left:75px">
+                <tr style="padding-left:75px">
+                    <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">No</th>
+                    <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">Nama</th>
+                    <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">Quantity</th>
+                    <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">Satuan</th>
+                    <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">Harga Satuan</th>
+                    <th style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">Total Harga</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    var no = 1;
+                    foreach (var data in barangPenawarans)
+                    {
+                        <tr>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                @no
+                            </td>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                @if (data.IdBarang == null)
+                                {
+                                    <p>@data.Barang_Barang</p>
+                                }
+                                else
+                                {
+                                    <p>@data.Nama</p>
+
+                                }
+                            </td>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                <p>@data.Jumlah</p>
+                            </td>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                <p>@data.Satuan</p>
+                            </td>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                <p style=" font-variant-numeric: proportional-nums">@data.Harga</p>
+                            </td>
+                            <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
+                                <p>@data.Total</p>
+                            </td>
+                        </tr>
+                        no++;
+                    }
+                }
+            </tbody>
+            <tfoot>
+                <tr style="padding-left:75px">
+                    <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;" colspan="9">
+                        <p style="padding-left: 25px">Keterangan</p>
+                        <p style="padding-left: 25px">@_catatan</p>
+                        @{
+                            DateTime tanggal2 = DateTime.Now;
+                        <p style="padding-left: 25px" class="text-bold font-italic">Pengiriman barang bulan @tanggal2.ToLocalTime().Month.ToString() @tanggal2.Year  </p>
+
+                        }
+                            
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col-md-auto">
+                    <p style="padding-left: 500px">Surabaya,  @tanggal2.ToLocalTime().ToString() </p>
+                    <p style="padding-left: 500px">Hormat Kami</p>
+                </div>
+                <div class="col col-lg-2">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!--End Faktur-->
+<!--End Faktur-->
+<!--End Faktur-->
+<!--End Faktur-->
+<!--End Faktur-->
+
 @if (showModal)
 {
     <MudCard>
@@ -567,6 +678,7 @@
                 );
 
                 NavigationManager.NavigateTo("stokBarang");
+                Print();
             }
         }
         else
@@ -674,5 +786,10 @@
                 Ukuran = item.DataOption
             });
         }
+    }
+
+    private async void Print()
+    {
+        await _IJSRuntime.InvokeVoidAsync("myFaktur");
     }
 }
