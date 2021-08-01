@@ -1,4 +1,5 @@
 ﻿using bzrArachnePWA.Client.Models;
+using Grpc.Core;
 using Grpc.Net.Client;
 using Grpc.Net.Client.Web;
 using grpcArachne;
@@ -12,9 +13,7 @@ namespace bzrArachnePWA.Client.Service
 {
     public class PenawaranService
     {
-        List<DataPenawaran> listBarangs = new List<DataPenawaran>();
         List<DataTermin> dataTermins = new List<DataTermin>();
-        DataPenawaran dataPenawaran = new DataPenawaran();
         public async Task<bool> InsertDataRepeated(DataPenawaran dataPenawaran)
             {
                 var output = false;
@@ -41,7 +40,7 @@ namespace bzrArachnePWA.Client.Service
                             Total = (long)Item.Total,
                             CatatanPenawaran = Item.CatatanPenawaran,
                             SatuanSatuan = Item.Satuan_Satuan,
-                            BarangBarang = Item.Barang_Barang,
+                            BarangBarang = Item.Nama,
                             BarangUkuran = Item.Barang_Ukuran,
                             BarangUmur = Item.Barang_Umur,
                             SubDivisiBarangSubDivisi = Item.SubDivisiBarang_SubDivisi,
@@ -96,5 +95,14 @@ namespace bzrArachnePWA.Client.Service
             }
             return dataTermins;
         }
-     }
+
+        public IAsyncEnumerable<PenawaranResponse> GetDataPenawaran(DataUser User)
+        {
+            var httpClient = new HttpClient(new GrpcWebHandler(GrpcWebMode.GrpcWeb, new HttpClientHandler()));
+            var channel = GrpcChannel.ForAddress("http://localhost:54947", new GrpcChannelOptions { HttpClient = httpClient });
+            var client = new PenawaranPembelian.PenawaranPembelianClient(channel);
+            var request = client.GetDataPenawaran(new PenawaranRequest { IdSupplier = User.IdSupplier });
+            return request.ResponseStream.ReadAllAsync();
+        }
+    }
 } 

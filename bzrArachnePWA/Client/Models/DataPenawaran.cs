@@ -14,5 +14,7 @@ namespace bzrArachnePWA.Client.Models
 		public double DiskonNominal { get; set; }
 		public string Catatan { get; set; }
 		public List<BarangPenawaran> BarangPenawaran { get; set; }
+		public string Status { get; set; }
+		public bool ShowDetails { get; set; }
 	}
 }

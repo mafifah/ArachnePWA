@@ -1,17 +1,183 @@
 ﻿@page "/invoicePenawaran"
-@using bzrArachnePWA.Client.Service
+@using Microsoft.AspNetCore.SignalR.Client
 @using bzrArachnePWA.Client.Models
+@using bzrArachnePWA.Client.Service
 @inject DataService DataService
+@inject PenawaranService PenawaranService
 @inject NavigationManager NavigationManager
+@inject IToastService toastService
+@inject ISnackbar Snackbar
+@using System.Globalization
 <h3>Invoice Penawaran</h3>
-<MudGrid>
-    <MudItem xs="6">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=6</MudPaper>
-    </MudItem>
-    <MudItem xs="6">
-        <MudPaper Class="d-flex align-center justify-center mud-width-full py-8">xs=6</MudPaper>
-    </MudItem>
-</MudGrid>
+<MudTable Items="@_dataPenawaran" Hover="true" Breakpoint="Breakpoint.Sm">
+    <HeaderContent>
+        <MudTh></MudTh>
+        <MudTh>Status</MudTh>
+        <MudTh>No. PO</MudTh>
+        <MudTh>Grand Total</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>
+            <MudButton Variant="Variant.Outlined" Size="Size.Small" OnClick="@(() => ShowBtnPress(context.IdPenawaranPembelian))">@((context.ShowDetails == true)? "Hide" : "Show") Detail Penawaran</MudButton>
+            &nbsp;<MudButton Variant="Variant.Outlined" Size="Size.Small">Print</MudButton>
+        </MudTd>
+        <MudTd DataLabel="Status">@context.Status</MudTd>
+        <MudTd DataLabel="No. PO">@context.IdPenawaranPembelian</MudTd>
+        @{ CultureInfo culture = new CultureInfo("id-ID");
+            var CrGrandTotal = context.GrandTotal.ToString("C2", culture);}
+        <MudTd DataLabel="Grand Total">@CrGrandTotal</MudTd>
+    </RowTemplate>
+    <ChildRowContent>
+        @if (context.ShowDetails)
+        {
+            <MudTr>
+                <td colspan="4">
+                    <MudCard Elevation="0">
+                        <MudCardHeader>
+                            <CardHeaderContent>
+                                <MudText Typo="Typo.body1">Detail Penawaran <strong>No. PO: @context.IdPenawaranPembelian</strong></MudText>
+                            </CardHeaderContent>
+                        </MudCardHeader>
+                        <MudCardContent Class="pa-0">
+                            <MudTable Items="@context.BarangPenawaran" Context="BarangPenawaranContext" Hover="true" Breakpoint="Breakpoint.Sm" Elevation="0">
+                                <HeaderContent>
+                                    <MudTh>Catatan</MudTh>
+                                    <MudTh>Jml</MudTh>
+                                    <MudTh>Satuan</MudTh>
+                                    <MudTh>Nama</MudTh>
+                                    <MudTh>Harga</MudTh>
+                                    <MudTh>Diskon(%)</MudTh>
+                                    <MudTh>Diskon(Rp)</MudTh>
+                                    <MudTh>Total</MudTh>
+                                </HeaderContent>
+                                <RowTemplate>
+                                    <MudTd DataLabel="Catatan">@BarangPenawaranContext.CatatanPenawaran</MudTd>
+                                    <MudTd DataLabel="Jml">@BarangPenawaranContext.Jumlah</MudTd>
+                                    <MudTd DataLabel="Satuan">@BarangPenawaranContext.Satuan</MudTd>
+                                    <MudTd DataLabel="Nama">@BarangPenawaranContext.Nama</MudTd>
+                                    @{ CultureInfo culture = new CultureInfo("id-ID");
+                                            var CrHarga = BarangPenawaranContext.Harga.ToString("C2", culture);
+                                            var CrTotal = BarangPenawaranContext.Total.ToString("C2", culture);
+                                            var CrNominalDiskon = BarangPenawaranContext.DiskonNominal.ToString("C2", culture);}
+                                    <MudTd DataLabel="Harga">@CrHarga</MudTd>
+                                    <MudTd DataLabel="Diskon(%)">@BarangPenawaranContext.DiskonDetil</MudTd>
+                                    <MudTd DataLabel="Diskon(Rp)">@CrNominalDiskon</MudTd>
+                                    <MudTd DataLabel="Total">@CrTotal</MudTd>
+                                </RowTemplate>
+                            </MudTable>
+                        </MudCardContent>
+                    </MudCard>
+                </td>
+            </MudTr>
+        }
+    </ChildRowContent>
+</MudTable>
 @code {
+    private DataUser user = new DataUser();
+    List<DataPenawaran> _dataPenawaran = new List<DataPenawaran>();
+    List<DataBarang> _daftarBarang = new List<DataBarang>();
 
+    protected override async Task OnInitializedAsync()
+    {
+        user = DataService.User;
+        var Token = DataService.Token;
+        if (!String.IsNullOrEmpty(Token))
+        {
+            await GetDataBarang();
+            await GetPenawaran();
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/");
+        }
+    }
+
+    private async Task GetDataBarang()
+    {
+        var dataBarang = DataService.GetDataBarangWithGroupBy();
+        await foreach (var item in dataBarang)
+        {
+            _daftarBarang.Add(new DataBarang
+            {
+                IdBarang = item.IdBarang,
+                IdDivisiBarang = item.IdDivisiBarang,
+                IdSubDivisiBarang = item.IdSubDivisiBarang,
+                IdKategoriBarang = item.IdKategoriBarang,
+                IdSubKategoriBarang = item.IdSubKategoriBarang,
+                IdSupplier = item.IdSupplier,
+                IdJenisSupplier = item.IdJenisSupplier,
+                IdSatuan = item.IdSatuan,
+                Nama = item.Nama,
+                Satuan = item.Satuan,
+                Stok = item.Stok,
+                Minimum = item.Minimum,
+                Maksimum = item.Maksimum,
+                NamaSupplier = item.NamaSupplier
+            });
+        }
+        this.StateHasChanged();
+    }
+    async Task GetPenawaran()
+    {
+        var data = PenawaranService.GetDataPenawaran(user);
+        await foreach (var item in data)
+        {
+            List<BarangPenawaran> DetailPenawaran = new List<BarangPenawaran>();
+            DetailPenawaran.Clear();
+            foreach (var x in item.DetailPenawaranResponse)
+            {
+                var Nama = "";
+                var Satuan = "";
+                var Catatan = "";
+                if (x.IdBarang != null || x.Catatan != null)
+                {
+                    var barang = _daftarBarang.Where(i => i.IdBarang == Int64.Parse(x.IdBarang) && i.IdSatuan == Int64.Parse(x.IdSatuan)).FirstOrDefault();
+                    Nama = barang.Nama;
+                    Satuan = barang.Satuan;
+                    Catatan = x.Catatan;
+                }
+                else
+                {
+                    Nama = x.BarangBarang;
+                    Satuan = x.SatuanSatuan;
+                }
+                DetailPenawaran.Add(new BarangPenawaran
+                {
+                    Nama = Nama,
+                    Satuan = Satuan,
+                    Jumlah = x.Jumlah,
+                    Total = x.Total,
+                    Harga = x.Harga,
+                    DiskonDetil = double.Parse(x.DiskonDetil),
+                    DiskonNominal = x.DiskonNominal,
+                    CatatanPenawaran = Catatan,
+                });
+
+            }
+            var termin = 0;
+            if (item.IdTermin != null)
+            {
+                termin = Int32.Parse(item.IdTermin);
+            }
+            _dataPenawaran.Add(new DataPenawaran
+            {
+                IdPenawaranPembelian = item.IdPenawaranPembelian,
+                IdJenisSupplier = item.IdJenisSupplier,
+                IdSupplier = item.IdSupplier,
+                IdTermin = termin,
+                DiskonDetil = item.DiskonDetil,
+                DiskonNominal = item.DiskonNominal,
+                GrandTotal = item.GrandTotal,
+                BarangPenawaran = DetailPenawaran,
+                Status = item.Status,
+                Catatan = item.Catatan,
+            });
+            this.StateHasChanged();
+        }
+    }
+    private void ShowBtnPress(long nr)
+    {
+        DataPenawaran tmp = _dataPenawaran.FirstOrDefault(f => f.IdPenawaranPembelian == nr);
+        tmp.ShowDetails = !tmp.ShowDetails;
+    }
 }

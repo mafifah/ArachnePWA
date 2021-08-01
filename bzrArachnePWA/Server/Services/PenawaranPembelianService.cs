@@ -5,7 +5,6 @@ using grpcArachne;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -76,14 +75,14 @@ namespace bzrArachnePWA.Server.Services
                                     DiskonNominal = (Decimal)item.DiskonNominal,
                                     Total = Convert.ToInt64(item.Total),
                                     CatatanPenawaran = item.CatatanPenawaran,
-                                    Satuan_Satuan = item.SatuanSatuan,
-                                    Barang_Barang = item.BarangBarang,
-                                    Barang_Ukuran = item.BarangUkuran,
-                                    Barang_Umur = item.BarangUmur,
-                                    SubDivisiBarang_SubDivisi = item.SubDivisiBarangSubDivisi,
-                                    SubKategoriBarang_SubKategori = item.SubKategoriBarangSubKategori,
-                                    DivisiBarang_Divisi = item.DivisiBarangDivisi,
-                                    KategoriBarang_Kategori = item.KategoriBarangKategori,
+                                    Satuan_Satuan = null,
+                                    Barang_Barang = null,
+                                    Barang_Ukuran = null,
+                                    Barang_Umur = null,
+                                    SubDivisiBarang_SubDivisi = null,
+                                    SubKategoriBarang_SubKategori = null,
+                                    DivisiBarang_Divisi = null,
+                                    KategoriBarang_Kategori = null,
                                 };
                                 _db.T7PenawaranPembelianDbSet.AddRange(t7PenawaranPembelian);
                                 _db.SaveChanges();
@@ -109,7 +108,6 @@ namespace bzrArachnePWA.Server.Services
                                     Satuan_Satuan = item.SatuanSatuan,
                                     Barang_Barang = item.BarangBarang,
                                     Barang_Ukuran = item.BarangUkuran,
-                                    Barang_Umur = item.BarangUmur,
                                     SubDivisiBarang_SubDivisi = item.SubDivisiBarangSubDivisi,
                                     SubKategoriBarang_SubKategori = item.SubKategoriBarangSubKategori,
                                     DivisiBarang_Divisi = item.DivisiBarangDivisi,
@@ -150,58 +148,50 @@ namespace bzrArachnePWA.Server.Services
 
         public override async Task GetDataPenawaran(PenawaranRequest request, IServerStreamWriter<PenawaranResponse> responseStream, ServerCallContext context)
         {
-            var query = (from T7PenawaranPembelian in _db.T7PenawaranPembelianDbSet
-                         join T6PenawaranPembelian in _db.T6PenawaranPembelianDbSet on T7PenawaranPembelian.IdPenawaranPembelian 
-                         equals T6PenawaranPembelian.IdPenawaranPembelian
-                         join T1Supplier in _db.T1SupplierDbSet
-                         on T6PenawaranPembelian.IdSupplier
-                         equals T1Supplier.IdSupplier
-                         where T6PenawaranPembelian.IdSupplier ==request.IdSupplier
+            var query = (from T6PenawaranPembelian in _db.T6PenawaranPembelianDbSet
+                         where T6PenawaranPembelian.IdSupplier == request.IdSupplier
                          select new PenawaranResponse
                          {
-                             IdDetilPenawaranPembelian = T7PenawaranPembelian.IdDetilPenawaranPembelian,
-                             IdPenawaranPembelian = (long)T7PenawaranPembelian.IdPenawaranPembelian,
+                             IdPenawaranPembelian = T6PenawaranPembelian.IdPenawaranPembelian,
                              IdJenisSupplier = (long)T6PenawaranPembelian.IdJenisSupplier,
-                             IdSupplier = (long)T1Supplier.IdSupplier,
+                             IdSupplier = (long)T6PenawaranPembelian.IdSupplier,
                              GrandTotal = (double)T6PenawaranPembelian.GrandTotal,
                              IdCompanyPenerima = T6PenawaranPembelian.IdCompany_Penerima,
-                             DiskonDetil = T7PenawaranPembelian.DiskonDetil,
-                             DiskonNominal = (double)T7PenawaranPembelian.DiskonNominal,
+                             DiskonDetil = T6PenawaranPembelian.DiskonDetil,
+                             DiskonNominal = (double)T6PenawaranPembelian.DiskonNominal,
                              Catatan = T6PenawaranPembelian.Catatan,
-                             IdTermin = (long)T6PenawaranPembelian.IdTermin,
+                             IdTermin = T6PenawaranPembelian.IdTermin.ToString(),
+                             Status = T6PenawaranPembelian.Status,
                          }).AsNoTracking().AsEnumerable();
-
             foreach (var item in query)
             {
-                await responseStream.WriteAsync(item);
-            }
-                
-        }
-        public override async Task GetDataPenawaranById(PenawaranRequestById request, IServerStreamWriter<PenawaranResponse> responseStream, ServerCallContext context)
-        {
-            var qry = (from T7PenawaranPembelian in _db.T7PenawaranPembelianDbSet
-                         join T6PenawaranPembelian in _db.T6PenawaranPembelianDbSet on T7PenawaranPembelian.IdPenawaranPembelian
-                         equals T6PenawaranPembelian.IdPenawaranPembelian
-                         join T1Supplier in _db.T1SupplierDbSet
-                         on T6PenawaranPembelian.IdSupplier
-                         equals T1Supplier.IdSupplier
-                         where T6PenawaranPembelian.IdPenawaranPembelian == request.IdPenawaranPembelian && T6PenawaranPembelian.IdSupplier ==request.IdSupplier
-                         select new PenawaranResponse
-                         {
-                             IdDetilPenawaranPembelian = T7PenawaranPembelian.IdDetilPenawaranPembelian,
-                             IdPenawaranPembelian = (long)T7PenawaranPembelian.IdPenawaranPembelian,
-                             IdJenisSupplier = (long)T6PenawaranPembelian.IdJenisSupplier,
-                             IdSupplier = (long)T1Supplier.IdSupplier,
-                             GrandTotal = (double)T6PenawaranPembelian.GrandTotal,
-                             IdCompanyPenerima = T6PenawaranPembelian.IdCompany_Penerima,
-                             DiskonDetil = T7PenawaranPembelian.DiskonDetil,
-                             DiskonNominal = (double)T7PenawaranPembelian.DiskonNominal,
-                             Catatan = T6PenawaranPembelian.Catatan,
-                             IdTermin = (long)T6PenawaranPembelian.IdTermin,
-                         }).AsNoTracking().AsEnumerable();
-
-            foreach (var item in qry)
-            {
+                var queryDetail = (from T7PenawaranPembelian in _db.T7PenawaranPembelianDbSet
+                                   where T7PenawaranPembelian.IdPenawaranPembelian == item.IdPenawaranPembelian
+                                   select new DetailPenawaranResponse
+                                   {
+                                    IdDetilPenawaranPembelian= (long)T7PenawaranPembelian.IdDetilPenawaranPembelian,
+                                    IdBarang = T7PenawaranPembelian.IdBarang.ToString(),
+                                    IdSatuan = T7PenawaranPembelian.IdSatuan.ToString(),
+                                    IdDivisiBarang = T7PenawaranPembelian.IdDivisiBarang.ToString(),
+                                    IdSubDivisiBarang = T7PenawaranPembelian.IdSubDivisiBarang.ToString(),
+                                    IdKategoriBarang = T7PenawaranPembelian.IdKategoriBarang.ToString(),
+                                    IdSubKategoriBarang = T7PenawaranPembelian.IdSubKategoriBarang.ToString(),
+                                    Harga = (double)T7PenawaranPembelian.Harga,
+                                    Jumlah = (long)T7PenawaranPembelian.Jumlah,
+                                    DiskonDetil = T7PenawaranPembelian.DiskonDetil,
+                                    DiskonNominal = (long)T7PenawaranPembelian.DiskonNominal,
+                                    Total = (long)T7PenawaranPembelian.Total,
+                                    Catatan = T7PenawaranPembelian.CatatanPenawaran,
+                                    SatuanSatuan = T7PenawaranPembelian.Satuan_Satuan,
+                                    BarangBarang = T7PenawaranPembelian.Barang_Barang,
+                                    BarangUkuran = T7PenawaranPembelian.Barang_Ukuran,
+                                    SubDivisiBarangSubDivisi = T7PenawaranPembelian.SubDivisiBarang_SubDivisi,
+                                    SubKategoriBarangSubKategori = T7PenawaranPembelian.SubKategoriBarang_SubKategori,
+                                    DivisiBarangDivisi = T7PenawaranPembelian.DivisiBarang_Divisi,
+                                    KategoriBarangKategori = T7PenawaranPembelian.KategoriBarang_Kategori,
+                                    IdPenawaranPembelian = item.IdPenawaranPembelian,
+                }).AsNoTracking().AsEnumerable();
+                item.DetailPenawaranResponse.AddRange(queryDetail);
                 await responseStream.WriteAsync(item);
             }
         }
