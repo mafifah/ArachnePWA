@@ -19,7 +19,15 @@
         <MudTh>Opsi</MudTh>
     </HeaderContent>
     <RowTemplate>
-        <MudTd DataLabel="Nama">@context.Nama</MudTd>
+        <MudTd DataLabel="Nama">
+            @context.Nama
+            @{
+                if (context.Stok <= context.Minimum)
+                {
+                    <MudIconButton Icon="fas fa-solid fa-exclamation" Color="Color.Error" Size="Size.Small" />
+                }
+            }
+        </MudTd>
         <MudTd DataLabel="Satuan">@context.Satuan</MudTd>
         <MudTd DataLabel="Stok">@context.Stok</MudTd>
         <MudTd DataLabel="Opsi">

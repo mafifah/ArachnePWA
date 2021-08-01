@@ -205,6 +205,5 @@ namespace bzrArachnePWA.Server.Services
                 await responseStream.WriteAsync(item);
             }
         }
-
     }
 }

@@ -43,7 +43,28 @@
             <RowTemplate>
                 <MudTd DataLabel="Catatan">@context.CatatanPenawaran</MudTd>
                 <MudTd Class="clm-row-small" DataLabel="Jml">@context.Jumlah</MudTd>
-                <MudTd DataLabel="Nama">@context.Nama</MudTd>
+                <MudTd DataLabel="Nama">
+                    @context.Nama
+                    @{ foreach (var item in CekbarangPenawarans)
+                        {
+                            if (context.IdBarang == item.IdBarang && ShowWarning)
+                            {
+                                var text = "";
+                                if (context.Harga == 0)
+                                {
+                                    text = $"Harga tidak boleh 0";
+                                }
+                                else
+                                {
+                                    text = $"Stok tidak boleh 0 atau lebih dari {context.Maksimum - context.Stok}";
+                                }
+                                <MudTooltip Text="@text">
+                                    <MudIconButton Icon="fas fa-solid fa-exclamation" Color="Color.Error" Size="Size.Small" />
+                                </MudTooltip>
+                            }
+                        }
+                    }
+                </MudTd>
                 @{ CultureInfo culture = new CultureInfo("id-ID");
                     var CrHarga = context.Harga.ToString("C2", culture);
                     var CrTotal = context.Total.ToString("C2", culture);
@@ -55,7 +76,7 @@
             </RowTemplate>
             <RowEditingTemplate>
                 <MudTd DataLabel="Catatan">
-                    <MudTextField  @bind-Value="@context.CatatanPenawaran" />
+                    <MudTextField @bind-Value="@context.CatatanPenawaran" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.ZoomIn" OnAdornmentClick="(()=>expandshow(context.IdBarang))" />
                 </MudTd>
                 <MudTd DataLabel="Jml">
                     @{
@@ -79,7 +100,7 @@
                     <MudNumericField @bind-Value="@context.Harga" Format="N2" Culture="CultureInfo.CurrentCulture" Required Min="1" />
                 </MudTd>
                 <MudTd DataLabel="Diskon(%)">
-                    <MudTextField  Format="N2" Culture="CultureInfo.CurrentCulture" @bind-Value="@context.DiskonDetil" />
+                    <MudTextField Culture="CultureInfo.CurrentCulture" @bind-Value="@context.DiskonDetil" />
                 </MudTd>
                 <MudTd DataLabel="Diskon(Rp)">
                     @{
@@ -91,13 +112,13 @@
                     @{
                         var harga_diskon = (context.Jumlah * context.Harga) * context.DiskonDetil / 100;
                         context.Total = (context.Harga * context.Jumlah) - harga_diskon;
-                       
+
                     }
                     <MudTextField Format="N2" Culture="CultureInfo.CurrentCulture" @bind-Value="@context.Total" Disabled="true" />
                 </MudTd>
                 <MudTd Style="font-size:small" DataLabel="OPSI">
                     <MudContainer Style="max-width:fit-content">
-                        <a @onclick="(() => HapusBarangDariList(context))" style="color:red">X</a>
+                        <MudIconButton @onclick="(() => HapusBarangDariList(context))" style="color:red">X</MudIconButton>
                     </MudContainer>
                 </MudTd>
             </RowEditingTemplate>
@@ -130,42 +151,43 @@
 </MudCard>
 @if (showModal)
 {
-<MudCard>
-    <div class="modal fade show" id="exampleModalLong" tabindex="-1" style="display:block;z-index:1500" aria-modal="true" role="dialog">
-        <div class="modal-dialog" role="document" style="position:center;">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Data Barang</h4>
-                    <button type="button" class="close" @onclick="@ModalCancel">&times;</button>
-                </div>
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <MudTable Items="@_daftarBarang" FixedHeader="@fixed_header" FixedFooter="@fixed_footer" Height="@(fixed_header || fixed_footer ? "400px" : "")" Filter="new Func<DataBarang, bool>(FilterCycleCheck)" MultiSelection="true" @bind-SelectedItems="datachecked" Hover="true">
-                        <ToolBarContent>
-                            <MudTextField @bind-Value="SearchTerm" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
-                        </ToolBarContent>
-                        <HeaderContent>
-                            <MudTh>Nama</MudTh>
-                            <MudTh>Satuan</MudTh>
-                            <MudTh>Stok</MudTh>
-                        </HeaderContent>
-                        <RowTemplate>
-                            <MudTd DataLabel="Nama">@context.Nama</MudTd>
-                            <MudTd DataLabel="Satuan">@context.Satuan</MudTd>
-                            <MudTd DataLabel="Stok">@context.Stok</MudTd>
-                        </RowTemplate>
-                    </MudTable>
-                </div>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <MudFab Icon="@Icons.Material.Filled.AddTask" Size="Size.Small" Label="Barang Baru" @onclick="@ModalBarangShow" aria-label="Barang Baru" />
-                    <MudFab Icon="@Icons.Material.Filled.Save" Size="Size.Small" Label="Tambah" @onclick="(() => TambahBarangKeList())" aria-label="Tambah" />
+    <MudCard>
+        <div class="modal fade show" id="exampleModalLong" tabindex="-1" style="display:block;z-index:1500" aria-modal="true" role="dialog">
+            <div class="modal-dialog" role="document" style="position:center;">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Data Barang</h4>
+                        <button type="button" class="close" @onclick="@ModalCancel">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <MudTable Items="@_daftarBarang" FixedHeader="@fixed_header" FixedFooter="@fixed_footer" Height="@(fixed_header || fixed_footer ? "400px" : "")" Filter="new Func<DataBarang, bool>(FilterCycleCheck)" MultiSelection="true" @bind-SelectedItems="datachecked" Hover="true">
+                            <ToolBarContent>
+                                <MudTextField @bind-Value="SearchTerm" Placeholder="Search" Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" IconSize="Size.Medium" Class="mt-0"></MudTextField>
+                            </ToolBarContent>
+                            <HeaderContent>
+                                <MudTh>Nama</MudTh>
+                                <MudTh>Satuan</MudTh>
+                                <MudTh>Stok</MudTh>
+                            </HeaderContent>
+                            <RowTemplate>
+                                <MudTd DataLabel="Nama">@context.Nama</MudTd>
+                                <MudTd DataLabel="Satuan">@context.Satuan</MudTd>
+                                <MudTd DataLabel="Stok">@context.Stok</MudTd>
+                            </RowTemplate>
+                        </MudTable>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <MudFab Icon="@Icons.Material.Filled.AddTask" Size="Size.Small" Label="Barang Baru" @onclick="@ModalBarangShow" aria-label="Barang Baru" />
+                        <MudFab Icon="@Icons.Material.Filled.Save" Size="Size.Small" Label="Tambah" @onclick="(() => TambahBarangKeList())" aria-label="Tambah" />
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</MudCard>}
+    </MudCard>
+}
 
 @if (showModalBarang)
 {
@@ -291,6 +313,33 @@
         </div>
     </MudCard>
 }
+
+@if (showexpand)
+
+{
+    var data = barangPenawarans.Where(x => x.IdBarang == _expandId).FirstOrDefault();
+    <div class="modal fade show" id="myModal" style="display:block; z-index:1500;" aria-modal="true" role="dialog">
+        <div class="modal-dialog" style="position:center;">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Catatan Barang</h4>
+                    <button type="button" class="close" @onclick="@expandclose">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <MudTextField Variant="Variant.Outlined" @bind-Value="@data.CatatanPenawaran" Margin="Margin.Dense" />
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <MudButton Variant="Variant.Filled" @onclick="@expandclose" IconColor="Color.Primary" Size="Size.Medium">Simpan</MudButton>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
 @code
 {
 
@@ -313,6 +362,7 @@
     List<UkuranBarang> UkuranBarang = new List<UkuranBarang>();
     List<UkuranBarang> FilteredUkuranBarang = new List<UkuranBarang>();
     List<BarangPenawaran> barangPenawarans = new List<BarangPenawaran>();
+    List<BarangPenawaran> CekbarangPenawarans = new List<BarangPenawaran>();
     List<DataBarang> _daftarBarang = new List<DataBarang>();
     HashSet<DataBarang> datachecked = new HashSet<DataBarang>();
 
@@ -345,6 +395,7 @@
     Random rnd = new Random();
     string SearchTerm { get; set; } = "";
     private DataPenawaran dataPenawaran = new DataPenawaran();
+    bool ShowWarning { get; set; }
     #endregion
 
     protected override async Task OnInitializedAsync()
@@ -376,7 +427,8 @@
 
                 });
                 await GetDataBarang();
-            } else
+            }
+            else
             {
                 await GetDataBarang();
             }
@@ -477,42 +529,50 @@
     }
     async Task SendDataPenawaran()
     {
+        CekbarangPenawarans = barangPenawarans.Where(i => i.Stok + i.Jumlah >= i.Maksimum || i.Jumlah == 0 || i.Harga == 0).ToList();
+        if (CekbarangPenawarans == null)
+        {
+            dataPenawaran = new DataPenawaran
+            {
+                IdPenawaranPembelian = rnd.Next(1, 1000),
+                IdJenisSupplier = user.IdJenisSupplier,
+                IdSupplier = user.IdSupplier,
+                IdCompanyPenerima = "GWR",
+                BarangPenawaran = barangPenawarans,
+                GrandTotal = _grandtotal,
+                DiskonDetil = _grandDetil.ToString(),
+                DiskonNominal = _grandDiskon,
+                Catatan = _catatan,
+            };
+            var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
+            DataService.SetNullBarangDipilih();
+            Context = null;
+            barangPenawarans.Clear();
+            dataPenawaran = null;
+            if (send)
+            {
+                await Swal.FireAsync(
+                "Sukses",
+                "Data Penawaran Berhasil terkirim :)",
+                SweetAlertIcon.Success
+                );
+                NavigationManager.NavigateTo("stokBarang");
+            }
+            else
+            {
+                await Swal.FireAsync(
+                "Gagal",
+                "Data Penawaran gagal terkirim :)",
+                SweetAlertIcon.Error
+                );
 
-        dataPenawaran = new DataPenawaran
-        {
-            IdPenawaranPembelian = rnd.Next(1, 1000),
-            IdJenisSupplier = user.IdJenisSupplier,
-            IdSupplier = user.IdSupplier,
-            IdCompanyPenerima = "GWR",
-            BarangPenawaran = barangPenawarans,
-            GrandTotal = _grandtotal,
-            DiskonDetil = _grandDetil.ToString(),
-            DiskonNominal = _grandDiskon,
-            Catatan = _catatan,
-        };
-        var send = await PenawaranService.InsertDataRepeated(dataPenawaran);
-        DataService.SetNullBarangDipilih();
-        Context = null;
-        barangPenawarans.Clear();
-        dataPenawaran = null;
-        if (send)
-        {
-            await Swal.FireAsync(
-            "Sukses",
-            "Data Penawaran Berhasil terkirim :)",
-            SweetAlertIcon.Success
-            );
-            NavigationManager.NavigateTo("stokBarang");
+                NavigationManager.NavigateTo("stokBarang");
+            }
         }
         else
         {
-            await Swal.FireAsync(
-            "Gagal",
-            "Data Penawaran gagal terkirim :)",
-            SweetAlertIcon.Error
-            );
-
-            NavigationManager.NavigateTo("stokBarang");
+            Snackbar.Add("Pastikan jumlah dan harga barang terisi dengan benar.");
+            ShowWarning = true;
         }
     }
     void ModalBarangShow()
@@ -525,12 +585,7 @@
         _expandId = Id;
         showexpand = true;
     }
-    void expandclose(long Id)
-    {
-
-        showexpand = false;
-
-    }
+    void expandclose() => showexpand = false;
     void ModalBarangCancel()
     {
         NamaBaru = "";
