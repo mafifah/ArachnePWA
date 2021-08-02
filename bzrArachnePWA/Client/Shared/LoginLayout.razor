@@ -1,5 +1,9 @@
 ﻿@inherits LayoutComponentBase
 @using Blazored.Toast.Configuration
+@inject NavigationManager NavigationManager
+@using bzrArachnePWA.Client.Models
+@using bzrArachnePWA.Client.Service
+@inject DataService DataService
 <MudThemeProvider Theme="MyCustomTheme" />
 <MudDialogProvider FullWidth="true" MaxWidth="MaxWidth.ExtraSmall" />
 <MudSnackbarProvider />
@@ -81,7 +85,7 @@
 
 @code
 {
-
+    private DataUser user = new DataUser();
     private bool _drawerOpen = false;
     private bool _rightToLeft = false;
     private string searchValue = string.Empty;
@@ -99,6 +103,16 @@
     protected override void OnInitialized()
     {
         _currentTheme = _defaultTheme;
+        user = DataService.User;
+        var Token = DataService.Token;
+        if (String.IsNullOrEmpty(Token))
+        {
+
+        }
+        else
+        {
+            NavigationManager.NavigateTo("/stokBarang");
+        }
 
     }
 
