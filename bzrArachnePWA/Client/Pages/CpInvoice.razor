@@ -83,7 +83,7 @@
     if (_idPenawaran != 0)
     {
         DataPenawaran item = _dataPenawaran.Where(x => x.IdPenawaranPembelian == _idPenawaran).FirstOrDefault();
-        <div id="myFaktur" hidden>
+        <div id="myFaktur" hidden style="display:none;">
             <p style="padding-left: 25px">PT. EXPLOITASI PERINDUSTRIAN GAWEREDJO</p>
             <p style="padding-left: 25px">Jl. Raya Bogangin No. 6</p>
             <p style="padding-left: 25px">Surabaya</p>
@@ -299,6 +299,6 @@
     private void Print(long id)
     {
         _idPenawaran = id;
-        _IJSRuntime.InvokeVoidAsync("myFaktur");
+        _IJSRuntime.InvokeAsync<object>("myFaktur","_blank");
     }
 }
