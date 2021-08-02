@@ -156,15 +156,11 @@
     </MudCardActions>
 </MudCard>
 
-
-
 <!--Start Faktur-->
 <!--Start Faktur-->
 <!--Start Faktur-->
 <!--Start Faktur-->
 <!--Start Faktur-->
-
-
 <div  id="myFaktur" hidden>
         <p style="padding-left: 25px">PT. EXPLOITASI PERINDUSTRIAN GAWEREDJO</p>
         <p style="padding-left: 25px">Jl. Raya Bogangin No. 6</p>
@@ -202,15 +198,7 @@
                                 @no
                             </td>
                             <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
-                                @if (data.IdBarang == null)
-                                {
-                                    <p>@data.Barang_Barang</p>
-                                }
-                                else
-                                {
-                                    <p>@data.Nama</p>
-
-                                }
+                                <p>@data.Nama</p>
                             </td>
                             <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
                                 <p>@data.Jumlah</p>
@@ -558,6 +546,8 @@
 
                 });
                 await GetDataBarang();
+                var x = _daftarBarang.Where(e => e.IdBarang == Context.IdBarang).FirstOrDefault();
+                _daftarBarang.Remove(x);
             }
             else
             {
@@ -572,32 +562,28 @@
     private async Task GetDataBarang()
     {
         var dataBarang = DataService.GetDataBarangWithGroupBy();
-        foreach (var value in barangPenawarans)
+        await foreach (var item in dataBarang)
         {
-            await foreach (var item in dataBarang)
+            if (item.Stok <= item.Minimum)
             {
-
-                if (item.Stok <= item.Minimum && item.IdBarang != value.IdBarang)
+                _daftarBarang.Add(new DataBarang
                 {
-                    _daftarBarang.Add(new DataBarang
-                    {
-                        IdBarang = item.IdBarang,
-                        IdDivisiBarang = item.IdDivisiBarang,
-                        IdSubDivisiBarang = item.IdSubDivisiBarang,
-                        IdKategoriBarang = item.IdKategoriBarang,
-                        IdSubKategoriBarang = item.IdSubKategoriBarang,
-                        IdSupplier = item.IdSupplier,
-                        IdJenisSupplier = item.IdJenisSupplier,
-                        IdSatuan = item.IdSatuan,
-                        Nama = item.Nama,
-                        Satuan = item.Satuan,
-                        Stok = item.Stok,
-                        Minimum = item.Minimum,
-                        Maksimum = item.Maksimum,
-                        NamaSupplier = item.NamaSupplier
-                    });
+                    IdBarang = item.IdBarang,
+                    IdDivisiBarang = item.IdDivisiBarang,
+                    IdSubDivisiBarang = item.IdSubDivisiBarang,
+                    IdKategoriBarang = item.IdKategoriBarang,
+                    IdSubKategoriBarang = item.IdSubKategoriBarang,
+                    IdSupplier = item.IdSupplier,
+                    IdJenisSupplier = item.IdJenisSupplier,
+                    IdSatuan = item.IdSatuan,
+                    Nama = item.Nama,
+                    Satuan = item.Satuan,
+                    Stok = item.Stok,
+                    Minimum = item.Minimum,
+                    Maksimum = item.Maksimum,
+                    NamaSupplier = item.NamaSupplier
+                });
 
-                }
             }
         }
         this.StateHasChanged();

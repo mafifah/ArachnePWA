@@ -21,7 +21,7 @@
     <RowTemplate>
         <MudTd>
             <MudButton Variant="Variant.Outlined" Size="Size.Small" OnClick="@(() => ShowBtnPress(context.IdPenawaranPembelian))">@((context.ShowDetails == true)? "Hide" : "Show") Detail Penawaran</MudButton>
-
+            <MudButton Variant="Variant.Outlined" Size="Size.Small" OnClick="(() => Print(context.IdPenawaranPembelian))">Print</MudButton>
         </MudTd>
         <MudTd DataLabel="Status">@context.Status</MudTd>
         <MudTd DataLabel="No. PO">@context.IdPenawaranPembelian</MudTd>
@@ -70,13 +70,12 @@
                         </MudCardContent>
                     </MudCard>
                 </td>
-               
             </MudTr>
-            <MudTr>
-                <td align="right" colspan="4" style="padding-right:50px;">
+            @*<MudTr>
+                <td align="left" colspan="4" style="padding-left:2%;">
                     <MudButton Class="align-content-end" Variant="Variant.Outlined" Size="Size.Small" OnClick="(() => Print())">Print</MudButton>
                 </td>
-            </MudTr>
+            </MudTr>*@
         }
     </ChildRowContent>
 </MudTable>
@@ -119,15 +118,7 @@
                                 <p>@no</p>
                             </td>
                             <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
-                                @if (data.IdBarang == null)
-                                {
-                                    <p>@data.Barang_Barang</p>
-                                }
-                                else
-                                {
-                                    <p>@data.Nama</p>
-
-                                }
+                                <p>@data.Nama</p>
                             </td>
                             <td style=" border: 1px solid #dddddd; text-align: left; padding: 8px;">
                                 <p>@data.Jumlah</p>
@@ -167,7 +158,6 @@
                             @{
                                 DateTime tanggal2 = DateTime.Now;
                                 <p style="padding-left: 25px" class="text-bold font-italic">Pengiriman barang bulan @tanggal2.ToLocalTime().Month.ToString() @tanggal2.Year  </p>
-
                             }
 
                         </td>
@@ -187,15 +177,8 @@
                 </div>
             </div>
         </div>
-
-    }
-    else
-    {
-
     }
 }
-
-
 
 
 @code {
@@ -313,8 +296,9 @@
         _idPenawaran = nr;
     }
 
-    private async void Print()
+    private void Print(long id)
     {
-        await _IJSRuntime.InvokeVoidAsync("myFaktur");
+        _idPenawaran = id;
+        _IJSRuntime.InvokeVoidAsync("myFaktur");
     }
 }
