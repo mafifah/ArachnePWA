@@ -16,18 +16,18 @@
         <MudTh></MudTh>
         <MudTh>Status</MudTh>
         <MudTh>No. PO</MudTh>
-        <MudTh>Grand Total</MudTh>
+        <MudTh Style="text-align:right;">Grand Total</MudTh>
     </HeaderContent>
     <RowTemplate>
         <MudTd>
             <MudButton Variant="Variant.Outlined" Size="Size.Small" OnClick="@(() => ShowBtnPress(context.IdPenawaranPembelian))">@((context.ShowDetails == true)? "Hide" : "Show") Detail Penawaran</MudButton>
-            <MudButton Variant="Variant.Outlined" Size="Size.Small" OnClick="(() => Print(context.IdPenawaranPembelian))">Print</MudButton>
+            &nbsp;<MudButton Variant="Variant.Outlined" Size="Size.Small" OnClick="(() => Print(context.IdPenawaranPembelian))">Print</MudButton>
         </MudTd>
         <MudTd DataLabel="Status">@context.Status</MudTd>
         <MudTd DataLabel="No. PO">@context.IdPenawaranPembelian</MudTd>
         @{ CultureInfo culture = new CultureInfo("id-ID");
             var CrGrandTotal = context.GrandTotal.ToString("C2", culture);}
-        <MudTd DataLabel="Grand Total">@CrGrandTotal</MudTd>
+        <MudTd DataLabel="Grand Total" Style="text-align:right;">@CrGrandTotal</MudTd>
     </RowTemplate>
     <ChildRowContent>
         @if (context.ShowDetails)

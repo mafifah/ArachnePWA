@@ -1,3 +1,4 @@
+using bzrArachnePWA.Client.Models;
 using bzrArachnePWA.Server.Data;
 using bzrArachnePWA.Server.Hubs;
 using bzrArachnePWA.Server.Services;
@@ -108,6 +109,7 @@ namespace bzrArachnePWA.Server
                 endpoints.MapRazorPages();
                 endpoints.MapControllers();
                 endpoints.MapHub<BroadcastHub>("/broadcastHub");
+                endpoints.MapHub<ChatHub>("/chatHub");
                 endpoints.MapFallbackToFile("index.html");
             });
         }
