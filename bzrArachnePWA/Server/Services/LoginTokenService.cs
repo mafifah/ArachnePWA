@@ -44,7 +44,7 @@ namespace bzrArachnePWA.Server.Services
             if (user is null)
             {
                 Metadata metadata = new Metadata { { "Error", "Username yang anda masukkan salah!" } };
-                throw new RpcException(new Status(StatusCode.NotFound, "Not Found"), metadata);
+                //throw new RpcException(new Status(StatusCode.NotFound, "Not Found"), metadata);
             }
 
             _logger.LogInformation("User is Loggin in");

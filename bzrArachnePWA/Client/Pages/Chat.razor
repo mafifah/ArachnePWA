@@ -1,0 +1,129 @@
+﻿@page "/chat"
+@inject NavigationManager navigationManager
+@using Microsoft.AspNetCore.SignalR.Client
+<div>
+    @if (!_isChatting)
+    {
+        <br>
+        <MudGrid>
+            <MudItem xs="12" sm="4" md="4">
+                <MudTextField @bind-Value="_username" Label="Enter your name" Variant="Variant.Outlined" Margin="Margin.Dense"></MudTextField>
+            </MudItem>
+            <MudItem xs="12" sm="4" md="4">
+                <MudButton Variant="Variant.Filled" @onclick="@Chatting" Color="Color.Primary">Chat</MudButton>
+            </MudItem>
+        </MudGrid>
+    }
+    else
+    {
+        <div class="d-flex flex-column px-4" style="max-height:65vh;min-height:65vh; overflow:scroll;" id="chatContainer">
+            @foreach (var message in _messages)
+            {
+                @if (message.Mine)
+                {
+                    <MudGrid Style="float:left;">
+                        <MudItem xs="12" sm="6">
+                            <MudText Typo="Typo.body1" Align="Align.Right">@message.Username</MudText>
+                            <MudText Typo="Typo.body2" Align="Align.Right" Style="padding: 15px; background-color: #1ec8a5ff; border-radius: 5px; margin-top: 5px ">@message.Body</MudText>
+                        </MudItem>
+                    </MudGrid>
+                    <br>
+                }
+                else
+                {
+                    <MudGrid Style="float:right">
+                        <MudItem xs="12" sm="6">
+                            <MudText Typo="Typo.body1" Align="Align.Left">@message.Username</MudText>
+                            <MudText Typo="Typo.body2" Align="Align.Left" Style=" padding: 15px;background-color: var(--mud-palette-background-grey);border-radius: 5px;margin-top:5px">@message.Body</MudText>
+                        </MudItem>
+                    </MudGrid>
+                    <br>
+                }
+            }
+        </div>
+        <MudPaper Elevation="25" Class="d-flex flex-row px-2 mx-4">
+            <MudTextField Placeholder="Enter your message..." DisableUnderLine="true" Class="mt-n2 mx-4"
+                          @bind-Value="_newMessage" />
+            <MudButton @onclick="(()=> SendAsync(_newMessage))" StartIcon="@Icons.Material.Outlined.Send" Color="Color.Primary" ButtonType="ButtonType.Button">Send</MudButton>
+        </MudPaper>
+    }
+</div>
+@code {
+    private bool _isChatting = false;
+    private string _username;
+    private string _message;
+    private string _newMessage;
+    private List<Message> _messages = new List<Message>();
+    private HubConnection _hubConnection;
+    public async Task Chatting()
+    {
+        // check username is valid
+        if (string.IsNullOrWhiteSpace(_username))
+        {
+            _message = "Please enter a name";
+            return;
+        }
+
+        try
+        {
+            _isChatting = true;
+            await Task.Delay(1);
+            _messages.Clear();
+
+            _hubConnection = new HubConnectionBuilder().WithUrl(navigationManager.ToAbsoluteUri("/chatHub")).Build();
+            _hubConnection.On<string, string>("Broadcast", BroadcastMessage);
+            await _hubConnection.StartAsync();
+            await SendAsync($"{_username} joined chat room.");
+        }
+        catch (Exception e)
+        {
+            _message = $"ERROR: Failed to start chat client: {e.Message}";
+            _isChatting = false;
+        }
+    }
+
+    private void BroadcastMessage(string name, string message)
+    {
+        bool isMine = name.Equals(_username, StringComparison.OrdinalIgnoreCase);
+
+        _messages.Add(new Message(name, message, isMine));
+        StateHasChanged();
+    }
+
+    private async Task DisconnectAsync()
+    {
+        if (_isChatting)
+        {
+            await SendAsync($"{_username} left chat room.");
+            await _hubConnection.StopAsync();
+            await _hubConnection.DisposeAsync();
+
+            _hubConnection = null;
+            _isChatting = false;
+        }
+    }
+
+    private async Task SendAsync(string message)
+    {
+        if (_isChatting && !string.IsNullOrWhiteSpace(message))
+        {
+            await _hubConnection.SendAsync("Broadcast", _username, message);
+
+            _newMessage = string.Empty;
+        }
+    }
+
+    private class Message
+    {
+        public Message(string username, string body, bool mine)
+        {
+            Username = username;
+            Body = body;
+            Mine = mine;
+        }
+        public string Username { get; set; }
+        public string Body { get; set; }
+        public bool Mine { get; set; }
+        public string CSS => Mine ? "sent" : "received";
+    }
+}
