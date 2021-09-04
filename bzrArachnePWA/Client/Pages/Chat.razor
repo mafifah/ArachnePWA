@@ -22,7 +22,7 @@
                 @if (message.Mine)
                 {
                     <MudGrid Style="float:left;">
-                        <MudItem xs="12" sm="6">
+                        <MudItem xs="12" sm="12">
                             <MudText Typo="Typo.body1" Align="Align.Right">@message.Username</MudText>
                             <MudText Typo="Typo.body2" Align="Align.Right" Style="padding: 15px; background-color: #1ec8a5ff; border-radius: 5px; margin-top: 5px ">@message.Body</MudText>
                         </MudItem>
@@ -32,7 +32,7 @@
                 else
                 {
                     <MudGrid Style="float:right">
-                        <MudItem xs="12" sm="6">
+                        <MudItem xs="12" sm="12">
                             <MudText Typo="Typo.body1" Align="Align.Left">@message.Username</MudText>
                             <MudText Typo="Typo.body2" Align="Align.Left" Style=" padding: 15px;background-color: var(--mud-palette-background-grey);border-radius: 5px;margin-top:5px">@message.Body</MudText>
                         </MudItem>
