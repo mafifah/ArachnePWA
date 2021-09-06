@@ -11,6 +11,7 @@ namespace bzrArachnePWA.Server.Hubs
         public async Task Broadcast(string username, string divisi, string message)
         {
             //await Clients.All.SendAsync("Broadcast", username, divisi, message);
+            await Groups.AddToGroupAsync(Context.ConnectionId, divisi);
             await Clients.Group(divisi).SendAsync("Broadcast", username, divisi, message);
         }
 
