@@ -1,9 +1,5 @@
-﻿using bzrArachnePWA.Client.Models;
-using bzrArachnePWA.Server.Models;
-using Microsoft.AspNetCore.SignalR;
+﻿using Microsoft.AspNetCore.SignalR;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace bzrArachnePWA.Server.Hubs
@@ -12,9 +8,10 @@ namespace bzrArachnePWA.Server.Hubs
     {
         public const string HubUrl = "/chatHub";
 
-        public async Task Broadcast(string username, string message)
+        public async Task Broadcast(string username, string divisi, string message)
         {
-            await Clients.All.SendAsync("Broadcast", username, message);
+            //await Clients.All.SendAsync("Broadcast", username, divisi, message);
+            await Clients.Group(divisi).SendAsync("Broadcast", username, divisi, message);
         }
 
         public override Task OnConnectedAsync()
